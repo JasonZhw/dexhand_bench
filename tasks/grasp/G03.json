@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.1",
+  "id": "G03",
+  "category": "grasp",
+  "name": "小电池抓取",
+  "status": "source_reviewed",
+  "intent": "较小物体，手指定位与遮挡",
+  "source": {
+    "project": "Bench2Dex 24",
+    "kind": "subtask",
+    "relationship": "拆分子任务",
+    "url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/24_stationery_category_sorting.yaml",
+    "revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+    "scoring_code_path": "success/custom/task_24_stationery_category_sorting.py",
+    "repository": "https://github.com/Bench2Dex/Bench2Dex",
+    "scoring_code_sha256": "4a8726898337b5c77913c858cc33f340a281fb0044047e29a04dc51ae84847d0"
+  },
+  "original_success": {
+    "scope": "whole original task, not the selected standalone grasp subtask",
+    "description": "Right hand sorts marker and battery into pen cup and plastic box, left hand sorts gray pen and glue into pen cup and plastic box.",
+    "terminal_configuration": {
+      "dwell_time_s": 0.5,
+      "raw_condition": {
+        "type": "custom",
+        "evaluator": "success.custom.task_24_stationery_category_sorting"
+      }
+    },
+    "stages": [
+      "pen_in_cup",
+      "marker_in_cup",
+      "glue_in_box",
+      "battery_in_box"
+    ]
+  },
+  "adaptation_protocol": {
+    "status": "draft",
+    "changes": "extract selected manipulation stage; define independent initial state and end condition",
+    "official_standalone_task": false,
+    "grasp_contact_restrictions": null
+  },
+  "assets": {
+    "manifest": "asset_manifests/G03-bench2dex.json",
+    "availability": "server audit: 8 of 25 unique entry USDs found across six source scenes; see docs/research/bench2dex-server-asset-audit.json; dependencies and per-asset licenses still require verification"
+  },
+  "embodiment": {
+    "original": null,
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "小电池要求更精确的指尖定位",
+    "dimension_notes": {
+      "grasp_tolerance": "较小物体，不等于预设两指夹持",
+      "load_and_com": "原资产质量参数可查，需固定",
+      "torque": "圆柱可能滚动，是否限姿待定义",
+      "contact_switching": "抬起时解除桌面约束",
+      "bimanual_coordination": "独立子任务可单手"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "fingertip-object; object-table -> free"
+}

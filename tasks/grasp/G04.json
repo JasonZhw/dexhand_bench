@@ -1,0 +1,113 @@
+{
+  "schema_version": "0.1",
+  "id": "G04",
+  "category": "grasp",
+  "name": "螺丝刀柄抓取",
+  "status": "source_reviewed",
+  "intent": "柄部接触与偏心负载",
+  "source": {
+    "project": "Bench2Dex 12",
+    "kind": "adapted_subtask",
+    "relationship": "拆分并改编抓取部位",
+    "url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/12_screwdriver_box_and_hammer.yaml",
+    "revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+    "scoring_code_path": "success/custom/task_12_screwdriver_box_and_hammer.py",
+    "repository": "https://github.com/Bench2Dex/Bench2Dex",
+    "scoring_code_sha256": "3d81f4dde88613cf19feffd632fbdcc3b95ea9a753d4e69d0d309bacf5137510"
+  },
+  "original_success": {
+    "scope": "whole original task, not the selected standalone grasp subtask",
+    "description": "Use the right hand to place the right screwdriver into the box and move the box to the left, use the left hand to place the left screwdriver into the box, then pick up the hammer, strike the wooden block once, and place the hammer into the box.",
+    "terminal_configuration": {
+      "dwell_time_s": 0.5,
+      "raw_condition": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "custom",
+            "evaluator": "success.custom.task_12_screwdriver_box_and_hammer"
+          },
+          {
+            "type": "object_static",
+            "object": "obj_043_phillips_screwdriver_1",
+            "threshold": 0.05,
+            "check_angular": false
+          },
+          {
+            "type": "object_static",
+            "object": "obj_044_flat_screwdriver_2",
+            "threshold": 0.05,
+            "check_angular": false
+          },
+          {
+            "type": "object_static",
+            "object": "obj_048_hammer_3",
+            "threshold": 0.05,
+            "check_angular": false
+          }
+        ]
+      }
+    },
+    "stages": [
+      "place_flat_right",
+      "place_phillips_left",
+      "hammer_strike_wood",
+      "place_hammer"
+    ]
+  },
+  "adaptation_protocol": {
+    "status": "draft",
+    "changes": "extract selected manipulation stage; define independent initial state and end condition",
+    "official_standalone_task": false,
+    "grasp_contact_restrictions": null
+  },
+  "assets": {
+    "manifest": "asset_manifests/G04-bench2dex.json",
+    "availability": "server audit: 8 of 25 unique entry USDs found across six source scenes; see docs/research/bench2dex-server-asset-audit.json; dependencies and per-asset licenses still require verification"
+  },
+  "embodiment": {
+    "original": null,
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "工具把手抓持，长杆带来偏置负载",
+    "dimension_notes": {
+      "grasp_tolerance": "把手区域；禁止掌托是可选新协议",
+      "load_and_com": "长工具重心相对夹持区域偏移",
+      "torque": "需防止工具转动或滑脱",
+      "contact_switching": "桌面支撑转为手部支撑",
+      "bimanual_coordination": "独立子任务可单手"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [
+    "screwdriver_contact_diagnostics"
+  ],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "finger-handle; object-table -> free"
+}

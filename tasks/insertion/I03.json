@@ -1,0 +1,77 @@
+{
+  "schema_version": "0.1",
+  "id": "I03",
+  "category": "insertion",
+  "name": "钥匙交接、插入并旋转",
+  "status": "source_reviewed",
+  "intent": "双手交接、姿态调整、插入旋转",
+  "source": {
+    "project": "RoboDojo Insert Key",
+    "kind": "original",
+    "relationship": "原任务候选；同时标旋转与双手标签",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/insert-key/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/insert_key.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "180978a2915744f0596fbca4ea0ad6dcb47dce005d43f06807249bc8b4d1a828"
+  },
+  "original_success": {
+    "description": "深度代理>0.025m、XY距离<0.007m、竖直方向7度内、相对旋转轴方向30度内；分段15/100。指令要求交接，但终态判据不能单独证明交接发生",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/I03-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "小接触面、交接和插后旋转；动作阶段需要额外记录",
+    "proposed_band": "challenging",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "钥匙交接、插入后转动",
+    "dimension_notes": {
+      "grasp_tolerance": "小钥匙与窄孔",
+      "load_and_com": "末端载荷与槽位约束",
+      "torque": "插后转动是核心",
+      "contact_switching": "交接、插入、转动",
+      "bimanual_coordination": "原指令双手；需额外验证交接阶段"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [
+    "handover_initialization"
+  ],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-key; key-slot"
+}

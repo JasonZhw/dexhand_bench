@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1",
+  "id": "G06",
+  "category": "grasp",
+  "name": "捏苹果梗提起苹果",
+  "status": "selected",
+  "intent": "小接触区域承受主体负载",
+  "source": {
+    "project": "内部已有测试",
+    "kind": "internal",
+    "relationship": "用户描述，资产待核验",
+    "url": null,
+    "revision": null,
+    "scoring_code_path": null
+  },
+  "original_success": null,
+  "adaptation_protocol": null,
+  "assets": null,
+  "embodiment": {
+    "original": null,
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "challenging",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "小梗接触承担整个苹果重量，内部任务",
+    "dimension_notes": {
+      "grasp_tolerance": "细梗局部接触，尺寸由同事资产确定",
+      "load_and_com": "整个苹果负载经梗传递",
+      "torque": "防止旋转与切向滑移",
+      "contact_switching": "桌面支撑转为梗部抓持",
+      "bimanual_coordination": "按同事内部实现确认"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "核对原仓库任务代码、原机器人、资产和成功条件，固定来源版本；改编任务另记协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "fingertip-stem -> apple load"
+}

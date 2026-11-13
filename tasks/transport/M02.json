@@ -1,0 +1,77 @@
+{
+  "schema_version": "0.1",
+  "id": "M02",
+  "category": "transport",
+  "name": "工具归位",
+  "status": "source_reviewed",
+  "intent": "工具姿态与指定位置",
+  "source": {
+    "project": "RoboDojo Store Tools In Toolbox",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/store-tools-in-toolbox/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/store_tools_in_toolbox.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "2969fc3eb171560b3c0bcea62b9f38b8b35f3aecc9bcc7085c3b1cec365b48fc"
+  },
+  "original_success": {
+    "description": "钳子、锤子、卷尺、扳手的功能点对准指定槽位；检查姿态、覆盖关系与机器人回位。部分分数25/50/75/100使用单独的判据组合",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/M02-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "不规则工具重心、槽位定位、手指撤离",
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "指定槽位归位比普通入盒更约束姿态",
+    "dimension_notes": {
+      "grasp_tolerance": "工具抓持部位和槽位共同约束",
+      "load_and_com": "不规则工具重心",
+      "torque": "槽位方向需要对齐",
+      "contact_switching": "抓持到槽位支撑及撤手",
+      "bimanual_coordination": "原平台双臂，保留原协议"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [
+    "tool_in_box_prototype"
+  ],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-tool -> tool-slot"
+}

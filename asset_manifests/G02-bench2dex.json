@@ -1,0 +1,46 @@
+{
+  "task_id": "G02",
+  "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "scene_path": "scenes/21_condiment_box_loading.yaml",
+  "source_license_file": "https://github.com/Bench2Dex/Bench2Dex/blob/82e04a2a4e5b728a96ccf1ae7a546762d5a260c7/LICENSE",
+  "asset_license_status": "individual asset licenses not yet verified",
+  "assets": {
+    "a154_wooden_box": {
+      "path": "../../dex2bench_dataset/Objects/154_wooden_box/usd_decomposition_linux/base0.usd",
+      "scale": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "body_type": "dynamic"
+    },
+    "a172_soy_sauce": {
+      "path": "../../dex2bench_dataset/Objects/172_soy-sauce/usd_decomposition_linux/base4.usd",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "body_type": "dynamic"
+    },
+    "a173_vinegar": {
+      "path": "../../dex2bench_dataset/Objects/173_vinegar/usd_decomposition_linux/base2.usd",
+      "scale": [
+        0.9,
+        0.9,
+        0.75
+      ],
+      "body_type": "dynamic"
+    },
+    "a171_msg": {
+      "path": "../../dex2bench_dataset/Objects/171_msg/usd_decomposition_linux/base5.usd",
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "body_type": "dynamic"
+    }
+  },
+  "loading_verified": false
+}

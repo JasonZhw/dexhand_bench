@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "id": "P01",
+  "category": "push",
+  "name": "推T形块",
+  "status": "source_reviewed",
+  "intent": "平移与转动耦合",
+  "source": {
+    "project": "RoboDojo Push T",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/push-t/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/push_T.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "a01d753bc320ffbf492ccc29e5f7ab3b39e6c7d255cd25804db1934a30fa5b41"
+  },
+  "original_success": {
+    "description": "T块与目标四元数角距离<7度，XY距离<0.007m，机器人回位；另注册抬起超过0.01m的query，需保留原生命周期解释",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/P01-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "平面推动同时改变位置与朝向；接触点偏移引入转矩",
+    "proposed_band": "introductory",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "平面推T同时约束平移和旋转",
+    "dimension_notes": {
+      "grasp_tolerance": "推点与运动方向",
+      "load_and_com": "重量通过桌面支撑",
+      "torque": "偏心推力改变朝向",
+      "contact_switching": "推点可切换，不要求抬起",
+      "bimanual_coordination": "可研究单手子协议"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-T; T-table maintained"
+}

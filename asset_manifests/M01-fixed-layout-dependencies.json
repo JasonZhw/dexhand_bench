@@ -1,0 +1,1367 @@
+{
+  "task_id": "M01",
+  "layout": "docs/evidence/robodojo-layouts/pack_objects_into_box_0.json",
+  "layout_sha256": "d529ff309408abf0270efa996832d3e70dcc9e070c2e90c9824fba60f396d2b2",
+  "dataset_revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "robot": "dual_x5",
+  "objects": [
+    {
+      "kind": "Rigid",
+      "category": "car",
+      "index": 7,
+      "label": "car"
+    },
+    {
+      "kind": "Rigid",
+      "category": "electric_toothbrush",
+      "index": 2,
+      "label": "electric_toothbrush"
+    },
+    {
+      "kind": "Rigid",
+      "category": "hammer",
+      "index": 3,
+      "label": "hammer"
+    },
+    {
+      "kind": "Rigid",
+      "category": "shoe",
+      "index": 3,
+      "label": "shoe"
+    },
+    {
+      "kind": "Rigid",
+      "category": "box",
+      "index": 0,
+      "label": "box"
+    },
+    {
+      "kind": "Geometry",
+      "category": "camera_stand",
+      "index": 0,
+      "label": "camera_stand"
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Background/brown_photostudio_02_4k.hdr",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Background/brown_photostudio_02_4k.hdr",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0122/Mahogany_Planks.mdl",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0122/Mahogany_Planks.mdl",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0122/Mahogany_Planks_BaseColor.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0122/Mahogany_Planks_BaseColor.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0122/Mahogany_Planks_N.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0122/Mahogany_Planks_N.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0122/Mahogany_Planks_ORM.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0122/Mahogany_Planks_ORM.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/Wood_Tiles_Fineline.mdl",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/Wood_Tiles_Fineline.mdl",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/brickbond_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/brickbond_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/brickbond_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/brickbond_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/brickbond_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/brickbond_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/chantilly_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/chantilly_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/chantilly_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/chantilly_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/chantilly_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/chantilly_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/chevron_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/chevron_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/chevron_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/chevron_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/chevron_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/chevron_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/cubes_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/cubes_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/cubes_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/cubes_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/cubes_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/cubes_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/diagonal_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/diagonal_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/diagonal_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/diagonal_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/diagonal_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/diagonal_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/fineline_diff.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/fineline_diff.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/fineline_norm.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/fineline_norm.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/fineline_rough_detail.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/fineline_rough_detail.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/fineline_rough_grain.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/fineline_rough_grain.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/herringbone_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/herringbone_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/herringbone_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/herringbone_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/herringbone_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/herringbone_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/mosaic_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/mosaic_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/mosaic_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/mosaic_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/mosaic_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/mosaic_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/stackbond_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/stackbond_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/stackbond_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/stackbond_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/stackbond_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/stackbond_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/tiles_wood_R_rough_G_dents_B_spots.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/tiles_wood_R_rough_G_dents_B_spots.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/tiles_wood_orangepeel_norm.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/tiles_wood_orangepeel_norm.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/versailles_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/versailles_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/versailles_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/versailles_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/versailles_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/versailles_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/woodstrip_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/woodstrip_R_edgewear_G_gaps_B_gaps_rough.jpg",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/woodstrip_R_id_G_offs_B_rotation.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/woodstrip_R_id_G_offs_B_rotation.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Material/material_0564/woodstrip_norm.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Material/material_0564/woodstrip_norm.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Geometry/camera_stand/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Geometry/camera_stand/00000/metadata.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Geometry/camera_stand/00000/object.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Geometry/camera_stand/00000/object.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/description.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/metadata.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/object.usdz",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/description.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/metadata.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/object.usdz",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/description.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/description.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/ARX.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/ARX.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/X5A.urdf",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/X5A.urdf",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/ARX_base.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/ARX_base.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/ARX_physics.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/ARX_physics.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/ARX_robot.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/ARX_robot.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/ARX_sensor.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/ARX_sensor.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/X5A_temp_base.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/X5A_temp_base.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/X5A_temp_physics.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/X5A_temp_physics.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/X5A_temp_robot.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/X5A_temp_robot.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/configuration/X5A_temp_sensor.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/configuration/X5A_temp_sensor.usd",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/curobo_tmp.yml",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/curobo_tmp.yml",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/base_link.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/base_link.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/camera.glb",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/camera.glb",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/camera_base.glb",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/camera_base.glb",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link1.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link1.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link2.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link2.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link3.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link3.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link4.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link4.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link5.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link5.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link6.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link6.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link7.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link7.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/meshes/link8.STL",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/meshes/link8.STL",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Robots/x5/robot_config.yml",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Robots/x5/robot_config.yml",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/.thumbs/256x256/SimpleRoom.usd.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/.thumbs/256x256/SimpleRoom.usd.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/SimpleRoom.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/SimpleRoom.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/SimpleRoom.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/SimpleRoom.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/SimpleRoom_room001.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/SimpleRoom_room001.json",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice000.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice000.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice001.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice001.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice002.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice002.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice003.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice003.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice004.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice004.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice005.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice005.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice006.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice006.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice007.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice007.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice008.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice008.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice009.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice009.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice010.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice010.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice011.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice011.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice012.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice012.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice013.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice013.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice014.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice014.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice015.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice015.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice016.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice016.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice017.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice017.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice018.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice018.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice019.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice019.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice020.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice020.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice021.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice021.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice022.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice022.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice023.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice023.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice024.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice024.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice025.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice025.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice026.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice026.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice027.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice027.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice028.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice028.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice029.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice029.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice030.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice030.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice031.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice031.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice032.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice032.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice033.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice033.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice034.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice034.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice035.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice035.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice036.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice036.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice037.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice037.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice038.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice038.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice039.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice039.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice040.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice040.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice041.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice041.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice042.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice042.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice043.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice043.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice044.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice044.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice045.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice045.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice046.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice046.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice047.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice047.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice048.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice048.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice049.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice049.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice050.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice050.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice051.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice051.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice052.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice052.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice053.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice053.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice054.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice054.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice055.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice055.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice056.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice056.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice057.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice057.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice058.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/room_boundaries/room001/SimpleRoom_slice058.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice000.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice000.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice001.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice001.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice002.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice002.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice003.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice003.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice004.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice004.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice005.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice005.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice006.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice006.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice007.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice007.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice008.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice008.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice009.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice009.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice010.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice010.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice011.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice011.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice012.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice012.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice013.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice013.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice014.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice014.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice015.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice015.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice016.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice016.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice017.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice017.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice018.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice018.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice019.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice019.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice020.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice020.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice021.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice021.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice022.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice022.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice023.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice023.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice024.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice024.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice025.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice025.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice026.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice026.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice027.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice027.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice028.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice028.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice029.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice029.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice030.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice030.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice031.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice031.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice032.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice032.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice033.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice033.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice034.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice034.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice035.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice035.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice036.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice036.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice037.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice037.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice038.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice038.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice039.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice039.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice040.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice040.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice041.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice041.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice042.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice042.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice043.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice043.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice044.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice044.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice045.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice045.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice046.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice046.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice047.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice047.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice048.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice048.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice049.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice049.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice050.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice050.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice051.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice051.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice052.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice052.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice053.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice053.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice054.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice054.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice055.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice055.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice056.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice056.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice057.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice057.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice058.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/Annotation/scene_slices/SimpleRoom_slice058.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Base_Color.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Base_Color.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Mixed_AO.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Mixed_AO.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Normal_DirectX.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Normal_DirectX.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Roughness.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/DefaultMaterial_Roughness.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_AO.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_AO.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_Color.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_Color.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_Normal.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_Normal.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_Rough.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/Parquet_Rough.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/WallWood_Color.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/WallWood_Color.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/WallWood_Normal.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/WallWood_Normal.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/WallWood_Rough.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/WallWood_Rough.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/WhitePlastic_Color.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/WhitePlastic_Color.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/WhitePlastic_Normal.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/WhitePlastic_Normal.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/WhitePlastic_Rough.png",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/WhitePlastic_Rough.png",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/SubUSDs/textures/abandoned_parking_4k.hdr",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/SubUSDs/textures/abandoned_parking_4k.hdr",
+      "present_locally": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Room/Simple_Room_nolight/simple_room_nolight.usd",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Room/Simple_Room_nolight/simple_room_nolight.usd",
+      "present_locally": false,
+      "sha256": null
+    }
+  ],
+  "status": "dependency_inventory_only",
+  "limitations": [
+    "Directory inventory may include unused files; transitive USD/MDL dependencies not yet resolved",
+    "Original ARX X5 grippers; dexterous-hand retargeting not completed",
+    "No complete scene execution or policy baseline"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "task_id": "G03",
+  "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "scene_path": "scenes/24_stationery_category_sorting.yaml",
+  "source_license_file": "https://github.com/Bench2Dex/Bench2Dex/blob/82e04a2a4e5b728a96ccf1ae7a546762d5a260c7/LICENSE",
+  "asset_license_status": "individual asset licenses not yet verified",
+  "assets": {
+    "a167_pencup": {
+      "path": "../../dex2bench_dataset/Objects/167_pencup/usd_sdf_linux/base6.usd",
+      "scale": [
+        0.13,
+        0.13,
+        0.13
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "rigid_props": {
+          "kinematic_enabled": true
+        }
+      }
+    },
+    "a169_plasticbox": {
+      "path": "../../dex2bench_dataset/Objects/169_plasticbox/usd_decomposition_linux/base10.usd",
+      "scale": [
+        0.14,
+        0.14,
+        0.14
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "rigid_props": {
+          "kinematic_enabled": true
+        }
+      }
+    },
+    "a221_pen": {
+      "path": "../../dex2bench_dataset/Objects/221_pen/usd_decomposition_linux/Pen.usd",
+      "scale": [
+        0.0015,
+        0.003,
+        0.0015
+      ],
+      "body_type": "dynamic"
+    },
+    "a166_markpen": {
+      "path": "../../dex2bench_dataset/Objects/166_markpen/usd_decomposition_linux/base5.usd",
+      "scale": [
+        0.09,
+        0.09,
+        0.09
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "mass_props": {
+          "mass": 0.05
+        }
+      }
+    },
+    "a199_glue": {
+      "path": "../../dex2bench_dataset/Objects/199_glue/usd_decomposition_linux/base6.usd",
+      "scale": [
+        0.07,
+        0.07,
+        0.07
+      ],
+      "body_type": "dynamic"
+    },
+    "a168_battery": {
+      "path": "../../dex2bench_dataset/Objects/168_battery/usd_decomposition_linux/base5.usd",
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "mass_props": {
+          "mass": 0.1
+        }
+      }
+    }
+  },
+  "loading_verified": false
+}

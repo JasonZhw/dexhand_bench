@@ -1,0 +1,15 @@
+{
+  "id": "apple_dynamic_diagnostics",
+  "relationship": "related grasp diagnostic; not a verified G01 implementation",
+  "proves_selected_task_complete": false,
+  "source_summary_sha256": "ce965c289e54289ddb19cb0f3e6b5012242b9da77a2584222328692556825d8d",
+  "summary": {
+    "completed": true,
+    "hold_steps": 120,
+    "max_origin_rise_m": 0.27078860998153687,
+    "final_origin_rise_m": 0.2661469578742981,
+    "hold_max_relative_translation_m": 0.0007463588909908077,
+    "hold_max_penetration_m": 0.0025137411430478096,
+    "verified_benchmark_success": null
+  }
+}

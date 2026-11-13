@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "id": "I02",
+  "category": "insertion",
+  "name": "插充电器",
+  "status": "source_reviewed",
+  "intent": "方向约束与接触对准",
+  "source": {
+    "project": "RoboDojo Plug In Charger",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/plug-in-charger/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/plug_in_charger.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "aaa59ade46dc54f430e1148e3f6fae487970cd29eb2c07b5ff7b4045edb831b6"
+  },
+  "original_success": {
+    "description": "充电器与插座包围盒高度差>0.015m、is_A_in_B、指定轴朝上10度以内、机器人回位",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/I02-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "多插脚接触与几何间隙",
+    "proposed_band": "challenging",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "多个插脚与插座几何配合",
+    "dimension_notes": {
+      "grasp_tolerance": "多接触面位置与朝向",
+      "load_and_com": "需区分物理阻力与控制饱和",
+      "torque": "避免偏斜",
+      "contact_switching": "进入插座后多点约束",
+      "bimanual_coordination": "原双臂平台"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-charger; pins-socket"
+}

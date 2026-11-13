@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.venv-unilab/
+.local/
+assets/
+data/
+runs/
+*.hdf5
+*.npz
+.venv-unilab-contract/
+.venv-*/
+.clone-incomplete/

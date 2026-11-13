@@ -1,0 +1,18 @@
+{
+  "id": "handover_initialization",
+  "relationship": "held-start constant command smoke only; no transfer actions",
+  "proves_selected_task_complete": false,
+  "source_summary_sha256": "b8c04542a2224bbd704108300d372bcb88984c702e9c3a8eaae0702a9453114a",
+  "summary": {
+    "completed_execution": true,
+    "execution_steps": 300,
+    "task_success": null,
+    "status": "handover_not_executed",
+    "donor_contact_steps": 300,
+    "receiver_contact_steps": 0,
+    "other_contact_steps": 0,
+    "initial_to_final_z_change_m": 0.0028524398803710938,
+    "max_relative_translation_from_first_execution_m": 0.0008560652018324767,
+    "verified_benchmark_success": null
+  }
+}

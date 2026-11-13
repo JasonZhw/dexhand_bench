@@ -1,0 +1,61 @@
+{
+  "task_id": "I01",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Dataset card declaration; retain any individual asset attribution and metadata. Do not assume generated replacements reproduce original task",
+  "config_path": "task/RoboDojo/config/insert_tubes.yml",
+  "categories": [
+    {
+      "kind": "Rigid",
+      "name": "test_tube",
+      "indices": [
+        2
+      ],
+      "remote_files_found": 2
+    },
+    {
+      "kind": "Geometry",
+      "name": "test_tube_slot",
+      "indices": [
+        0
+      ],
+      "remote_files_found": 2
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "964aa50dacf43c45fff1b7da92218d089f2c618e542dcbc1f3114175acc05164",
+      "size_bytes": 8117,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "939d71ae619de1b1c40db3a6c11769e20b8c65245e123f7ffd986f5da35042f6",
+      "size_bytes": 388120,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/test_tube/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/test_tube/00002/metadata.json",
+      "downloaded": false,
+      "sha256": "6ad299e38944f77be2edee73475a80d2313ea1a2a7119c1e449f4ba1055b40d6",
+      "size_bytes": 3508,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/test_tube/00002/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/test_tube/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/test_tube/00002/object.usdz",
+      "downloaded": false,
+      "sha256": "e7ef90e9bf1fa1db63359c5317d6bd990dcb3475576478741fead8f6977e004e",
+      "size_bytes": 1108703,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/test_tube/00002/object.usdz"
+    }
+  ],
+  "completeness": "task objects only; also requires robot, scene materials, eval layout and any referenced dependencies"
+}

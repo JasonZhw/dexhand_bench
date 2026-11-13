@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1",
+  "id": "R01",
+  "category": "tool_rotation",
+  "name": "扳手拧螺母",
+  "status": "selected",
+  "intent": "工具传递转矩、抓持与可能的重抓",
+  "source": {
+    "project": "待补可复用紧固任务",
+    "kind": "proposed",
+    "relationship": "自拟候选；Bench2Dex22仅确认扳手搬运资产",
+    "url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/22_tool_box_loading.yaml",
+    "revision": null,
+    "scoring_code_path": null
+  },
+  "original_success": null,
+  "adaptation_protocol": null,
+  "assets": null,
+  "embodiment": {
+    "original": null,
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "challenging",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "待构建扳手与螺母机械配合",
+    "dimension_notes": {
+      "grasp_tolerance": "开口与螺母配合间隙",
+      "load_and_com": "固定件阻力模型尚未定义",
+      "torque": "绕螺母轴施加转矩",
+      "contact_switching": "是否重抓/换位尚未定义",
+      "bimanual_coordination": "可单臂；双臂固定工件属另一协议"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "补充真正的扳手紧固环境来源；现有URL仅证明扳手搬运资产，不证明紧固任务",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-wrench; wrench-nut; nut-fixture"
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "G01",
+  "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "scene_path": "scenes/06_fruit_bowl_loading.yaml",
+  "source_license_file": "https://github.com/Bench2Dex/Bench2Dex/blob/82e04a2a4e5b728a96ccf1ae7a546762d5a260c7/LICENSE",
+  "asset_license_status": "individual asset licenses not yet verified",
+  "assets": {
+    "a024_bowl": {
+      "path": "../../dex2bench_dataset/Objects/024_bowl/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "body_type": "dynamic"
+    },
+    "a011_banana": {
+      "path": "../../dex2bench_dataset/Objects/011_banana/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    },
+    "a013_apple": {
+      "path": "../../dex2bench_dataset/Objects/013_apple/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    }
+  },
+  "loading_verified": false
+}

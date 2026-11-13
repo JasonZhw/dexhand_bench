@@ -1,0 +1,14 @@
+[
+  {
+    "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/insert_tubes_0.json",
+    "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Eval_Layout/RoboDojo/arx_x5/0/insert_tubes_0.json",
+    "sha256": "7a385171c850978ea45616e562eb0c6efd025e592be0542ac5f0298ee0f12557",
+    "bytes": 6710
+  },
+  {
+    "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/pack_objects_into_box_0.json",
+    "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Eval_Layout/RoboDojo/arx_x5/0/pack_objects_into_box_0.json",
+    "sha256": "d529ff309408abf0270efa996832d3e70dcc9e070c2e90c9824fba60f396d2b2",
+    "bytes": 7657
+  }
+]

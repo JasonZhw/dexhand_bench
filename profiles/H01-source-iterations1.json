@@ -1,0 +1,12 @@
+{
+  "id": "H01-source-iterations1",
+  "task_id": "H01",
+  "backend": "gym_robotics_mujoco",
+  "env_id": "HandManipulateBlockRotateXYZ-v1",
+  "protocol": "source-final-predicate-v1",
+  "physics": {
+    "iterations": 1,
+    "solver": "Newton"
+  },
+  "notes": "Shadow hand; rotation-only XYZ variant; original task"
+}

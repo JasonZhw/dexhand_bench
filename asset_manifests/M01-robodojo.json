@@ -1,0 +1,409 @@
+{
+  "task_id": "M01",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Dataset card declaration; retain any individual asset attribution and metadata. Do not assume generated replacements reproduce original task",
+  "config_path": "task/RoboDojo/config/pack_objects_into_box.yml",
+  "categories": [
+    {
+      "kind": "Rigid",
+      "name": "car",
+      "indices": [
+        0,
+        6,
+        7
+      ],
+      "remote_files_found": 9
+    },
+    {
+      "kind": "Rigid",
+      "name": "electric_toothbrush",
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "remote_files_found": 11
+    },
+    {
+      "kind": "Rigid",
+      "name": "hammer",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "remote_files_found": 10
+    },
+    {
+      "kind": "Rigid",
+      "name": "shoe",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "remote_files_found": 24
+    },
+    {
+      "kind": "Rigid",
+      "name": "box",
+      "indices": null,
+      "remote_files_found": 3
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00000/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00000/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00000/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00006/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00006/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00006/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00006/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00006/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00006/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00000/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00000/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00000/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00001/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00001/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00001/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00001/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00003/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00003/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00003/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00003/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00000/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00000/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00001/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00001/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00001/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00001/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00002/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00002/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00004/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00004/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00004/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00004/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00000/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00000/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00000/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00001/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00001/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00001/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00001/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00001/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00001/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00002/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00002/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00002/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00002/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00004/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00004/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00004/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00004/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00004/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00004/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00005/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00005/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00005/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00005/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00005/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00005/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00006/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00006/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00006/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00006/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00006/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00006/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00007/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00007/description.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00007/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00007/metadata.json",
+      "downloaded": false,
+      "sha256": null
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00007/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00007/object.usdz",
+      "downloaded": false,
+      "sha256": null
+    }
+  ],
+  "completeness": "task objects only; also requires robot, scene materials, eval layout and any referenced dependencies"
+}

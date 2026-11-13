@@ -1,0 +1,9 @@
+{
+  "id": "P02-source",
+  "task_id": "P02",
+  "backend": "gym_robotics_mujoco",
+  "env_id": "FetchSlide-v4",
+  "protocol": "source-final-predicate-v1",
+  "physics": {},
+  "notes": "Fetch gripper source task; not dexterous-hand adapted"
+}

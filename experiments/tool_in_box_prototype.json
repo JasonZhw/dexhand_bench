@@ -1,0 +1,15 @@
+{
+  "id": "tool_in_box_prototype",
+  "relationship": "ordinary box prototype; not RoboDojo matching-slot task M02",
+  "proves_selected_task_complete": false,
+  "source_summary_sha256": "185b46e438709e25e4f5b0e0545ee4988e209d56f2b8167527a4abde7104aba2",
+  "summary": {
+    "completed_execution": true,
+    "steps": 870,
+    "hold_steps": 120,
+    "formal_status": "unknown",
+    "task_success": null,
+    "maximum_origin_rise_m": 0.3734149932861328,
+    "verified_benchmark_success": null
+  }
+}

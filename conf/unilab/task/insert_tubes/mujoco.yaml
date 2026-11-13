@@ -1,0 +1,12 @@
+# @package task
+defaults:
+  - /task/insert_tubes/base
+  - _self_
+
+backend:
+  name: mujoco
+  asset_route: converted_mjcf_entities
+  model_path: null
+  conversion_verified: false
+  solver_parameters: {}
+  note: MJCF conversion and tube-rack hole collision validation are still required

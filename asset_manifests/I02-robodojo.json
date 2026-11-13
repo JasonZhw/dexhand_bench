@@ -1,0 +1,65 @@
+{
+  "task_id": "I02",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Dataset card declaration; retain any individual asset attribution and metadata. Do not assume generated replacements reproduce original task",
+  "config_path": "task/RoboDojo/config/plug_in_charger.yml",
+  "categories": [
+    {
+      "kind": "Rigid",
+      "name": "charger",
+      "indices": null,
+      "remote_files_found": 3
+    },
+    {
+      "kind": "Rigid",
+      "name": "socket",
+      "indices": null,
+      "remote_files_found": 2
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/charger/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/charger/00000/description.json",
+      "downloaded": false,
+      "sha256": "fae5bd96e6997b6e89a0da22edd3740291f4318526bc1563a9c77ce739bc9bf0",
+      "size_bytes": 7307,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/charger/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/charger/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "3a462763b4f0922067d5df8fcdb78b26bb566afb1af7cc831d7e27af16dbd59f",
+      "size_bytes": 4377,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/charger/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/charger/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "50532876b868d0cc5a0add9c35be0aa8b72f89e02e06e04a6fd021de95b1ecd0",
+      "size_bytes": 762980,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/socket/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/socket/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "7b9afc3bc8aa2d46844447a33f4cc623a80618970aaa599e074f6b0f145d14ba",
+      "size_bytes": 6025,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/socket/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/socket/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/socket/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "3539a25ac55c7379d35ac547734fc7a6b573e14615e55fae89a11d2176e78e92",
+      "size_bytes": 423696,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/socket/00000/object.usdz"
+    }
+  ],
+  "completeness": "task objects only; also requires robot, scene materials, eval layout and any referenced dependencies"
+}

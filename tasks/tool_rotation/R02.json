@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "id": "R02",
+  "category": "tool_rotation",
+  "name": "开关水龙头",
+  "status": "source_reviewed",
+  "intent": "关节约束下的转动与接触",
+  "source": {
+    "project": "Bench2Dex 67",
+    "kind": "subtask",
+    "relationship": "拆分子任务，需核验实际关节动作",
+    "url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/67_faucet_cup_water_fill.yaml",
+    "revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+    "scoring_code_path": "success/custom/task_67_faucet_cup_water_fill.py",
+    "repository": "https://github.com/Bench2Dex/Bench2Dex",
+    "scoring_code_sha256": "b01cae0bd1034f5a22cb7cf2d1590be169fd8644035cd420118d6e5c9fd15834"
+  },
+  "original_success": {
+    "scope": "whole original task, not the selected standalone grasp subtask",
+    "description": "Use the left hand to first place the spoon into the mug, use the right hand to place the mug under the faucet, use the left hand to open the faucet to fill the mug and then close it, and use the right hand to place the mug onto the tray.",
+    "terminal_configuration": {
+      "dwell_time_s": 3.0,
+      "raw_condition": {
+        "type": "custom",
+        "evaluator": "success.custom.task_67_faucet_cup_water_fill"
+      }
+    },
+    "stages": [
+      "spoon_in_mug",
+      "mug_under_faucet",
+      "faucet_open_close",
+      "mug_on_tray"
+    ],
+    "code_note": "Executed constants in reviewed evaluator: joint_0 open >=1.0 and close <0.52; header comment has stale 1.5/0.2. Mug must remain under spout through cycle. This is a state proxy, not verified fluid simulation"
+  },
+  "adaptation_protocol": {
+    "status": "draft",
+    "changes": "extract selected manipulation stage; define independent initial state and end condition",
+    "official_standalone_task": false,
+    "grasp_contact_restrictions": null
+  },
+  "assets": {
+    "manifest": "asset_manifests/R02-bench2dex.json",
+    "availability": "server audit: 8 of 25 unique entry USDs found across six source scenes; see docs/research/bench2dex-server-asset-audit.json; dependencies and per-asset licenses still require verification"
+  },
+  "embodiment": {
+    "original": null,
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "操作被动水龙头关节",
+    "dimension_notes": {
+      "grasp_tolerance": "把手接触区",
+      "load_and_com": "关节阻尼/惯性按原资产",
+      "torque": "需转动到开与关阈值",
+      "contact_switching": "开关过程接触可能变化",
+      "bimanual_coordination": "原流程双手，独立开关子任务待定义"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-handle; handle-joint"
+}

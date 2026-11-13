@@ -1,0 +1,12 @@
+# @package task
+defaults:
+  - /task/insert_tubes/base
+  - _self_
+
+backend:
+  name: isaacsim
+  asset_route: usd_scene_assembly_pending
+  model_path: null
+  conversion_verified: false
+  solver_parameters: {}
+  note: UniSim 2.7.1 rejects the audited USD entity_assets route; choose and verify an alternate assembly route

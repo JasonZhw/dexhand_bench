@@ -1,0 +1,9 @@
+{
+  "id": "H03-source",
+  "task_id": "H03",
+  "backend": "gym_robotics_mujoco",
+  "env_id": "HandManipulateEggRotate-v1",
+  "protocol": "source-final-predicate-v1",
+  "physics": {},
+  "notes": "Shadow hand; rigid egg rotation, not deformable"
+}

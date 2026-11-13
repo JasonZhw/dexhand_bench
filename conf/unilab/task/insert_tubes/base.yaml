@@ -1,0 +1,23 @@
+# @package task
+protocol:
+  id: I01
+  declaration: tasks/insertion/I01.json
+  source: RoboDojo
+  original_robot: dual_arx_x5_grippers
+  target_robot: null
+  layout: docs/evidence/robodojo-layouts/insert_tubes_0.json
+  assets: asset_manifests/I01-robodojo.json
+  quaternion_order: wxyz
+  distance_unit: m
+  score_factory: integrations.unilab.insert_tubes_terms.make_metrics_config
+  success_rule: source_three_tubes_inserted_and_robot_returned
+  action_interface: null
+
+runtime:
+  ready: false
+  env_factory: null
+  blockers:
+    - Complete robot/table/ground scene has not been assembled
+    - Source collision and inertial properties must be preserved and verified
+    - Action mapping, reset and geometry predicates are not connected
+    - Timing and controller settings must be resolved from the source task

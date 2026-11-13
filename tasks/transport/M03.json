@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "id": "M03",
+  "category": "transport",
+  "name": "堆积木",
+  "status": "source_reviewed",
+  "intent": "精确放置与释放后稳定性",
+  "source": {
+    "project": "RoboDojo Stack Blocks",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/stack-blocks/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/stack_blocks.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "50bd388f9e47002966fbb0146742467a820295b8686e0f86379f0efbcfffcc1b"
+  },
+  "original_success": {
+    "description": "三个方块满足is_stacked，机器人回位；XY阈值按资产索引为0.015/0.0175/0.02m，分段评分15/100另检查夹爪打开",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/M03-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "从手-物接触切换到物-物支撑，底层稳定性",
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "堆叠需要控制释放后物体稳定性",
+    "dimension_notes": {
+      "grasp_tolerance": "相对落点与朝向",
+      "load_and_com": "上层重量作用于底层",
+      "torque": "接触偏置可能倾覆",
+      "contact_switching": "释放后由下层方块支撑",
+      "bimanual_coordination": "原平台双臂，动作分配待适配"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-block -> block-block"
+}

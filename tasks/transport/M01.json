@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "id": "M01",
+  "category": "transport",
+  "name": "物体装箱",
+  "status": "source_reviewed",
+  "intent": "抓持、搬运、释放",
+  "source": {
+    "project": "RoboDojo Pack Objects Into Box",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/pack-objects-into-box/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/pack_objects_into_box.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "84a1cf1dd5e166f36291130f9d8cb5dfe4b3f4732a46674bef6374a7ea2d66be"
+  },
+  "original_success": {
+    "description": "四件物品的功能点进入盒底区域，满足朝向限制，盒子朝向合规且机器人回到初始位置。分段评分10/25/50/100，还检查夹爪打开",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/M01-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "容器接触、卸载与释放；多物体和朝向要求使它不是单次搬运",
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "原任务是多件定向装箱；单件搬运可另拟简化子协议，不能把它当原版低难度任务",
+    "dimension_notes": {
+      "grasp_tolerance": "抓物与放入区域同时约束",
+      "load_and_com": "不同对象质量/重心不同",
+      "torque": "原任务含朝向要求",
+      "contact_switching": "抓取、搬运、释放",
+      "bimanual_coordination": "原平台双臂，可另拟单臂子任务"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-object -> object-container"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "screwdriver_contact_diagnostics",
+  "relationship": "related grip diagnostic; provisional contact constraints differ from original task",
+  "proves_selected_task_complete": false,
+  "source_summary_sha256": "179045b8c38caa06908e1d460c80c69dd08d84eb6031bff103636e4b1443dcd7",
+  "summary": {
+    "completed": true,
+    "hold_steps": 120,
+    "max_origin_rise_m": 0.40224969387054443,
+    "final_origin_rise_m": 0.4020587205886841,
+    "hold_max_relative_translation_m": 0.0003472693388488053,
+    "hold_max_penetration_m": 0.0012553716078400612,
+    "verified_benchmark_success": null
+  }
+}

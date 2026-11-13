@@ -1,0 +1,31 @@
+# Downstream configuration prototype, not a UniLab training owner yet.
+defaults:
+  - task: insert_tubes/mujoco
+  - _self_
+
+upstream:
+  unilab_revision: 794c0bbd67771ac48407e084c0164c0e841bfd97
+  unisim_core: 2.7.1
+
+run:
+  seed: 0
+  num_envs: 1
+  device: cpu
+  render: false
+  physics_dt: null  # Resolve from the source task before physical execution.
+  control_decimation: null
+
+measurement:
+  missing_capability: unavailable
+  requested_channels: [action, joint_state, object_pose, sim_time, task_stage]
+  optional_channels: [contact_force, penetration_depth]
+  warmup_steps: 100
+  synchronize_device: true
+  include_render_time: false
+  accuracy_reference: null
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: runs/unilab-config/${now:%Y%m%d_%H%M%S}

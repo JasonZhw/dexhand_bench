@@ -1,0 +1,60 @@
+{
+  "task_id": "G04",
+  "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "scene_path": "scenes/12_screwdriver_box_and_hammer.yaml",
+  "source_license_file": "https://github.com/Bench2Dex/Bench2Dex/blob/82e04a2a4e5b728a96ccf1ae7a546762d5a260c7/LICENSE",
+  "asset_license_status": "individual asset licenses not yet verified",
+  "assets": {
+    "a043_phillips_screwdriver": {
+      "path": "../../dex2bench_dataset/Objects/043_phillips_screwdriver/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    },
+    "a044_flat_screwdriver": {
+      "path": "../../dex2bench_dataset/Objects/044_flat_screwdriver/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    },
+    "a048_hammer": {
+      "path": "../../dex2bench_dataset/Objects/048_hammer/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "mass_props": {
+          "mass": 0.5
+        }
+      }
+    },
+    "a036_wood_block": {
+      "path": "../../dex2bench_dataset/Objects/036_wood_block/usd_decomposition_linux/textured.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    },
+    "a154_wooden_box": {
+      "path": "../../dex2bench_dataset/Objects/154_wooden_box/usd_decomposition_linux/base0.usd",
+      "scale": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "body_type": "dynamic"
+    }
+  },
+  "loading_verified": false
+}

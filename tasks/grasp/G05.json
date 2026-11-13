@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1",
+  "id": "G05",
+  "category": "grasp",
+  "name": "平底锅柄抓取",
+  "status": "source_reviewed",
+  "intent": "长力臂与抵抗转动",
+  "source": {
+    "project": "Bench2Dex 08",
+    "kind": "adapted_subtask",
+    "relationship": "拆分并改编抓取部位",
+    "url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/08_frypan_stand_pour.yaml",
+    "revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+    "scoring_code_path": "success/custom/task_08_frypan_stand_pour.py",
+    "repository": "https://github.com/Bench2Dex/Bench2Dex",
+    "scoring_code_sha256": "4b477cdcd805b41336910958a1091f403785fa75c5fe7b586d0cb6f9f403849f"
+  },
+  "original_success": {
+    "scope": "whole original task, not the selected standalone grasp subtask",
+    "description": "Use the left hand to pick up the frypan and place it onto the display stand, then pour the soy sauce and olive oil into the frypan one by one.",
+    "terminal_configuration": {
+      "dwell_time_s": 0.5,
+      "raw_condition": {
+        "type": "custom",
+        "evaluator": "success.custom.task_08_frypan_stand_pour"
+      }
+    },
+    "stages": [
+      "pour_soy_sauce",
+      "pour_olive_oil"
+    ]
+  },
+  "adaptation_protocol": {
+    "status": "draft",
+    "changes": "extract selected manipulation stage; define independent initial state and end condition",
+    "official_standalone_task": false,
+    "grasp_contact_restrictions": null
+  },
+  "assets": {
+    "manifest": "asset_manifests/G05-bench2dex.json",
+    "availability": "server audit: 8 of 25 unique entry USDs found across six source scenes; see docs/research/bench2dex-server-asset-audit.json; dependencies and per-asset licenses still require verification"
+  },
+  "embodiment": {
+    "original": null,
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "challenging",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "锅柄抓取需支撑较大偏置物体",
+    "dimension_notes": {
+      "grasp_tolerance": "限定锅柄是改编约束",
+      "load_and_com": "锅体引入较大力臂，大小待资产实测",
+      "torque": "抗俯仰转矩较重要",
+      "contact_switching": "提起时离开支架/台面",
+      "bimanual_coordination": "子任务可单手；原完整任务双手"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "finger-handle; pan-support -> free"
+}

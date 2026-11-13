@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "id": "R03",
+  "category": "tool_rotation",
+  "name": "解锁门闩并开门",
+  "status": "smoke_executed",
+  "intent": "门闩摩擦、偏置转矩和门铰链运动",
+  "source": {
+    "project": "Adroit Door",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robotics.farama.org/envs/adroit_hand/adroit_door/",
+    "revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+    "scoring_code_path": "gymnasium_robotics/envs/adroit_hand/adroit_door.py",
+    "repository": "https://github.com/Farama-Foundation/Gymnasium-Robotics",
+    "scoring_code_sha256": "3ed7b9b688015b5e69bef3341a0a1beb8586f158fa3aadf06632bd1e96cfb519"
+  },
+  "original_success": {
+    "description": "门铰链位置>=1.35rad为success；奖励大小不代替此布尔条件",
+    "environment_id": "AdroitHandDoor-v1",
+    "episode_scoring_note": "工程使用终帧原成功判据，并另存过程是否曾成功；不自动复刻任何论文的多episode聚合规则"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "provider": "gymnasium-robotics==1.4.1 package envs/assets",
+    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+  },
+  "embodiment": {
+    "original": "Adroit hand",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "challenging",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "门闩与门轴形成顺序约束",
+    "dimension_notes": {
+      "grasp_tolerance": "需要碰到门把手",
+      "load_and_com": "门轴和门闩约束",
+      "torque": "开门方向与解锁运动耦合",
+      "contact_switching": "把手与手指接触随开门变化",
+      "bimanual_coordination": "原Adroit单手"
+    }
+  },
+  "execution": {
+    "entrypoint": "python -m dexbench run --profile profiles/R03-source.json --output runs/<new-run>",
+    "backend": "MuJoCo via Gymnasium Robotics",
+    "controller": "zero/random/replay smoke only; no success baseline"
+  },
+  "smoke_evidence": {
+    "receipt": "docs/evidence/R03-runtime-receipt.json",
+    "runs": [
+      "R03_zero_seed0",
+      "R03_random_seed0",
+      "R03_random_seed1"
+    ],
+    "execution_completed": true,
+    "task_outcomes": "all failure under untrained zero/random controls",
+    "proves_success_baseline": false
+  },
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "获取或训练可成功的参考控制；如需换手/换后端，新增协议并核对动作与资产表示",
+  "robot_mapping": {
+    "receipt": "docs/evidence/R03-runtime-receipt.json",
+    "mapping_field": "backend.joint_mapping",
+    "action_space_field": "backend.action_shape",
+    "note": "source embodiment mapping, not target-hand retargeting"
+  },
+  "scene_evidence": {
+    "load": "docs/evidence/R03-runtime-receipt.json",
+    "reset": "docs/evidence/test-suite.log; test_all_source_environments_reset_repeatably"
+  },
+  "contact_structure": "hand-handle; latch; door-hinge"
+}

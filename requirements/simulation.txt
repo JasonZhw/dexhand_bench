@@ -1,0 +1,7 @@
+# Isolated optional source-task runtime; do not install into shared Isaac Sim.
+gymnasium-robotics==1.4.1
+gymnasium==1.2.3
+mujoco==3.2.5
+numpy==2.2.6
+imageio==2.37.0
+imageio-ffmpeg==0.6.0

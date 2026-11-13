@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "id": "H03",
+  "category": "in_hand",
+  "name": "手内蛋形刚体重定向",
+  "status": "smoke_executed",
+  "intent": "曲面滚动与接触位置变化",
+  "source": {
+    "project": "Gymnasium Robotics Manipulate Egg",
+    "kind": "original",
+    "relationship": "原任务候选；不是易碎或柔性蛋模型",
+    "url": "https://robotics.farama.org/envs/shadow_dexterous_hand/manipulate_egg/",
+    "revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+    "scoring_code_path": "gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py",
+    "repository": "https://github.com/Farama-Foundation/Gymnasium-Robotics",
+    "scoring_code_sha256": "77b3ca492f6240af53cab80124b55384f841eb2da8a291f44d21d1af828c581d"
+  },
+  "original_success": {
+    "description": "EggRotate原变体忽略目标位置，旋转误差<0.1rad；蛋是刚体",
+    "environment_id": "HandManipulateEggRotate-v1",
+    "episode_scoring_note": "工程使用终帧原成功判据，并另存过程是否曾成功；不自动复刻任何论文的多episode聚合规则"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "provider": "gymnasium-robotics==1.4.1 package envs/assets",
+    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+  },
+  "embodiment": {
+    "original": "Shadow Dexterous Hand",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "光滑蛋形刚体重定向",
+    "dimension_notes": {
+      "grasp_tolerance": "曲面接触",
+      "load_and_com": "刚体质量按原模型",
+      "torque": "改变目标朝向",
+      "contact_switching": "曲面接触点持续变化",
+      "bimanual_coordination": "Shadow单手；不是柔性或易碎实验"
+    }
+  },
+  "execution": {
+    "entrypoint": "python -m dexbench run --profile profiles/H03-source.json --output runs/<new-run>",
+    "backend": "MuJoCo via Gymnasium Robotics",
+    "controller": "zero/random/replay smoke only; no success baseline"
+  },
+  "smoke_evidence": {
+    "receipt": "docs/evidence/H03-runtime-receipt.json",
+    "runs": [
+      "H03_zero_seed0",
+      "H03_random_seed0",
+      "H03_random_seed1"
+    ],
+    "execution_completed": true,
+    "task_outcomes": "all failure under untrained zero/random controls",
+    "proves_success_baseline": false
+  },
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "获取或训练可成功的参考控制；如需换手/换后端，新增协议并核对动作与资产表示",
+  "robot_mapping": {
+    "receipt": "docs/evidence/H03-runtime-receipt.json",
+    "mapping_field": "backend.joint_mapping",
+    "action_space_field": "backend.action_shape",
+    "note": "source embodiment mapping, not target-hand retargeting"
+  },
+  "scene_evidence": {
+    "load": "docs/evidence/H03-runtime-receipt.json",
+    "reset": "docs/evidence/test-suite.log; test_all_source_environments_reset_repeatably"
+  },
+  "contact_structure": "multi-finger-egg"
+}

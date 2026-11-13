@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "id": "I01",
+  "category": "insertion",
+  "name": "插管",
+  "status": "source_reviewed",
+  "intent": "轴向与横向对准",
+  "source": {
+    "project": "RoboDojo Insert Tubes",
+    "kind": "original",
+    "relationship": "原任务候选",
+    "url": "https://robodojo-benchmark.com/doc/sim-tasks/insert-tubes/",
+    "revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+    "scoring_code_path": "task/RoboDojo/tasks/insert_tubes.py",
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo",
+    "scoring_code_sha256": "9a68795ddbd0b816ffd7627e673390ecd83594c0e9d374d4e3abf3435ad439e1"
+  },
+  "original_success": {
+    "description": "三根管分别满足包围盒高度差>0.045m、is_A_in_B、轴线朝上30度以内且机器人回位；分段20/40/100另检查夹爪打开",
+    "supporting_code": [
+      "env/reward_manager/reward_manager.py",
+      "env/reward_manager/func_parser.py"
+    ],
+    "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+  },
+  "adaptation_protocol": null,
+  "assets": {
+    "manifest": "asset_manifests/I01-robodojo.json",
+    "availability": "official remote object paths found; dependencies and loading unverified"
+  },
+  "embodiment": {
+    "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+    "target": null,
+    "bimanual": null
+  },
+  "difficulty": {
+    "label": null,
+    "validated": false,
+    "dimensions": [
+      "grasp_tolerance",
+      "load_and_com",
+      "torque",
+      "contact_switching",
+      "bimanual_coordination"
+    ],
+    "qualitative_rationale": "细长物体对准、侧壁接触、插入后撤手",
+    "proposed_band": "intermediate",
+    "proposal_note": "设计阶段假设，仅用于覆盖选择；不是实测排序，也不声称同类中严格递增",
+    "rationale": "细长管对准并放入管架",
+    "dimension_notes": {
+      "grasp_tolerance": "轴向/横向间隙",
+      "load_and_com": "抓持与架子支撑切换",
+      "torque": "避免倾斜卡住",
+      "contact_switching": "插入和释放",
+      "bimanual_coordination": "原双臂平台，三管流程"
+    }
+  },
+  "execution": {
+    "entrypoint": null,
+    "backend": null,
+    "controller": null
+  },
+  "smoke_evidence": null,
+  "baseline_evidence": null,
+  "related_experiment_ids": [],
+  "unilab": {
+    "integrated": false,
+    "revision": null,
+    "evidence": null
+  },
+  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "robot_mapping": null,
+  "scene_evidence": null,
+  "contact_structure": "hand-tube -> tube-rack"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "H02-source",
+  "task_id": "H02",
+  "backend": "gym_robotics_mujoco",
+  "env_id": "AdroitHandPen-v1",
+  "protocol": "source-final-predicate-v1",
+  "physics": {},
+  "notes": "Adroit hand; original pen reorientation"
+}

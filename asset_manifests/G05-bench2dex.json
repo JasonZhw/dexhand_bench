@@ -1,0 +1,66 @@
+{
+  "task_id": "G05",
+  "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "scene_path": "scenes/08_frypan_stand_pour.yaml",
+  "source_license_file": "https://github.com/Bench2Dex/Bench2Dex/blob/82e04a2a4e5b728a96ccf1ae7a546762d5a260c7/LICENSE",
+  "asset_license_status": "individual asset licenses not yet verified",
+  "assets": {
+    "a223_chefmate_frypan": {
+      "path": "../../dex2bench_dataset/Objects/223_chefmate_frypan/usd_decomposition_linux/Chefmate_8_Frypan.usd",
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "mass_props": {
+          "mass": 1.2
+        }
+      }
+    },
+    "a182_bread": {
+      "path": "../../dex2bench_dataset/Objects/182_bread/usd_decomposition_linux/base6.usd",
+      "scale": [
+        0.05,
+        0.03,
+        0.05
+      ],
+      "body_type": "dynamic"
+    },
+    "a172_soy_sauce": {
+      "path": "../../dex2bench_dataset/Objects/172_soy-sauce/usd_decomposition_linux/base4.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    },
+    "a146_olive_oil": {
+      "path": "../../dex2bench_dataset/Objects/146_olive-oil/usd_decomposition_linux/base4.usd",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_type": "dynamic"
+    },
+    "a333_portable_stove": {
+      "path": "../../dex2bench_dataset/Objects/333_portable_stove/01_portable_stove/01/usd_decomposition_linux/portable_kitchen_stove.usd",
+      "scale": [
+        0.045,
+        0.045,
+        0.045
+      ],
+      "body_type": "dynamic",
+      "spawn": {
+        "rigid_props": {
+          "kinematic_enabled": true,
+          "disable_gravity": true
+        }
+      }
+    }
+  },
+  "loading_verified": false
+}
