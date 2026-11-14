@@ -44,3 +44,28 @@ MUJOCO_GL=egl uv run --no-project --python .venv-scene/bin/python python integra
 接入中修复了两处实际问题：USD 25.11 与 CoACD 1.0.7 在本环境存在导入顺序冲突，先导入 USD 后正常；后端工厂构造完成后仍需要调用公开的 `materialize()`，之后才能推进仿真。初次失败目录 `runs/I01-object-scene` 没有成功记录，不作为验收结果
 
 下一步接机器人与控制时保持这条场景验证独立。先确定关节和驱动映射、恢复固定初态，再把真实物体位姿接到插管几何判据与 MetricsManager；之后才注册完整 Manager-Based 环境并开放任务启动配置。物理接触数据仍按后端实际能力读取，不能用这次无机器人运行计算任务成功率或物理准确性
+
+## Manager-Based 运行层已接通
+
+`conf/unilab/scene_diagnostic.yaml` 现在可以启动真正的 UniLab `ManagerBasedRlEnv`，通过 MuJoCo 后端运行同一套物体资产。配置统一声明场景、时间步、观察、重置事件、超时条件与指标。它是无机器人的独立诊断配置，完整 I01 任务仍保持 `ready: false`
+
+```bash
+# 完成上面的资产转换和 scene-runtime 依赖安装后，从仓库根目录执行
+uv run --no-project --python .venv-scene/bin/python python integrations/unilab/run_scene_diagnostic.py output=runs/I01-manager-check steps=60
+
+# 几何公式的独立参考算法对照及全套回归
+uv pip install --python .venv-scene/bin/python -r requirements/scene-test.txt
+uv run --no-project --python .venv-scene/bin/python python -m unittest discover -s tests
+```
+
+每个环境观察为 37 维：三根试管和管架各 7 维位置/四元数，加上每根管的深度、架内、竖直三个布尔条件。这三项条件来自固定版本 RoboDojo 的 `insert_tubes`、`func_parser.py` 和 `calc_polygon`，移植为批量张量计算，使用原元数据包围盒；128 组随机位置和旋转已与 Shapely / transforms3d 参考算法对照一致
+
+源规则的“架内”指管心落在管架包围盒的 XY 凸包内且高于盒底，不能证明试管位于某个真实孔内；深度是架的最高点减管的最低点大于 4.5 cm，竖直是试管局部 Y 轴与世界 Z 轴夹角小于 30°。元数据包围盒也不能当作碰撞表面。我们保留源规则用于对照，后续孔位、穿透与接触诊断需要单独添加。完整源任务还检查松手与机器人回位，目前没有伪造这两个条件，因此 `source_geometry_count` 只表示满足几何条件的试管数量，不是任务成功率
+
+最新验收为 2 个环境、各 60 步，物理步长和控制步长均为 0.004 s，回合超时为 20 步。第 5 步验证物体确实运动后单独重置环境 0；其所有物体位姿和速度恢复，环境 1 保持不变。环境 1 在第 20、40、60 步超时，环境 0 在第 25、45 步超时。每次重置前，指标汇总都与当时真实观察核对一致。运行中几何数量为 0，符合没有机器人执行插入的情况
+
+本次发现并修复了配置遗漏：UniLab 的 `reset()` 不会在没有重置事件时自动恢复物理状态，必须显式配置 `reset_scene_to_default`。验收因此不能只看计数器归零，也不能在物体尚未运动时检查位置。最终证据见 [I01-manager/receipt.json](evidence/I01-manager/receipt.json) 与 [运行配置](evidence/I01-manager/config.json)。完整状态保存在本地 `runs/I01-manager-final/states.json`；旧的弱检查结果不作为本次证据
+
+全套 99 项检查中 92 项通过，7 项因缺少原环境依赖跳过。本次没有新增机器人视频，之前的物体落稳视频仍只代表资产场景检查
+
+下一步是接入机械臂/手的实体、关节与控制映射，恢复可重复初态，再用动作推进完整插管流程。配置目前仅开放已验证的 MuJoCo 路径；其他后端需要通过资产、状态读取、控制和重置能力检查后才能切换，不能只改一个字符串就声称完成跨引擎迁移。接触力、穿透等物理指标将通过独立观察/指标项扩展，不支持的字段明确记为缺失
