@@ -53,3 +53,5 @@ uv run --no-project --python .venv-source/bin/python python -m dexbench run --pr
 若未安装原仿真依赖，相应测试会跳过。资产、视频、HDF5、虚拟环境和运行产物不入 Git，资产按 `asset_manifests/` 恢复。第三方代码与资产遵循各自许可；Bench2Dex 回放代码的 MIT 许可在对应目录。本项目新增代码的开源许可尚未指定
 
 UniLab 的物体场景现在也支持 [Manager-Based 统一运行配置](conf/unilab/scene_diagnostic.yaml)：真实位姿观察、源插管几何判据、超时、指标汇总与选定环境物理重置已验收。参见 [运行步骤与范围说明](docs/insert-tubes-scene.md#manager-based-运行层已接通)。完整机器人插管任务尚未就绪
+
+双臂 ARX X5 的 [控制接入检查](docs/x5-control.md) 已运行：统一配置下发双臂和夹爪动作、记录真实关节状态、验证并行环境独立重置并保存视频。它仍是控制诊断，不是抓取或插管成功结果
