@@ -55,3 +55,5 @@ uv run --no-project --python .venv-source/bin/python python -m dexbench run --pr
 UniLab 的物体场景现在也支持 [Manager-Based 统一运行配置](conf/unilab/scene_diagnostic.yaml)：真实位姿观察、源插管几何判据、超时、指标汇总与选定环境物理重置已验收。参见 [运行步骤与范围说明](docs/insert-tubes-scene.md#manager-based-运行层已接通)。完整机器人插管任务尚未就绪
 
 双臂 ARX X5 的 [控制接入检查](docs/x5-control.md) 已运行：统一配置下发双臂和夹爪动作、记录真实关节状态、验证并行环境独立重置并保存视频。它仍是控制诊断，不是抓取或插管成功结果
+
+新增 [抓取与接触诊断](docs/x5-pick.md)：通过 UniLab 执行接近、闭合、抬升和保持，并保存两组夹爪目标对照。较紧目标可抬升约 85 mm，但指尖穿透峰值约 10 mm；较宽目标未抬起。完整插管任务仍未完成
