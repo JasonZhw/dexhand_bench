@@ -1,0 +1,4 @@
+usd-core==25.11
+trimesh==4.5.1
+coacd==1.0.7
+numpy==2.2.6

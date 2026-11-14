@@ -6,6 +6,8 @@
 
 已有五项 Gymnasium Robotics / Adroit 原环境试跑和 Bench2Dex 片段回放桥接。原环境试跑不等于任务成功，也不等于迁入 UniLab。插管评分已有真实 UniLab MetricsManager 的接口验证；完整插管场景、控制和重置仍未接通
 
+插管的物体场景现已通过 UniLab 后端工厂接入 MuJoCo：原始 USD 转为近似多凸块 MJCF，10 个孔口探针通过，两个环境各推进 500 步并验证独立重置，保存 2 秒视频。当前不含机器人，完整任务仍未就绪。复现命令与验收边界见 [场景接入检查](docs/insert-tubes-scene.md)
+
 ## 仓库与 UniLab 的关系
 
 这是独立下游仓库，不是 GitHub fork。`third_party/UniLab` 以 Git submodule 固定到 `794c0bbd67771ac48407e084c0164c0e841bfd97`，上游版本 1.5.9、依赖 unisim-core 2.7.1。当前不修改上游源码，后续需要修改 UniLab 核心时再向上游提交补丁

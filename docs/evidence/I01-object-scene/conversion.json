@@ -1,0 +1,54 @@
+{
+  "scope": "object scene only; no robot or task success",
+  "assets": {
+    "test_tube_slot": {
+      "parts": 141,
+      "bounds": [
+        [
+          -0.10249999910593033,
+          -0.04800000414252281,
+          -0.030000006138086288
+        ],
+        [
+          0.10249999910593033,
+          0.04800000414252281,
+          0.03000000555932525
+        ]
+      ],
+      "source_sha256": "939d71ae619de1b1c40db3a6c11769e20b8c65245e123f7ffd986f5da35042f6"
+    },
+    "test_tube": {
+      "parts": 3,
+      "bounds": [
+        [
+          -0.01753497961908579,
+          -0.05849990607023159,
+          -0.017533348873257637
+        ],
+        [
+          0.01753497961908579,
+          0.05849990607023159,
+          0.017533348873257637
+        ]
+      ],
+      "source_sha256": "e7ef90e9bf1fa1db63359c5317d6bd990dcb3475576478741fead8f6977e004e"
+    }
+  },
+  "limitations": [
+    "SDF replaced with approximate convex decomposition",
+    "Box table follows source layout dimensions; contact material equivalence unverified",
+    "Inertia inferred from converted collision volume",
+    "No robot, controller or task success predicates"
+  ],
+  "physics_dt": 0.004,
+  "dt_source": "RoboDojo env_cfg/sim/sim_config.yml",
+  "source_code_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+  "dataset_revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "layout_sha256": "7a385171c850978ea45616e562eb0c6efd025e592be0542ac5f0298ee0f12557",
+  "decomposition": {
+    "threshold": 0.02,
+    "resolution": 2000,
+    "mcts_iterations": 100,
+    "seed": 0
+  }
+}
