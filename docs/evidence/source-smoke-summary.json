@@ -1,0 +1,527 @@
+[
+  {
+    "run": "H01_zero_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "seed": 0,
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 100,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.00029545615604519796,
+          "max_normal_force_sum_N": 1.5707885160958721,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.11853249484556727,
+        "steps_measured": 100,
+        "environment_steps_per_second": 843.6505122944325,
+        "wall_seconds_including_setup_and_recording": 3.2289936719898833,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H01_random_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "seed": 0,
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 100,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.004470076824188215,
+          "max_normal_force_sum_N": 54.774753530220494,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.09083977703994606,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1100.839337771886,
+        "wall_seconds_including_setup_and_recording": 0.1735716660041362,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H01_random_seed1",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "seed": 1,
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 100,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.005023690785495854,
+          "max_normal_force_sum_N": 47.96845626627062,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.0894119170261547,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1118.4191473128585,
+        "wall_seconds_including_setup_and_recording": 0.1766768389934441,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H02_zero_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H02",
+      "seed": 0,
+      "steps": 200,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 200,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.005263640956722517,
+          "max_normal_force_sum_N": 7.424775253688183,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.09306512407783885,
+        "steps_measured": 200,
+        "environment_steps_per_second": 2149.032755092249,
+        "wall_seconds_including_setup_and_recording": 0.7758208590094,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H02_random_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H02",
+      "seed": 0,
+      "steps": 200,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 200,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.013861752134423554,
+          "max_normal_force_sum_N": 34.28664383534236,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.04238597997755278,
+        "steps_measured": 200,
+        "environment_steps_per_second": 4718.541369243277,
+        "wall_seconds_including_setup_and_recording": 0.13459093199344352,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H02_random_seed1",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H02",
+      "seed": 1,
+      "steps": 200,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 200,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.023349427208514566,
+          "max_normal_force_sum_N": 20.040247589001957,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.03850347991101444,
+        "steps_measured": 200,
+        "environment_steps_per_second": 5194.335692831424,
+        "wall_seconds_including_setup_and_recording": 0.1296299440000439,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H03_zero_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H03",
+      "seed": 0,
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 100,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.00028994797661043275,
+          "max_normal_force_sum_N": 2.3597222590906046,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.10483946901513264,
+        "steps_measured": 100,
+        "environment_steps_per_second": 953.839245270938,
+        "wall_seconds_including_setup_and_recording": 0.5372355159925064,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H03_random_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H03",
+      "seed": 0,
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 100,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.0041753992493887586,
+          "max_normal_force_sum_N": 36.385245158534794,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.08502594300080091,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1176.1116251196183,
+        "wall_seconds_including_setup_and_recording": 0.16509425100230146,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "H03_random_seed1",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "H03",
+      "seed": 1,
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 100,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.006054980020179293,
+          "max_normal_force_sum_N": 39.82335727227322,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.08674014097778127,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1152.8687741655306,
+        "wall_seconds_including_setup_and_recording": 0.1704204079869669,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "R03_zero_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "R03",
+      "seed": 0,
+      "steps": 200,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 200,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.0028582714402694996,
+          "max_normal_force_sum_N": 58.31725777727361,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.08648098792764358,
+        "steps_measured": 200,
+        "environment_steps_per_second": 2312.647031360637,
+        "wall_seconds_including_setup_and_recording": 0.7217101819987874,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "R03_random_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "R03",
+      "seed": 0,
+      "steps": 200,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 200,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.014199831540710944,
+          "max_normal_force_sum_N": 705.5781008748396,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.04389775804884266,
+        "steps_measured": 200,
+        "environment_steps_per_second": 4556.04133080033,
+        "wall_seconds_including_setup_and_recording": 0.13417687399487477,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "R03_random_seed1",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "R03",
+      "seed": 1,
+      "steps": 200,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 200,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.01870580977152011,
+          "max_normal_force_sum_N": 650.1761984636303,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.04363115588785149,
+        "steps_measured": 200,
+        "environment_steps_per_second": 4583.880393040133,
+        "wall_seconds_including_setup_and_recording": 0.13675686900387518,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "P02_zero_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "P02",
+      "seed": 0,
+      "steps": 50,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 50,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.0061212382843712125,
+          "max_normal_force_sum_N": 35764.76815941011,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.04636381205637008,
+        "steps_measured": 50,
+        "environment_steps_per_second": 1078.4272859015339,
+        "wall_seconds_including_setup_and_recording": 0.3579082490032306,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "P02_random_seed0",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "P02",
+      "seed": 0,
+      "steps": 50,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 50,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.0061212382843707685,
+          "max_normal_force_sum_N": 82237.76278940281,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.03890305903041735,
+        "steps_measured": 50,
+        "environment_steps_per_second": 1285.245974125228,
+        "wall_seconds_including_setup_and_recording": 0.10420602299564052,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  },
+  {
+    "run": "P02_random_seed1",
+    "returncode": 0,
+    "summary": {
+      "schema_version": "0.2",
+      "task_id": "P02",
+      "seed": 1,
+      "steps": 50,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {
+        "contact_envelope": {
+          "samples_available": 50,
+          "samples_unavailable": 0,
+          "max_penetration_m": 0.03005530561583131,
+          "max_normal_force_sum_N": 70965.34070856431,
+          "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+        }
+      },
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.03919548695557751,
+        "steps_measured": 50,
+        "environment_steps_per_second": 1275.6570688015145,
+        "wall_seconds_including_setup_and_recording": 0.10111058599431999,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  }
+]

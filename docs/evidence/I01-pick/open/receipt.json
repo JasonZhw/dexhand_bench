@@ -1,0 +1,90 @@
+{
+  "scope": "x5_pick_diagnostic",
+  "lift_observed": false,
+  "reason": "object_not_held_above_threshold",
+  "stages": [
+    {
+      "phase": "settle",
+      "end_step": 125
+    },
+    {
+      "phase": "approach",
+      "end_step": 625,
+      "tcp_error_m": 9.610005778117774e-05
+    },
+    {
+      "phase": "descend",
+      "end_step": 925,
+      "tcp_error_m": 0.00017616852366847676
+    },
+    {
+      "phase": "close",
+      "end_step": 1175
+    },
+    {
+      "phase": "lift",
+      "end_step": 1675,
+      "tcp_error_m": 2.6093749904334357e-06
+    },
+    {
+      "phase": "hold",
+      "end_step": 1925,
+      "lift_observed": false,
+      "minimum_height_gain_m": -4.589557647705078e-06,
+      "maximum_hold_drift_m": 4.699656154455203e-05,
+      "hold_samples": 250
+    }
+  ],
+  "task_success": null,
+  "robot_task_ready": false,
+  "physical_execution": "UniLab ManagerBasedRlEnv / MuJoCo",
+  "steps": 1925,
+  "num_envs": 2,
+  "sim_dt": 0.004,
+  "versions": {
+    "unisim-core": "2.7.1",
+    "mujoco": "3.11.0",
+    "torch": "2.11.0+rocm7.2"
+  },
+  "joint_order": [
+    "left_joint1",
+    "left_joint2",
+    "left_joint3",
+    "left_joint4",
+    "left_joint5",
+    "left_joint6",
+    "left_joint7",
+    "left_joint8",
+    "right_joint1",
+    "right_joint2",
+    "right_joint3",
+    "right_joint4",
+    "right_joint5",
+    "right_joint6",
+    "right_joint7",
+    "right_joint8"
+  ],
+  "selected_reset_verified": true,
+  "scene_sha256": "dc150c7c9da94a51344edd24992f6cd75cd6e822dbef2a251a0bc324fb9871ee",
+  "contact_force_available": false,
+  "contact_force": null,
+  "contact_geometry": {
+    "method": "offline MuJoCo forward contact geometry from recorded poses",
+    "runtime_contact_force_available": false,
+    "runtime_contact_force": null,
+    "maximum_finger_penetration_m": 0.0,
+    "phase_maximum_penetration_m": {
+      "close": 0.0,
+      "lift": 0.0,
+      "hold": 0.0
+    },
+    "hold_bilateral_contact_fraction": 0.0
+  },
+  "limitations": [
+    "Self-designed scripted attempt, not official task policy",
+    "IK is pose reachability, not collision-free trajectory planning",
+    "Lift predicate is height and hold stability, not verified two-finger contact",
+    "No attachment or object pose writes during execution",
+    "No insertion attempt or full task success"
+  ]
+}

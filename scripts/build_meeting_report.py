@@ -1,0 +1,41 @@
+"""Package recorded evidence into a portable meeting report (no remote assets)."""
+from pathlib import Path
+import json
+import shutil
+import html
+
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT.parent/'outputs/DexBench_周会技术报告_20261112'
+OUT.mkdir(parents=True,exist_ok=True)
+MEDIA=OUT/'media';MEDIA.mkdir(exist_ok=True)
+def load(p):return json.loads(p.read_text())
+def esc(x):return html.escape(str(x))
+run=ROOT/'runs/external/apple4_video_01'
+result=load(run/'result.json');manifest=load(run/'recording/manifest.json')
+video=load(run/'recording/video_receipt.json')
+assert result['execution_completed'] and video['complete']
+tasks=[load(p) for p in sorted((ROOT/'tasks').rglob('*.json'))]
+labels={'grasp':'抓取','transport':'搬运放置','push':'推动滑动','tool_rotation':'工具与约束旋转','in_hand':'手内调整','insertion':'插入'}
+rows=[]
+for key,label in labels.items():
+ entries=[t for t in tasks if t['category']==key]
+ rows.append(f'<tr><td>{label}</td><td>{len(entries)}</td><td>'+ '、'.join(esc(t['name']) for t in entries)+'</td></tr>')
+cards=[]
+for tid in ['H01','H02','H03','R03','P02']:
+ title=next(t['name'] for t in tasks if t['id']==tid)
+ for source,target in [(ROOT/f'docs/evidence/videos/{tid}-zero-smoke.mp4',MEDIA/f'{tid}.mp4'),(ROOT/f'docs/evidence/previews/{tid}_start.png',MEDIA/f'{tid}.png')]:shutil.copy2(source,target)
+ cards.append(f'<article><h3>{esc(tid)} · {esc(title)}</h3><video controls preload="metadata" poster="media/{tid}.png" src="media/{tid}.mp4"></video><p>本地原始环境 · 零动作试跑 · 未完成任务</p></article>')
+page='''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>灵巧操作 Benchmark｜周会技术报告</title><style>
+:root{--ink:#203047;--muted:#607187;--blue:#2663ac;--line:#dbe4ee}*{box-sizing:border-box}body{margin:0;background:#edf2f7;color:var(--ink);font-family:"Noto Sans CJK SC",system-ui,sans-serif;line-height:1.75}nav{position:sticky;top:0;background:#10273e;color:white;padding:10px 5%;z-index:2;font-size:14px}nav a{color:#d7e6f7;margin-right:22px;text-decoration:none}main{max-width:1160px;margin:auto;padding:30px 22px 70px}section{background:white;border:1px solid var(--line);border-radius:16px;padding:32px;margin:22px 0;scroll-margin-top:65px}h1{font-size:38px;line-height:1.35;margin:12px 0}h2{font-size:25px;margin:0 0 18px}h3{font-size:18px;margin:8px 0}p{margin:10px 0}.eyebrow{color:var(--blue);font-size:14px;letter-spacing:1px}.lead{font-size:20px;max-width:960px}.muted,article p{color:var(--muted);font-size:14px}.stats,.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.stats div{background:#f0f5fb;padding:16px;border-radius:10px}.stats strong{display:block;font-size:32px;color:var(--blue)}.note{border-left:4px solid #d8902f;padding:12px 18px;background:#fff8ed;margin:20px 0}.good{border-color:#399378;background:#f0f9f5}article{border:1px solid var(--line);border-radius:10px;padding:15px}.grid{grid-template-columns:1fr 1fr}video,img{width:100%;border-radius:8px;background:#eef2f6}video{max-height:510px}table{width:100%;border-collapse:collapse;font-size:15px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3fa}a{color:var(--blue)}.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap}.flow div{flex:1;min-width:140px;background:#edf4fb;border:1px solid #c8d9ed;padding:16px;border-radius:10px}.flow b{display:block}.arrow{align-self:center;color:#6390b8;font-size:22px}code{background:#edf2f7;padding:2px 5px;font-size:13px}.tag{color:#8c5519;font-size:13px}details{margin:14px 0}summary{cursor:pointer;color:var(--blue)}@media(max-width:760px){.grid,.stats{grid-template-columns:1fr}section{padding:20px}h1{font-size:29px}nav{position:static}}@media print{nav,video{display:none}body{background:white}main{padding:0}section{break-inside:avoid;border:none;padding:15px;margin:0 0 20px}.grid{grid-template-columns:1fr 1fr}h1{font-size:30px}a{color:inherit}}
+</style></head><body><nav><a href="#goal">目标</a><a href="#framework">框架</a><a href="#replay">动态回放</a><a href="#tasks">任务覆盖</a><a href="#next">下一步</a></nav><main>
+<section id="goal"><div class="eyebrow">工程阶段报告 · 2026-11-12 · 周会展示版</div><h1>灵巧操作 Benchmark<br>从任务集合到可复现的执行与诊断</h1><p class="lead">我先建设覆盖不同接触难点的任务集合，让每次运行都有配置、状态、视频和结果记录，再逐步迁入 UniLab，为物理后端测评保留接口</p><div class="stats"><div><strong>21</strong>六类候选任务</div><div><strong>5</strong>已试跑原始环境</div><div><strong>71 帧</strong>新增动态回放视频</div></div><div class="note">当前成果是任务组织与工程链路验证，尚无成功策略基线，也尚未完成灵巧手适配与 UniLab 多后端接入</div></section>
+<section id="framework"><h2>框架怎样落到代码里</h2><div class="flow"><div><b>任务定义</b>目标、初态、难点、成功条件</div><span class="arrow">→</span><div><b>执行配置</b>机器人、控制、后端与参数</div><span class="arrow">→</span><div><b>统一运行</b>重置、下发动作、步进、记录</div><span class="arrow">→</span><div><b>输出证据</b>状态、视频、评分与诊断</div></div><p>主执行链路已经连接 Gymnasium Robotics / MuJoCo；Bench2Dex 当前通过独立进程桥接，在已有 Isaac Sim 环境里运行，再收集记录。两条链路尚未统一成同一个后端适配器</p><table><tr><th>接口</th><th>已具备</th><th>后续扩展</th></tr><tr><td>任务与控制</td><td>独立任务目录、执行 profile、零/随机/记录动作</td><td>脚本与策略控制；目标灵巧手动作映射</td></tr><tr><td>物理诊断</td><td>MuJoCo 接触诊断、参数覆盖与配对轨迹比较</td><td>滑移、约束、接触切换；跨后端能力检查</td></tr><tr><td>可复现记录</td><td>版本、初态、动作、状态、结果；新增帧与物理步对应</td><td>完整资产哈希和运行时物理属性审计</td></tr></table><p class="muted">不支持的数据保留 null；执行完成、任务成功、物理准确性分别判断</p></section>
+<section id="replay"><h2>新增：同一次动态回放的视频与状态记录</h2><p>将记录的关节目标交给控制器，由 Isaac Sim / PhysX 推进运动。画面来自本次服务器运行，不是官方成功视频，也不是逐帧强制设置物体位置的状态回放</p><video controls preload="metadata" poster="media/apple_dynamic_poster.png" src="media/apple_dynamic.mp4"></video><p class="muted">俯视相机 · 原速 20 fps · 3.55 秒 · 可全屏播放；放慢版仅便于观察，不代表仿真运行速度</p><p><a href="media/apple_dynamic_slow.mp4">播放 0.25 倍速版</a> · <a href="media/apple_dynamic.mp4" download>下载原速视频</a></p>
+<table><tr><th>实验项</th><th>本次设置</th></tr><tr><td>任务来源</td><td>Bench2Dex 水果装碗任务的 71 帧片段；选中物体 obj_013_apple_4</td></tr><tr><td>环境</td><td>Isaac Sim 5.1.0.0 / Isaac Lab 0.54.2 / torch 2.7.0+cu128；CPU 物理设备，RTX 4090 参与渲染</td></tr><tr><td>控制</td><td>20 Hz 指令，插值到 60 Hz 物理步；沿用原回放重力补偿；warmup=0</td></tr><tr><td>采样</td><td>213 个物理步；每 3 步采一帧；frame_index 与状态时间写入 video_frames.jsonl；原速播放时间 = frame_index / 20，状态时间 = 播放时间 + 0.05 秒（不含 warmup）</td></tr></table>
+<div class="note"><strong>观察：</strong>正确跟踪 apple_4 后，末帧相对初帧上升约 26.8 cm，源记录约 27.8 cm。视频展示抬升片段；完整任务结果仍为 unknown，未验证持续支撑或最终装碗成功。两者高度增量接近不代表物理准确</div><p>排查记录：前一轮选中的 apple_3 在源片段中本就静止，因此不能用它未上升来判断失败。查看视频与源物体轨迹后改为跟踪 apple_4，原始记录仍保留</p><img src="media/replay_diagnostics.png" alt="物体位移与关节目标跟踪诊断"><p class="muted">曲线来自本次状态日志。关节目标与实际位置之差只是控制跟踪诊断；没有真实测量参照，不能称为物理准确性误差。录像与 PNG 编码的耗时不用于吞吐结论</p></section>
+<section id="tasks"><h2>已有五个原环境的运行视频</h2><p>五个环境分别运行零动作 seed0 和随机动作 seed0/1，共 15 次，执行均完成，最终任务判据均为失败。下面展示零动作试跑，作用是检查运行和记录链路</p><div class="grid">__CARDS__</div><h3>任务集合的覆盖方式</h3><table><tr><th>类别</th><th>数量</th><th>候选任务</th></tr>__ROWS__</table><p>难点用抓取位置容差、负载与重心、抗转动、接触切换和双手协同解释。不同任务构成难度梯度；同一任务参数变化作为补充。当前难度只是选题假设，不能当作实验排名</p></section>
+<section><h2>现在可以向物理测评提供什么</h2><p>同 seed、同动作的 H01 重放在 100 个记录采样点上，刚体位置与朝向差异为 0，说明这组设置的重复记录一致。将求解迭代数从 20 调到 1 后轨迹变化，但重置初态也变化，因此比较结果已标记初态干扰，不能将变化直接归因于求解误差</p><div class="note good">接口已能留下“改了什么、从哪里开始不同”的证据。下一阶段需要固定初态与资产表示，再设计单变量对照；要评价准确性，还需要解析解或真实测量参照</div><p>1 / 2 个 CPU worker 的试跑只验证并发执行链路，目前不报告加速比或 GPU 扩展结论</p></section>
+<section id="next"><h2>下一步：补齐插管与装箱，继续扩大任务集合</h2><table><tr><th>任务</th><th>已确定</th><th>下一步验证</th></tr><tr><td>I01 插管</td><td>三根试管 + 管架，固定官方布局；任务物体文件已有</td><td>补齐双臂 X5、房间与材质；验证孔洞 SDF 碰撞与重置</td></tr><tr><td>M01 装箱</td><td>小车、牙刷、锤子、鞋与箱子；固定型号与摆放</td><td>下载固定物体与场景依赖，保留原任务判据</td></tr><tr><td>灵巧手与 UniLab</td><td>任务、控制、状态和诊断边界已分开</td><td>原机器人任务先跑通，再适配灵巧手；按 UniLab 接口实现适配层</td></tr></table><p>原始 RoboDojo 方案使用夹爪，迁移后的灵巧手结果将单独记录。苹果梗暂缓，不占当前任务覆盖工作</p><details><summary>来源与复核记录</summary><p><a href="https://github.com/Bench2Dex/Bench2Dex">Bench2Dex 仓库</a> · 固定版本 82e04a2a4e5b728a96ccf1ae7a546762d5a260c7<br><a href="https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo">RoboDojo 官方资产</a> · 1127bda94f172d757386945af3eb3a6754d1a4e6<br><a href="evidence.json">本次运行与媒体证据</a> · <a href="汇报讲稿.md">约 3 分钟汇报讲稿</a></p></details></section></main></body></html>'''
+(OUT/'index.html').write_text(page.replace('__CARDS__',''.join(cards)).replace('__ROWS__',''.join(rows)),encoding='utf-8')
+shutil.copy2(run/'result.json',OUT/'result.json')
+print(OUT/'index.html')

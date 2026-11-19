@@ -1,0 +1,54 @@
+{
+  "scope": "x5_control_diagnostic",
+  "backend": "mujoco",
+  "manager_environment": true,
+  "task_success": null,
+  "robot_task_ready": false,
+  "num_envs": 2,
+  "steps": 500,
+  "joint_order": [
+    "left_joint1",
+    "left_joint2",
+    "left_joint3",
+    "left_joint4",
+    "left_joint5",
+    "left_joint6",
+    "left_joint7",
+    "left_joint8",
+    "right_joint1",
+    "right_joint2",
+    "right_joint3",
+    "right_joint4",
+    "right_joint5",
+    "right_joint6",
+    "right_joint7",
+    "right_joint8"
+  ],
+  "observation_shape": [
+    2,
+    69
+  ],
+  "midpoint_tracking_errors": {
+    "left_joint1": 1.6033649444580078e-05,
+    "right_joint1": 1.6033649444580078e-05,
+    "left_joint7": 0.00012096855789422989,
+    "left_joint8": 0.00011344905942678452,
+    "right_joint7": 0.00011344905942678452,
+    "right_joint8": 0.00012096855789422989
+  },
+  "partial_reset_verified": true,
+  "hold_environment_max_joint_error": 3.87076235322005e-14,
+  "independent_actions_verified": true,
+  "video": true,
+  "versions": {
+    "unisim-core": "2.7.1",
+    "mujoco": "3.11.0",
+    "torch": "2.11.0+rocm7.2"
+  },
+  "scene_sha256": "dc150c7c9da94a51344edd24992f6cd75cd6e822dbef2a251a0bc324fb9871ee",
+  "limitations": [
+    "Scripted joint offsets, not an insertion policy",
+    "URDF convex collisions and adapted drives; not PhysX equivalence",
+    "ARX parallel grippers, not a dexterous-hand benchmark result"
+  ]
+}

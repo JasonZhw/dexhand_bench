@@ -1,0 +1,41 @@
+{
+  "output": "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/docs/evidence/unilab-scene-declaration.json",
+  "backend_declarations": {
+    "mujoco": {
+      "declaration_accepted": false,
+      "reason": "mujoco has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "motrix": {
+      "declaration_accepted": false,
+      "reason": "motrix has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "drake": {
+      "declaration_accepted": false,
+      "reason": "drake has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "mjwarp": {
+      "declaration_accepted": false,
+      "reason": "mjwarp has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "newton": {
+      "declaration_accepted": false,
+      "reason": "newton has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "superdex": {
+      "declaration_accepted": false,
+      "reason": "superdex has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "genesis": {
+      "declaration_accepted": false,
+      "reason": "genesis has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "isaacgym": {
+      "declaration_accepted": false,
+      "reason": "isaacgym has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    },
+    "isaacsim": {
+      "declaration_accepted": false,
+      "reason": "isaacsim has not implemented entity_assets materialization for ['usd']; see the adapter's entity.multiple capability and roadmap #108"
+    }
+  }
+}

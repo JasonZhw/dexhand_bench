@@ -1,0 +1,152 @@
+{
+  "initial_conditions": {
+    "recorded_state_identical": false,
+    "confounded_by_reset": true,
+    "scope": "recorded qpos/qvel/body poses only; not full solver state"
+  },
+  "configuration_differences": {
+    "physics": {
+      "left": {
+        "timestep": 0.002,
+        "tolerance": 1e-08,
+        "iterations": 20,
+        "solver": 2,
+        "integrator": 0
+      },
+      "right": {
+        "timestep": 0.002,
+        "tolerance": 1e-08,
+        "iterations": 1,
+        "solver": 2,
+        "integrator": 0
+      }
+    }
+  },
+  "interpretation": "simulation_consistency_not_physical_accuracy",
+  "samples": 100,
+  "left": "runs/H01_random_seed0",
+  "right": "runs/H01_iterations1_seed0",
+  "bodies": {
+    "world": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "floor0": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:hand mount": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:forearm": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:wrist": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.011550927016891525
+    },
+    "robot0:palm": {
+      "max_position_difference_m": 0.00039272933525440684,
+      "max_orientation_difference_rad": 0.02383251515813754
+    },
+    "robot0:ffknuckle": {
+      "max_position_difference_m": 0.002264460829140591,
+      "max_orientation_difference_rad": 0.042260114033487284
+    },
+    "robot0:ffproximal": {
+      "max_position_difference_m": 0.002264460829140591,
+      "max_orientation_difference_rad": 0.062005661706722365
+    },
+    "robot0:ffmiddle": {
+      "max_position_difference_m": 0.0038883408229008925,
+      "max_orientation_difference_rad": 0.10223327305503398
+    },
+    "robot0:ffdistal": {
+      "max_position_difference_m": 0.005559895903427758,
+      "max_orientation_difference_rad": 0.1515878685759828
+    },
+    "robot0:mfknuckle": {
+      "max_position_difference_m": 0.002359520913996673,
+      "max_orientation_difference_rad": 0.05266948886060251
+    },
+    "robot0:mfproximal": {
+      "max_position_difference_m": 0.002359520913996673,
+      "max_orientation_difference_rad": 0.10606592011155591
+    },
+    "robot0:mfmiddle": {
+      "max_position_difference_m": 0.0059529894976079615,
+      "max_orientation_difference_rad": 0.12562325874077637
+    },
+    "robot0:mfdistal": {
+      "max_position_difference_m": 0.008059171685794505,
+      "max_orientation_difference_rad": 0.19827979913553337
+    },
+    "robot0:rfknuckle": {
+      "max_position_difference_m": 0.0022639290081285777,
+      "max_orientation_difference_rad": 0.042737516175897265
+    },
+    "robot0:rfproximal": {
+      "max_position_difference_m": 0.0022639290081285777,
+      "max_orientation_difference_rad": 0.08868425860996722
+    },
+    "robot0:rfmiddle": {
+      "max_position_difference_m": 0.0038349271870340047,
+      "max_orientation_difference_rad": 0.1502432667458858
+    },
+    "robot0:rfdistal": {
+      "max_position_difference_m": 0.0069122636979478845,
+      "max_orientation_difference_rad": 0.21931347481337202
+    },
+    "robot0:lfmetacarpal": {
+      "max_position_difference_m": 0.0010484338019477698,
+      "max_orientation_difference_rad": 0.19980361194553678
+    },
+    "robot0:lfknuckle": {
+      "max_position_difference_m": 0.008478487228887369,
+      "max_orientation_difference_rad": 0.2153802665899774
+    },
+    "robot0:lfproximal": {
+      "max_position_difference_m": 0.008478487228887369,
+      "max_orientation_difference_rad": 0.2118962908962682
+    },
+    "robot0:lfmiddle": {
+      "max_position_difference_m": 0.014519627838541063,
+      "max_orientation_difference_rad": 0.19433345343596906
+    },
+    "robot0:lfdistal": {
+      "max_position_difference_m": 0.017359914769228667,
+      "max_orientation_difference_rad": 0.19137191696385158
+    },
+    "robot0:thbase": {
+      "max_position_difference_m": 0.0008677051142072919,
+      "max_orientation_difference_rad": 0.2339801405706789
+    },
+    "robot0:thproximal": {
+      "max_position_difference_m": 0.0008677051142072919,
+      "max_orientation_difference_rad": 0.2342540605302532
+    },
+    "robot0:thhub": {
+      "max_position_difference_m": 0.006250541498134063,
+      "max_orientation_difference_rad": 0.2343344388365494
+    },
+    "robot0:thmiddle": {
+      "max_position_difference_m": 0.006250541498134063,
+      "max_orientation_difference_rad": 0.24723312170837922
+    },
+    "robot0:thdistal": {
+      "max_position_difference_m": 0.012399046278182788,
+      "max_orientation_difference_rad": 0.24746730536489772
+    },
+    "object": {
+      "max_position_difference_m": 0.6580174990707889,
+      "max_orientation_difference_rad": 2.5006784283087535
+    },
+    "target": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    }
+  },
+  "note": "Same commands and task configuration do not isolate a causal solver error; use controlled experiments and physical reference measurements"
+}

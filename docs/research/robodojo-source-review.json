@@ -1,0 +1,288 @@
+{
+  "code_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+  "asset_revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "tasks": [
+    {
+      "task_id": "M01",
+      "task": "pack_objects_into_box",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/pack_objects_into_box.py",
+      "conditions": "四件物品的功能点进入盒底区域，满足朝向限制，盒子朝向合规且机器人回到初始位置。分段评分10/25/50/100，还检查夹爪打开",
+      "asset_files": 57,
+      "categories": [
+        {
+          "kind": "Rigid",
+          "name": "car",
+          "indices": [
+            0,
+            6,
+            7
+          ],
+          "remote_files_found": 9
+        },
+        {
+          "kind": "Rigid",
+          "name": "electric_toothbrush",
+          "indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "remote_files_found": 11
+        },
+        {
+          "kind": "Rigid",
+          "name": "hammer",
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "remote_files_found": 10
+        },
+        {
+          "kind": "Rigid",
+          "name": "shoe",
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "remote_files_found": 24
+        },
+        {
+          "kind": "Rigid",
+          "name": "box",
+          "indices": null,
+          "remote_files_found": 3
+        }
+      ]
+    },
+    {
+      "task_id": "M02",
+      "task": "store_tools_in_toolbox",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/store_tools_in_toolbox.py",
+      "conditions": "钳子、锤子、卷尺、扳手的功能点对准指定槽位；检查姿态、覆盖关系与机器人回位。部分分数25/50/75/100使用单独的判据组合",
+      "asset_files": 10,
+      "categories": [
+        {
+          "kind": "Geometry",
+          "name": "toolbox",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        },
+        {
+          "kind": "Rigid",
+          "name": "hammer",
+          "indices": [
+            5
+          ],
+          "remote_files_found": 2
+        },
+        {
+          "kind": "Rigid",
+          "name": "pliers",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        },
+        {
+          "kind": "Rigid",
+          "name": "tape_measure",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        },
+        {
+          "kind": "Rigid",
+          "name": "wrench",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        }
+      ]
+    },
+    {
+      "task_id": "M03",
+      "task": "stack_blocks",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/stack_blocks.py",
+      "conditions": "三个方块满足is_stacked，机器人回位；XY阈值按资产索引为0.015/0.0175/0.02m，分段评分15/100另检查夹爪打开",
+      "asset_files": 45,
+      "categories": [
+        {
+          "kind": "Rigid",
+          "name": "block",
+          "indices": [
+            5,
+            8,
+            11,
+            14,
+            17
+          ],
+          "remote_files_found": 15
+        },
+        {
+          "kind": "Rigid",
+          "name": "block",
+          "indices": [
+            6,
+            9,
+            12,
+            15,
+            18
+          ],
+          "remote_files_found": 15
+        },
+        {
+          "kind": "Rigid",
+          "name": "block",
+          "indices": [
+            7,
+            10,
+            13,
+            16,
+            19
+          ],
+          "remote_files_found": 15
+        }
+      ]
+    },
+    {
+      "task_id": "P01",
+      "task": "push_T",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/push_T.py",
+      "conditions": "T块与目标四元数角距离<7度，XY距离<0.007m，机器人回位；另注册抬起超过0.01m的query，需保留原生命周期解释",
+      "asset_files": 6,
+      "categories": [
+        {
+          "kind": "Rigid",
+          "name": "t",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 3
+        },
+        {
+          "kind": "Geometry",
+          "name": "t_cushion",
+          "indices": null,
+          "remote_files_found": 3
+        }
+      ]
+    },
+    {
+      "task_id": "P03",
+      "task": "sweep_blocks",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/sweep_blocks.py",
+      "conditions": "簸箕与扫帚相对位置、簸箕未抬起且近直立、所有方块进入支撑圆/功能区域、机器人回位",
+      "asset_files": 36,
+      "categories": [
+        {
+          "kind": "Rigid",
+          "name": "broom_shovel",
+          "indices": [
+            0,
+            1,
+            4
+          ],
+          "remote_files_found": 3
+        },
+        {
+          "kind": "Rigid",
+          "name": "broom",
+          "indices": null,
+          "remote_files_found": 3
+        },
+        {
+          "kind": "Rigid",
+          "name": "small_cube",
+          "indices": null,
+          "remote_files_found": 30
+        }
+      ]
+    },
+    {
+      "task_id": "I01",
+      "task": "insert_tubes",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/insert_tubes.py",
+      "conditions": "三根管分别满足包围盒高度差>0.045m、is_A_in_B、轴线朝上30度以内且机器人回位；分段20/40/100另检查夹爪打开",
+      "asset_files": 4,
+      "categories": [
+        {
+          "kind": "Rigid",
+          "name": "test_tube",
+          "indices": [
+            2
+          ],
+          "remote_files_found": 2
+        },
+        {
+          "kind": "Geometry",
+          "name": "test_tube_slot",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        }
+      ]
+    },
+    {
+      "task_id": "I02",
+      "task": "plug_in_charger",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/plug_in_charger.py",
+      "conditions": "充电器与插座包围盒高度差>0.015m、is_A_in_B、指定轴朝上10度以内、机器人回位",
+      "asset_files": 5,
+      "categories": [
+        {
+          "kind": "Rigid",
+          "name": "charger",
+          "indices": null,
+          "remote_files_found": 3
+        },
+        {
+          "kind": "Rigid",
+          "name": "socket",
+          "indices": null,
+          "remote_files_found": 2
+        }
+      ]
+    },
+    {
+      "task_id": "I03",
+      "task": "insert_key",
+      "scoring_url": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/tasks/insert_key.py",
+      "conditions": "深度代理>0.025m、XY距离<0.007m、竖直方向7度内、相对旋转轴方向30度内；分段15/100。指令要求交接，但终态判据不能单独证明交接发生",
+      "asset_files": 4,
+      "categories": [
+        {
+          "kind": "Geometry",
+          "name": "key_slot",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        },
+        {
+          "kind": "Rigid",
+          "name": "key",
+          "indices": [
+            0
+          ],
+          "remote_files_found": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+# Executable object-scene check, separate from the incomplete I01 robot task.
+scope: object_scene_diagnostic
+backend: mujoco
+num_envs: 2
+steps: 30
+output: runs/I01-manager-diagnostic
+env:
+  _target_: unilab.envs.ManagerBasedRlEnvCfg
+  scene:
+    _target_: unilab.base.scene.SceneCfg
+    model_file: assets/generated/I01-convex/scene.xml
+    entities:
+      objects:
+        _target_: unilab.base.entity.EntityCfg
+        root_body_name: tube0
+        body_names: [tube0, tube1, tube2, slot]
+        actuator_names: []
+  sim_dt: 0.004
+  ctrl_dt: 0.004
+  max_episode_seconds: 0.08
+  seed: 0
+  auto_reset: false
+  defer_finite_validation: false
+  observations:
+    policy:
+      _target_: unilab.managers.ObservationGroupCfg
+      terms:
+        object_pose:
+          _target_: unilab.managers.ObservationTermCfg
+          func:
+            _target_: hydra.utils.get_class
+            path: integrations.unilab.object_scene_terms.ObjectPose
+          params:
+            entity_name: objects
+            body_names: [tube0, tube1, tube2, slot]
+        source_geometry:
+          _target_: unilab.managers.ObservationTermCfg
+          func:
+            _target_: hydra.utils.get_class
+            path: integrations.unilab.object_scene_terms.SourceGeometry
+          params:
+            entity_name: objects
+            body_names: [tube0, tube1, tube2, slot]
+  events:
+    restore_scene:
+      _target_: unilab.managers.EventTermCfg
+      func:
+        _target_: hydra.utils.get_method
+        path: unilab.envs.mdp.reset_scene_to_default
+      mode: reset
+  actions: {}
+  rewards: {}
+  terminations:
+    timeout:
+      _target_: unilab.managers.TerminationTermCfg
+      func:
+        _target_: hydra.utils.get_method
+        path: unilab.envs.mdp.time_out
+      time_out: true
+  metrics:
+    mean_tube_height_m:
+      _target_: unilab.managers.MetricsTermCfg
+      func:
+        _target_: hydra.utils.get_class
+        path: integrations.unilab.object_scene_terms.MeanHeight
+      params:
+        entity_name: objects
+        body_names: [tube0, tube1, tube2]
+      reduce: last
+    source_geometry_count:
+      _target_: unilab.managers.MetricsTermCfg
+      func:
+        _target_: hydra.utils.get_class
+        path: integrations.unilab.object_scene_terms.SourceGeometryCount
+      params:
+        entity_name: objects
+        body_names: [tube0, tube1, tube2, slot]
+      reduce: last
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: runs/manager-config/${now:%Y%m%d_%H%M%S}

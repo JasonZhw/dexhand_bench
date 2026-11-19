@@ -1,0 +1,146 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+E.EEE.
+======================================================================
+ERROR: test_action_shape_and_nonfinite_rejected (test_gym_adapter.GymAdapterTests.test_action_shape_and_nonfinite_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 14, in test_action_shape_and_nonfinite_rejected
+    b=self.make();b.reset(1)
+      ^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 9, in make
+    b=GymRoboticsBackend('HandManipulateBlockRotateXYZ-v1',**kw);self.addCleanup(b.close);return b
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/dexbench/backends/gym_robotics.py", line 36, in __init__
+    self.env=gym.make(env_id,render_mode='rgb_array' if render else None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium/envs/registration.py", line 734, in make
+    env = env_creator(**env_spec_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate_block.py", line 221, in __init__
+    MujocoManipulateEnv.__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py", line 80, in __init__
+    super().__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 40, in __init__
+    super().__init__(default_camera_config=default_camera_config, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 25, in __init__
+    super().__init__(n_actions=20, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 280, in __init__
+    super().__init__(**kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 78, in __init__
+    self._initialize_simulation()
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 293, in _initialize_simulation
+    self.model = self._mujoco.MjModel.from_xml_path(self.fullpath)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: XML Error: Schema violation: unrecognized attribute: 'apirate'
+Element 'option', line 4
+
+
+======================================================================
+ERROR: test_explicit_parameters_and_contacts (test_gym_adapter.GymAdapterTests.test_explicit_parameters_and_contacts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 22, in test_explicit_parameters_and_contacts
+    b=self.make(physics={'iterations':17,'solver':'Newton'});b.reset(4)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 9, in make
+    b=GymRoboticsBackend('HandManipulateBlockRotateXYZ-v1',**kw);self.addCleanup(b.close);return b
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/dexbench/backends/gym_robotics.py", line 36, in __init__
+    self.env=gym.make(env_id,render_mode='rgb_array' if render else None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium/envs/registration.py", line 734, in make
+    env = env_creator(**env_spec_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate_block.py", line 221, in __init__
+    MujocoManipulateEnv.__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py", line 80, in __init__
+    super().__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 40, in __init__
+    super().__init__(default_camera_config=default_camera_config, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 25, in __init__
+    super().__init__(n_actions=20, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 280, in __init__
+    super().__init__(**kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 78, in __init__
+    self._initialize_simulation()
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 293, in _initialize_simulation
+    self.model = self._mujoco.MjModel.from_xml_path(self.fullpath)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: XML Error: Schema violation: unrecognized attribute: 'apirate'
+Element 'option', line 4
+
+
+======================================================================
+ERROR: test_reset_reproduces_initial_state (test_gym_adapter.GymAdapterTests.test_reset_reproduces_initial_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 11, in test_reset_reproduces_initial_state
+    b=self.make();b.reset(17);first=b.snapshot();b.step(b.action('random'));b.reset(17)
+      ^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 9, in make
+    b=GymRoboticsBackend('HandManipulateBlockRotateXYZ-v1',**kw);self.addCleanup(b.close);return b
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/dexbench/backends/gym_robotics.py", line 36, in __init__
+    self.env=gym.make(env_id,render_mode='rgb_array' if render else None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium/envs/registration.py", line 734, in make
+    env = env_creator(**env_spec_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate_block.py", line 221, in __init__
+    MujocoManipulateEnv.__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py", line 80, in __init__
+    super().__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 40, in __init__
+    super().__init__(default_camera_config=default_camera_config, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 25, in __init__
+    super().__init__(n_actions=20, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 280, in __init__
+    super().__init__(**kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 78, in __init__
+    self._initialize_simulation()
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 293, in _initialize_simulation
+    self.model = self._mujoco.MjModel.from_xml_path(self.fullpath)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: XML Error: Schema violation: unrecognized attribute: 'apirate'
+Element 'option', line 4
+
+
+======================================================================
+ERROR: test_step_has_boolean_success_and_applied_control (test_gym_adapter.GymAdapterTests.test_step_has_boolean_success_and_applied_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 18, in test_step_has_boolean_success_and_applied_control
+    b=self.make();b.reset(1);r=b.step([2.]*20)
+      ^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 9, in make
+    b=GymRoboticsBackend('HandManipulateBlockRotateXYZ-v1',**kw);self.addCleanup(b.close);return b
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/dexbench/backends/gym_robotics.py", line 36, in __init__
+    self.env=gym.make(env_id,render_mode='rgb_array' if render else None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium/envs/registration.py", line 734, in make
+    env = env_creator(**env_spec_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate_block.py", line 221, in __init__
+    MujocoManipulateEnv.__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py", line 80, in __init__
+    super().__init__(
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 40, in __init__
+    super().__init__(default_camera_config=default_camera_config, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/shadow_dexterous_hand/hand_env.py", line 25, in __init__
+    super().__init__(n_actions=20, **kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 280, in __init__
+    super().__init__(**kwargs)
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 78, in __init__
+    self._initialize_simulation()
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/.venv/lib/python3.12/site-packages/gymnasium_robotics/envs/robot_env.py", line 293, in _initialize_simulation
+    self.model = self._mujoco.MjModel.from_xml_path(self.fullpath)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: XML Error: Schema violation: unrecognized attribute: 'apirate'
+Element 'option', line 4
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.183s
+
+FAILED (errors=4)

@@ -1,0 +1,355 @@
+{
+  "imported_at": "2026-11-19",
+  "source": "local initial dexbench workspace, 2026-11-11 to 2026-11-12",
+  "note": "Only previously missing files imported; current implementations and evidence were not overwritten. Markdown files carry a historical banner. Source hashes are before adding the banner.",
+  "files": [
+    {
+      "path": "docs/asset-gaps.md",
+      "source_sha256": "602d2be1fe79c6c8fca42c19c25dac71b6adbaeb42bcee9d2912b455d149a75c"
+    },
+    {
+      "path": "docs/catalog-audit.json",
+      "source_sha256": "47ed0174dabb65bc54c36d48004d4fe3d482f441e74e515d2921c6aa6681e71f"
+    },
+    {
+      "path": "docs/evidence/H01-parameter-comparison.json",
+      "source_sha256": "041e92d0176d80b6cb1097a7d22f2ec47d84408580a6d0102688d42fca86326d"
+    },
+    {
+      "path": "docs/evidence/H01-repeatability.json",
+      "source_sha256": "f84208d206b4100f409ea6608b284ce6aa0c064dc913889c1e002f8b3b67c92c"
+    },
+    {
+      "path": "docs/evidence/H01_iterations1_seed0.log",
+      "source_sha256": "84d850a4e4953486447ef8a0576072216d4d488ca8812e70c59de3d87beb7c2e"
+    },
+    {
+      "path": "docs/evidence/H01_random_seed0.log",
+      "source_sha256": "2752ee127f60c3b25732b653e01cc04b1953a14af440f30baaa0430cfc54a99f"
+    },
+    {
+      "path": "docs/evidence/H01_random_seed1.log",
+      "source_sha256": "3117198585ce1cd0f9e2a568372f008fcb86a7213d8f3a9a8ed390343820f834"
+    },
+    {
+      "path": "docs/evidence/H01_replay_seed0.log",
+      "source_sha256": "d1aacc83ee799cf25dc0b80c984a82c9e441721708b0803395093d8007401799"
+    },
+    {
+      "path": "docs/evidence/H01_zero_seed0.log",
+      "source_sha256": "cf4295f5315d3cb6a55a777b4ce347f2bad519c74c6825181d6ce1bee1857258"
+    },
+    {
+      "path": "docs/evidence/H02_random_seed0.log",
+      "source_sha256": "4f8e74705fd6c2d8dd8c9fc8d1ef238614ab84eff6008da34b7c0c3431894cd3"
+    },
+    {
+      "path": "docs/evidence/H02_random_seed1.log",
+      "source_sha256": "ec8d0e19a3bde5c799cd9fd4fd664e8639bf88706f276815485493849a544b2c"
+    },
+    {
+      "path": "docs/evidence/H02_zero_seed0.log",
+      "source_sha256": "fa3ca70a2153b6352d71b2d1ce36fae538e8004b56ba130974719ffe09c6f48b"
+    },
+    {
+      "path": "docs/evidence/H03_random_seed0.log",
+      "source_sha256": "f458595235ddde85518e57d51ed25e7112383019c69c8596a1117f763ef9e943"
+    },
+    {
+      "path": "docs/evidence/H03_random_seed1.log",
+      "source_sha256": "18425022a28838c6eff54b5cbf3af7101d1f73a7dfbe015ce48b5faf4d78c3a7"
+    },
+    {
+      "path": "docs/evidence/H03_zero_seed0.log",
+      "source_sha256": "507174aa84c3dd5ee5add13c2635c82f2e95afc2652bd41b0bf969d549c60bb3"
+    },
+    {
+      "path": "docs/evidence/P02_random_seed0.log",
+      "source_sha256": "2716ff7d44c5749e85fbdc762efe674ef84ee27a58df98dde0fc8ca2bb298e90"
+    },
+    {
+      "path": "docs/evidence/P02_random_seed1.log",
+      "source_sha256": "a2a7765d6ceec50ec966c105dc471767286da0c596950498e24d6ce726751f36"
+    },
+    {
+      "path": "docs/evidence/P02_zero_seed0.log",
+      "source_sha256": "58cd71e17fd4d692e1a6803ed7d56b68e0c53991ed4a6487f6bc7934779b36c9"
+    },
+    {
+      "path": "docs/evidence/R03_random_seed0.log",
+      "source_sha256": "fd7d4de108072889adcf0d2fa4ef62ee36cd5c4ccfa0400dd34ac5a42ea025df"
+    },
+    {
+      "path": "docs/evidence/R03_random_seed1.log",
+      "source_sha256": "2ee83a50a1a4f8877de11e5ef82e079d7c944094727a8523724b8507fe8fc259"
+    },
+    {
+      "path": "docs/evidence/R03_zero_seed0.log",
+      "source_sha256": "620135b84227bb860cb68b1e2e22b668251a9c0760450beb8cd9ceb611882f9b"
+    },
+    {
+      "path": "docs/evidence/apple-source-poses.json",
+      "source_sha256": "14a8e145fc22d29e00a0eccee764f160942fa1c96762f431142a49769a2dea82"
+    },
+    {
+      "path": "docs/evidence/asset-verification.json",
+      "source_sha256": "557735328ad6778e19834fb7cc5db09c9a0cf63c4c7a903dbf677e5740290101"
+    },
+    {
+      "path": "docs/evidence/batch-workers1.log",
+      "source_sha256": "236719056265177ad19c30747dbeda32d443d84af0a21e7c7da07a56cfd2cf9b"
+    },
+    {
+      "path": "docs/evidence/batch-workers2.log",
+      "source_sha256": "43ed74482a3f094db0d537f14a4608714cb525b32d8f2e1a9d45115f1db59efc"
+    },
+    {
+      "path": "docs/evidence/compat-door-mj337.log",
+      "source_sha256": "3492fd17f4b90a0ab8f2d24fdf163e4086f192cd320ba7672a7156be483ae354"
+    },
+    {
+      "path": "docs/evidence/external-replay-20261112.json",
+      "source_sha256": "42c0d7fc3d98ff0d43b8a471367b3a9aee6b55dfe812aa65ed026bd54e07f481"
+    },
+    {
+      "path": "docs/evidence/initial-integration-failure.log",
+      "source_sha256": "7f8abacf614f771fc996f29416984fbe82191b914b61703bed0efa55aaa59220"
+    },
+    {
+      "path": "docs/evidence/integration-tests-pre-fix.log",
+      "source_sha256": "1589028a658fe1d9dafc9ec550298f21c839a04233bf1761a05eb378fe9a3659"
+    },
+    {
+      "path": "docs/evidence/lifecycle-verification.log",
+      "source_sha256": "3a8ee07c9e41fcf368e8cf3fe7f848332103d8a03b194c054d076de4d7775d23"
+    },
+    {
+      "path": "docs/evidence/pip-check.txt",
+      "source_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "docs/evidence/previews/H01_end.png",
+      "source_sha256": "a083f2ea9426b598636ed832013fb9454db84a0f82083ed4c58c46d9f5dc6ed0"
+    },
+    {
+      "path": "docs/evidence/previews/H01_start.png",
+      "source_sha256": "7a25659e1f3d6d0c8a2e1d2e467cbefe9604a94f8963095a372dfd5c86ff9f68"
+    },
+    {
+      "path": "docs/evidence/previews/H02_end.png",
+      "source_sha256": "2b7fa74c6a9ec39f3e46c38ed5daf2b09e91ba282704d1a6f4816f9a910bd31e"
+    },
+    {
+      "path": "docs/evidence/previews/H02_start.png",
+      "source_sha256": "ef2fc3c3e4a18cf2d146d6d434cf2cea40a7dc5a3daffea3feed6310d2205a25"
+    },
+    {
+      "path": "docs/evidence/previews/H03_end.png",
+      "source_sha256": "73caab2c75f4df951cfea5cd7c5c5d93a1bfe3306719708b7da6ca1b268244ad"
+    },
+    {
+      "path": "docs/evidence/previews/H03_start.png",
+      "source_sha256": "76504ec0aebcc11dc37489ae7b1776526b5689c5f67bad5c665288241d4db1d2"
+    },
+    {
+      "path": "docs/evidence/previews/P02_end.png",
+      "source_sha256": "f09a226200c6f2813c6526d90b6f98151d584d129eb7c1e927bbbb46842ea2f4"
+    },
+    {
+      "path": "docs/evidence/previews/P02_start.png",
+      "source_sha256": "ae383aa25b6c1e943bc529bf6d6909e8166ae2824f5c51162cf1142053d5e230"
+    },
+    {
+      "path": "docs/evidence/previews/R03_end.png",
+      "source_sha256": "2f3f5adb2a20a7be2d3c5ba28360e4cd37ef5c977b55c0cc6ce0af634d1f53f9"
+    },
+    {
+      "path": "docs/evidence/previews/R03_start.png",
+      "source_sha256": "c84bdcd29d10de9d41147b39defdca9a2e5196caa54da4900791ee801f880490"
+    },
+    {
+      "path": "docs/evidence/previews/source-task-contact-sheet.png",
+      "source_sha256": "0846bd1781e320eaf9686a06aa235eeebdcd3a01d33c8991e15e4767040bf623"
+    },
+    {
+      "path": "docs/evidence/robodojo-score-parity.json",
+      "source_sha256": "cfe4adb19e67a08a035cf96daa667917b456358873620d26ad13bab476dce044"
+    },
+    {
+      "path": "docs/evidence/robodojo-usd-inspection.json",
+      "source_sha256": "1840ad0301136bd1e4eb53cc2e19d432c4e22c7c4f7d4498f5592f35cd07bf27"
+    },
+    {
+      "path": "docs/evidence/source-smoke-summary.json",
+      "source_sha256": "f0c1c6e1a02416aa551baa523b710f4600117432de8b2d4babfd8322820f1943"
+    },
+    {
+      "path": "docs/evidence/test-suite-20261112.log",
+      "source_sha256": "7734140bcd8eedc843eb5aad8f399ac895ec1498a768c4cced556b38b2f4ef64"
+    },
+    {
+      "path": "docs/evidence/test-suite-meeting.log",
+      "source_sha256": "30df2c0cb626ca12b2512304dc13aae3f493adec79e78c1447b4d502efc077e8"
+    },
+    {
+      "path": "docs/evidence/test-suite-unilab-port.log",
+      "source_sha256": "3c89c6ded22ffdf8b4e9377cb615bc1e84a369b6edceac434a06b2982ab46521"
+    },
+    {
+      "path": "docs/evidence/unilab-metrics-attempt.json",
+      "source_sha256": "eda99562f81ca50085eaae0d096f6228c10dcd1c1d149afdfacf4b70cf9cd062"
+    },
+    {
+      "path": "docs/evidence/unilab-metrics-contract.json",
+      "source_sha256": "d3d3eef0b272cadf373d4d843387f6919f68ee2dd927cbf3a683566a8f483069"
+    },
+    {
+      "path": "docs/evidence/unilab-scene-declaration.json",
+      "source_sha256": "8943f51b8d71dfe8862774951d71516db1dd006c555b21bc2425642e0e0215ff"
+    },
+    {
+      "path": "docs/evidence/unilab-scene-declaration.log",
+      "source_sha256": "b2a3fc26bbe5f999fb05aac18a2a26f88eec261cbfb5173a7328060c95ef10d4"
+    },
+    {
+      "path": "docs/evidence/videos/H01-zero-smoke.mp4",
+      "source_sha256": "fb543fa43f5817e400cfaf5c1a326d7edf3d1d3ca6da2831bbc977b3e25a7123"
+    },
+    {
+      "path": "docs/evidence/videos/H02-zero-smoke.mp4",
+      "source_sha256": "41f8df2a1caf225396d1450c5d325d5c5fba0907cabb085f2580a59e0c3a52ce"
+    },
+    {
+      "path": "docs/evidence/videos/H03-zero-smoke.mp4",
+      "source_sha256": "d68e2cfe809fd15b8a204c060c4be76e08837ba72af77919238ed4d248cc3b8e"
+    },
+    {
+      "path": "docs/evidence/videos/P02-zero-smoke.mp4",
+      "source_sha256": "71aa0d50bfb76a9f90dae3899f0cf1923ebbcd22c4514d12b06eee896657efad"
+    },
+    {
+      "path": "docs/evidence/videos/R03-zero-smoke.mp4",
+      "source_sha256": "03ec5fa567c792ba7327dc68c48df9988708afd386df74d3af48d4b55c8b4bae"
+    },
+    {
+      "path": "docs/framework.md",
+      "source_sha256": "9f4a4a385076054843bd280b9088288539e241876cd26a29146fe64900a49431"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "source_sha256": "78493f609bc0ce66b74885e5e95331a3dcd81a0db7bc627ade47b053d4d29482"
+    },
+    {
+      "path": "docs/physics-extension.md",
+      "source_sha256": "42a234492dd0b9522ed75cd0d108eb7b1a19ad4664cb4582849b9968d028c000"
+    },
+    {
+      "path": "docs/progress.html",
+      "source_sha256": "bf298747077ab5c1cf91988ac56a26967ea1005a79f713926392e8fd6d7b975a"
+    },
+    {
+      "path": "docs/progress.md",
+      "source_sha256": "ccb1374ce5821760d6d3108a01db692e0faece018ad689ad73922e105474068d"
+    },
+    {
+      "path": "docs/quickstart.md",
+      "source_sha256": "affd5050af352720167ac12ce9a4e95875588229413702bc449f93d55daf070f"
+    },
+    {
+      "path": "docs/research/bench2dex-server-asset-audit.json",
+      "source_sha256": "e6001e2368e1861f47513c513069bcd5f9f4ce0eb21869e109b05d61662c4f21"
+    },
+    {
+      "path": "docs/research/bench2dex-source-review.json",
+      "source_sha256": "b6e0adcc5c5c36f7c413b084d5f4d1f994eaccc602db274980d7c906744d99b8"
+    },
+    {
+      "path": "docs/research/farama-source-review.json",
+      "source_sha256": "22c263d187f3afd58440db2579ad13b821e84ce24288442777eeaf3a2c52273e"
+    },
+    {
+      "path": "docs/research/robodojo-source-review.json",
+      "source_sha256": "688644a1538084105f964212268099ea89fdff2d989af649c4544b9a61fca020"
+    },
+    {
+      "path": "docs/research/third-party-provenance.json",
+      "source_sha256": "cd8cf16fbcf87cdfe8327b79699dea932ea859751dacf56e95c792481caee903"
+    },
+    {
+      "path": "docs/result-contract.md",
+      "source_sha256": "2b16aa0b485e1b0ddd4bdd1457d2ba03cb0ac4155490aa7edcfb22f1cf76c5b5"
+    },
+    {
+      "path": "docs/review-20261111.md",
+      "source_sha256": "51ab5c1282992e951d99234160afb8868abef59252656de6ed212d5a615d343f"
+    },
+    {
+      "path": "docs/review-notes.md",
+      "source_sha256": "1f7cdbde215b35fcb7fddbf22ba7282875f1718110ec3ca38a0a4f998f2d8d3b"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "source_sha256": "320fcb03ce0487f99da90ded47483cc9a39d52057cc692612d74e779dd694930"
+    },
+    {
+      "path": "docs/robodojo-to-unilab.md",
+      "source_sha256": "92cee4d76d32481fc867b4f61a3d717d4c67e63cdb59e76f27c31e791dabc401"
+    },
+    {
+      "path": "docs/source-bridge-progress.md",
+      "source_sha256": "84fe00da60be1817d84a66f97b61a3c1ce024e6651005bfb8d6e49fa6400649d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-11-runnable-starter.md",
+      "source_sha256": "93b0a412e35ee59384b0fad2653c6e801fda95b62cf73c0eff90acad9b299f81"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-12-meeting-video.md",
+      "source_sha256": "c1336941776ea9ae47cba38b7d2a7569c0f4f2e7de37a7ed037ec9f95c906cb4"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-12-source-bridge.md",
+      "source_sha256": "9423f9341350690a582c6cc0e8f89ae349ec94d274d3b17d5b1d02dc1f8f199b"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-12-unilab-contract.md",
+      "source_sha256": "5c2cd71193cc89fb4c75d4238351caf11b5e5aa7a8b1ee5ab102e74e6eadcf05"
+    },
+    {
+      "path": "docs/task-contract.md",
+      "source_sha256": "58fc6fb61414037b07fd4453d0dc489a6dab5a6ca10d2c50453fbc51a8a6f3a8"
+    },
+    {
+      "path": "docs/unilab-migration.md",
+      "source_sha256": "19e441e98e4ff7e80eacdfd4c859da621f062bb46101164068e1d7e070630a39"
+    },
+    {
+      "path": "docs/vector-backend-contract.md",
+      "source_sha256": "f2cc1f01bd563a2ed1486982df944125503e01d03e6bb98fcf3d4929342a3571"
+    },
+    {
+      "path": "docs/work-ledger.md",
+      "source_sha256": "8f66efdd7dfcd575092c1e4b89207453656d7d8431bb61542f2010e2a027edab"
+    },
+    {
+      "path": "scripts/build_meeting_report.py",
+      "source_sha256": "b5f9e24fe708aa4baf06c7216ff8c83ae33124c641d8eed6e1478b41a74de672"
+    },
+    {
+      "path": "scripts/build_report.py",
+      "source_sha256": "525ce583db2d6245460e0d0f9220b1cd3c3e285e7aa411677de79d0f81be6a9f"
+    },
+    {
+      "path": "scripts/check_robodojo_score_parity.py",
+      "source_sha256": "665076c8639db0a6a9dc918634ef5cb28bd7ea569b5b1d4444a45770fb6e061c"
+    },
+    {
+      "path": "scripts/inspect_usd.py",
+      "source_sha256": "77e3a07f6e7960a51fe537eb5694ec03f6d93f1c3a0a43f88133f841778c2288"
+    },
+    {
+      "path": "scripts/plot_replay_diagnostics.py",
+      "source_sha256": "0ba49baee32dac9661ec7701a02cfbf82bad65ece638f9605af6c7b6c9f4bf6f"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "not_executed",
+  "reason": "Dependency download deferred after measured official CPU wheel throughput ~39662 bytes/s; stopped owned installer processes",
+  "environment": ".venv-unilab",
+  "python": "3.12.14",
+  "requested_torch": "2.9.1+cpu",
+  "requested_unisim": "2.7.1",
+  "existing_isaac_environment_modified": false,
+  "source_score_parity_passed": true,
+  "real_unilab_manager_verified": false,
+  "physical_scene_verified": false
+}

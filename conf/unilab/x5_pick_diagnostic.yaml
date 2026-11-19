@@ -1,0 +1,24 @@
+defaults:
+  - x5_control_diagnostic
+  - _self_
+scope: x5_pick_diagnostic
+output: runs/I01-x5-pick
+video: true
+pick:
+  side: right
+  target_body: tube0
+  tcp_offset_m: 0.145
+  approach_height_m: 0.12
+  lift_height_m: 0.10
+  close_position_m: 0.005
+  minimum_lift_m: 0.05
+  maximum_hold_drift_m: 0.01
+  stages:
+    settle: 125
+    approach: 500
+    descend: 300
+    close: 250
+    lift: 500
+    hold: 250
+env:
+  max_episode_seconds: 12.0

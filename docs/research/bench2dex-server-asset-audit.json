@@ -1,0 +1,152 @@
+[
+  {
+    "asset_path": "Objects/011_banana/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1152713,
+    "sha256": "1f1b39dfc8b2af4fe0ce89af4ab36daa375efaa01dc8e514419bc946ad499f04"
+  },
+  {
+    "asset_path": "Objects/013_apple/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1153925,
+    "sha256": "f5b74ba187fb5fac004590678e257a45f22cc20b243aac46fc8d9eb350467d2d"
+  },
+  {
+    "asset_path": "Objects/024_bowl/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1158170,
+    "sha256": "18a2ecaee818d492fc0bb4778b8c19e4e4ce42bdbeac8364d74b498a7c562cc5"
+  },
+  {
+    "asset_path": "Objects/025_mug/usd_sdf_linux/textured.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/031_spoon/usd_decomposition_linux/textured.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/036_wood_block/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1142997,
+    "sha256": "0d727d046f463724b3bd67c95daad49cb68157373d00febfe3e8b55404aef52b"
+  },
+  {
+    "asset_path": "Objects/043_phillips_screwdriver/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1153658,
+    "sha256": "acc758c918bdf929f680c58c5163945ab5cc4d93f35457666329fa3b0d43ba70"
+  },
+  {
+    "asset_path": "Objects/044_flat_screwdriver/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1153966,
+    "sha256": "615557e684207997c4998132dde36133b4b0bafb65c3c19b6c167e9206cc2b88"
+  },
+  {
+    "asset_path": "Objects/048_hammer/usd_decomposition_linux/textured.usd",
+    "exists": true,
+    "bytes": 1152877,
+    "sha256": "1600f1142472ea8f0ca2281fce54d76be7b6dca2810f70a7d1232af09ec48ee0"
+  },
+  {
+    "asset_path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/130_tray/usd_sdf_linux/base3.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/146_olive-oil/usd_decomposition_linux/base4.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/154_wooden_box/usd_decomposition_linux/base0.usd",
+    "exists": true,
+    "bytes": 1460841,
+    "sha256": "5db17ffdabe6d2e7660a2a560aab92ef3d0b003ae3b95d5c630dfd895a2508ef"
+  },
+  {
+    "asset_path": "Objects/166_markpen/usd_decomposition_linux/base5.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/167_pencup/usd_sdf_linux/base6.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/168_battery/usd_decomposition_linux/base5.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/169_plasticbox/usd_decomposition_linux/base10.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/171_msg/usd_decomposition_linux/base5.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/172_soy-sauce/usd_decomposition_linux/base4.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/173_vinegar/usd_decomposition_linux/base2.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/182_bread/usd_decomposition_linux/base6.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/199_glue/usd_decomposition_linux/base6.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/221_pen/usd_decomposition_linux/Pen.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/223_chefmate_frypan/usd_decomposition_linux/Chefmate_8_Frypan.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "asset_path": "Objects/333_portable_stove/01_portable_stove/01/usd_decomposition_linux/portable_kitchen_stove.usd",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  }
+]

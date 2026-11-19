@@ -1,0 +1,13 @@
+{
+  "gymnasium_robotics_version": "1.4.1",
+  "gymnasium_robotics_revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+  "package_code_license": "MIT",
+  "bundled_asset_license_file": "gymnasium_robotics/envs/assets/LICENSE.md",
+  "shadow_hand_notice": "Based on ShadowRobot hand model and code with Apache-2.0 notice attributed to Vikash Kumar, CSE UW",
+  "fetch_notice": "Based on Fetch Robotics models, adapted by OpenAI; consult upstream model license",
+  "robodojo_code_license": "MIT",
+  "robodojo_dataset_card_license": "apache-2.0",
+  "bench2dex_code_license": "MIT",
+  "bench2dex_asset_license": "not individually verified",
+  "redistribution_note": "Runtime assets are ignored by git. Preserve source license and attribution before redistribution; project owner chooses own code license"
+}
