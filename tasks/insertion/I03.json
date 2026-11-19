@@ -73,5 +73,184 @@
   "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-key; key-slot"
+  "contact_structure": "hand-key; key-slot",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "RoboDojo Insert Key",
+      "source_url": "https://robodojo-benchmark.com/doc/sim-tasks/insert-key/",
+      "source_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+      "scoring_code_path": "task/RoboDojo/tasks/insert_key.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "深度代理>0.025m、XY距离<0.007m、竖直方向7度内、相对旋转轴方向30度内；分段15/100。指令要求交接，但终态判据不能单独证明交接发生",
+        "supporting_code": [
+          "env/reward_manager/reward_manager.py",
+          "env/reward_manager/func_parser.py"
+        ],
+        "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "key",
+        "slot"
+      ],
+      "asset_manifest": "asset_manifests/I03-robodojo.json",
+      "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用固定版本原任务 reset/layout 与物体尺度，保存实际初态；目标手型和随机范围另行标定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": 300,
+      "source_step_unit": "source task step_lim, not seconds"
+    },
+    "initial": null,
+    "signals": {
+      "depth_m": {
+        "type": "number",
+        "unit": "m",
+        "definition": "slot 世界 bbox z_max 减 key 世界 bbox z_min",
+        "origin": "source"
+      },
+      "xy_error_m": {
+        "type": "number",
+        "unit": "m",
+        "definition": "key 与 slot 世界原点 XY 距离",
+        "origin": "source"
+      },
+      "upright_deg": {
+        "type": "number",
+        "unit": "deg",
+        "definition": "key 局部 +Z 与世界 +Z 夹角",
+        "origin": "source"
+      },
+      "turn_alignment_deg": {
+        "type": "number",
+        "unit": "deg",
+        "definition": "key 局部 +X 与 slot 局部 [0.5,-sqrt(3)/2,0] 转换至世界后的夹角",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "all": [
+          {
+            "signal": "depth_m",
+            "op": "gt",
+            "value": 0.025
+          },
+          {
+            "signal": "xy_error_m",
+            "op": "lt",
+            "value": 0.007
+          },
+          {
+            "signal": "upright_deg",
+            "op": "lt",
+            "value": 7
+          },
+          {
+            "signal": "turn_alignment_deg",
+            "op": "lt",
+            "value": 30
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "terminal_condition",
+        "rule": {
+          "all": [
+            {
+              "signal": "depth_m",
+              "op": "gt",
+              "value": 0.025
+            },
+            {
+              "signal": "xy_error_m",
+              "op": "lt",
+              "value": 0.007
+            },
+            {
+              "signal": "upright_deg",
+              "op": "lt",
+              "value": 7
+            },
+            {
+              "signal": "turn_alignment_deg",
+              "op": "lt",
+              "value": 30
+            }
+          ]
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "depth_m_final",
+        "signal": "depth_m",
+        "reduce": "final"
+      },
+      {
+        "name": "xy_error_m_final",
+        "signal": "xy_error_m",
+        "reduce": "final"
+      },
+      {
+        "name": "upright_deg_final",
+        "signal": "upright_deg",
+        "reduce": "final"
+      },
+      {
+        "name": "turn_alignment_deg_final",
+        "signal": "turn_alignment_deg",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending",
+      "remaining_source_semantics": "终态不证明双手交接，交接只属于原指令；未来若强制交接需另立协议"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

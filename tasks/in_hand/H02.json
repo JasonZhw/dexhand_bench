@@ -86,5 +86,138 @@
     "load": "docs/evidence/H02-runtime-receipt.json",
     "reset": "docs/evidence/test-suite.log; test_all_source_environments_reset_repeatably"
   },
-  "contact_structure": "multi-finger-pen"
+  "contact_structure": "multi-finger-pen",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "Adroit Pen",
+      "source_url": "https://robotics.farama.org/envs/adroit_hand/adroit_pen/",
+      "source_revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+      "scoring_code_path": "gymnasium_robotics/envs/adroit_hand/adroit_pen.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "笔位置误差<0.075m且笔轴与目标轴点积>0.95；轴向对齐不约束绕笔轴的自转角",
+        "environment_id": "AdroitHandPen-v1",
+        "episode_scoring_note": "工程使用终帧原成功判据，并另存过程是否曾成功；不自动复刻任何论文的多episode聚合规则"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "pen",
+        "target_pen"
+      ],
+      "asset_manifest": null,
+      "robot_reference": "Adroit hand",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用 AdroitHandPen-v1 reset，保持原笔与手的初态，目标笔随机姿态由固定 seed 生成",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": null,
+    "signals": {
+      "position_error_m": {
+        "type": "number",
+        "unit": "m",
+        "definition": "笔质心与目标笔位置欧氏距离",
+        "origin": "source"
+      },
+      "axis_dot": {
+        "type": "number",
+        "unit": "1",
+        "definition": "源笔 top/bottom site 定义的单位轴与目标笔轴点积；不限制绕长轴自转",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "all": [
+          {
+            "signal": "position_error_m",
+            "op": "lt",
+            "value": 0.075
+          },
+          {
+            "signal": "axis_dot",
+            "op": "gt",
+            "value": 0.95
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "terminal_condition",
+        "rule": {
+          "all": [
+            {
+              "signal": "position_error_m",
+              "op": "lt",
+              "value": 0.075
+            },
+            {
+              "signal": "axis_dot",
+              "op": "gt",
+              "value": 0.95
+            }
+          ]
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "position_error_m_final",
+        "signal": "position_error_m",
+        "reduce": "final"
+      },
+      {
+        "name": "axis_dot_final",
+        "signal": "axis_dot",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

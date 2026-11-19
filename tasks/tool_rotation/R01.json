@@ -58,5 +58,133 @@
   "next_step": "补充真正的扳手紧固环境来源；现有URL仅证明扳手搬运资产，不证明紧固任务",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-wrench; wrench-nut; nut-fixture"
+  "contact_structure": "hand-wrench; wrench-nut; nut-fixture",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "standalone_draft",
+    "provenance": {
+      "source_project": "待补可复用紧固任务",
+      "source_url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/22_tool_box_loading.yaml",
+      "source_revision": null,
+      "scoring_code_path": null,
+      "criterion_origin": "proposed",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": null,
+      "source_score_ported": false,
+      "adaptation": "自拟旋转60度的功能代理，不能声称真实紧固完成；目标扭矩、螺纹/预紧力和参考实现待补"
+    },
+    "scene": {
+      "objects": [
+        "wrench",
+        "nut",
+        "bolt"
+      ],
+      "asset_manifest": null,
+      "robot_reference": null,
+      "target_robot": null,
+      "initial_state": {
+        "mode": "proposed_reset",
+        "description": "螺母与螺栓初始松开，固定螺栓，扳手未接触；转轴、旋向、资产和关节模型待定义",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": {
+      "signal": "nut_rotation_rad",
+      "op": "eq",
+      "value": 0.0
+    },
+    "signals": {
+      "nut_rotation_rad": {
+        "type": "number",
+        "unit": "rad",
+        "definition": "沿规定拧紧方向展开的螺母关节角，相对初态增量；不使用取模角",
+        "origin": "proposed"
+      },
+      "wrench_engaged": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "扳手与螺母有效接合、未脱槽；接合几何区域与判定待资产标注",
+        "origin": "proposed"
+      }
+    },
+    "success": {
+      "mode": "hold",
+      "hold_s": 0.5,
+      "rule": {
+        "all": [
+          {
+            "signal": "nut_rotation_rad",
+            "op": "ge",
+            "value": 1.0471975512
+          },
+          {
+            "signal": "wrench_engaged",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "engaged",
+        "rule": {
+          "signal": "wrench_engaged",
+          "op": "eq",
+          "value": true
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "nut_rotation_rad_final",
+        "signal": "nut_rotation_rad",
+        "reduce": "final"
+      },
+      {
+        "name": "wrench_engaged_final",
+        "signal": "wrench_engaged",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "pending",
+      "remaining_source_semantics": "尚无已核实的可复用紧固任务；Bench2Dex扳手搬运资产不等于拧紧任务"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

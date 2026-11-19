@@ -4,7 +4,7 @@
 
 当前 21 个候选任务，覆盖抓取、搬运、推动、旋转工具操作、手内调整、插入。来源与改编关系见 `tasks/`，抓取容差、负载重心、抗转矩、接触切换、双手协同用于解释难度，目前不是实测难度排名
 
-当前工作重点是完善每项任务的配置文件与测评标准。21 项条目已有来源、难度假设和不同程度的评分描述，但不表示全部完成可执行评分或 UniLab 迁移。policy 复现与完整任务运行留待后续接入
+当前工作重点是完善每项任务的配置文件与测评标准。21 项条目已有来源、难度假设与可执行的初步判定规则；这些规则尚未全部接入真实仿真观测，不能等同于完成 UniLab 迁移。policy 复现与完整任务运行留待后续接入
 
 已有五项 Gymnasium Robotics / Adroit 原环境试跑和 Bench2Dex 片段回放桥接。插管已接通 UniLab 物体场景、双臂控制、重置与抓取诊断；完整插入任务尚未完成
 
@@ -22,6 +22,19 @@ uv pip install --python .venv/bin/python -r requirements/config.txt
 uv run --no-project --python .venv/bin/python python -m dexbench list
 uv run --no-project --python .venv/bin/python python -m dexbench audit
 ```
+
+## 本地任务配置与评分
+
+21 项任务的 JSON 现均包含 `benchmark` 初稿：场景与初态说明、观测单位、成功/失败条件、评价指标、来源及待绑定项。参见 [任务总览](docs/task-evaluation-catalog.md) 与 [本地使用说明](docs/local-task-evaluation.md)
+
+```bash
+# 无需仿真或 GPU 依赖，使用系统 Python 即可
+python3 -m dexbench.evaluation audit
+python3 -m unittest discover -s tests -p test_evaluation.py
+python3 -m dexbench.evaluation score --task H02 --trace examples/evaluation/H02-pass.json
+```
+
+示例全部为合成观测，仅检查判定逻辑。真实 UniLab 观测绑定、源评分生命周期和策略运行仍需单独验证
 
 ## 初步任务配置
 

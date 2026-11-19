@@ -86,5 +86,109 @@
     "load": "docs/evidence/R03-runtime-receipt.json",
     "reset": "docs/evidence/test-suite.log; test_all_source_environments_reset_repeatably"
   },
-  "contact_structure": "hand-handle; latch; door-hinge"
+  "contact_structure": "hand-handle; latch; door-hinge",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "Adroit Door",
+      "source_url": "https://robotics.farama.org/envs/adroit_hand/adroit_door/",
+      "source_revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+      "scoring_code_path": "gymnasium_robotics/envs/adroit_hand/adroit_door.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "门铰链位置>=1.35rad为success；奖励大小不代替此布尔条件",
+        "environment_id": "AdroitHandDoor-v1",
+        "episode_scoring_note": "工程使用终帧原成功判据，并另存过程是否曾成功；不自动复刻任何论文的多episode聚合规则"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "door",
+        "latch"
+      ],
+      "asset_manifest": null,
+      "robot_reference": "Adroit hand",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用固定版本原任务 reset/layout 与物体尺度，保存实际初态；目标手型和随机范围另行标定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": null,
+    "signals": {
+      "door_hinge_rad": {
+        "type": "number",
+        "unit": "rad",
+        "definition": "原 Adroit 门关节位置 goal_distance；奖励项不能代替成功条件",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "signal": "door_hinge_rad",
+        "op": "ge",
+        "value": 1.35
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "terminal_condition",
+        "rule": {
+          "signal": "door_hinge_rad",
+          "op": "ge",
+          "value": 1.35
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "door_hinge_rad_final",
+        "signal": "door_hinge_rad",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

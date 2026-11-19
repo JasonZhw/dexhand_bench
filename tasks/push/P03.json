@@ -73,5 +73,210 @@
   "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-tool; tool-block; block-dustpan"
+  "contact_structure": "hand-tool; tool-block; block-dustpan",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "RoboDojo Sweep Blocks",
+      "source_url": "https://robodojo-benchmark.com/doc/sim-tasks/sweep-blocks/",
+      "source_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+      "scoring_code_path": "task/RoboDojo/tasks/sweep_blocks.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "簸箕与扫帚相对位置、簸箕未抬起且近直立、所有方块进入支撑圆/功能区域、机器人回位",
+        "supporting_code": [
+          "env/reward_manager/reward_manager.py",
+          "env/reward_manager/func_parser.py"
+        ],
+        "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "cube*",
+        "broom_shovel",
+        "broom"
+      ],
+      "asset_manifest": "asset_manifests/P03-robodojo.json",
+      "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用固定版本原任务 reset/layout 与物体尺度，保存实际初态；目标手型和随机范围另行标定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": 1000,
+      "source_step_unit": "source task step_lim, not seconds"
+    },
+    "initial": null,
+    "signals": {
+      "shovel_left_of_broom": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 is_A_on_B_left(broom_shovel,broom)；相对方向采用源 helper",
+        "origin": "source"
+      },
+      "shovel_not_lifted": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 is_not_lift(broom_shovel,z_threshold=0.01)",
+        "origin": "source"
+      },
+      "shovel_upright_deg": {
+        "type": "number",
+        "unit": "deg",
+        "definition": "broom_shovel 局部 +Z 与世界 +Z 的夹角",
+        "origin": "source"
+      },
+      "all_cubes_in_support": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 is_all_A_in_B_support_circle(cube*,broom_shovel,broom_shovel/0)",
+        "origin": "source"
+      },
+      "all_cubes_in_functional_bbox": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 is_all_pointA_in_B_functional_bbox(cube*,broom_shovel,handle)",
+        "origin": "source"
+      },
+      "robots_home": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "原 all_robot_back_to_origin：每个 type=target 机械臂末端相对 reset 各位置分量绝对差<=0.15m、四元数角距离<=20deg；不是欧氏位置距离或关节误差",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "all": [
+          {
+            "signal": "shovel_left_of_broom",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "shovel_not_lifted",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "shovel_upright_deg",
+            "op": "lt",
+            "value": 5
+          },
+          {
+            "any": [
+              {
+                "signal": "all_cubes_in_support",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "signal": "all_cubes_in_functional_bbox",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "signal": "robots_home",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "cubes_collected",
+        "rule": {
+          "any": [
+            {
+              "signal": "all_cubes_in_support",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "signal": "all_cubes_in_functional_bbox",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "shovel_upright_deg_final",
+        "signal": "shovel_upright_deg",
+        "reduce": "final"
+      },
+      {
+        "name": "shovel_left_of_broom_final",
+        "signal": "shovel_left_of_broom",
+        "reduce": "final"
+      },
+      {
+        "name": "shovel_not_lifted_final",
+        "signal": "shovel_not_lifted",
+        "reduce": "final"
+      },
+      {
+        "name": "all_cubes_in_support_final",
+        "signal": "all_cubes_in_support",
+        "reduce": "final"
+      },
+      {
+        "name": "all_cubes_in_functional_bbox_final",
+        "signal": "all_cubes_in_functional_bbox",
+        "reduce": "final"
+      },
+      {
+        "name": "robots_home_final",
+        "signal": "robots_home",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

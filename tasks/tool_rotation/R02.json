@@ -85,5 +85,143 @@
   "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-handle; handle-joint"
+  "contact_structure": "hand-handle; handle-joint",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "standalone_draft",
+    "provenance": {
+      "source_project": "Bench2Dex 67",
+      "source_url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/67_faucet_cup_water_fill.yaml",
+      "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+      "scoring_code_path": "success/custom/task_67_faucet_cup_water_fill.py",
+      "criterion_origin": "adapted_source_thresholds",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "scope": "whole original task, not the selected standalone grasp subtask",
+        "description": "Use the left hand to first place the spoon into the mug, use the right hand to place the mug under the faucet, use the left hand to open the faucet to fill the mug and then close it, and use the right hand to place the mug onto the tray.",
+        "terminal_configuration": {
+          "dwell_time_s": 3.0,
+          "raw_condition": {
+            "type": "custom",
+            "evaluator": "success.custom.task_67_faucet_cup_water_fill"
+          }
+        },
+        "stages": [
+          "spoon_in_mug",
+          "mug_under_faucet",
+          "faucet_open_close",
+          "mug_on_tray"
+        ],
+        "code_note": "Executed constants in reviewed evaluator: joint_0 open >=1.0 and close <0.52; header comment has stale 1.5/0.2. Mug must remain under spout through cycle. This is a state proxy, not verified fluid simulation"
+      },
+      "source_score_ported": false,
+      "adaptation": "只测水龙头关节开关周期，移除了原整任务的杯子、勺子与接水约束；不判断流体或水量"
+    },
+    "scene": {
+      "objects": [
+        "faucet"
+      ],
+      "asset_manifest": "asset_manifests/R02-bench2dex.json",
+      "robot_reference": null,
+      "target_robot": null,
+      "initial_state": {
+        "mode": "proposed_reset",
+        "description": "joint_0<0.52rad，机械臂无接触，保留源关节轴、限位与碰撞，独立布局待绑定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": {
+      "signal": "faucet_joint_rad",
+      "op": "lt",
+      "value": 0.52
+    },
+    "signals": {
+      "faucet_joint_rad": {
+        "type": "number",
+        "unit": "rad",
+        "definition": "源 faucet joint_0 的实际角度；使用源代码执行阈值1.0/0.52，不使用过时注释1.5/0.2",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "sequence",
+      "rule": {
+        "signal": "faucet_joint_rad",
+        "op": "lt",
+        "value": 0.52
+      },
+      "sequence": [
+        {
+          "signal": "faucet_joint_rad",
+          "op": "ge",
+          "value": 1.0
+        },
+        {
+          "signal": "faucet_joint_rad",
+          "op": "lt",
+          "value": 0.52
+        }
+      ]
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "closed_at_end",
+        "rule": {
+          "signal": "faucet_joint_rad",
+          "op": "lt",
+          "value": 0.52
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "faucet_joint_rad_final",
+        "signal": "faucet_joint_rad",
+        "reduce": "final"
+      },
+      {
+        "name": "faucet_joint_rad_max",
+        "signal": "faucet_joint_rad",
+        "reduce": "max"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

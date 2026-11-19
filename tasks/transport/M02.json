@@ -73,5 +73,207 @@
   "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-tool -> tool-slot"
+  "contact_structure": "hand-tool -> tool-slot",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "RoboDojo Store Tools In Toolbox",
+      "source_url": "https://robodojo-benchmark.com/doc/sim-tasks/store-tools-in-toolbox/",
+      "source_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+      "scoring_code_path": "task/RoboDojo/tasks/store_tools_in_toolbox.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "钳子、锤子、卷尺、扳手的功能点对准指定槽位；检查姿态、覆盖关系与机器人回位。部分分数25/50/75/100使用单独的判据组合",
+        "supporting_code": [
+          "env/reward_manager/reward_manager.py",
+          "env/reward_manager/func_parser.py"
+        ],
+        "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "pliers",
+        "hammer",
+        "tape_measure",
+        "wrench",
+        "toolbox"
+      ],
+      "asset_manifest": "asset_manifests/M02-robodojo.json",
+      "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用固定版本原任务 reset/layout 与物体尺度，保存实际初态；目标手型和随机范围另行标定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": 900,
+      "source_step_unit": "source task step_lim, not seconds"
+    },
+    "initial": null,
+    "signals": {
+      "pliers_placed": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 run_reward 的 pliers 功能点位置与姿态对齐指定槽，且 is_A_cover_B(toolbox,pliers)；位置默认<0.05m、姿态默认<10度。pliers 为 center 或 center_flip 二选一，不能用分段计分的不同组合替代",
+        "origin": "source"
+      },
+      "hammer_placed": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 run_reward 的 hammer 功能点位置与姿态对齐指定槽，且 is_A_cover_B(toolbox,hammer)；位置默认<0.05m、姿态默认<10度。pliers 为 center 或 center_flip 二选一，不能用分段计分的不同组合替代",
+        "origin": "source"
+      },
+      "tape_measure_placed": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 run_reward 的 tape_measure 功能点位置与姿态对齐指定槽，且 is_A_cover_B(toolbox,tape_measure)；位置默认<0.05m、姿态默认<10度。pliers 为 center 或 center_flip 二选一，不能用分段计分的不同组合替代",
+        "origin": "source"
+      },
+      "wrench_placed": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 run_reward 的 wrench 功能点位置与姿态对齐指定槽，且 is_A_cover_B(toolbox,wrench)；位置默认<0.05m、姿态默认<10度。pliers 为 center 或 center_flip 二选一，不能用分段计分的不同组合替代",
+        "origin": "source"
+      },
+      "robots_home": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "原 all_robot_back_to_origin：每个 type=target 机械臂末端相对 reset 各位置分量绝对差<=0.15m、四元数角距离<=20deg；不是欧氏位置距离或关节误差",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "all": [
+          {
+            "signal": "pliers_placed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "hammer_placed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "tape_measure_placed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "wrench_placed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "robots_home",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "pliers_placed",
+        "rule": {
+          "signal": "pliers_placed",
+          "op": "eq",
+          "value": true
+        }
+      },
+      {
+        "name": "hammer_placed",
+        "rule": {
+          "signal": "hammer_placed",
+          "op": "eq",
+          "value": true
+        }
+      },
+      {
+        "name": "tape_measure_placed",
+        "rule": {
+          "signal": "tape_measure_placed",
+          "op": "eq",
+          "value": true
+        }
+      },
+      {
+        "name": "wrench_placed",
+        "rule": {
+          "signal": "wrench_placed",
+          "op": "eq",
+          "value": true
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "pliers_placed_final",
+        "signal": "pliers_placed",
+        "reduce": "final"
+      },
+      {
+        "name": "hammer_placed_final",
+        "signal": "hammer_placed",
+        "reduce": "final"
+      },
+      {
+        "name": "tape_measure_placed_final",
+        "signal": "tape_measure_placed",
+        "reduce": "final"
+      },
+      {
+        "name": "wrench_placed_final",
+        "signal": "wrench_placed",
+        "reduce": "final"
+      },
+      {
+        "name": "robots_home_final",
+        "signal": "robots_home",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

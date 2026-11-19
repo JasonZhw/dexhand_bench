@@ -1,0 +1,15 @@
+{
+  "task_id": "H02",
+  "protocol_version": "0.1-draft",
+  "kind": "synthetic",
+  "complete": true,
+  "frames": [
+    {
+      "t_s": 0,
+      "signals": {
+        "position_error_m": 0.074,
+        "axis_dot": 0.95
+      }
+    }
+  ]
+}
