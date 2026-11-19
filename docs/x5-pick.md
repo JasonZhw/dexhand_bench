@@ -51,6 +51,10 @@ MUJOCO_GL=egl uv run --no-project --python .venv-scene/bin/python python integra
 
 没有渲染条件可使用 `video=false`。新控制器没有增加依赖，运行时复用现有 MuJoCo/NumPy/Torch。每次保存 config、IK plan、states、contact_geometry、receipt，以及可选视频。视频每 10 步采样，192 帧、25 fps、7.68 秒；最后不足 10 步没有编码，完整 1925 步仍在状态记录中
 
-最终本地结果为 `runs/I01-pick-closed-reviewed` 和 `runs/I01-pick-open-reviewed`。提交的简洁证据见 [evidence/I01-pick](evidence/I01-pick)，完整逐步记录和视频留在本地，不入 Git。失败的 NumPy JSON 写入路径已修复并增加回归测试，旧的 `I01-pick-open-final` 不作为成功验收证据
+最终本地结果为 `runs/I01-pick-closed-reviewed` 和 `runs/I01-pick-open-reviewed`。提交的简洁证据见 [evidence/I01-pick](evidence/I01-pick)，完整逐步记录留在本地；两组短视频与截图现已收录在对应 evidence 目录。失败的 NumPy JSON 写入路径已修复并增加回归测试，旧的 `I01-pick-open-final` 不作为成功验收证据
 
 下一步先降低接触穿透并检查夹爪碰撞形状，在相同轨迹与初态下复测，再推进对孔插入。完整 I01 的 ready 仍为 false；当前默认较紧配置作为保留的诊断案例，不是推荐的最终物理参数
+
+较紧夹持：[视频](evidence/I01-pick/closed/control.mp4) · [截图](evidence/I01-pick/closed/control.png)
+
+较宽夹持：[视频](evidence/I01-pick/open/control.mp4) · [截图](evidence/I01-pick/open/control.png)

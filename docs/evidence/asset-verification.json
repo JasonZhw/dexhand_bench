@@ -1,0 +1,221 @@
+[
+  {
+    "task_id": "I01",
+    "remote_file_count": 4,
+    "verified_local_files": [
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/metadata.json",
+        "sha256": "964aa50dacf43c45fff1b7da92218d089f2c618e542dcbc1f3114175acc05164",
+        "size_bytes": 8117,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/object.usdz",
+        "sha256": "939d71ae619de1b1c40db3a6c11769e20b8c65245e123f7ffd986f5da35042f6",
+        "size_bytes": 388120,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/test_tube/00002/metadata.json",
+        "sha256": "6ad299e38944f77be2edee73475a80d2313ea1a2a7119c1e449f4ba1055b40d6",
+        "size_bytes": 3508,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/test_tube/00002/object.usdz",
+        "sha256": "e7ef90e9bf1fa1db63359c5317d6bd990dcb3475576478741fead8f6977e004e",
+        "size_bytes": 1108703,
+        "verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "I02",
+    "remote_file_count": 5,
+    "verified_local_files": [
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/description.json",
+        "sha256": "fae5bd96e6997b6e89a0da22edd3740291f4318526bc1563a9c77ce739bc9bf0",
+        "size_bytes": 7307,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/metadata.json",
+        "sha256": "3a462763b4f0922067d5df8fcdb78b26bb566afb1af7cc831d7e27af16dbd59f",
+        "size_bytes": 4377,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/object.usdz",
+        "sha256": "50532876b868d0cc5a0add9c35be0aa8b72f89e02e06e04a6fd021de95b1ecd0",
+        "size_bytes": 762980,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/socket/00000/metadata.json",
+        "sha256": "7b9afc3bc8aa2d46844447a33f4cc623a80618970aaa599e074f6b0f145d14ba",
+        "size_bytes": 6025,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/socket/00000/object.usdz",
+        "sha256": "3539a25ac55c7379d35ac547734fc7a6b573e14615e55fae89a11d2176e78e92",
+        "size_bytes": 423696,
+        "verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "I03",
+    "remote_file_count": 4,
+    "verified_local_files": [
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/key_slot/00000/metadata.json",
+        "sha256": "b9e4a01b5764b1b60f8dabd36ecdc113ffa351692e75aca3b53b8ccc6195b343",
+        "size_bytes": 4219,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/key_slot/00000/object.usdz",
+        "sha256": "ebd8a10b73ce90a8e8b3dfb5b80e2598920a5a567d1113e67149fdf1bb023c07",
+        "size_bytes": 3597392,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/key/00000/metadata.json",
+        "sha256": "c5a6f1a996ab3672f4b60acb60cddfb0cb302bcb7090f514b31a34543c6d0d42",
+        "size_bytes": 3956,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/key/00000/object.usdz",
+        "sha256": "b1f712655c6e2ad36aea7cc680841aa96d7762b63d38a9d4fd4ffc6cbe0c87ea",
+        "size_bytes": 11674406,
+        "verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "M01",
+    "remote_file_count": 57,
+    "verified_local_files": []
+  },
+  {
+    "task_id": "M02",
+    "remote_file_count": 10,
+    "verified_local_files": [
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/toolbox/00000/metadata.json",
+        "sha256": "912d88a5aeb67c757713d3c4c3d80b96543eed54536d9846cc24406e6493e804",
+        "size_bytes": 4974,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/toolbox/00000/object.usdz",
+        "sha256": "a6b844cfbe245adbeb95c3a82c8f3a8a4aa0184bdd604bf6b04da0f9189d9407",
+        "size_bytes": 39758027,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00005/metadata.json",
+        "sha256": "0cb39d86d4b6155d4cd0edfec7bbbee87c694f788e107afb0057929c18f6d11d",
+        "size_bytes": 3825,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00005/object.usdz",
+        "sha256": "bf319bb54915663d903f6bb064d3d29eb68e024e171e56755f3612ef59332d17",
+        "size_bytes": 11777426,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/pliers/00000/metadata.json",
+        "sha256": "a65ef17112c83216f2382af7502085100322aa6597d0dcd7425c42eccba706ab",
+        "size_bytes": 4169,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/pliers/00000/object.usdz",
+        "sha256": "30ec96b0a359cb689a39a86fd07362b875b87e19387533052a62f8298bbc3643",
+        "size_bytes": 13229891,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/tape_measure/00000/metadata.json",
+        "sha256": "dd9dc4d7ae524acc3a9f6d4a4c63f462b8e56fb4be103935e05b1902eaf20640",
+        "size_bytes": 3832,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/tape_measure/00000/object.usdz",
+        "sha256": "3830024c6b40345d441d67f22a8d626159e09f786eda297d3ed1c1822ad3ce86",
+        "size_bytes": 15073655,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/metadata.json",
+        "sha256": "08d459e2f834bf58375994f5aa0ada7612078b4f052af23e85d03f6e5b76eb01",
+        "size_bytes": 3904,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/object.usdz",
+        "sha256": "efcbb7940871d9bfa815b2d095773178da46c6bd1d7170cb509fb69092d8c5da",
+        "size_bytes": 12354507,
+        "verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "M03",
+    "remote_file_count": 45,
+    "verified_local_files": []
+  },
+  {
+    "task_id": "P01",
+    "remote_file_count": 6,
+    "verified_local_files": [
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/t_cushion/00000/description.json",
+        "sha256": "6f3070ef0e54033e478c32f896597857fa0ebd6bf14702f4d7ca19020773858e",
+        "size_bytes": 8385,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/t_cushion/00000/metadata.json",
+        "sha256": "5db39d764136c7aa8fc506e529322f5fcb1901349eeb5f6bf53d227b36215e9c",
+        "size_bytes": 3874,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/t_cushion/00000/object.usdz",
+        "sha256": "4823fa3cfaf1a41cd26dd29deca0f5549da20f1211284d5d944618701a2115bf",
+        "size_bytes": 8862,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/t/00000/description.json",
+        "sha256": "42886211c6b212f6b274a58f56245a898d344e7f41869859edce07402f6bc663",
+        "size_bytes": 7748,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/t/00000/metadata.json",
+        "sha256": "4b40f7225308b3bede5b33947853800b86b20266ff2a0c5947b1a884182e1a25",
+        "size_bytes": 3420,
+        "verified": true
+      },
+      {
+        "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/t/00000/object.usdz",
+        "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+        "size_bytes": 10357,
+        "verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "P03",
+    "remote_file_count": 36,
+    "verified_local_files": []
+  }
+]

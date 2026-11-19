@@ -1,0 +1,21 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+..E...
+======================================================================
+ERROR: test_explicit_parameters_and_contacts (test_gym_adapter.GymAdapterTests.test_explicit_parameters_and_contacts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 22, in test_explicit_parameters_and_contacts
+    b=self.make(physics={'iterations':17,'solver':'Newton'});b.reset(4)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/tests/test_gym_adapter.py", line 9, in make
+    b=GymRoboticsBackend('HandManipulateBlockRotateXYZ-v1',**kw);self.addCleanup(b.close);return b
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/dexbench/dexbench/backends/gym_robotics.py", line 41, in __init__
+    if key=='solver':value=getattr(mujoco.mjtSolver,'mjSOL_'+value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'mujoco._enums.mjtSolver' has no attribute 'mjSOL_Newton'. Did you mean: 'mjSOL_NEWTON'?
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.408s
+
+FAILED (errors=1)

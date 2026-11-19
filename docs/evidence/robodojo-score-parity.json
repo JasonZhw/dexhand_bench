@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "steps_compared": 3000,
+  "episodes": 100,
+  "seed": 87,
+  "source_sha256": "bc56efd3aaa861b4b38960dc4fb7778a9b4da9cf131f815ac3170300dd233a41",
+  "scope": "Actual upstream scoring class with boolean predicate fixtures; geometry, failed-env flags, simulator and controller are NOT tested"
+}

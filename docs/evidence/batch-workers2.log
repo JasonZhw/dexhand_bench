@@ -1,0 +1,139 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+{
+  "episodes": 4,
+  "completed_episodes": 4,
+  "outcomes": {
+    "success": 0,
+    "failure": 4,
+    "unknown": 0
+  },
+  "total_control_steps": 400,
+  "wall_seconds": 0.7781813850015169,
+  "batch_control_steps_per_second": 514.0189777210107,
+  "workers_requested": 2,
+  "native_vectorized": false,
+  "scope": "independent CPU processes; end-to-end includes process startup, model loading, reset, stepping and output",
+  "not_solver_only": true,
+  "results": [
+    {
+      "episode_index": 0,
+      "seed": 0,
+      "output": "runs/H01_batch_workers2/episode_000_seed_0",
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {},
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.08054308002465405,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1241.5715908727384,
+        "wall_seconds_including_setup_and_recording": 0.1525275259918999,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    },
+    {
+      "episode_index": 1,
+      "seed": 1,
+      "output": "runs/H01_batch_workers2/episode_001_seed_1",
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {},
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.08166244598396588,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1224.5530830613943,
+        "wall_seconds_including_setup_and_recording": 0.149686548000318,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    },
+    {
+      "episode_index": 2,
+      "seed": 2,
+      "output": "runs/H01_batch_workers2/episode_002_seed_2",
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {},
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.07422977991518565,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1347.1682135425863,
+        "wall_seconds_including_setup_and_recording": 0.14655985998979304,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    },
+    {
+      "episode_index": 3,
+      "seed": 3,
+      "output": "runs/H01_batch_workers2/episode_003_seed_3",
+      "schema_version": "0.2",
+      "task_id": "H01",
+      "steps": 100,
+      "execution_completed": true,
+      "task_outcome": "failure",
+      "final_source_success": false,
+      "any_source_success": false,
+      "termination_reason": "source_time_limit",
+      "error": null,
+      "outcome_rule": "final_sample_of_source_success_predicate",
+      "diagnostic_probes": {},
+      "timing": {
+        "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+        "step_seconds": 0.07533522906305734,
+        "steps_measured": 100,
+        "environment_steps_per_second": 1327.4002248841332,
+        "wall_seconds_including_setup_and_recording": 0.1423907479911577,
+        "num_envs": 1,
+        "parallelism": "single_environment"
+      }
+    }
+  ],
+  "profile": {
+    "id": "H01-source",
+    "task_id": "H01",
+    "backend": "gym_robotics_mujoco",
+    "env_id": "HandManipulateBlockRotateXYZ-v1",
+    "protocol": "source-final-predicate-v1",
+    "physics": {},
+    "notes": "Shadow hand; rotation-only XYZ variant; original task"
+  },
+  "mode": "throughput",
+  "action_mode": "zero",
+  "seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "warmup_steps": 10,
+  "requested_steps": 250
+}
