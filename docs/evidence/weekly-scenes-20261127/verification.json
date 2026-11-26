@@ -1,0 +1,153 @@
+{
+  "scope": "scene_loading_only",
+  "task_count": 21,
+  "tasks": [
+    {
+      "task_id": "G01",
+      "scene_sha256": "3917a1d33564abedc65ce1366723ab524a4924024773af01ef7bf8337b128571",
+      "screenshot_sha256": "524f95051fe1b4733aedbb928902a6cbeaf227ee752a3ccdf0018795e4f59a0c",
+      "unilab_load_status": "new_two_step_unilab_smoke_verified",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "G02",
+      "scene_sha256": "65486e159445f9dae93bd49c1286a3a80b51f7e392aee10fa04adceb9c789321",
+      "screenshot_sha256": "587cb8593df947a92adf1d50a8c1f46e6bad4d42c9a919d7bdcbf951d90b0deb",
+      "unilab_load_status": "new_two_step_unilab_smoke_verified",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "G03",
+      "scene_sha256": "f3b48ee436a48dd264b5fee2bf07c99b58ffa58fc3a2089cc749103a3feab122",
+      "screenshot_sha256": "c1a49446eacfdc2ffa640f60bf92f88adcf084335fdf00da5d7f320b74edd35d",
+      "unilab_load_status": "new_two_step_unilab_smoke_verified",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "G04",
+      "scene_sha256": "82a57c5c40e91573a9f84db4c23926005a75776fe5285dd79d483a8463cd590f",
+      "screenshot_sha256": "fb64398f7bf78413116049449c3795cc32d6947be34c95d4d2a9657aa37c5924",
+      "unilab_load_status": "new_two_step_unilab_smoke_verified",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "G05",
+      "scene_sha256": "cd4bd45637fe3cc71496bad39722ad95fdd9c8ae58c8b83e3de0a4e46f855afb",
+      "screenshot_sha256": "d71ecb64d3445c247d33b2a0b1fd5f19879c96821bbbfaf8f775fe0476db4d08",
+      "unilab_load_status": "new_two_step_unilab_smoke_verified",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "G06",
+      "scene_sha256": "edf491e934ba4b5b19fc2fc4566271cef4b33bdc8b58515182ff8b2d24970949",
+      "screenshot_sha256": "b088e962f2f45598c772bbc0ad992062fd3f1ca903c3c4fc9c325231d51e53de",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "H01",
+      "scene_sha256": "2ebc5c0f50eacd3f908a3b18a60b944b6444c3b6355b66c0d2d157e609a1280c",
+      "screenshot_sha256": "3c477d59c466bd035735da7fcd58b7c746fbb4904cbf52eefedf49515450e0cf",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "H02",
+      "scene_sha256": "6f852443c835ff5a506f6ef0b7b93c5fbfbdf10bb2decbe735da8c13828393c3",
+      "screenshot_sha256": "9f912ad84baac1c0260081509da9bc243b2888607eed1b9ee7cd860634662324",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "H03",
+      "scene_sha256": "66f2cedbbd3c870ba6673645cac2b936aa190b04696a5f168f005e47039dae4c",
+      "screenshot_sha256": "415ce9498bf32c70d38609e23cd1f033f11e2157d249950624c57d5bd0eaca71",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "I01",
+      "scene_sha256": "fb55aa0ee68e781fe2da2ef82ba99284960508de7fe59227213d8a0672fc4fb6",
+      "screenshot_sha256": "caaa7fcacb0fc6b21432f852167f65322612174ed10c3af88d8fc19ee5af2535",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "I02",
+      "scene_sha256": "78bbf4095e161188257a8c16bba043b60ce5fcd9f7cbb477fdd242700cf501fe",
+      "screenshot_sha256": "e4ad546026a1aa3eb1012a302f02a9a31a2dee5fcd87c6bbadfb05e36ec6dd20",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "I03",
+      "scene_sha256": "bcfbc0ed7f0b91251eb03f06d87bbfedb7d3a6e5c95cce1d2c01d06854378d44",
+      "screenshot_sha256": "46b0a0ce6790b0ced9767d1a13da2a6a9b36d0f6ce85651f17d982371a72b92f",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "M01",
+      "scene_sha256": "049a523ef7371b5d93827605c68b621c1f8b34e2a59b82372e2b0f2a8a8a7eb8",
+      "screenshot_sha256": "c0ade4e45c776658bc2595b6748a1125cc3f24860725bc2dee6f738660d7abb0",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "M02",
+      "scene_sha256": "b96fe9688c9164782302058e349ababdc1b8d54fdbc06200edac307b487ee714",
+      "screenshot_sha256": "8e8d85b4ff5836bfad0064f1a0f600a285a04a6ee1dcffdf24572a43ab5c3b48",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "M03",
+      "scene_sha256": "fbbb79edd58f86503d5bf1c4804007d10169581703eda9897a170535e9af525c",
+      "screenshot_sha256": "0ee3e82761e857ea1c157ae7478713be3b66f382ead338e9145d53b8f0394e7a",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "P01",
+      "scene_sha256": "af854024adfe5f4c4ec32e9c3fbaa318e7a659922ae7aec01b5b0f0b7390b168",
+      "screenshot_sha256": "ba57f86ff7650a0b8c4493281e2f5dc1a7b57b3caea316d5fa793913800f89ba",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "P02",
+      "scene_sha256": "7f823adf6b8707bc624e8e51be1b36e2bae6d9272850b841d3d3fb302f95b8aa",
+      "screenshot_sha256": "6f0a040c16d13f1dbaf2e1c23f9a7bc92002bb49a235443aefd829f712ab549e",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "P03",
+      "scene_sha256": "f5148608fe5c37f6e2aa2c9a694ab4749ae2fa8a4549bd6faed79199f723a2b3",
+      "screenshot_sha256": "289d8cf66eeff417adaa381190db62e3a242f28adcd97934accf7c88fceef244",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "R01",
+      "scene_sha256": "11a8496ca95e83f5f38ac76d5368f112a0be8a79a7213fa1b12ceb43214134f9",
+      "screenshot_sha256": "652d24b3727f5acd230c1e763974bff93a2f820e4d1c87a9ce623b302b12f3e3",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "R02",
+      "scene_sha256": "37fd788cccb5258b8db43ecdb9a4395231e4157676218b3537bd80cbf6357ea1",
+      "screenshot_sha256": "0c688e0ca8e7540f2fecd295a06158dc807caa54da4107f9258d76815df2be29",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    },
+    {
+      "task_id": "R03",
+      "scene_sha256": "c20415c4589165b98428ed885dcf8243b2bce64a0b7f2e01a5db7cc987199835",
+      "screenshot_sha256": "96c44a07487c428e31ac5eeba8ea53dcc82ec7647dc44d2c6f8a620466424ae9",
+      "unilab_load_status": "existing_unilab_smoke_receipt_validated_against_scene_hash",
+      "task_success_claimed": false
+    }
+  ]
+}
