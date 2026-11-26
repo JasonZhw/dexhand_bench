@@ -59,7 +59,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "校准扳手口径与六角螺母接合，接通 wrench_engaged 接触信号和完整控制轨迹，再验证 60 度目标与阻力梯度",
+  "next_step": "静态检查发现当前直径 10 mm 的螺母与源扳手钳口不匹配；先选定匹配尺寸并验证动态施矩，再接通 wrench_engaged 与完整控制轨迹，最后验证 60 度目标与阻力梯度",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-wrench; wrench-nut; nut-fixture",

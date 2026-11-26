@@ -540,6 +540,21 @@ class ProxyTaskSceneTests(unittest.TestCase):
             and frame["signals"]["wrench_engaged"] is None
             for frame in trace["frames"]) for trace in traces))
 
+    def test_r01_source_jaws_reject_configured_ten_mm_nut(self):
+        from integrations.unilab.check_r01_wrench_fit import analyze_fit
+
+        mesh_root = ROOT / "assets/generated/source_tasks/R01"
+        if not (mesh_root / "scene.xml").is_file():
+            self.skipTest("R01 generated meshes are not present in this checkout")
+        report = analyze_fit(mesh_root)
+        measurements = report["results"]
+        configured = measurements[0]
+        smaller = measurements[-1]
+        self.assertFalse(configured["within_0_5mm_penetration_limit"])
+        self.assertGreater(configured["best_two_jaw_pose"]["max_penetration_m"], 0.002)
+        self.assertTrue(smaller["within_0_5mm_penetration_limit"])
+        self.assertIsNone(report["task_success"])
+
 
 if __name__ == "__main__":
     unittest.main()

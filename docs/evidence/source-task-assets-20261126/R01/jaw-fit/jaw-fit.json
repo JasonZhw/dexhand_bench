@@ -1,0 +1,93 @@
+{
+  "scope": "static_source_wrench_jaw_fit_diagnostic",
+  "jaw_collision_piece_names": [
+    "wrench_contact_5",
+    "wrench_contact_7"
+  ],
+  "configured_nut_circumradius_m": 0.005,
+  "diagnostic_penetration_limit_m": 0.0005,
+  "search_root_offset_x_m": [
+    0.075,
+    0.083
+  ],
+  "search_root_offset_y_m": [
+    -0.005,
+    0.001
+  ],
+  "search_root_height_above_nut_m": 0.007,
+  "results": [
+    {
+      "nut_circumradius_m": 0.005,
+      "best_two_jaw_pose": {
+        "max_penetration_m": 0.0023049504365332935,
+        "wrench_root_offset_from_nut_m": [
+          0.083,
+          -0.0025000000000000022,
+          0.007
+        ],
+        "jaw_nut_contact_count": 3
+      },
+      "within_0_5mm_penetration_limit": false
+    },
+    {
+      "nut_circumradius_m": 0.004,
+      "best_two_jaw_pose": {
+        "max_penetration_m": 0.0014389330193465748,
+        "wrench_root_offset_from_nut_m": [
+          0.083,
+          -0.0025000000000000022,
+          0.007
+        ],
+        "jaw_nut_contact_count": 3
+      },
+      "within_0_5mm_penetration_limit": false
+    },
+    {
+      "nut_circumradius_m": 0.003,
+      "best_two_jaw_pose": {
+        "max_penetration_m": 0.0005428445132742745,
+        "wrench_root_offset_from_nut_m": [
+          0.083,
+          -0.0025000000000000022,
+          0.007
+        ],
+        "jaw_nut_contact_count": 4
+      },
+      "within_0_5mm_penetration_limit": false
+    },
+    {
+      "nut_circumradius_m": 0.0025,
+      "best_two_jaw_pose": {
+        "max_penetration_m": 0.0004007289492702729,
+        "wrench_root_offset_from_nut_m": [
+          0.082,
+          -0.0020000000000000026,
+          0.007
+        ],
+        "jaw_nut_contact_count": 4
+      },
+      "within_0_5mm_penetration_limit": true
+    },
+    {
+      "nut_circumradius_m": 0.002,
+      "best_two_jaw_pose": {
+        "max_penetration_m": 0.0002701467833293741,
+        "wrench_root_offset_from_nut_m": [
+          0.08,
+          -0.001500000000000003,
+          0.007
+        ],
+        "jaw_nut_contact_count": 2
+      },
+      "within_0_5mm_penetration_limit": true
+    }
+  ],
+  "task_success": null,
+  "limitations": [
+    "Only two identified jaw collision pieces and an isolated hex nut are tested",
+    "Static contact with small penetration is necessary but not sufficient for stable torque transfer",
+    "The 0.5 mm diagnostic threshold is an engineering screening choice, not a source benchmark criterion",
+    "No robot, grasp, policy, threads, or complete task rollout is evaluated"
+  ],
+  "scene_sha256": "11a8496ca95e83f5f38ac76d5368f112a0be8a79a7213fa1b12ceb43214134f9"
+}
