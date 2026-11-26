@@ -23,8 +23,9 @@
   "adaptation_protocol": null,
   "assets": {
     "provider": "gymnasium-robotics==1.4.1 package envs/assets",
-    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
-    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+    "availability": "Adroit Door frame, door and latch source MJCF and defaults pinned; nested mechanism copied into adapted UniLab diagnostic",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution",
+    "manifest": "asset_manifests/R03-adroit-door-mjcf.json"
   },
   "embodiment": {
     "original": "Adroit hand",
@@ -110,13 +111,13 @@
         "door",
         "latch"
       ],
-      "asset_manifest": null,
+      "asset_manifest": "asset_manifests/R03-adroit-door-mjcf.json",
       "robot_reference": "Adroit hand",
       "target_robot": null,
       "initial_state": {
-        "mode": "source_reset",
-        "description": "沿用固定版本原任务 reset/layout 与物体尺度，保存实际初态；目标手型和随机范围另行标定",
-        "layout_ref": null,
+        "mode": "fixed_diagnostic",
+        "description": "当前 UniLab 诊断固定门框初态，使用源门机构但平移摆放；原环境随机门位置与 Adroit 掌部初态尚未迁入",
+        "layout_ref": "profiles/diagnostic_proxy_scenes.json",
         "seed": 0,
         "randomization_enabled": false,
         "transforms": null

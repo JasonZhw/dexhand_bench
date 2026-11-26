@@ -485,18 +485,21 @@
       "scene_binding": "unilab_proxy_diagnostic",
       "backend": "mujoco",
       "controller": "probe",
-      "source_asset_manifest": null,
-      "source_manifest_present": null,
+      "source_asset_manifest": "asset_manifests/R03-adroit-door-mjcf.json",
+      "source_manifest_present": true,
       "physical_load": "smoke_verified",
       "source_runtime_evidence": true,
       "score_signal_count": 1,
       "local_scene_present": true,
       "local_scene_receipt_present": true,
       "robot": "wuji",
-      "score_signals_available": 0,
+      "score_signals_available": 1,
       "asset_scope": "self_authored_geometry_proxy",
       "scene_integrity": "verified",
-      "next_blocker": "port_source_assets_reset_task_signals_and_controller"
+      "next_blocker": "port_reset_controller_and_contact_validation",
+      "source_assets_declared": 3,
+      "source_assets_verified": 3,
+      "source_assets_missing_or_changed": 0
     }
   ]
 }

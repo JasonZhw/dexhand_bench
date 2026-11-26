@@ -49,7 +49,9 @@ def diagnostic_profile(task_id: str) -> dict:
              if source else "Selected source MJCF primitive parameters are checked; robot, layout, reset and score are adapted"
              if "source_mjcf" in layout else "Self-authored primitive geometry; source assets and reset are not ported"),
             "Joint probe is not a task policy",
-            "Task signals have no source-calibrated adapter; success remains unknown",
+            ("Door hinge position is measured, but the probe trace is incomplete; success remains unknown"
+             if task_id == "R03" else
+             "Task signals have no source-calibrated adapter; success remains unknown"),
             "Contact forces are not instrumented for these diagnostics",
         ],
     }
@@ -112,6 +114,8 @@ def environment_config(task_id: str):
     names = scene_receipt["body_names"]
     cfg.env.scene.entities.objects.root_body_name = names[0]
     cfg.env.scene.entities.objects.body_names = names
+    if task_id == "R03":
+        cfg.env.scene.entities.objects.joint_names = ["door_hinge", "latch"]
     cfg.env.observations.policy.terms.object_pose.params.body_names = names
     del cfg.env.observations.policy.terms["source_geometry"]
     del cfg.env.metrics["source_geometry_count"]
@@ -160,6 +164,8 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
 
         def capture(step: int, action: torch.Tensor, elapsed: float | None):
             objects = env.scene.read_plan.body_tensor_view(env.scene["objects"], names)
+            mechanism_joints = (env.scene.read_plan.joint_tensor_view(env.scene["objects"])
+                                if task_id == "R03" else None)
             wrists = env.scene.read_plan.body_tensor_view(env.scene["robot"], WRISTS)
             joints = env.scene.read_plan.joint_tensor_view(env.scene["robot"])
             for value in (objects.pos_w, objects.quat_w, objects.lin_vel_w,
@@ -167,12 +173,12 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
                 if not torch.isfinite(value).all():
                     raise ValueError(f"Nonfinite diagnostic state in {task_id}")
             for env_id in range(env.num_envs):
-                # A proxy scene cannot supply source-calibrated task predicates.
-                # Explicit nulls keep the evaluator's success result unknown.
                 values = {name: None for name in task["benchmark"]["signals"]}
+                if mechanism_joints is not None:
+                    values["door_hinge_rad"] = float(mechanism_joints.joint_pos[env_id, 0])
                 traces[env_id]["frames"].append({"t_s": step * profile["ctrl_dt"],
                                                    "signals": values})
-                records.append({
+                record = {
                     "step": step, "env_id": env_id, "t_s": step * profile["ctrl_dt"],
                     "body_names": names, "object_pos_w": objects.pos_w[env_id].tolist(),
                     "object_quat_wxyz": objects.quat_w[env_id].tolist(),
@@ -182,7 +188,11 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
                     "joint_action_offset": action[env_id].tolist(),
                     "step_time_s": elapsed, "contact_force_n": None,
                     "contact_force_status": "not_instrumented",
-                })
+                }
+                if mechanism_joints is not None:
+                    record["door_hinge_rad"] = values["door_hinge_rad"]
+                    record["latch_rad"] = float(mechanism_joints.joint_pos[env_id, 1])
+                records.append(record)
 
         action = torch.zeros((env.num_envs, len(robot["joint_names"])), device=env.device)
         capture(0, action, None)
@@ -206,7 +216,7 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
         env.close()
     scores = [evaluate(task_id, task["benchmark"], trace) for trace in traces]
     if any(score["success"] is not None for score in scores):
-        raise ValueError("A scene probe without task signals must not claim task success or failure")
+        raise ValueError("An incomplete scene probe must not claim task success or failure")
     (output / "traces.json").write_text(json.dumps(traces) + "\n")
     (output / "states.json").write_text(json.dumps(records) + "\n")
     (output / "evaluation.json").write_text(json.dumps(scores, indent=2) + "\n")
@@ -218,7 +228,8 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
         "task_success": None, "independent_reset_verified": independent_reset_verified,
         "physics_force_available": False, "scene_sha256": scene_receipt["scene_sha256"],
         "score_signal_count": len(task["benchmark"]["signals"]),
-        "score_signals_available": 0, "source_score_ported": False,
+        "score_signals_available": 1 if task_id == "R03" else 0,
+        "source_score_ported": False,
         "limitations": profile["limitations"],
     }
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")

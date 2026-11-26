@@ -70,9 +70,12 @@
   },
   "R03": {
     "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/R03-adroit-door-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_door.xml", "defaults_file": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_assets.xml", "subtree_body": "frame", "frame_translation": [-0.2, 0, 0.6], "timestep": 0.002, "iterations": 20, "noslip_iterations": 20, "default_friction": [1, 0.5, 0.01], "default_margin": 0.0005},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.01,
     "bodies": [
-      {"name": "door", "motion": "hinge", "pos": [0.18, -0.10, 0.92], "axis": [0, 0, 1], "geoms": [{"type": "box", "size": [0.15, 0.015, 0.13], "pos": [-0.15, 0, 0], "mass": 0.5}]},
-      {"name": "latch", "motion": "hinge", "pos": [0.07, -0.08, 0.92], "axis": [0, 1, 0], "geoms": [{"type": "box", "size": [0.035, 0.008, 0.008], "mass": 0.03}]}
+      {"name": "door"},
+      {"name": "latch"}
     ]
   }
 }

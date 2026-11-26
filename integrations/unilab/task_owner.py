@@ -178,9 +178,12 @@ def audit_task(task_id: str) -> dict:
                         and receipt.get("task_success") is None
                         and receipt.get("scene_sha256") == scene_receipt["scene_sha256"]):
                     row["physical_load"] = "smoke_verified"
-        row["next_blocker"] = ("port_reset_task_signals_and_controller; verify_contact_parity"
-                               if binding.kind == "unilab_source_asset_diagnostic"
-                               else "port_source_assets_reset_task_signals_and_controller")
+                    row["score_signals_available"] = receipt.get("score_signals_available", 0)
+        row["next_blocker"] = ("port_reset_controller_and_contact_validation"
+                               if task_id == "R03" else
+                               "port_reset_task_signals_and_controller; verify_contact_parity"
+                               if binding.kind == "unilab_source_asset_diagnostic" else
+                               "port_source_assets_reset_task_signals_and_controller")
     else:
         row["local_scene_present"] = False
         row["local_scene_receipt_present"] = False

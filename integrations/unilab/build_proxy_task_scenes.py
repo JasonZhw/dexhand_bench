@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from dexbench.assets import verify_asset
+from integrations.unilab.adapt_adroit_door import prepare_door_subtree, verify_compiled_door
 from integrations.unilab.build_insert_wuji_scene import ROBOT, resolve_robot_mesh
 
 LAYOUTS = ROOT / "profiles/diagnostic_proxy_scenes.json"
@@ -65,6 +66,12 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
         raise ValueError("Source timestep differs from layout")
     if "iterations" in spec and int(option.get("iterations", "-1")) != spec["iterations"]:
         raise ValueError("Source solver iterations differ from layout")
+    if "subtree_body" in spec:
+        _, mechanism = prepare_door_subtree(spec, layout, workspace)
+        return {"source_file": spec["file"], "manifest_sha256": digest(manifest_path),
+                "source_asset_dependencies": {entry["local_path"]: digest(workspace / entry["local_path"])
+                                              for entry in entries},
+                "mechanism": mechanism}
 
     def source_body(body_name):
         body = next((body for body in source.findall("./worldbody/body")
@@ -242,12 +249,18 @@ def build(task_id: str, output: Path | None = None) -> Path:
     if digest(ROBOT) != robot["template_sha256"]:
         raise ValueError("Wuji robot template differs from its receipt")
     root = ET.parse(ROBOT).getroot()
-    root.set("model", f"{task_id}_primitive_diagnostic")
+    mechanism = source_mjcf is not None and "subtree_body" in layout["source_mjcf"]
+    root.set("model", f"{task_id}_{'source_mechanism' if mechanism else 'primitive'}_diagnostic")
     world = root.find("worldbody")
     if source_mjcf is not None:
         root.find("option").set("timestep", str(layout["source_mjcf"]["timestep"]))
         if "iterations" in layout["source_mjcf"]:
             root.find("option").set("iterations", str(layout["source_mjcf"]["iterations"]))
+        if mechanism:
+            option = root.find("option")
+            for field in ("integrator", "cone", "impratio"):
+                option.attrib.pop(field, None)
+            option.set("noslip_iterations", str(layout["source_mjcf"]["noslip_iterations"]))
         if "source_table" in layout:
             table = next(geom for geom in world.findall("geom") if geom.get("name") == "diagnostic_table")
             half_z = float(table.get("size").split()[2])
@@ -263,7 +276,14 @@ def build(task_id: str, output: Path | None = None) -> Path:
         mesh.set("file", os.path.relpath(path, output))
         dependencies[str(path.relative_to(ROOT))] = digest(path)
     names = set(robot["body_names"])
-    for body_spec in layout["bodies"]:
+    if mechanism:
+        frame, _ = prepare_door_subtree(layout["source_mjcf"], layout, ROOT)
+        world.append(frame)
+        for body_spec in layout["bodies"]:
+            if body_spec["name"] in names:
+                raise ValueError(f"Duplicate body name: {body_spec['name']}")
+            names.add(body_spec["name"])
+    for body_spec in ([] if mechanism else layout["bodies"]):
         name = body_spec["name"]
         if not name or name in names:
             raise ValueError(f"Duplicate or empty body name: {name!r}")
@@ -322,6 +342,8 @@ def build(task_id: str, output: Path | None = None) -> Path:
     model = mujoco.MjModel.from_xml_path(str(scene))
     if model.nu != len(robot["joint_names"]):
         raise ValueError("Primitive scene changed robot actuator count")
+    if mechanism:
+        verify_compiled_door(model, source_mjcf["mechanism"], set(robot["body_names"]))
     for name in names:
         model.body(name)
     receipt = {
@@ -333,7 +355,9 @@ def build(task_id: str, output: Path | None = None) -> Path:
         "mesh_dependencies": dependencies, "body_names": [body["name"] for body in layout["bodies"]],
         "nq": model.nq, "nv": model.nv, "nu": model.nu,
         "limitations": [
-            ("Selected primitive parameters checked against source MJCF; adapted robot, layout, reset and scoring"
+            ("Pinned Adroit door mechanism copied; robot, table, placement, reset and scoring are adapted"
+             if mechanism else
+             "Selected primitive parameters checked against source MJCF; adapted robot, layout, reset and scoring"
              if source_mjcf else "Self-authored primitive geometry; source assets and source physics are not ported"),
             "Fixed diagnostic initial state, not source seeded reset",
             "No task policy or task-signal adapter; task success is unknown",

@@ -20,6 +20,58 @@ SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
+    def test_adroit_door_subtree_keeps_nested_joints_and_inertias(self):
+        from integrations.unilab.adapt_adroit_door import prepare_door_subtree
+
+        source = b'''<mujoco><worldbody><body name="frame" pos="0 0 0.4">
+          <inertial mass="7" diaginertia="0.9 0.8 0.2" pos="0 0 0"/>
+          <geom type="cylinder" size="0.05 0.25" material="wood"/>
+          <body name="door" pos="0.3 0 0">
+            <inertial mass="2" diaginertia="0.09 0.05 0.04" pos="0 0 0"/>
+            <joint name="door_hinge" pos="0.3 0 0" axis="0 0 1"
+                   range="0 1.57" damping="1" frictionloss="2"/>
+            <geom type="box" size="0.2 0.05 0.25" friction="1 1 1" material="wood"/>
+            <body name="latch" pos="-0.15 0 -0.025">
+              <inertial mass="3" diaginertia="0.04 0.03 0.01" pos="0 0 0"/>
+              <joint name="latch" pos="0 0 0" axis="0 1 0"
+                     range="0 1.8" frictionloss="5"/>
+              <geom type="capsule" size="0.02 0.1" material="foil"/>
+            </body>
+          </body>
+        </body></worldbody></mujoco>'''
+        defaults = b'''<mujocoinclude><option iterations="20" noslip_iterations="20"/>
+          <default class="main"><geom friction="1 0.5 0.01" margin="0.0005"/>
+            <joint limited="true" margin="0.01" armature="0.001"
+                   damping="0.05" frictionloss="0.001"/></default>
+        </mujocoinclude>'''
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "assets").mkdir()
+            (root / "assets/door.xml").write_bytes(source)
+            (root / "assets/defaults.xml").write_bytes(defaults)
+            spec = {"file": "assets/door.xml", "defaults_file": "assets/defaults.xml",
+                    "subtree_body": "frame", "frame_translation": [-0.2, -0.2, 0.6],
+                    "default_friction": [1, 0.5, 0.01], "default_margin": 0.0005,
+                    "noslip_iterations": 20}
+            layout = {"bodies": [{"name": "door"}, {"name": "latch"}]}
+            frame, audit = prepare_door_subtree(spec, layout, root)
+            self.assertEqual(frame.get("pos"), "-0.2 -0.2 1.0")
+            door = frame.find("./body[@name='door']")
+            latch = door.find("./body[@name='latch']")
+            self.assertEqual(door.find("joint").get("frictionloss"), "2")
+            self.assertEqual(latch.find("joint").get("frictionloss"), "5")
+            self.assertEqual(latch.find("joint").get("damping"), "0.05")
+            self.assertEqual(latch.find("joint").get("armature"), "0.001")
+            self.assertEqual(door.find("inertial").get("mass"), "2")
+            self.assertEqual(door.find("geom").get("friction"), "1 1 1")
+            self.assertEqual(latch.find("geom").get("friction"), "1 0.5 0.01")
+            self.assertEqual(latch.find("geom").get("margin"), "0.0005")
+            self.assertIsNone(latch.find("geom").get("material"))
+            self.assertEqual(audit["joint_names"], ["door_hinge", "latch"])
+            (root / "assets/door.xml").write_bytes(source.replace(b'frictionloss="5"', b'frictionloss="0"'))
+            with self.assertRaisesRegex(ValueError, "latch frictionloss"):
+                prepare_door_subtree(spec, layout, root)
+
     def test_shadow_egg_source_geometry_and_goal_are_checked(self):
         from integrations.unilab.build_proxy_task_scenes import verify_source_mjcf
 
@@ -185,6 +237,17 @@ class ProxyTaskSceneTests(unittest.TestCase):
         self.assertIsNone(receipt["task_success"])
         self.assertEqual(receipt["score_signals_available"], 0)
 
+    def test_r03_door_hinge_signal_is_recorded_without_claiming_success(self):
+        records = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/R03/states.json").read_text())
+        traces = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/R03/traces.json").read_text())
+        receipt = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/R03/receipt.json").read_text())
+        self.assertEqual(receipt["score_signals_available"], 1)
+        self.assertIsNone(receipt["task_success"])
+        self.assertTrue(all(not trace["complete"] for trace in traces))
+        self.assertTrue(all(frame["signals"]["door_hinge_rad"] is not None
+                            for trace in traces for frame in trace["frames"]))
+        self.assertTrue(all(record["door_hinge_rad"] is not None for record in records))
+
     def test_source_block_density_and_contact_dimensions_match_layout(self):
         from integrations.unilab.build_proxy_task_scenes import verify_source_mjcf
 
@@ -297,7 +360,8 @@ class ProxyTaskSceneTests(unittest.TestCase):
     def test_farama_diagnostics_use_source_timestep_and_control_rate(self):
         from integrations.unilab.run_proxy_task_scene import diagnostic_profile
 
-        for task_id, ctrl_dt in (("H01", 0.04), ("H02", 0.01), ("H03", 0.04), ("P02", 0.04)):
+        for task_id, ctrl_dt in (("H01", 0.04), ("H02", 0.01), ("H03", 0.04),
+                                 ("P02", 0.04), ("R03", 0.01)):
             with self.subTest(task=task_id):
                 profile = diagnostic_profile(task_id)
                 self.assertEqual(profile["sim_dt"], 0.002)
@@ -311,7 +375,7 @@ class ProxyTaskSceneTests(unittest.TestCase):
                 self.assertEqual(cfg.task_catalog.binding.backend, "mujoco")
                 self.assertEqual(cfg.task_catalog.binding.robot, "wuji")
                 row = audit_task(task_id)
-                self.assertEqual(row["score_signals_available"], 0)
+                self.assertEqual(row["score_signals_available"], 1 if task_id == "R03" else 0)
                 self.assertEqual(row["score_signal_count"], len(task["benchmark"]["signals"]))
                 scene = ROOT / "assets/generated/task_proxies" / task_id / "scene.xml"
                 if not scene.is_file():
@@ -326,7 +390,7 @@ class ProxyTaskSceneTests(unittest.TestCase):
                                     for mesh in root.find("asset").findall("mesh")))
                 receipt = json.loads((ROOT / str(cfg.task_catalog.evidence)).read_text())
                 self.assertIsNone(receipt["task_success"])
-                self.assertEqual(receipt["score_signals_available"], 0)
+                self.assertEqual(receipt["score_signals_available"], 1 if task_id == "R03" else 0)
 
     def test_proxy_layouts_do_not_claim_source_physics(self):
         layouts = json.loads((ROOT / "profiles/diagnostic_proxy_scenes.json").read_text())
