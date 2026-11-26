@@ -23,8 +23,9 @@
   "adaptation_protocol": null,
   "assets": {
     "provider": "gymnasium-robotics==1.4.1 package envs/assets",
-    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
-    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+    "availability": "Shadow Hand Manipulate Egg source MJCF and asset license pinned; rigid egg collision primitive parameters checked in adapted UniLab diagnostic",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution",
+    "manifest": "asset_manifests/H03-shadow-egg-mjcf.json"
   },
   "embodiment": {
     "original": "Shadow Dexterous Hand",
@@ -110,7 +111,7 @@
         "rigid_egg",
         "orientation_goal"
       ],
-      "asset_manifest": null,
+      "asset_manifest": "asset_manifests/H03-shadow-egg-mjcf.json",
       "robot_reference": "Shadow Dexterous Hand",
       "target_robot": null,
       "initial_state": {

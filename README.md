@@ -22,7 +22,7 @@ G01 苹果已有 [Wuji IK 抓取脚本](docs/apple-ik-grasp.md)：通过 UniLab/
 
 本地 G01/G02 场景环境现由仓库根目录的 `pyproject.toml`、`uv.lock` 管理。`uv sync --locked` 建立 `.venv`，使用 CPU 版 PyTorch 执行 MuJoCo 仿真。G02 可通过 [UniLab Viser 实时查看](docs/bottle-ik-grasp.md#在本机启动)；旧 `.venv-scene` 暂留作结果对照
 
-21 个任务现在有各自的 Hydra 启动配置，并使用 [统一任务入口与 UniLab 原生 Viser 播放](docs/unilab-task-owners.md)。其中 G01–G05 能在 UniLab 加载和短程测试，I01/I02 已接入 Wuji 插入场景诊断与真实评分输入读取。其余 14 项都能[试跑加载、动作和 reset](docs/unilab-proxy-task-status.md)：P01/I03/M01/M02/M03/P03 已[接入 RoboDojo 原物体网格](docs/source-object-asset-integration.md)；P02、H01、H02 分别核对了 [Fetch Slide](docs/fetch-slide-parameter-adaptation.md)、[Shadow Hand 方块](docs/hand-block-parameter-adaptation.md)、[Adroit Pen](docs/adroit-pen-parameter-adaptation.md) 的部分源 MJCF 参数；另 5 项仍为自建基础形状。策略、reset 与评分信号仍需逐项接通，不能把场景诊断当成原 benchmark 成绩
+21 个任务现在有各自的 Hydra 启动配置，并使用 [统一任务入口与 UniLab 原生 Viser 播放](docs/unilab-task-owners.md)。其中 G01–G05 能在 UniLab 加载和短程测试，I01/I02 已接入 Wuji 插入场景诊断与真实评分输入读取。其余 14 项都能[试跑加载、动作和 reset](docs/unilab-proxy-task-status.md)：P01/I03/M01/M02/M03/P03 已[接入 RoboDojo 原物体网格](docs/source-object-asset-integration.md)；P02、H01、H02、H03 分别核对了 [Fetch Slide](docs/fetch-slide-parameter-adaptation.md)、[Shadow Hand 方块](docs/hand-block-parameter-adaptation.md)、[Adroit Pen](docs/adroit-pen-parameter-adaptation.md)、[Shadow Hand 蛋形物体](docs/shadow-egg-parameter-adaptation.md)的部分源 MJCF 参数；另 4 项仍为自建基础形状。策略、reset 与评分信号仍需逐项接通，不能把场景诊断当成原 benchmark 成绩
 
 ```bash
 git clone --recurse-submodules https://github.com/JasonZhw/dexhand_bench.git

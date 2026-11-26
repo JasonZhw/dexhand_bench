@@ -99,6 +99,8 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
             volume = math.prod(2 * component for component in size)
         elif geom.get("type") == "cylinder":
             volume = math.pi * size[0] ** 2 * 2 * size[1]
+        elif geom.get("type") == "ellipsoid":
+            volume = 4 * math.pi / 3 * math.prod(size)
         else:
             raise ValueError("Source object mass cannot be determined from its MJCF")
         return density * volume
@@ -160,6 +162,17 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
         if len(object_layout["geoms"]) != 1:
             raise ValueError("Source object must map to one diagnostic geom")
         source_object = source_geom(spec["object_body"])
+        ignored = spec.get("ignored_source_geoms", [])
+        if ignored:
+            if spec.get("default_density") != 1000 or source_object.get("density") is not None:
+                raise ValueError("Source object default density differs from MuJoCo default")
+            extras = [geom for geom in source_object_body.findall("geom") if geom is not source_object]
+            if sorted(geom.get("name") for geom in extras) != sorted(ignored):
+                raise ValueError("Source ignored visual geometry list differs from layout")
+            for geom in extras:
+                if (float(geom.get("mass", "nan")) != 0
+                        or geom.get("contype") != "0" or geom.get("conaffinity") != "0"):
+                    raise ValueError("Source ignored visual geometry affects dynamics")
         object_geom = object_layout["geoms"][0]
         for field in ("type", "size"):
             actual = source_object.get(field) if field == "type" else numbers(source_object, field)
@@ -181,6 +194,20 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
                 or float(source_joint.get("damping", "nan")) != object_layout.get("joint_damping")):
             raise ValueError("Source object joint damping differs from layout")
         source_geom_count = 1
+        if "source_goal_body" in spec:
+            source_goal_body = source_body(spec["source_goal_body"])
+            source_goal = source_geom(spec["source_goal_body"])
+            goal_layout = next((body for body in layout["bodies"]
+                                if body["name"] == spec["goal_body"]), None)
+            if (goal_layout is None or len(goal_layout["geoms"]) != 1
+                    or goal_layout["pos"] != object_layout["pos"]
+                    or numbers(source_goal_body, "pos") != numbers(source_object_body, "pos")):
+                raise ValueError("Source egg goal position differs from layout")
+            if (goal_layout["geoms"][0]["type"] != source_goal.get("type")
+                    or goal_layout["geoms"][0]["size"] != numbers(source_goal, "size")
+                    or source_goal.get("contype") != "0"
+                    or source_goal.get("conaffinity") != "0"):
+                raise ValueError("Source egg goal geometry differs from layout")
     result = {"source_file": spec["file"], "manifest_sha256": digest(manifest_path),
               "source_asset_dependencies": {entry["local_path"]: digest(workspace / entry["local_path"])
                                             for entry in entries},
@@ -194,6 +221,8 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
         if numbers(source_table, "friction") != layout["source_table"]["friction"]:
             raise ValueError("Source table friction differs from layout")
         result["source_table_thickness_half_m"] = numbers(source_table, "size")[2]
+    if spec.get("ignored_source_geoms"):
+        result["ignored_visual_geoms"] = spec["ignored_source_geoms"]
     return result
 
 

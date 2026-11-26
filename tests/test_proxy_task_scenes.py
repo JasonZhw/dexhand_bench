@@ -20,6 +20,57 @@ SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
+    def test_shadow_egg_source_geometry_and_goal_are_checked(self):
+        from integrations.unilab.build_proxy_task_scenes import verify_source_mjcf
+
+        source = b'''<mujoco><option timestep="0.002" iterations="20"/><worldbody>
+          <body name="object"><joint type="free" damping="0.01"/>
+            <geom name="object" type="ellipsoid" size="0.03 0.03 0.04" condim="4"/>
+            <geom name="object_hidden" type="ellipsoid" size="0.029 0.029 0.03"
+                  mass="0" contype="0" conaffinity="0"/>
+          </body>
+          <body name="target"><geom name="target" type="ellipsoid" size="0.03 0.03 0.04"
+                  contype="0" conaffinity="0"/></body>
+        </worldbody></mujoco>'''
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "assets").mkdir()
+            asset = root / "assets/egg.xml"
+            asset.write_bytes(source)
+            (root / "manifest.json").write_text(json.dumps({"files": [
+                {"local_path": "assets/egg.xml", "sha256": hashlib.sha256(source).hexdigest()}
+            ]}))
+            layout = {
+                "source_mjcf": {"manifest": "manifest.json", "file": "assets/egg.xml",
+                                "object_body": "object", "target_body": "egg",
+                                "goal_body": "orientation_goal", "source_goal_body": "target",
+                                "ignored_source_geoms": ["object_hidden"],
+                                "timestep": 0.002, "iterations": 20,
+                                "default_density": 1000,
+                                "default_friction": [1, 0.005, 0.0001]},
+                "bodies": [
+                    {"name": "egg", "pos": [0, 0, 0.8], "joint_damping": 0.01,
+                     "geoms": [{"type": "ellipsoid", "size": [0.03, 0.03, 0.04],
+                                "mass": 4 * math.pi / 3 * 0.03 * 0.03 * 0.04 * 1000,
+                                "friction": [1, 0.005, 0.0001], "condim": 4}]},
+                    {"name": "orientation_goal", "pos": [0, 0, 0.8], "geoms": [
+                        {"type": "ellipsoid", "size": [0.03, 0.03, 0.04]}]},
+                ],
+            }
+            result = verify_source_mjcf(layout, root)
+            self.assertEqual(result["source_object_mass_kg"], layout["bodies"][0]["geoms"][0]["mass"])
+            self.assertEqual(result["ignored_visual_geoms"], ["object_hidden"])
+            layout["bodies"][1]["pos"][0] = 0.1
+            with self.assertRaisesRegex(ValueError, "goal position"):
+                verify_source_mjcf(layout, root)
+            layout["bodies"][1]["pos"][0] = 0
+            asset.write_bytes(source.replace(b'conaffinity="0"/>', b'conaffinity="1"/>', 1))
+            manifest = json.loads((root / "manifest.json").read_text())
+            manifest["files"][0]["sha256"] = hashlib.sha256(asset.read_bytes()).hexdigest()
+            (root / "manifest.json").write_text(json.dumps(manifest))
+            with self.assertRaisesRegex(ValueError, "ignored"):
+                verify_source_mjcf(layout, root)
+
     def test_adroit_pen_components_and_defaults_match_layout(self):
         from integrations.unilab.build_proxy_task_scenes import verify_source_mjcf
 
@@ -107,6 +158,30 @@ class ProxyTaskSceneTests(unittest.TestCase):
         for actual, expected in zip(records[0]["object_quat_wxyz"][index], goal["quat"]):
             self.assertAlmostEqual(actual, expected, places=5)
         receipt = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/H02/receipt.json").read_text())
+        self.assertIsNone(receipt["task_success"])
+        self.assertEqual(receipt["score_signals_available"], 0)
+
+    def test_h03_egg_compiled_inertia_and_diagnostic_goal(self):
+        import mujoco
+
+        layouts = json.loads((ROOT / "profiles/diagnostic_proxy_scenes.json").read_text())
+        egg, goal = layouts["H03"]["bodies"]
+        self.assertEqual(goal["pos"], egg["pos"])
+        scene = ROOT / "assets/generated/task_proxies/H03/scene.xml"
+        if scene.is_file():
+            model = mujoco.MjModel.from_xml_path(str(scene))
+            body = model.body("rigid_egg")
+            self.assertAlmostEqual(model.body_mass[body.id], 0.15079644737231007, places=12)
+            for actual, expected in zip(model.body_inertia[body.id],
+                                        (7.539822368615503e-05,
+                                         7.539822368615503e-05,
+                                         5.428672105403162e-05)):
+                self.assertAlmostEqual(actual, expected, places=12)
+        records = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/H03/states.json").read_text())
+        index = records[0]["body_names"].index("orientation_goal")
+        for actual, expected in zip(records[0]["object_quat_wxyz"][index], goal["quat"]):
+            self.assertAlmostEqual(actual, expected, places=5)
+        receipt = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/H03/receipt.json").read_text())
         self.assertIsNone(receipt["task_success"])
         self.assertEqual(receipt["score_signals_available"], 0)
 
@@ -222,7 +297,7 @@ class ProxyTaskSceneTests(unittest.TestCase):
     def test_farama_diagnostics_use_source_timestep_and_control_rate(self):
         from integrations.unilab.run_proxy_task_scene import diagnostic_profile
 
-        for task_id, ctrl_dt in (("H01", 0.04), ("H02", 0.01), ("P02", 0.04)):
+        for task_id, ctrl_dt in (("H01", 0.04), ("H02", 0.01), ("H03", 0.04), ("P02", 0.04)):
             with self.subTest(task=task_id):
                 profile = diagnostic_profile(task_id)
                 self.assertEqual(profile["sim_dt"], 0.002)

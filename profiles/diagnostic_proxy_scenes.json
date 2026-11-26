@@ -35,9 +35,12 @@
   },
   "H03": {
     "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/H03-shadow-egg-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/hand/manipulate_egg.xml", "object_body": "object", "target_body": "rigid_egg", "goal_body": "orientation_goal", "source_goal_body": "target", "ignored_source_geoms": ["object_hidden"], "timestep": 0.002, "iterations": 20, "default_density": 1000, "default_friction": [1, 0.005, 0.0001]},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.04,
     "bodies": [
-      {"name": "rigid_egg", "motion": "free", "pos": [0, -0.12, 0.81], "geoms": [{"type": "ellipsoid", "size": [0.025, 0.025, 0.045], "mass": 0.06}]},
-      {"name": "orientation_goal", "motion": "fixed", "pos": [0.18, -0.12, 0.81], "visual_only": true, "geoms": [{"type": "ellipsoid", "size": [0.025, 0.025, 0.045], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+      {"name": "rigid_egg", "motion": "free", "pos": [0, -0.12, 0.81], "joint_damping": 0.01, "geoms": [{"type": "ellipsoid", "size": [0.03, 0.03, 0.04], "mass": 0.15079644737231007, "friction": [1, 0.005, 0.0001], "condim": 4, "rgba": [0.75, 0.58, 0.32, 1]}]},
+      {"name": "orientation_goal", "motion": "fixed", "pos": [0, -0.12, 0.81], "quat": [0.9238795325, 0, 0, 0.3826834324], "visual_only": true, "geoms": [{"type": "ellipsoid", "size": [0.03, 0.03, 0.04], "rgba": [0.2, 0.9, 0.3, 0.3]}]}
     ]
   },
   "P02": {
