@@ -31,9 +31,13 @@
   },
   "P02": {
     "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/P02-fetch-slide-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/fetch/slide.xml", "object_body": "object0", "table_body": "table0", "timestep": 0.002},
+    "source_table": {"size_xy": [0.625, 0.45], "friction": [0.1, 0.005, 0.0001]},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.04,
     "bodies": [
-      {"name": "object", "motion": "free", "pos": [-0.12, -0.12, 0.782], "geoms": [{"type": "cylinder", "size": [0.03, 0.015], "mass": 0.08}]},
-      {"name": "goal", "motion": "fixed", "pos": [0.20, -0.12, 0.782], "visual_only": true, "geoms": [{"type": "cylinder", "size": [0.03, 0.015], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+      {"name": "object", "motion": "free", "pos": [-0.12, -0.12, 0.785], "joint_damping": 0.01, "geoms": [{"type": "cylinder", "size": [0.025, 0.02], "mass": 2, "friction": [0.1, 0.005, 0.0001], "rgba": [0.22, 0.27, 0.34, 1]}]},
+      {"name": "goal", "motion": "fixed", "pos": [0.20, -0.12, 0.785], "visual_only": true, "geoms": [{"type": "sphere", "size": [0.02], "rgba": [1, 0, 0, 0.5]}]}
     ]
   },
   "R01": {

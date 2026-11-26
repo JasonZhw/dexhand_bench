@@ -33,6 +33,7 @@ def diagnostic_profile(task_id: str) -> dict:
     layouts = json.loads((SOURCE_LAYOUTS if source else LAYOUTS).read_text())
     if task_id not in layouts:
         raise ValueError(f"No primitive diagnostic layout for {task_id}")
+    layout = layouts[task_id]
     task_files = list((ROOT / "tasks").glob(f"*/{task_id}.json"))
     if len(task_files) != 1:
         raise ValueError(f"Task contract missing or ambiguous: {task_id}")
@@ -40,11 +41,13 @@ def diagnostic_profile(task_id: str) -> dict:
         "task_id": task_id, "task_file": str(task_files[0].relative_to(ROOT)),
         "scene": str(((SOURCE_OUTPUT_ROOT if source else OUTPUT_ROOT) / task_id / "scene.xml").relative_to(ROOT)),
         "backend": "mujoco", "controller": "probe", "robot_file": str(ROBOT_META.relative_to(ROOT)),
-        "num_envs": 2, "sim_dt": 0.004, "ctrl_dt": 0.004, "steps": 8,
+        "num_envs": 2, "sim_dt": layout.get("sim_dt", 0.004),
+        "ctrl_dt": layout.get("ctrl_dt", 0.004), "steps": 8,
         "asset_scope": "source_object_scene_diagnostic" if source else "self_authored_geometry_proxy",
         "limitations": [
             ("Verified RoboDojo object meshes with adapted MuJoCo contacts; source reset is not ported"
-             if source else "Self-authored primitive geometry; source assets and reset are not ported"),
+             if source else "Source MJCF puck and table parameters are checked; robot, elevation, reset and score are adapted"
+             if "source_mjcf" in layout else "Self-authored primitive geometry; source assets and reset are not ported"),
             "Joint probe is not a task policy",
             "Task signals have no source-calibrated adapter; success remains unknown",
             "Contact forces are not instrumented for these diagnostics",
@@ -72,6 +75,10 @@ def validate_scene(task_id: str) -> tuple[Path, dict]:
         layout = json.loads(LAYOUTS.read_text())[task_id]
         if layout_digest(layout) != receipt["layout_sha256"]:
             raise ValueError("Changed diagnostic task layout")
+        if "source_mjcf" in layout:
+            manifest = ROOT / layout["source_mjcf"]["manifest"]
+            if digest(manifest) != receipt["source_mjcf"]["manifest_sha256"]:
+                raise ValueError("Changed source MJCF manifest")
     checks = (
         (scene, receipt["scene_sha256"]),
         (ROBOT, receipt["robot_template_sha256"]),

@@ -1,7 +1,9 @@
 """The remaining task owners must launch honest scene diagnostics."""
 
 import json
+import hashlib
 from pathlib import Path
+import tempfile
 import unittest
 from unittest.mock import patch
 import xml.etree.ElementTree as ET
@@ -17,6 +19,55 @@ SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
+    def test_source_parameterized_proxy_rejects_puck_and_table_drift(self):
+        from integrations.unilab import build_proxy_task_scenes
+        self.assertTrue(hasattr(build_proxy_task_scenes, "verify_source_mjcf"))
+        verify_source_mjcf = build_proxy_task_scenes.verify_source_mjcf
+
+        source = b'''<mujoco><option timestep="0.002"/><worldbody>
+          <body name="table0"><geom name="table0" type="box" size="0.625 0.45 0.2"
+              friction="0.1 0.005 0.0001"/></body>
+          <body name="object0"><joint type="free" damping="0.01"/><geom name="object0" type="cylinder" size="0.025 0.02"
+              mass="2" friction="0.1 0.005 0.0001"/></body>
+        </worldbody></mujoco>'''
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            asset = root / "assets/slide.xml"
+            asset.parent.mkdir()
+            asset.write_bytes(source)
+            manifest = root / "manifest.json"
+            manifest.write_text(json.dumps({"files": [{"local_path": "assets/slide.xml",
+                                                    "url": "https://example.invalid/slide.xml",
+                                                    "sha256": hashlib.sha256(source).hexdigest(),
+                                                    "size_bytes": len(source)}]}))
+            layout = {
+                "source_mjcf": {"manifest": "manifest.json", "file": "assets/slide.xml",
+                                "object_body": "object0", "table_body": "table0", "timestep": 0.002},
+                "source_table": {"size_xy": [0.625, 0.45], "friction": [0.1, 0.005, 0.0001]},
+                "bodies": [{"name": "object", "joint_damping": 0.01,
+                            "geoms": [{"type": "cylinder", "size": [0.025, 0.02],
+                                                           "mass": 2, "friction": [0.1, 0.005, 0.0001]}]}],
+            }
+            self.assertEqual(verify_source_mjcf(layout, root)["source_file"], "assets/slide.xml")
+            layout["bodies"][0]["geoms"][0]["mass"] = 1
+            with self.assertRaisesRegex(ValueError, "object mass"):
+                verify_source_mjcf(layout, root)
+            layout["bodies"][0]["geoms"][0]["mass"] = 2
+            layout["bodies"][0]["joint_damping"] = 0.02
+            with self.assertRaisesRegex(ValueError, "joint damping"):
+                verify_source_mjcf(layout, root)
+            layout["bodies"][0]["joint_damping"] = 0.01
+            layout["source_table"]["friction"][0] = 0.8
+            with self.assertRaisesRegex(ValueError, "table friction"):
+                verify_source_mjcf(layout, root)
+
+    def test_p02_diagnostic_uses_source_timestep_and_control_rate(self):
+        from integrations.unilab.run_proxy_task_scene import diagnostic_profile
+
+        profile = diagnostic_profile("P02")
+        self.assertEqual(profile["sim_dt"], 0.002)
+        self.assertEqual(profile["ctrl_dt"], 0.04)
+
     def test_remaining_owners_have_explicit_proxy_bindings(self):
         for task_id in PROXY_IDS:
             with self.subTest(task=task_id):

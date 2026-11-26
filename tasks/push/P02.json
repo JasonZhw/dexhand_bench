@@ -23,8 +23,9 @@
   "adaptation_protocol": null,
   "assets": {
     "provider": "gymnasium-robotics==1.4.1 package envs/assets",
-    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
-    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+    "availability": "Fetch Slide source MJCF and asset license pinned; puck and tabletop parameters are checked in the adapted UniLab diagnostic",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution",
+    "manifest": "asset_manifests/P02-fetch-slide-mjcf.json"
   },
   "embodiment": {
     "original": "Fetch with parallel gripper",
@@ -75,7 +76,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "获取或训练可成功的参考控制；如需换手/换后端，新增协议并核对动作与资产表示",
+  "next_step": "对齐 Fetch Slide 原始随机 reset 和目标位置、灵巧手击球策略，再接实际位置误差信号；桌面高度和机器人不同需单独标定",
   "robot_mapping": {
     "receipt": "docs/evidence/P02-runtime-receipt.json",
     "mapping_field": "backend.joint_mapping",
@@ -110,7 +111,7 @@
         "object",
         "goal"
       ],
-      "asset_manifest": null,
+      "asset_manifest": "asset_manifests/P02-fetch-slide-mjcf.json",
       "robot_reference": "Fetch with parallel gripper",
       "target_robot": null,
       "initial_state": {

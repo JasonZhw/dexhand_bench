@@ -21,11 +21,22 @@ class AssetTests(unittest.TestCase):
                 result = fetch_asset(entry, Path(tmp), opener=lambda *a, **kw: io.BytesIO(b'asset'))
                 self.assertEqual(result['status'], 'verified')
 
+    def test_pinned_farama_fetch_slide_source_supported(self):
+        for path in ('gymnasium_robotics/envs/assets/fetch/slide.xml',
+                     'gymnasium_robotics/envs/assets/LICENSE.md'):
+            with self.subTest(path=path), tempfile.TemporaryDirectory() as tmp:
+                entry = dict(self.entry, url='https://raw.githubusercontent.com/Farama-Foundation/'
+                             'Gymnasium-Robotics/' + 'a'*40 + '/' + path)
+                result = fetch_asset(entry, Path(tmp), opener=lambda *a, **kw: io.BytesIO(b'asset'))
+                self.assertEqual(result['status'], 'verified')
+
     def test_unpinned_or_unrelated_github_asset_rejected(self):
         for url in ('https://raw.githubusercontent.com/google-deepmind/mujoco_menagerie/main/wonik_allegro/a.stl',
                     'https://raw.githubusercontent.com/other/repo/'+'a'*40+'/a.stl',
                     'https://raw.githubusercontent.com/wuji-technology/wuji-description/main/model.xml',
-                    'https://raw.githubusercontent.com/sharpa-robotics/sharpa-urdf-usd-xml/main/model.xml'):
+                    'https://raw.githubusercontent.com/sharpa-robotics/sharpa-urdf-usd-xml/main/model.xml',
+                    'https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/main/gymnasium_robotics/envs/assets/fetch/slide.xml',
+                    'https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/'+'a'*40+'/unrelated.py'):
             with self.subTest(url=url), self.assertRaises(ValueError):
                 fetch_asset(dict(self.entry, url=url), self.root)
 
