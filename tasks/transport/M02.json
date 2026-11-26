@@ -26,7 +26,7 @@
   "adaptation_protocol": null,
   "assets": {
     "manifest": "asset_manifests/M02-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "availability": "10/10 pinned object files verified; five source visual meshes load in a UniLab scene diagnostic with simplified visuals and proxy box/tray contacts; three tool masses are assumed"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -70,7 +70,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "核对原工具质量、摩擦、工具箱槽位和初态；替换代理接触，再接通功能点与任务评分",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-tool -> tool-slot",

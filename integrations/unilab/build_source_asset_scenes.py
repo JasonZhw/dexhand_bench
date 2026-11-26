@@ -92,6 +92,7 @@ def build(task_id: str, output: Path | None = None) -> Path:
     source_dependencies = {}
     body_names = []
     collision_conversions = {}
+    visual_conversions = {}
     output.mkdir(parents=True)
     try:
         for spec in layout["bodies"]:
@@ -105,6 +106,19 @@ def build(task_id: str, output: Path | None = None) -> Path:
             if not stage or UsdGeom.GetStageUpAxis(stage) != "Z" or UsdGeom.GetStageMetersPerUnit(stage) != 1:
                 raise ValueError(f"Expected Z-up meter-scale USD: {source}")
             visual = mesh_from_prim(stage, spec["visual_prim"])
+            source_visual_faces = len(visual.faces)
+            contact_bounds = visual.bounds.copy()
+            max_faces = spec.get("max_visual_faces")
+            if max_faces is not None and source_visual_faces > max_faces:
+                visual = visual.simplify_quadric_decimation(face_count=max_faces)
+            bounds_error = float(np.max(np.abs(visual.bounds - contact_bounds)))
+            if bounds_error > 0.001:
+                raise ValueError(f"Visual simplification changed {name} bounds by {bounds_error:.4f} m")
+            visual_conversions[name] = {
+                "source_faces": source_visual_faces,
+                "render_faces": len(visual.faces),
+                "bounds_max_error_m": bounds_error,
+            }
             visual_file = output / f"{name}_visual.stl"
             visual.export(visual_file)
             dependencies[str(visual_file.relative_to(ROOT))] = digest(visual_file)
@@ -120,14 +134,57 @@ def build(task_id: str, output: Path | None = None) -> Path:
                           group="2", mass="0", rgba="0.85 0.65 0.22 1")
             if spec.get("visual_only"):
                 continue
-            if abs(float(metadata["physics"]["mass"]) - spec.get("mass_kg", 0.0)) > 1e-6:
+            physics = metadata.get("physics") or {}
+            source_mass = physics.get("mass")
+            configured_mass = spec.get("mass_kg")
+            if source_mass is not None and configured_mass is not None and abs(float(source_mass) - configured_mass) > 1e-6:
                 raise ValueError(f"Mass differs from pinned metadata: {name}")
+            if spec["motion"] == "free" and (type(configured_mass) not in (float, int) or configured_mass <= 0):
+                raise ValueError(f"Dynamic source object needs a positive mass: {name}")
+            if source_mass is None and spec["motion"] == "free" and spec.get("mass_origin") != "diagnostic_assumption":
+                raise ValueError(f"Missing source mass must be labeled as a diagnostic assumption: {name}")
             method = spec["collision"]["method"]
             collision_conversions[name] = {
                 "method": method,
-                "source_friction": metadata["physics"].get("friction"),
+                "source_friction": physics.get("friction"),
                 "configured_friction": spec["friction"],
+                "source_mass_kg": source_mass,
+                "configured_mass_kg": configured_mass,
+                "mass_origin": "source_metadata" if source_mass is not None else spec.get("mass_origin", "fixed_body"),
             }
+            if method in ("source_bbox_proxy", "source_bbox_open_tray"):
+                collision_prim = stage.GetPrimAtPath(spec["collision_prim"])
+                if (not collision_prim.HasAPI(UsdPhysics.CollisionAPI)
+                        or UsdPhysics.CollisionAPI(collision_prim).GetCollisionEnabledAttr().Get() is not True):
+                    raise ValueError(f"Source collision mesh disabled: {name}")
+                minimum, maximum = contact_bounds
+                center, half = (minimum + maximum) / 2, (maximum - minimum) / 2
+                if method == "source_bbox_proxy":
+                    boxes = [(center, half)]
+                else:
+                    wall = spec["collision"]["wall_thickness_m"]
+                    bottom = spec["collision"]["bottom_thickness_m"]
+                    if min(half[0], half[1], half[2]) <= max(wall, bottom):
+                        raise ValueError(f"Tray contact thickness exceeds source bounds: {name}")
+                    boxes = [
+                        ([center[0], center[1], minimum[2] + bottom / 2], [half[0], half[1], bottom / 2]),
+                        ([minimum[0] + wall / 2, center[1], center[2]], [wall / 2, half[1], half[2]]),
+                        ([maximum[0] - wall / 2, center[1], center[2]], [wall / 2, half[1], half[2]]),
+                        ([center[0], minimum[1] + wall / 2, center[2]], [half[0] - wall, wall / 2, half[2]]),
+                        ([center[0], maximum[1] - wall / 2, center[2]], [half[0] - wall, wall / 2, half[2]]),
+                    ]
+                for index, (position, size) in enumerate(boxes):
+                    attributes = {
+                        "name": f"{name}_contact_{index}", "type": "box",
+                        "pos": " ".join(map(str, position)),
+                        "size": " ".join(map(str, size)),
+                        "friction": f"{spec['friction']} .005 .0001",
+                        "rgba": "0.85 0.65 0.22 0",
+                    }
+                    if spec["motion"] == "free":
+                        attributes["mass"] = str(configured_mass / len(boxes))
+                    ET.SubElement(body, "geom", **attributes)
+                continue
             if method == "two_boxes_from_source_dimensions":
                 authored = stage.GetPrimAtPath("/World/collision/model")
                 if UsdPhysics.CollisionAPI(authored).GetCollisionEnabledAttr().Get() is not False:
@@ -186,9 +243,10 @@ def build(task_id: str, output: Path | None = None) -> Path:
             "robot_metadata_sha256": digest(robot_meta),
             "mesh_dependencies": dependencies,
             "source_asset_dependencies": source_dependencies,
+            "visual_conversions": visual_conversions,
             "collision_conversions": collision_conversions,
             "body_names": body_names, "nq": model.nq, "nv": model.nv, "nu": model.nu,
-            "limitations": [
+            "limitations": layout.get("limitations", [
                 "Original RoboDojo object meshes, adapted fixed layout and MuJoCo contact conversion",
                 "P01 T contact reconstructed as two boxes because its USD collider is disabled" if task_id == "P01"
                 else "I03 SDF key and slot contact approximated with convex parts; aperture equivalence unverified",
@@ -196,7 +254,7 @@ def build(task_id: str, output: Path | None = None) -> Path:
                 else "Source target cushion is visual-only",
                 "No source reset, policy, score lifecycle, or contact-force equivalence",
                 "Wuji-to-X5 mount is not hardware calibrated",
-            ],
+            ]),
         }
         (output / "scene.json").write_text(json.dumps(receipt, indent=2) + "\n")
         return scene

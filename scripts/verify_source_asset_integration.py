@@ -22,7 +22,7 @@ from integrations.unilab.task_owner import smoke_task
 
 def verify(task_id: str, fetch_missing: bool) -> None:
     if fetch_missing:
-        fetch(task_id)
+        fetch(task_id, max_total_bytes=100_000_000 if task_id == "M02" else 25_000_000)
     status = audit(task_id)
     bad = [entry for entry in status["files"] if entry["status"] != "verified"]
     if bad:
@@ -45,10 +45,10 @@ def verify(task_id: str, fetch_missing: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--task", choices=("P01", "I03", "all"), default="all")
+    parser.add_argument("--task", choices=("P01", "I03", "M02", "all"), default="all")
     parser.add_argument("--fetch", action="store_true", help="Download missing pinned USD assets")
     args = parser.parse_args()
-    for task_id in (("P01", "I03") if args.task == "all" else (args.task,)):
+    for task_id in (("P01", "I03", "M02") if args.task == "all" else (args.task,)):
         verify(task_id, args.fetch)
 
 

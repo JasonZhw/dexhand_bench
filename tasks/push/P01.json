@@ -26,7 +26,7 @@
   "adaptation_protocol": null,
   "assets": {
     "manifest": "asset_manifests/P01-robodojo.json",
-    "availability": "6/6 pinned object files verified locally; T 块 USD 碰撞网格禁用，不能直接视为有效物理碰撞"
+    "availability": "6/6 pinned object files verified; source T and target visuals load in a UniLab scene diagnostic, with T contact reconstructed as two boxes because the source collider is disabled"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -68,7 +68,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "确认 RoboDojo 原版实际采用的 T 块碰撞代理；若改用可视化网格或自生成凸分解，需标注自拟资产并校准接触，再固定布局和接入 Wuji",
+  "next_step": "核对源 T 块实际碰撞代理和 reset；验证推移接触，再接通评分信号",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-T; T-table maintained",

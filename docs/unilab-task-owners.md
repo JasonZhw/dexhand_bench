@@ -4,7 +4,7 @@ UniLab 原仓库用 `uv` 管理 Python 环境。它的 MuJoCo 交互展示用浏
 
 每个任务有两个文件：`tasks/<类别>/<ID>.json` 定义来源、物体、信号、成功条件、失败条件和指标；`conf/unilab/task_catalog/<ID>.yaml` 指向该评分合同，并声明是否已有 UniLab 场景、机器人、控制器和后端。`conf/unilab/dex_task.yaml` 是统一 Hydra 入口，设置 Viser 展示与物理记录的共同约定。切换 YAML 中的后端字段并不会自动得到新后端：必须先接通同一资产、关节映射、reset、动作和观测，并核对物理能力，否则启动器拒绝运行。
 
-当前 21 份配置都可以组合并检查评分合同。其中 G01–G05 已绑定本地双 X5 灵巧手 MuJoCo 场景，可在 UniLab `ManagerBasedRlEnv` 中加载、reset、step 和生成评分记录。G01/G02 有固定场景的 Wuji IK 尝试；G03–G05 只有 Allegro 关节探针。I01 和 I02 已绑定双 X5/Wuji 与 RoboDojo 物体，在 UniLab 中通过两环境短程试跑、独立 reset 和各自评分输入读取；两者没有插入策略，成功结果为未验证。其余 14 项已接入[场景诊断](unilab-proxy-task-status.md)，可在同一入口完成加载、两步动作和独立 reset。其中 P01/I03 已使用 RoboDojo 源物体网格，另 12 项仍是自建基础形状；这 14 项的评分信号均未接通。原环境单独试跑过的任务，不等于已经迁移到 UniLab。
+当前 21 份配置都可以组合并检查评分合同。其中 G01–G05 已绑定本地双 X5 灵巧手 MuJoCo 场景，可在 UniLab `ManagerBasedRlEnv` 中加载、reset、step 和生成评分记录。G01/G02 有固定场景的 Wuji IK 尝试；G03–G05 只有 Allegro 关节探针。I01 和 I02 已绑定双 X5/Wuji 与 RoboDojo 物体，在 UniLab 中通过两环境短程试跑、独立 reset 和各自评分输入读取；两者没有插入策略，成功结果为未验证。其余 14 项已接入[场景诊断](unilab-proxy-task-status.md)，可在同一入口完成加载、两步动作和独立 reset。其中 P01/I03/M02 已使用 RoboDojo 源物体网格，另 11 项仍是自建基础形状；这 14 项的评分信号均未接通。原环境单独试跑过的任务，不等于已经迁移到 UniLab。
 
 本次验证的 [审计结果与运行回执](evidence/unilab-task-owners-20261126/audit.json) 保存在 `docs/evidence/unilab-task-owners-20261126/`。五个场景各走了两个物理步并通过独立 reset 检查；G01/G02 还执行了完整 IK 基线，两者的环境 0 达到当前本地草案的成功条件，环境 1 是静止对照。这些结果只证明本地固定初态下的脚本与评分链路，不代表原 Bench2Dex 成绩或其他物理后端的准确性。
 
@@ -31,4 +31,4 @@ uv run --locked python integrations/unilab/task_owner.py smoke --task I02 --outp
 uv run --locked python integrations/unilab/play_task.py --task I02 --port 8080
 ```
 
-I01 的[运行回执](evidence/I01-wuji-20261126/receipt.json)、I02 的[运行回执](evidence/I02-wuji-20261126/receipt.json)与[其余 14 项的逐项状态](unilab-proxy-task-status.md)可供复查。其中 P01/I03 已[接入源物体网格](source-object-asset-integration.md)，另 12 项仍为基础形状代理。`play_task.py` 对场景诊断也走 UniLab 原生 Viser 播放入口，但只循环展示关节探针，评分请用 `task_owner.py smoke`。下载已固定哈希的源物体可用 `uv run --locked python integrations/unilab/task_assets.py fetch --task I02`，但下载完成仅代表资产齐备，不代表场景或控制器已接通。
+I01 的[运行回执](evidence/I01-wuji-20261126/receipt.json)、I02 的[运行回执](evidence/I02-wuji-20261126/receipt.json)与[其余 14 项的逐项状态](unilab-proxy-task-status.md)可供复查。其中 P01/I03/M02 已[接入源物体网格](source-object-asset-integration.md)，另 11 项仍为基础形状代理。`play_task.py` 对场景诊断也走 UniLab 原生 Viser 播放入口，但只循环展示关节探针，评分请用 `task_owner.py smoke`。下载已固定哈希的源物体可用 `uv run --locked python integrations/unilab/task_assets.py fetch --task I02`，但下载完成仅代表资产齐备，不代表场景或控制器已接通。

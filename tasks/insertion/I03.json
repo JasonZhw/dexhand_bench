@@ -26,7 +26,7 @@
   "adaptation_protocol": null,
   "assets": {
     "manifest": "asset_manifests/I03-robodojo.json",
-    "availability": "4/4 pinned key and key-slot files verified locally; enabled collision meshes found, UniLab scene and source-reset layout not built"
+    "availability": "4/4 pinned key and slot files verified; source USD visuals and adapted CoACD contacts load in a UniLab scene diagnostic, with source reset and task physics still unverified"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -70,7 +70,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "固定原框架 seeded reset 与钥匙槽布局，转换已校验的碰撞网格；再绑定双手交接、插入和旋转的动作及 4 个评分信号",
+  "next_step": "对齐 RoboDojo seeded reset、钥匙槽有效间隙和交接/插入/旋转动作，再接通四项评分信号",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-key; key-slot",

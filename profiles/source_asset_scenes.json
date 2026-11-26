@@ -1,4 +1,43 @@
 {
+  "M02": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/M02-robodojo.json",
+    "limitations": [
+      "Five RoboDojo source objects are visual meshes simplified to 20000-30000 faces each",
+      "The four tool contacts are source-bounding-box proxies; the toolbox contact is an open tray without source slots",
+      "Pliers, hammer, and tape-measure masses and friction are diagnostic assumptions because pinned metadata omits them",
+      "Fixed layout is not the source reset; no task policy, score lifecycle, or contact-force equivalence",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "pliers", "motion": "free", "pos": [-0.22, -0.22, 0.798],
+       "source": "Rigid/pliers/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.10, "mass_origin": "diagnostic_assumption", "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "hammer", "motion": "free", "pos": [-0.18, 0.00, 0.806],
+       "source": "Rigid/hammer/00005", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.25, "mass_origin": "diagnostic_assumption", "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "tape_measure", "motion": "free", "pos": [0.00, -0.22, 0.798],
+       "source": "Rigid/tape_measure/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.10, "mass_origin": "diagnostic_assumption", "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "wrench", "motion": "free", "pos": [0.24, -0.22, 0.788],
+       "source": "Rigid/wrench/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.35, "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "toolbox", "motion": "fixed", "pos": [0.18, 0.08, 0.790],
+       "source": "Geometry/toolbox/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 30000,
+       "friction": 0.45,
+       "collision": {"method": "source_bbox_open_tray", "wall_thickness_m": 0.006,
+                     "bottom_thickness_m": 0.006}}
+    ]
+  },
   "P01": {
     "provenance": "robodojo_source_mesh_adapted_contact",
     "manifest": "asset_manifests/P01-robodojo.json",

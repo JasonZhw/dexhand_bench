@@ -45,20 +45,6 @@
       ]}
     ]
   },
-  "M02": {
-    "provenance": "self_authored_geometry_proxy",
-    "bodies": [
-      {"name": "pliers", "motion": "free", "pos": [-0.24, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.04, 0.012, 0.012], "mass": 0.08}]},
-      {"name": "hammer", "motion": "free", "pos": [-0.14, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.04, 0.012, 0.012], "mass": 0.08}]},
-      {"name": "tape_measure", "motion": "free", "pos": [-0.04, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.025, 0.025, 0.02], "mass": 0.08}]},
-      {"name": "wrench", "motion": "free", "pos": [0.05, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.045, 0.008, 0.008], "mass": 0.08}]},
-      {"name": "toolbox", "motion": "fixed", "pos": [0.24, -0.10, 0.80], "geoms": [
-        {"type": "box", "size": [0.10, 0.08, 0.01], "pos": [0, 0, -0.02]},
-        {"type": "box", "size": [0.01, 0.08, 0.045], "pos": [-0.09, 0, 0.015]},
-        {"type": "box", "size": [0.01, 0.08, 0.045], "pos": [0.09, 0, 0.015]}
-      ]}
-    ]
-  },
   "M03": {
     "provenance": "self_authored_geometry_proxy",
     "bodies": [
