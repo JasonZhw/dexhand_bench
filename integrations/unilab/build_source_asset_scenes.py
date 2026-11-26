@@ -68,6 +68,10 @@ def verified_source(layout: dict, source: str) -> tuple[Path, dict]:
 
 
 def build(task_id: str, output: Path | None = None) -> Path:
+    if task_id == "R02":
+        from integrations.unilab.build_r02_faucet_scene import build as build_faucet
+
+        return build_faucet(output or OUTPUT_ROOT / task_id)
     layouts = json.loads(LAYOUTS.read_text())
     if task_id not in layouts:
         raise ValueError(f"No source-object layout for {task_id}")

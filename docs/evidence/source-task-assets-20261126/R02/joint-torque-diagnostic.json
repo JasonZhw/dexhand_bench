@@ -1,0 +1,34 @@
+{
+  "scope": "direct_joint_torque_diagnostic_not_a_hand_policy",
+  "backend": "mujoco",
+  "frames": 100,
+  "fps": 25,
+  "joint_0_rad_min": 0.0016856130238552377,
+  "joint_0_rad_max": 1.1983122734132399,
+  "joint_0_rad_final": 0.0016856130238552377,
+  "success_claim": false,
+  "scene_sha256": "37fd788cccb5258b8db43ecdb9a4395231e4157676218b3537bd80cbf6357ea1",
+  "controller": {
+    "kind": "direct_joint_qfrc_applied_PD",
+    "joint": "joint_0",
+    "kp_n_m_per_rad": 5.0,
+    "kd_n_m_s_per_rad": 0.5,
+    "target_sequence_rad": [
+      1.2,
+      0.0
+    ],
+    "steps_per_target": 500,
+    "sim_timestep_s": 0.004,
+    "capture_every_steps": 10
+  },
+  "camera": {
+    "lookat_m": [
+      0,
+      -0.13,
+      0.9
+    ],
+    "distance_m": 0.56,
+    "azimuth_deg": 135,
+    "elevation_deg": -30
+  }
+}

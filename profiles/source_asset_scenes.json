@@ -178,5 +178,47 @@
         "collision": {"method": "coacd", "threshold": 0.025, "max_convex_hull": 48, "mcts_iterations": 20}
       }
     ]
+  },
+  "R02": {
+    "provenance": "bench2dex_source_faucet_adapted_contact",
+    "manifest": "asset_manifests/R02-bench2dex.json",
+    "source_usd": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd",
+    "source_urdf": "assets/bench2dex/Objects/094_faucet/02_faucet/01/mobility.urdf",
+    "source_scale": 0.3,
+    "source_density_kg_m3": 300.0,
+    "joint_damping_from_scene": 1.0,
+    "base_position_m": [
+      0.0,
+      -0.12,
+      0.85
+    ],
+    "base_yaw_deg": 90,
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "bodies": [
+      {
+        "name": "faucet_base",
+        "source_link": "link_2"
+      },
+      {
+        "name": "faucet_handle_0",
+        "source_link": "link_0",
+        "joint_name": "joint_0"
+      },
+      {
+        "name": "faucet_handle_1",
+        "source_link": "link_1",
+        "joint_name": "joint_1"
+      }
+    ],
+    "limitations": [
+      "Pinned Bench2Dex faucet USD/URDF articulation and 0.3 scale; fixed adapted placement and dual X5/Wuji robot",
+      "Each USD collision mesh is converted to a MuJoCo convex hull; PhysX contact equivalence is not established",
+      "Dynamic mass is estimated from converted convex-hull volume at the scene density 300 kg/m3 because USD mass/inertia is zero",
+      "Joint damping 1.0 follows the Bench2Dex scene actuator setting; PhysX drive behavior and source solver are not reproduced",
+      "Parent-handle collision pairs are disabled as authored by the USD joints",
+      "No source seeded reset, cup/spoon/tray, fluid simulation, policy, or full-task scoring",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ]
   }
 }

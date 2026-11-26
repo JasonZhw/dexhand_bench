@@ -1,6 +1,6 @@
 # 六项任务的 RoboDojo 原物体资产接入
 
-目前 21 项任务都能打开场景，其中 P01 推 T 块、I03 插钥匙、M01 装箱、M02 工具归位、M03 堆积木和 P03 扫积木已从自建基础形状切换到 RoboDojo 官方数据中的原物体网格。固定版本的文件清单分别校验通过 6/6、4/4、10/10、10/10、9/9、15/15 项。六项在 UniLab 的 MuJoCo 后端各用两个环境完成加载、两步推进和独立重置。[21 项当前审计](evidence/source-task-assets-20261126/all-tasks-audit.json)明确区分这 6 项、8 项代理场景、2 项插入场景诊断和 5 项本地抓取场景。
+目前 21 项任务都能打开场景，其中 P01 推 T 块、I03 插钥匙、M01 装箱、M02 工具归位、M03 堆积木和 P03 扫积木已从自建基础形状切换到 RoboDojo 官方数据中的原物体网格。固定版本的文件清单分别校验通过 6/6、4/4、10/10、10/10、9/9、15/15 项。六项在 UniLab 的 MuJoCo 后端各用两个环境完成加载、两步推进和独立重置。另有 [R02 Bench2Dex 水龙头](bench2dex-faucet-adaptation.md)已接入源双把手机构。现在[21 项审计](evidence/source-task-assets-20261126/all-tasks-audit.json)区分 7 项源资产场景、7 项代理场景、2 项插入场景诊断和 5 项本地抓取场景。
 
 ![P01 原 T 块和目标垫的本地初态](evidence/source-task-assets-20261126/P01/initial.png)
 
@@ -53,6 +53,6 @@ uv run --locked python integrations/unilab/play_task.py --task P03 --port 8080
 
 从新机器完整检查“源文件 → 转换后场景 → UniLab 两步运行”，在机器人与两套 Python 环境准备好后执行 `uv run --locked python scripts/verify_source_asset_integration.py --fetch`。这个检查会在缺少源文件、场景哈希失效或独立重置失败时退出报错；已有场景不会被覆盖。默认单元测试没有下载这些大资产，所以不能代替这条集成检查。
 
-其余代理场景中，[P02 已从 Fetch Slide 源 MJCF 核对滑块和桌面参数](fetch-slide-parameter-adaptation.md)，[H01 已核对 Shadow Hand 方块参数](hand-block-parameter-adaptation.md)，[H02 已核对 Adroit Pen 四组件笔参数](adroit-pen-parameter-adaptation.md)，[H03 已核对 Shadow Hand 蛋形刚体参数](shadow-egg-parameter-adaptation.md)，[R03 已迁入 Adroit 门框、门板与门闩机构](adroit-door-mechanism-adaptation.md)，但原目标采样、掌中初态和 reset 仍需逐项对齐；另外 3 项仍使用自建基础形状。R02 的 Bench2Dex 资源路径尚未形成可校验的本地物体清单。G06 苹果梗和 R01 扳手紧固需要内部或新建工程资产。
+其余代理场景中，[P02 已从 Fetch Slide 源 MJCF 核对滑块和桌面参数](fetch-slide-parameter-adaptation.md)，[H01 已核对 Shadow Hand 方块参数](hand-block-parameter-adaptation.md)，[H02 已核对 Adroit Pen 四组件笔参数](adroit-pen-parameter-adaptation.md)，[H03 已核对 Shadow Hand 蛋形刚体参数](shadow-egg-parameter-adaptation.md)，[R03 已迁入 Adroit 门框、门板与门闩机构](adroit-door-mechanism-adaptation.md)，但原目标采样、掌中初态和 reset 仍需逐项对齐；另外 2 项仍使用自建基础形状。R02 已有固定哈希的 [Bench2Dex 源资产清单](../asset_manifests/R02-bench2dex.json)和双把手机构诊断，但摩擦、质量估算和 PhysX/MuJoCo 接触差异还需验证。G06 苹果梗和 R01 扳手紧固需要内部或新建工程资产。
 
 I03 的 CoACD 转换即使固定随机种子，重复构建仍可能得到不同的多凸块与场景哈希。回执记录当前具体场景的哈希；比较不同物理后端之前，需要冻结并共享同一份转换后的碰撞资产，不能只给转换参数。

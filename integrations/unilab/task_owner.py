@@ -180,7 +180,7 @@ def audit_task(task_id: str) -> dict:
                     row["physical_load"] = "smoke_verified"
                     row["score_signals_available"] = receipt.get("score_signals_available", 0)
         row["next_blocker"] = ("port_reset_controller_and_contact_validation"
-                               if task_id == "R03" else
+                               if task_id in ("R02", "R03") else
                                "port_reset_task_signals_and_controller; verify_contact_parity"
                                if binding.kind == "unilab_source_asset_diagnostic" else
                                "port_source_assets_reset_task_signals_and_controller")

@@ -14,9 +14,9 @@ from integrations.unilab.task_owner import ROOT, audit_task, load_owner
 
 PROXY_IDS = (
     "G06", "H01", "H02", "H03",
-    "P02", "R01", "R02", "R03",
+    "P02", "R01", "R03",
 )
-SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03")
+SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03", "R02")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
@@ -414,9 +414,11 @@ class ProxyTaskSceneTests(unittest.TestCase):
                 self.assertEqual(cfg.task_catalog.binding.backend, "mujoco")
                 self.assertEqual(cfg.task_catalog.binding.robot, "wuji")
                 self.assertEqual(str(cfg.task_catalog.binding.profile), "profiles/source_asset_scenes.json")
-                self.assertEqual(layouts[task_id]["provenance"], "robodojo_source_mesh_adapted_contact")
+                self.assertEqual(layouts[task_id]["provenance"],
+                                 "bench2dex_source_faucet_adapted_contact" if task_id == "R02"
+                                 else "robodojo_source_mesh_adapted_contact")
                 row = audit_task(task_id)
-                self.assertEqual(row["score_signals_available"], 0)
+                self.assertEqual(row["score_signals_available"], 1 if task_id == "R02" else 0)
                 self.assertEqual(row["score_signal_count"], len(task["benchmark"]["signals"]))
                 if row["local_scene_present"]:
                     self.assertEqual(row["scene_integrity"], "verified")
@@ -427,12 +429,31 @@ class ProxyTaskSceneTests(unittest.TestCase):
                     self.assertEqual(set(receipt["body_names"]),
                                      {body["name"] for body in layouts[task_id]["bodies"]})
                     self.assertGreater(len(receipt["source_asset_dependencies"]), 0)
-                    expected = ({"t"} if task_id == "P01" else {"key", "slot"} if task_id == "I03"
+                    expected = ({"faucet_base", "faucet_handle_0", "faucet_handle_1"} if task_id == "R02"
+                                else {"t"} if task_id == "P01" else {"key", "slot"} if task_id == "I03"
                                 else {"car", "electric_toothbrush", "hammer", "shoe", "box"} if task_id == "M01"
                                 else {"block_0", "block_1", "block_2"} if task_id == "M03"
                                 else {"cube_0", "cube_1", "cube_2", "broom_shovel", "broom"} if task_id == "P03"
                                 else {"pliers", "hammer", "tape_measure", "wrench", "toolbox"})
                     self.assertEqual(set(receipt["collision_conversions"]), expected)
+                    if task_id == "R02":
+                        mujoco = __import__("mujoco")
+                        model = mujoco.MjModel.from_xml_path(str(scene))
+                        self.assertEqual(model.joint("joint_0").range.tolist(), [0.0, math.pi / 2])
+                        self.assertEqual(model.joint("joint_1").range.tolist(), [0.0, math.pi / 2])
+                        self.assertEqual(receipt["collision_conversions"]["faucet_handle_0"]["source_link"],
+                                         "link_0")
+                        data = mujoco.MjData(model)
+                        mujoco.mj_forward(model, data)
+                        contact_pairs = []
+                        for i in range(data.ncon):
+                            pair = {model.body(int(model.geom_bodyid[geom])).name
+                                    for geom in (data.contact[i].geom1, data.contact[i].geom2)}
+                            contact_pairs.append(pair)
+                        self.assertFalse(any("faucet_base" in pair and
+                                             pair & {"faucet_handle_0", "faucet_handle_1"}
+                                             for pair in contact_pairs))
+                        continue
                     if task_id == "M03":
                         self.assertEqual({entry["method"] for entry in receipt["collision_conversions"].values()},
                                          {"source_bbox_proxy"})
@@ -469,6 +490,16 @@ class ProxyTaskSceneTests(unittest.TestCase):
             row = audit_task("P01")
         self.assertEqual(row["scene_integrity"], "invalid")
         self.assertEqual(row["physical_load"], "not_attempted")
+
+    def test_r02_records_source_joint_without_claiming_task_success(self):
+        directory = ROOT / "docs/evidence/source-task-assets-20261126/R02"
+        traces = json.loads((directory / "traces.json").read_text())
+        receipt = json.loads((directory / "receipt.json").read_text())
+        self.assertEqual(receipt["score_signals_available"], 1)
+        self.assertIsNone(receipt["task_success"])
+        self.assertTrue(all(not trace["complete"] and all(
+            frame["signals"]["faucet_joint_rad"] is not None for frame in trace["frames"])
+            for trace in traces))
 
 
 if __name__ == "__main__":

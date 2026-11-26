@@ -41,7 +41,8 @@
   },
   "assets": {
     "manifest": "asset_manifests/R02-bench2dex.json",
-    "availability": "server audit: 8 of 25 unique entry USDs found across six source scenes; see docs/research/bench2dex-server-asset-audit.json; dependencies and per-asset licenses still require verification"
+    "availability": "Bench2Dex/Assets 固定版本中水龙头的 10 个 USD/URDF 相关文件已逐项校验；转换成 MuJoCo 多凸块接触的 UniLab 诊断场景",
+    "license_status": "公开数据集页面未写明独立资产许可；按需下载，不在本仓库再分发原始模型"
   },
   "embodiment": {
     "original": null,
@@ -82,9 +83,14 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
+  "next_step": "给 Wuji 编写接触把手、开启再关闭的控制器；核对 PhysX 与 MuJoCo 的质量、接触及 reset 差异，完成整回合评分验证",
   "robot_mapping": null,
-  "scene_evidence": null,
+  "scene_evidence": {
+    "load": "docs/evidence/source-task-assets-20261126/R02/receipt.json",
+    "scene": "docs/evidence/source-task-assets-20261126/R02/scene.png",
+    "signal": "docs/evidence/source-task-assets-20261126/R02/traces.json",
+    "note": "两环境短探针，任务成功仍为 unknown；另有直接关节施力视频，仅验证机构可动"
+  },
   "contact_structure": "hand-handle; handle-joint",
   "benchmark": {
     "protocol_version": "0.1-draft",

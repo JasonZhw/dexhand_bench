@@ -3,7 +3,7 @@
   "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
   "scene_path": "scenes/67_faucet_cup_water_fill.yaml",
   "source_license_file": "https://github.com/Bench2Dex/Bench2Dex/blob/82e04a2a4e5b728a96ccf1ae7a546762d5a260c7/LICENSE",
-  "asset_license_status": "individual asset licenses not yet verified",
+  "asset_license_status": "No explicit dataset-level license or asset card in the public dataset; download at runtime, do not redistribute source files",
   "assets": {
     "a094_faucet": {
       "path": "../../dex2bench_dataset/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd",
@@ -67,5 +67,79 @@
       }
     }
   },
-  "loading_verified": false
+  "loading_verified": false,
+  "asset_repository": "Bench2Dex/Assets",
+  "asset_revision": "bf65215f844d1fca30750e4cc70d7266650abf0a",
+  "files": [
+    {
+      "path": "Objects/094_faucet/02_faucet/01/mobility.urdf",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/mobility.urdf",
+      "sha256": "57260b1a6ef2f293c086e536df26597eae1384a22a57f0cab08919b455e2cf23",
+      "size_bytes": 4389,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/mobility.urdf"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/mobility_v2.json",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/mobility_v2.json",
+      "sha256": "618f4d29e7ec1482c06dc18b0a2a52f5a4ca246427629b91f9ce43eef66064f5",
+      "size_bytes": 808,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/mobility_v2.json"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/.asset_hash",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/.asset_hash",
+      "sha256": "7b8e4b2b9bb735149b19f7e986beb3bfd95ffc2b9bc98c7565f8ff51b97c670a",
+      "size_bytes": 32,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/.asset_hash"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/config.yaml",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/config.yaml",
+      "sha256": "3bf13892d2aa74d43e8861f3e66e17140c739f9ea0434957adac1c99b4d6352d",
+      "size_bytes": 759,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/config.yaml"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/materials/textures/texture_0.jpg",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/materials/textures/texture_0.jpg",
+      "sha256": "514b2779648e218e35a45a01e9583b67ad53f3d1b400766a9fd9cdbd56071a65",
+      "size_bytes": 91085,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/materials/textures/texture_0.jpg"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_base.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_base.usd",
+      "sha256": "d43f7de7fc8f128611119af29c356a621c0012679f9c8d6a4ba87e098afd5a01",
+      "size_bytes": 612579,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_base.usd"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_physics.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_physics.usd",
+      "sha256": "cbcc59ac3d0dc9fcbbfe19688b15a95f8964223bef9feb51ceb9288ee05b129f",
+      "size_bytes": 3209,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_physics.usd"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_robot.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_robot.usd",
+      "sha256": "e3ffadf6b219f22b8d290aae4688d1d23006e8058004168c10de28e3dd318a9d",
+      "size_bytes": 1581,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_robot.usd"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_sensor.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_sensor.usd",
+      "sha256": "cb9e6f3dbc47641bc95b96025fe60bfb533e8fc142b42b263e2d0a856d83d342",
+      "size_bytes": 679,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/configuration/mobility_sensor.usd"
+    },
+    {
+      "path": "Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd",
+      "sha256": "213d7b11d4e818f9484fadc13a3e0ce6d3b70e0bb612fa36db97616ad42fbcb8",
+      "size_bytes": 1498,
+      "local_path": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd"
+    }
+  ]
 }

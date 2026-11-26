@@ -1,6 +1,6 @@
 # 原始资产与迁移缺口记录（场景代理接入前）
 
-此页保留此前逐项调查的原始缺口。14 项现已具备自建基础形状的 UniLab 场景诊断，当前运行状态见[14 项场景诊断](unilab-proxy-task-status.md)；下表的“未绑定”指源资产和源评分尚未接入，不再代表 UniLab 启动入口完全缺失。
+此页保留此前逐项调查的原始缺口。当前运行状态见[14 项场景诊断](unilab-proxy-task-status.md)；其中 R02 已有[Bench2Dex 水龙头源资产与机构接入](bench2dex-faucet-adaptation.md)。下表是早期调查快照，不能代替当前审计。
 
 我们的 21 项候选任务已经各自有任务 JSON 评分合同和 Hydra 启动配置。配置能通过审计，只说明任务定义完整；必须有场景、机器人、初态、动作、观测和可复查的试跑回执，才算实际接入。以下是 2026-11-26 本地文件和运行结果的快照，完整逐项审计保存在 [all-tasks-audit.json](evidence/I01-wuji-20261126/all-tasks-audit.json)。
 
@@ -48,7 +48,7 @@ uv run --locked python integrations/unilab/task_owner.py smoke --task I02 --outp
 uv run --locked python integrations/unilab/play_task.py --task I02 --port 8080
 ```
 
-`task_assets.py fetch --task <ID>` 只对有 URL、哈希和大小的清单工作；下载上限默认 25 MB，较大资产需显式给 `--max-total-mb`。R02 这类仅有外部路径的清单会拒绝下载，避免把未核验文件当成官方资产。I01 需要先按既有转换脚本生成 `assets/generated/I01-convex` 与 `assets/generated/dual_x5_wuji`，再运行 `uv run --locked python integrations/unilab/build_insert_wuji_scene.py`。I02 的资产转换另需 `.venv-assets/bin/python integrations/unilab/build_i02_wuji_scene.py`，物理试跑仍走仓库根目录的 `uv run --locked`。
+`task_assets.py fetch --task <ID>` 只对有 URL、哈希和大小的清单工作；下载上限默认 25 MB，较大资产需显式给 `--max-total-mb`。R02 现在有固定版本与哈希的 10 个源文件，可用同一命令下载。I01 需要先按既有转换脚本生成 `assets/generated/I01-convex` 与 `assets/generated/dual_x5_wuji`，再运行 `uv run --locked python integrations/unilab/build_insert_wuji_scene.py`。I02 的资产转换另需 `.venv-assets/bin/python integrations/unilab/build_i02_wuji_scene.py`，物理试跑仍走仓库根目录的 `uv run --locked`。
 最后一条通过 UniLab 自带的 Viser 入口打开浏览器，只演示探针动作，不产生任务成功报告。
 
 资产转换使用独立的 uv 环境，避免 USD 原生库与 UniLab 运行依赖互相覆盖；新机器先执行 `uv venv --python 3.10 .venv-assets`，再执行 `uv pip install --python .venv-assets/bin/python -r requirements/scene-assets.txt`。双臂 Wuji 模板的准备见[灵巧手资产说明](wuji-sharpa-hands.md)。生成物放在 `assets/generated/`，仓库不把本机绝对路径的 MJCF 当成可移植源文件；转换脚本和哈希清单才是可重建依据。
