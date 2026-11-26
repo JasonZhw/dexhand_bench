@@ -1,0 +1,67 @@
+{
+  "task_id": "M02",
+  "manifest": "asset_manifests/M02-robodojo.json",
+  "file_count": 10,
+  "files": [
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/toolbox/00000/metadata.json",
+      "status": "verified",
+      "sha256": "912d88a5aeb67c757713d3c4c3d80b96543eed54536d9846cc24406e6493e804",
+      "size_bytes": 4974
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Geometry/toolbox/00000/object.usdz",
+      "status": "verified",
+      "sha256": "a6b844cfbe245adbeb95c3a82c8f3a8a4aa0184bdd604bf6b04da0f9189d9407",
+      "size_bytes": 39758027
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00005/metadata.json",
+      "status": "verified",
+      "sha256": "0cb39d86d4b6155d4cd0edfec7bbbee87c694f788e107afb0057929c18f6d11d",
+      "size_bytes": 3825
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00005/object.usdz",
+      "status": "verified",
+      "sha256": "bf319bb54915663d903f6bb064d3d29eb68e024e171e56755f3612ef59332d17",
+      "size_bytes": 11777426
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/pliers/00000/metadata.json",
+      "status": "verified",
+      "sha256": "a65ef17112c83216f2382af7502085100322aa6597d0dcd7425c42eccba706ab",
+      "size_bytes": 4169
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/pliers/00000/object.usdz",
+      "status": "verified",
+      "sha256": "30ec96b0a359cb689a39a86fd07362b875b87e19387533052a62f8298bbc3643",
+      "size_bytes": 13229891
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/tape_measure/00000/metadata.json",
+      "status": "verified",
+      "sha256": "dd9dc4d7ae524acc3a9f6d4a4c63f462b8e56fb4be103935e05b1902eaf20640",
+      "size_bytes": 3832
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/tape_measure/00000/object.usdz",
+      "status": "verified",
+      "sha256": "3830024c6b40345d441d67f22a8d626159e09f786eda297d3ed1c1822ad3ce86",
+      "size_bytes": 15073655
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/metadata.json",
+      "status": "verified",
+      "sha256": "08d459e2f834bf58375994f5aa0ada7612078b4f052af23e85d03f6e5b76eb01",
+      "size_bytes": 3904
+    },
+    {
+      "path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/object.usdz",
+      "status": "verified",
+      "sha256": "efcbb7940871d9bfa815b2d095773178da46c6bd1d7170cb509fb69092d8c5da",
+      "size_bytes": 12354507
+    }
+  ]
+}

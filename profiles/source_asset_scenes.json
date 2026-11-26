@@ -1,0 +1,60 @@
+{
+  "P01": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/P01-robodojo.json",
+    "bodies": [
+      {
+        "name": "t",
+        "motion": "free",
+        "pos": [-0.12, -0.10, 0.775],
+        "source": "Rigid/t/00000",
+        "visual_prim": "/World/visual/model",
+        "mass_kg": 0.35,
+        "friction": 0.45,
+        "collision": {
+          "method": "two_boxes_from_source_dimensions",
+          "reason": "The authored USD collision mesh has collisionEnabled=false; the visual T is the union of these two boxes",
+          "boxes": [
+            {"pos": [-0.03, 0, 0], "size": [0.01, 0.03, 0.0075]},
+            {"pos": [0.01, 0, 0], "size": [0.03, 0.01, 0.0075]}
+          ]
+        }
+      },
+      {
+        "name": "target_t",
+        "motion": "fixed",
+        "pos": [0.18, -0.10, 0.767],
+        "source": "Geometry/t_cushion/00000",
+        "visual_prim": "/World/visual/model",
+        "visual_only": true
+      }
+    ]
+  },
+  "I03": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/I03-robodojo.json",
+    "bodies": [
+      {
+        "name": "key",
+        "motion": "free",
+        "pos": [-0.12, -0.10, 0.820],
+        "source": "Rigid/key/00000",
+        "visual_prim": "/Key/mesh",
+        "collision_prim": "/Key/mesh",
+        "mass_kg": 0.2,
+        "friction": 0.45,
+        "collision": {"method": "coacd", "threshold": 0.05, "max_convex_hull": 32, "mcts_iterations": 15}
+      },
+      {
+        "name": "slot",
+        "motion": "fixed",
+        "pos": [0.18, -0.10, 0.765],
+        "source": "Geometry/key_slot/00000",
+        "visual_prim": "/KeySlot/visual/mesh",
+        "collision_prim": "/KeySlot/collision/mesh",
+        "friction": 0.45,
+        "collision": {"method": "coacd", "threshold": 0.025, "max_convex_hull": 48, "mcts_iterations": 20}
+      }
+    ]
+  }
+}

@@ -142,7 +142,7 @@ def main():
         env_cfg, robot = insertion_environment_config(profile)
         num_envs = profile["num_envs"]
         session_type = InsertionDiagnosticPlaybackSession
-    elif cfg.task_catalog.binding.kind == "unilab_proxy_diagnostic":
+    elif cfg.task_catalog.binding.kind in ("unilab_proxy_diagnostic", "unilab_source_asset_diagnostic"):
         from integrations.unilab.run_proxy_task_scene import (
             diagnostic_profile, environment_config as proxy_environment_config,
             validate_scene as validate_proxy_scene,

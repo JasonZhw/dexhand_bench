@@ -1,4 +1,4 @@
-"""Exercise primitive task proxies through UniLab without claiming task success."""
+"""Exercise proxy or source-object diagnostics through UniLab without claiming task success."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import math
 from pathlib import Path
 import sys
 import time
+import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT), str(ROOT / "third_party/UniLab/src")]
@@ -22,10 +23,14 @@ from integrations.unilab.build_proxy_task_scenes import LAYOUTS, OUTPUT_ROOT, RO
 
 WRISTS = ("left_wuji_l_wrist", "right_wuji_r_wrist")
 ROBOT_META = ROOT / "assets/generated/dual_x5_wuji/robot.json"
+SOURCE_LAYOUTS = ROOT / "profiles/source_asset_scenes.json"
+SOURCE_OUTPUT_ROOT = ROOT / "assets/generated/source_tasks"
 
 
 def diagnostic_profile(task_id: str) -> dict:
-    layouts = json.loads(LAYOUTS.read_text())
+    owner = yaml.safe_load((ROOT / f"conf/unilab/task_catalog/{task_id}.yaml").read_text())
+    source = owner["binding"]["kind"] == "unilab_source_asset_diagnostic"
+    layouts = json.loads((SOURCE_LAYOUTS if source else LAYOUTS).read_text())
     if task_id not in layouts:
         raise ValueError(f"No primitive diagnostic layout for {task_id}")
     task_files = list((ROOT / "tasks").glob(f"*/{task_id}.json"))
@@ -33,11 +38,13 @@ def diagnostic_profile(task_id: str) -> dict:
         raise ValueError(f"Task contract missing or ambiguous: {task_id}")
     return {
         "task_id": task_id, "task_file": str(task_files[0].relative_to(ROOT)),
-        "scene": str((OUTPUT_ROOT / task_id / "scene.xml").relative_to(ROOT)),
+        "scene": str(((SOURCE_OUTPUT_ROOT if source else OUTPUT_ROOT) / task_id / "scene.xml").relative_to(ROOT)),
         "backend": "mujoco", "controller": "probe", "robot_file": str(ROBOT_META.relative_to(ROOT)),
         "num_envs": 2, "sim_dt": 0.004, "ctrl_dt": 0.004, "steps": 8,
+        "asset_scope": "source_object_scene_diagnostic" if source else "self_authored_geometry_proxy",
         "limitations": [
-            "Self-authored primitive geometry; source assets and reset are not ported",
+            ("Verified RoboDojo object meshes with adapted MuJoCo contacts; source reset is not ported"
+             if source else "Self-authored primitive geometry; source assets and reset are not ported"),
             "Joint probe is not a task policy",
             "Task signals have no source-calibrated adapter; success remains unknown",
             "Contact forces are not instrumented for these diagnostics",
@@ -46,15 +53,25 @@ def diagnostic_profile(task_id: str) -> dict:
 
 
 def validate_scene(task_id: str) -> tuple[Path, dict]:
-    scene = OUTPUT_ROOT / task_id / "scene.xml"
+    profile = diagnostic_profile(task_id)
+    source = profile["asset_scope"] == "source_object_scene_diagnostic"
+    scene = ROOT / profile["scene"]
     receipt_path = scene.parent / "scene.json"
     receipt = json.loads(receipt_path.read_text())
-    if (receipt["task_id"] != task_id or receipt["scope"] != "self_authored_geometry_proxy"
+    if (receipt["task_id"] != task_id or receipt["scope"] != profile["asset_scope"]
             or receipt["backend"] != "mujoco" or receipt["robot"] != "dual_x5_wuji"):
-        raise ValueError("Scene receipt does not describe this task's proxy")
-    layout = json.loads(LAYOUTS.read_text())[task_id]
-    if layout_digest(layout) != receipt["layout_sha256"]:
-        raise ValueError("Changed diagnostic task layout")
+        raise ValueError("Scene receipt does not describe this task's asset scope")
+    if source:
+        layouts = json.loads(SOURCE_LAYOUTS.read_text())
+        if layout_digest(layouts[task_id]) != receipt["layout_sha256"]:
+            raise ValueError("Changed source-object layout")
+        manifest = ROOT / layouts[task_id]["manifest"]
+        if digest(manifest) != receipt["source_asset_manifest_sha256"]:
+            raise ValueError("Changed source asset manifest")
+    else:
+        layout = json.loads(LAYOUTS.read_text())[task_id]
+        if layout_digest(layout) != receipt["layout_sha256"]:
+            raise ValueError("Changed diagnostic task layout")
     checks = (
         (scene, receipt["scene_sha256"]),
         (ROBOT, receipt["robot_template_sha256"]),
@@ -66,7 +83,11 @@ def validate_scene(task_id: str) -> tuple[Path, dict]:
     for relative, expected in receipt["mesh_dependencies"].items():
         path = ROOT / relative
         if digest(path) != expected:
-            raise ValueError(f"Changed robot mesh: {path}")
+            raise ValueError(f"Changed scene mesh: {path}")
+    for relative, expected in receipt.get("source_asset_dependencies", {}).items():
+        path = ROOT / relative
+        if digest(path) != expected:
+            raise ValueError(f"Changed source asset: {path}")
     return scene, receipt
 
 
@@ -178,12 +199,14 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
         env.close()
     scores = [evaluate(task_id, task["benchmark"], trace) for trace in traces]
     if any(score["success"] is not None for score in scores):
-        raise ValueError("A primitive-only probe must not claim task success or failure")
+        raise ValueError("A scene probe without task signals must not claim task success or failure")
     (output / "traces.json").write_text(json.dumps(traces) + "\n")
     (output / "states.json").write_text(json.dumps(records) + "\n")
     (output / "evaluation.json").write_text(json.dumps(scores, indent=2) + "\n")
     receipt = {
-        "task_id": task_id, "scope": "unilab_proxy_diagnostic", "backend": "mujoco",
+        "task_id": task_id, "scope": ("unilab_source_asset_diagnostic"
+                                      if profile["asset_scope"] == "source_object_scene_diagnostic"
+                                      else "unilab_proxy_diagnostic"), "backend": "mujoco",
         "controller": "probe", "steps": steps, "num_envs": profile["num_envs"],
         "task_success": None, "independent_reset_verified": independent_reset_verified,
         "physics_force_available": False, "scene_sha256": scene_receipt["scene_sha256"],

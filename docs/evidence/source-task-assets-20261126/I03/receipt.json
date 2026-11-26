@@ -1,0 +1,21 @@
+{
+  "task_id": "I03",
+  "scope": "unilab_source_asset_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "bcfbc0ed7f0b91251eb03f06d87bbfedb7d3a6e5c95cce1d2c01d06854378d44",
+  "score_signal_count": 4,
+  "score_signals_available": 0,
+  "source_score_ported": false,
+  "limitations": [
+    "Verified RoboDojo object meshes with adapted MuJoCo contacts; source reset is not ported",
+    "Joint probe is not a task policy",
+    "Task signals have no source-calibrated adapter; success remains unknown",
+    "Contact forces are not instrumented for these diagnostics"
+  ]
+}

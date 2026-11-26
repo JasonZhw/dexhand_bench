@@ -29,13 +29,6 @@
       {"name": "orientation_goal", "motion": "fixed", "pos": [0.18, -0.12, 0.81], "visual_only": true, "geoms": [{"type": "ellipsoid", "size": [0.025, 0.025, 0.045], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
     ]
   },
-  "I03": {
-    "provenance": "self_authored_geometry_proxy",
-    "bodies": [
-      {"name": "key", "motion": "free", "pos": [-0.15, -0.12, 0.79], "geoms": [{"type": "box", "size": [0.055, 0.008, 0.007], "mass": 0.02}]},
-      {"name": "slot", "motion": "fixed", "pos": [0.18, -0.12, 0.80], "geoms": [{"type": "box", "size": [0.06, 0.04, 0.025]}]}
-    ]
-  },
   "M01": {
     "provenance": "self_authored_geometry_proxy",
     "bodies": [
@@ -72,16 +65,6 @@
       {"name": "block_0", "motion": "free", "pos": [-0.15, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]},
       {"name": "block_1", "motion": "free", "pos": [-0.05, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]},
       {"name": "block_2", "motion": "free", "pos": [0.05, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]}
-    ]
-  },
-  "P01": {
-    "provenance": "self_authored_geometry_proxy",
-    "bodies": [
-      {"name": "t", "motion": "free", "pos": [-0.10, -0.10, 0.785], "geoms": [
-        {"type": "box", "size": [0.05, 0.012, 0.018], "pos": [0, 0.02, 0], "mass": 0.06},
-        {"type": "box", "size": [0.012, 0.05, 0.018], "pos": [0, -0.03, 0], "mass": 0.06}
-      ]},
-      {"name": "target_t", "motion": "fixed", "pos": [0.18, -0.10, 0.785], "visual_only": true, "geoms": [{"type": "box", "size": [0.05, 0.05, 0.018], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
     ]
   },
   "P02": {

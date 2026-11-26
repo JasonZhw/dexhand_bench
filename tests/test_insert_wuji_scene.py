@@ -3,6 +3,7 @@ import math
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import torch
 from hydra.utils import instantiate
@@ -43,8 +44,11 @@ class InsertWujiSceneTests(unittest.TestCase):
     def test_asset_fetch_budget_is_checked_before_any_download(self):
         _manifest, entries = source_asset_entries("I02")
         self.assertEqual(len(entries), 5)
-        with self.assertRaisesRegex(ValueError, "budget"):
-            fetch("M02", max_total_bytes=0)
+        with patch("integrations.unilab.task_assets.verify_asset", return_value={"status": "missing"}), \
+             patch("integrations.unilab.task_assets.fetch_asset") as download:
+            with self.assertRaisesRegex(ValueError, "budget"):
+                fetch("M02", max_total_bytes=0)
+            download.assert_not_called()
 
     def test_both_insertion_diagnostics_produce_complete_signal_rows(self):
         for task_id, count in (("I01", 10), ("I02", 4)):
