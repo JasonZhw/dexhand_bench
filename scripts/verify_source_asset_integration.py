@@ -47,10 +47,10 @@ def verify(task_id: str, fetch_missing: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--task", choices=("P01", "I03", "M01", "M02", "M03", "P03", "R02", "all"), default="all")
+    parser.add_argument("--task", choices=("P01", "I03", "M01", "M02", "M03", "P03", "R01", "R02", "all"), default="all")
     parser.add_argument("--fetch", action="store_true", help="Download missing pinned USD assets")
     args = parser.parse_args()
-    for task_id in (("P01", "I03", "M01", "M02", "M03", "P03", "R02") if args.task == "all" else (args.task,)):
+    for task_id in (("P01", "I03", "M01", "M02", "M03", "P03", "R01", "R02") if args.task == "all" else (args.task,)):
         verify(task_id, args.fetch)
 
 

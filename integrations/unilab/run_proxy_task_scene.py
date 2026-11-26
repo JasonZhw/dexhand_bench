@@ -47,12 +47,16 @@ def diagnostic_profile(task_id: str) -> dict:
         "limitations": [
             ("Pinned Bench2Dex faucet meshes and joints with adapted MuJoCo contacts; original multi-stage task is not ported"
              if task_id == "R02" else
+             "Pinned RoboDojo wrench geometry plus a self-authored nut hinge; no source tightening task is ported"
+             if task_id == "R01" else
              "Verified RoboDojo object meshes with adapted MuJoCo contacts; source reset is not ported"
              if source else "Selected source MJCF primitive parameters are checked; robot, layout, reset and score are adapted"
              if "source_mjcf" in layout else "Self-authored primitive geometry; source assets and reset are not ported"),
             "Joint probe is not a task policy",
             ("Source faucet joint_0 angle is measured, but the probe trace is incomplete; success remains unknown"
              if task_id == "R02" else
+             "Custom nut hinge angle is measured, but engagement and the full episode are unavailable; success remains unknown"
+             if task_id == "R01" else
              "Door hinge position is measured, but the probe trace is incomplete; success remains unknown"
              if task_id == "R03" else
              "Task signals have no source-calibrated adapter; success remains unknown"),
@@ -122,6 +126,8 @@ def environment_config(task_id: str):
         cfg.env.scene.entities.objects.joint_names = ["door_hinge", "latch"]
     elif task_id == "R02":
         cfg.env.scene.entities.objects.joint_names = ["joint_0", "joint_1"]
+    elif task_id == "R01":
+        cfg.env.scene.entities.objects.joint_names = ["nut_hinge"]
     cfg.env.observations.policy.terms.object_pose.params.body_names = names
     del cfg.env.observations.policy.terms["source_geometry"]
     del cfg.env.metrics["source_geometry_count"]
@@ -171,7 +177,7 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
         def capture(step: int, action: torch.Tensor, elapsed: float | None):
             objects = env.scene.read_plan.body_tensor_view(env.scene["objects"], names)
             mechanism_joints = (env.scene.read_plan.joint_tensor_view(env.scene["objects"])
-                                if task_id in ("R02", "R03") else None)
+                                if task_id in ("R01", "R02", "R03") else None)
             wrists = env.scene.read_plan.body_tensor_view(env.scene["robot"], WRISTS)
             joints = env.scene.read_plan.joint_tensor_view(env.scene["robot"])
             for value in (objects.pos_w, objects.quat_w, objects.lin_vel_w,
@@ -182,6 +188,8 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
                 values = {name: None for name in task["benchmark"]["signals"]}
                 if task_id == "R02":
                     values["faucet_joint_rad"] = float(mechanism_joints.joint_pos[env_id, 0])
+                elif task_id == "R01":
+                    values["nut_rotation_rad"] = float(mechanism_joints.joint_pos[env_id, 0])
                 elif task_id == "R03":
                     values["door_hinge_rad"] = float(mechanism_joints.joint_pos[env_id, 0])
                 traces[env_id]["frames"].append({"t_s": step * profile["ctrl_dt"],
@@ -200,6 +208,8 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
                 if task_id == "R02":
                     record["faucet_joint_rad"] = values["faucet_joint_rad"]
                     record["faucet_joint_1_rad"] = float(mechanism_joints.joint_pos[env_id, 1])
+                elif task_id == "R01":
+                    record["nut_rotation_rad"] = values["nut_rotation_rad"]
                 elif task_id == "R03":
                     record["door_hinge_rad"] = values["door_hinge_rad"]
                     record["latch_rad"] = float(mechanism_joints.joint_pos[env_id, 1])
@@ -239,7 +249,7 @@ def run(task_id: str, output: Path, steps: int | None = None) -> dict:
         "task_success": None, "independent_reset_verified": independent_reset_verified,
         "physics_force_available": False, "scene_sha256": scene_receipt["scene_sha256"],
         "score_signal_count": len(task["benchmark"]["signals"]),
-        "score_signals_available": 1 if task_id in ("R02", "R03") else 0,
+        "score_signals_available": 1 if task_id in ("R01", "R02", "R03") else 0,
         "source_score_ported": False,
         "limitations": profile["limitations"],
     }

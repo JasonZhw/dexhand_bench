@@ -14,9 +14,9 @@ from integrations.unilab.task_owner import ROOT, audit_task, load_owner
 
 PROXY_IDS = (
     "G06", "H01", "H02", "H03",
-    "P02", "R01", "R03",
+    "P02", "R03",
 )
-SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03", "R02")
+SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03", "R01", "R02")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
@@ -416,9 +416,10 @@ class ProxyTaskSceneTests(unittest.TestCase):
                 self.assertEqual(str(cfg.task_catalog.binding.profile), "profiles/source_asset_scenes.json")
                 self.assertEqual(layouts[task_id]["provenance"],
                                  "bench2dex_source_faucet_adapted_contact" if task_id == "R02"
+                                 else "robodojo_source_wrench_custom_fixture" if task_id == "R01"
                                  else "robodojo_source_mesh_adapted_contact")
                 row = audit_task(task_id)
-                self.assertEqual(row["score_signals_available"], 1 if task_id == "R02" else 0)
+                self.assertEqual(row["score_signals_available"], 1 if task_id in ("R01", "R02") else 0)
                 self.assertEqual(row["score_signal_count"], len(task["benchmark"]["signals"]))
                 if row["local_scene_present"]:
                     self.assertEqual(row["scene_integrity"], "verified")
@@ -427,15 +428,42 @@ class ProxyTaskSceneTests(unittest.TestCase):
                     self.assertTrue(scene.is_file())
                     self.assertEqual(receipt["scope"], "source_object_scene_diagnostic")
                     self.assertEqual(set(receipt["body_names"]),
+                                     {"wrench", "nut", "bolt"} if task_id == "R01" else
                                      {body["name"] for body in layouts[task_id]["bodies"]})
                     self.assertGreater(len(receipt["source_asset_dependencies"]), 0)
                     expected = ({"faucet_base", "faucet_handle_0", "faucet_handle_1"} if task_id == "R02"
+                                else {"wrench", "nut", "bolt"} if task_id == "R01"
                                 else {"t"} if task_id == "P01" else {"key", "slot"} if task_id == "I03"
                                 else {"car", "electric_toothbrush", "hammer", "shoe", "box"} if task_id == "M01"
                                 else {"block_0", "block_1", "block_2"} if task_id == "M03"
                                 else {"cube_0", "cube_1", "cube_2", "broom_shovel", "broom"} if task_id == "P03"
                                 else {"pliers", "hammer", "tape_measure", "wrench", "toolbox"})
                     self.assertEqual(set(receipt["collision_conversions"]), expected)
+                    if task_id == "R01":
+                        mujoco = __import__("mujoco")
+                        model = mujoco.MjModel.from_xml_path(str(scene))
+                        self.assertEqual(model.joint("nut_hinge").type,
+                                         mujoco.mjtJoint.mjJNT_HINGE)
+                        self.assertLess(model.joint("nut_hinge").id,
+                                        model.joint("wrench_free").id)
+                        self.assertEqual(receipt["collision_conversions"]["wrench"]["method"],
+                                         "coacd_from_source_collision_mesh")
+                        self.assertEqual(receipt["collision_conversions"]["nut"]["origin"],
+                                         "self_authored_diagnostic_fixture")
+                        self.assertGreater(receipt["collision_conversions"]["wrench"]["piece_count"], 1)
+                        state = mujoco.MjData(model)
+                        mujoco.mj_forward(model, state)
+                        self.assertFalse(any(
+                            {model.geom(contact.geom1).name, model.geom(contact.geom2).name}
+                            == {"diagnostic_table", "nut_contact"}
+                            for contact in state.contact))
+                        dof = int(model.joint("nut_hinge").dofadr[0])
+                        qpos = int(model.joint("nut_hinge").qposadr[0])
+                        for _ in range(round(0.5 / model.opt.timestep)):
+                            state.qfrc_applied[dof] = 0.04
+                            mujoco.mj_step(model, state)
+                        self.assertGreater(state.qpos[qpos], 0.2)
+                        continue
                     if task_id == "R02":
                         mujoco = __import__("mujoco")
                         model = mujoco.MjModel.from_xml_path(str(scene))
@@ -500,6 +528,17 @@ class ProxyTaskSceneTests(unittest.TestCase):
         self.assertTrue(all(not trace["complete"] and all(
             frame["signals"]["faucet_joint_rad"] is not None for frame in trace["frames"])
             for trace in traces))
+
+    def test_r01_records_custom_nut_hinge_without_claiming_tightening_success(self):
+        directory = ROOT / "docs/evidence/source-task-assets-20261126/R01"
+        traces = json.loads((directory / "traces.json").read_text())
+        receipt = json.loads((directory / "receipt.json").read_text())
+        self.assertEqual(receipt["score_signals_available"], 1)
+        self.assertIsNone(receipt["task_success"])
+        self.assertTrue(all(not trace["complete"] and all(
+            frame["signals"]["nut_rotation_rad"] is not None
+            and frame["signals"]["wrench_engaged"] is None
+            for frame in trace["frames"]) for trace in traces))
 
 
 if __name__ == "__main__":

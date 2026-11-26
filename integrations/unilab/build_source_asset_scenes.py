@@ -68,6 +68,10 @@ def verified_source(layout: dict, source: str) -> tuple[Path, dict]:
 
 
 def build(task_id: str, output: Path | None = None) -> Path:
+    if task_id == "R01":
+        from integrations.unilab.build_r01_wrench_scene import build as build_wrench
+
+        return build_wrench(output or OUTPUT_ROOT / task_id)
     if task_id == "R02":
         from integrations.unilab.build_r02_faucet_scene import build as build_faucet
 

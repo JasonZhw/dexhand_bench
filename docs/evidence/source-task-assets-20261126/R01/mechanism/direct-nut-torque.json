@@ -1,0 +1,256 @@
+{
+  "task_id": "R01",
+  "scope": "direct_joint_torque_diagnostic",
+  "scene_sha256": "11a8496ca95e83f5f38ac76d5368f112a0be8a79a7213fa1b12ceb43214134f9",
+  "input_torque_nm": 0.04,
+  "duration_s": 2.0,
+  "final_nut_rotation_rad": 2.9856608831517564,
+  "samples": [
+    {
+      "time_s": 0.04400000000000001,
+      "nut_rotation_rad": 0.07408171626334607,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.08400000000000005,
+      "nut_rotation_rad": 0.14968910676490207,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.12800000000000009,
+      "nut_rotation_rad": 0.2357938208543696,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.16800000000000012,
+      "nut_rotation_rad": 0.3149670563119676,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.21200000000000016,
+      "nut_rotation_rad": 0.4023762247422663,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.25200000000000017,
+      "nut_rotation_rad": 0.48193634224034293,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.2920000000000002,
+      "nut_rotation_rad": 0.5615271924930453,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.33600000000000024,
+      "nut_rotation_rad": 0.6490891324092007,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.3760000000000003,
+      "nut_rotation_rad": 0.728694559691089,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.4200000000000003,
+      "nut_rotation_rad": 0.8162618321635481,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.46000000000000035,
+      "nut_rotation_rad": 0.8958688410034863,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.5000000000000003,
+      "nut_rotation_rad": 0.9754759754776758,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.5440000000000004,
+      "nut_rotation_rad": 1.063043872473757,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.5840000000000004,
+      "nut_rotation_rad": 1.1426510665382488,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.6280000000000004,
+      "nut_rotation_rad": 1.2302189853336034,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.6680000000000005,
+      "nut_rotation_rad": 1.3098261858634406,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.7120000000000005,
+      "nut_rotation_rad": 1.3973941070239422,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.7520000000000006,
+      "nut_rotation_rad": 1.4770013082552471,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.7920000000000006,
+      "nut_rotation_rad": 1.5566085095422746,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.8360000000000006,
+      "nut_rotation_rad": 1.6441764309797708,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.8760000000000007,
+      "nut_rotation_rad": 1.723783632293228,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.9200000000000007,
+      "nut_rotation_rad": 1.811351553740393,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 0.9600000000000007,
+      "nut_rotation_rad": 1.8909587550567186,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.0000000000000007,
+      "nut_rotation_rad": 1.9705659563732716,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.0440000000000007,
+      "nut_rotation_rad": 2.058133877821569,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.0840000000000007,
+      "nut_rotation_rad": 2.137741079138225,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.1280000000000008,
+      "nut_rotation_rad": 2.2253090005865466,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.1680000000000008,
+      "nut_rotation_rad": 2.3049162019032026,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.2120000000000009,
+      "nut_rotation_rad": 2.392484123351524,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.252000000000001,
+      "nut_rotation_rad": 2.47209132466818,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.292000000000001,
+      "nut_rotation_rad": 2.551698525984836,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.336000000000001,
+      "nut_rotation_rad": 2.6392664474331577,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.376000000000001,
+      "nut_rotation_rad": 2.7188736487498137,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.420000000000001,
+      "nut_rotation_rad": 2.8064415701981353,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.460000000000001,
+      "nut_rotation_rad": 2.8860487715147913,
+      "torque_applied_nm": 0.04
+    },
+    {
+      "time_s": 1.500000000000001,
+      "nut_rotation_rad": 2.9656559728314473,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.5440000000000011,
+      "nut_rotation_rad": 2.979410931615915,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.5840000000000012,
+      "nut_rotation_rad": 2.983490450810005,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.6280000000000012,
+      "nut_rotation_rad": 2.9849828170196515,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.6680000000000013,
+      "nut_rotation_rad": 2.9854254309665387,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.7120000000000013,
+      "nut_rotation_rad": 2.985587347620641,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.7520000000000013,
+      "nut_rotation_rad": 2.9856353697273303,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.7920000000000014,
+      "nut_rotation_rad": 2.9856520466359147,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.8360000000000014,
+      "nut_rotation_rad": 2.985658147368297,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.8760000000000014,
+      "nut_rotation_rad": 2.9856599567561144,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.9200000000000015,
+      "nut_rotation_rad": 2.985660618664812,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 1.9600000000000015,
+      "nut_rotation_rad": 2.985660814977232,
+      "torque_applied_nm": 0.0
+    },
+    {
+      "time_s": 2.0000000000000013,
+      "nut_rotation_rad": 2.9856608831517564,
+      "torque_applied_nm": 0.0
+    }
+  ],
+  "task_success": null,
+  "limitations": [
+    "Torque is applied directly to the custom hinge; the wrench and hand do not turn the nut",
+    "The nut does not model threads, axial advance, or preload",
+    "This video checks mechanism motion and visualization, not R01 benchmark completion"
+  ]
+}

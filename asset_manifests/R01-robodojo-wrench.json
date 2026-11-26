@@ -1,0 +1,26 @@
+{
+  "task_id": "R01",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Only the RoboDojo wrench is sourced. The nut/bolt fixture and tightening criterion are self-authored diagnostics, not a RoboDojo tightening task.",
+  "source_asset_role": "wrench geometry and metadata from store_tools_in_toolbox; not a tightening demonstration",
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/wrench/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/wrench/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "08d459e2f834bf58375994f5aa0ada7612078b4f052af23e85d03f6e5b76eb01",
+      "size_bytes": 3904,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/wrench/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/wrench/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "efcbb7940871d9bfa815b2d095773178da46c6bd1d7170cb509fb69092d8c5da",
+      "size_bytes": 12354507,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/object.usdz"
+    }
+  ]
+}

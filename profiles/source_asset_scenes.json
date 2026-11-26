@@ -220,5 +220,67 @@
       "No source seeded reset, cup/spoon/tray, fluid simulation, policy, or full-task scoring",
       "Wuji-to-X5 mount is not hardware calibrated"
     ]
+  },
+  "R01": {
+    "provenance": "robodojo_source_wrench_custom_fixture",
+    "manifest": "asset_manifests/R01-robodojo-wrench.json",
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.01,
+    "wrench": {
+      "source": "Rigid/wrench/00000",
+      "visual_prim": "/root/visual/model",
+      "collision_prim": "/root/collision/model",
+      "pos": [
+        -0.12,
+        -0.12,
+        0.78
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.7071067811865476,
+        0,
+        0
+      ],
+      "mass_kg": 0.35,
+      "friction": 0.45,
+      "max_visual_faces": 20000,
+      "max_collision_input_faces": 5000,
+      "coacd_threshold": 0.04,
+      "max_convex_hulls": 16,
+      "coacd_mcts_iterations": 10
+    },
+    "fixture": {
+      "nut": {
+        "pos": [
+          0.18,
+          -0.12,
+          0.773
+        ],
+        "radius_m": 0.005,
+        "half_height_m": 0.006,
+        "mass_kg": 0.01,
+        "friction": 0.6,
+        "joint_damping": 0.02,
+        "joint_frictionloss": 0.01
+      },
+      "bolt_visual": {
+        "pos": [
+          0.18,
+          -0.12,
+          0.769
+        ],
+        "radius_m": 0.002,
+        "half_height_m": 0.008
+      }
+    },
+    "limitations": [
+      "The only source asset is RoboDojo adjustable wrench 00000 from its toolbox transport task, not a source tightening task",
+      "Wrench visual and decomposed collision geometry come from pinned USD; MuJoCo contact equivalence to PhysX is unverified",
+      "The six-sided nut, hinge, bolt visual, initial layout, resistance, and 60-degree criterion are self-authored diagnostics",
+      "The hinge constrains rotation but does not simulate screw threads, axial advance, or preload",
+      "The nut is held by a fixed hinge 2 mm above the table to avoid a MuJoCo mesh/table contact lock; the bolt is visual-only",
+      "Wrench jaw geometry and nut fit have not been calibrated; no engagement signal, policy, or completed episode exists",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ]
   }
 }

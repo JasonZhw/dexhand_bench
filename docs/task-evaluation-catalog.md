@@ -21,7 +21,7 @@
 | [P01 推T形块](../tasks/push/P01.json) | RoboDojo Push T | source | (xy_error_m < 0.007 且 rotation_error_deg < 7 且 robots_home = true) |
 | [P02 推滑物体到目标](../tasks/push/P02.json) | Gymnasium Robotics Fetch Slide | source | position_error_m < 0.05 |
 | [P03 扫积木进簸箕](../tasks/push/P03.json) | RoboDojo Sweep Blocks | source | (shovel_left_of_broom = true 且 shovel_not_lifted = true 且 shovel_upright_deg < 5 且 (all_cubes_in_support = true 或 all_cubes_in_functional_bbox = true) 且 robots_home = true) |
-| [R01 扳手拧螺母](../tasks/tool_rotation/R01.json) | 待补可复用紧固任务 | proposed | (nut_rotation_rad ≥ 1.0471975512 且 wrench_engaged = true)；连续 0.5 s |
+| [R01 扳手拧螺母](../tasks/tool_rotation/R01.json) | RoboDojo 扳手资产 + 自拟螺母夹具 | proposed | (nut_rotation_rad ≥ 1.0471975512 且 wrench_engaged = true)；连续 0.5 s |
 | [R02 开关水龙头](../tasks/tool_rotation/R02.json) | Bench2Dex 67 | adapted_source_thresholds | faucet_joint_rad ≥ 1.0 → faucet_joint_rad < 0.52；终帧仍关闭 |
 | [R03 解锁门闩并开门](../tasks/tool_rotation/R03.json) | Adroit Door | source | door_hinge_rad ≥ 1.35 |
 | [M01 物体装箱](../tasks/transport/M01.json) | RoboDojo Pack Objects Into Box | source | (car_placed = true 且 electric_toothbrush_placed = true 且 hammer_placed = true 且 shoe_placed = true 且 box_heading_valid = true 且 robots_home = true) |
