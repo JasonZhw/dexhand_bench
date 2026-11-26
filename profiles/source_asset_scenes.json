@@ -1,4 +1,30 @@
 {
+  "M03": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/M03-core-robodojo.json",
+    "limitations": [
+      "Fixed source block variants 00005/00008/00011 from size0; one valid group and three unique instances, not the source sampling distribution",
+      "Source visual meshes are shown without source material or texture binding",
+      "The source USD requests boundingCube collision; MuJoCo uses matching mesh bounds as boxes, but PhysX contact equivalence is unverified",
+      "Friction is changed from source metadata 0.0 to diagnostic 0.45; source scene material settings have not been ported",
+      "Fixed layout is not the source reset; no task policy, stacked-score lifecycle, or contact-force equivalence",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "block_0", "motion": "free", "pos": [-0.15, -0.12, 0.780],
+       "source": "Rigid/block/00005", "visual_prim": "/World/visual",
+       "collision_prim": "/World/collision", "rgba": "0.86 0.27 0.23 1",
+       "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}},
+      {"name": "block_1", "motion": "free", "pos": [-0.05, -0.12, 0.780],
+       "source": "Rigid/block/00008", "visual_prim": "/World/visual",
+       "collision_prim": "/World/collision", "rgba": "0.24 0.53 0.83 1",
+       "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}},
+      {"name": "block_2", "motion": "free", "pos": [0.05, -0.12, 0.780],
+       "source": "Rigid/block/00011", "visual_prim": "/World/visual",
+       "collision_prim": "/World/collision", "rgba": "0.26 0.67 0.46 1",
+       "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}}
+    ]
+  },
   "M02": {
     "provenance": "robodojo_source_mesh_adapted_contact",
     "manifest": "asset_manifests/M02-robodojo.json",

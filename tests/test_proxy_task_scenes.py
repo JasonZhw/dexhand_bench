@@ -10,10 +10,10 @@ from integrations.unilab.task_owner import ROOT, audit_task, load_owner
 
 
 PROXY_IDS = (
-    "G06", "H01", "H02", "H03", "M01", "M03",
+    "G06", "H01", "H02", "H03", "M01",
     "P02", "P03", "R01", "R02", "R03",
 )
-SOURCE_IDS = ("I03", "M02", "P01")
+SOURCE_IDS = ("I03", "M02", "M03", "P01")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
@@ -78,8 +78,16 @@ class ProxyTaskSceneTests(unittest.TestCase):
                                      {body["name"] for body in layouts[task_id]["bodies"]})
                     self.assertGreater(len(receipt["source_asset_dependencies"]), 0)
                     expected = ({"t"} if task_id == "P01" else {"key", "slot"} if task_id == "I03"
+                                else {"block_0", "block_1", "block_2"} if task_id == "M03"
                                 else {"pliers", "hammer", "tape_measure", "wrench", "toolbox"})
                     self.assertEqual(set(receipt["collision_conversions"]), expected)
+                    if task_id == "M03":
+                        self.assertEqual({entry["method"] for entry in receipt["collision_conversions"].values()},
+                                         {"source_bbox_proxy"})
+                        self.assertEqual({entry["source_approximation"] for entry in receipt["collision_conversions"].values()},
+                                         {"boundingCube"})
+                        self.assertEqual({entry["mass_origin"] for entry in receipt["collision_conversions"].values()},
+                                         {"source_metadata"})
                     if task_id == "M02":
                         self.assertEqual(receipt["collision_conversions"]["toolbox"]["method"],
                                          "source_bbox_open_tray")

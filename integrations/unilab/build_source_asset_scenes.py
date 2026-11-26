@@ -131,7 +131,7 @@ def build(task_id: str, output: Path | None = None) -> Path:
                 raise ValueError(f"Unsupported source object motion: {spec['motion']}")
             ET.SubElement(body, "geom", name=f"{name}_source_visual", type="mesh",
                           mesh=f"{name}_visual_mesh", contype="0", conaffinity="0",
-                          group="2", mass="0", rgba="0.85 0.65 0.22 1")
+                          group="2", mass="0", rgba=spec.get("rgba", "0.85 0.65 0.22 1"))
             if spec.get("visual_only"):
                 continue
             physics = metadata.get("physics") or {}
@@ -157,6 +157,12 @@ def build(task_id: str, output: Path | None = None) -> Path:
                 if (not collision_prim.HasAPI(UsdPhysics.CollisionAPI)
                         or UsdPhysics.CollisionAPI(collision_prim).GetCollisionEnabledAttr().Get() is not True):
                     raise ValueError(f"Source collision mesh disabled: {name}")
+                expected_approximation = spec["collision"].get("expected_source_approximation")
+                if expected_approximation is not None:
+                    approximation = collision_prim.GetAttribute("physics:approximation").Get()
+                    if approximation != expected_approximation:
+                        raise ValueError(f"Source collision approximation changed: {name}")
+                    collision_conversions[name]["source_approximation"] = approximation
                 minimum, maximum = contact_bounds
                 center, half = (minimum + maximum) / 2, (maximum - minimum) / 2
                 if method == "source_bbox_proxy":

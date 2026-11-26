@@ -1,0 +1,96 @@
+{
+  "task_id": "M03",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Dataset card declaration; retain any individual asset attribution and metadata. Do not assume generated replacements reproduce original task",
+  "config_path": "task/RoboDojo/config/stack_blocks.yml",
+  "selection_note": "Fixed source-valid size0 group: three unique instances 00005/00008/00011. Source task samples one size group and three unique instances; this fixes one episode subset, not the reset distribution.",
+  "categories": [
+    {
+      "kind": "Rigid",
+      "name": "block",
+      "group": "size0",
+      "indices": [
+        5,
+        8,
+        11
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00005/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00005/description.json",
+      "downloaded": false,
+      "sha256": "fb7c5c65b88c2d158bd38b10c2c0c7cde860f213e759695cd33c7043d58d24b5",
+      "size_bytes": 7121,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00005/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00005/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00005/metadata.json",
+      "downloaded": false,
+      "sha256": "297ea5c16775a98e249cd7be15a878e01f0d45a73f80dff5d6439c201f953ac8",
+      "size_bytes": 4131,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00005/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00005/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00005/object.usdz",
+      "downloaded": false,
+      "sha256": "81b22f7917231d48714e1e15eb283857e60d2b97a48286b187dcbf616dde65a1",
+      "size_bytes": 10402306,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00005/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00008/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00008/description.json",
+      "downloaded": false,
+      "sha256": "62c621540be0b5439154cb5cdbcca4defe6675eb4a2129b0d99f5e3c58399a66",
+      "size_bytes": 6951,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00008/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00008/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00008/metadata.json",
+      "downloaded": false,
+      "sha256": "466a0037968e8b3585b792f7d8e4b7ad3ca1e512cc317667ac382cda62241d2b",
+      "size_bytes": 3937,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00008/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00008/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00008/object.usdz",
+      "downloaded": false,
+      "sha256": "ba6f0da261446f22140b9faeb92fd5e30fa1557f4c6cc7b0421315ead4b71751",
+      "size_bytes": 9329025,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00008/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00011/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00011/description.json",
+      "downloaded": false,
+      "sha256": "ef6619b9e0813eb3d0fb0c492a9bbbcf1b6eac470598214a2c435c8018f184f2",
+      "size_bytes": 7172,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00011/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00011/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00011/metadata.json",
+      "downloaded": false,
+      "sha256": "f1dfcace066322825ec7c9c7de2bf412c7a13d5522f2d039ab2730945826838b",
+      "size_bytes": 3937,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00011/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/block/00011/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/block/00011/object.usdz",
+      "downloaded": false,
+      "sha256": "d2549aa1b83d8d4a684df1244caf0bbfbe1cdbb6c12ebcb2abf0c49dee5cb922",
+      "size_bytes": 9120428,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/block/00011/object.usdz"
+    }
+  ],
+  "completeness": "Three fixed source block variants from size0 only; excludes randomized reset, robot and source materials"
+}

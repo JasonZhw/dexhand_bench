@@ -45,14 +45,6 @@
       ]}
     ]
   },
-  "M03": {
-    "provenance": "self_authored_geometry_proxy",
-    "bodies": [
-      {"name": "block_0", "motion": "free", "pos": [-0.15, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]},
-      {"name": "block_1", "motion": "free", "pos": [-0.05, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]},
-      {"name": "block_2", "motion": "free", "pos": [0.05, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]}
-    ]
-  },
   "P02": {
     "provenance": "self_authored_geometry_proxy",
     "bodies": [
