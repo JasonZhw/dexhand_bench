@@ -1,0 +1,10 @@
+# 扫积木进簸箕; success rules live in the referenced task JSON.
+id: P03
+contract: tasks/push/P03.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

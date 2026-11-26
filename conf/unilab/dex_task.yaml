@@ -1,0 +1,15 @@
+# Downstream task owner. Each task has one catalog binding; JSON is the scoring contract.
+defaults:
+  - task_catalog: G01
+  - _self_
+
+viewer:
+  mode: viser
+  port: 8080
+  max_envs: 2
+  display_mode: single
+
+measurement:
+  physics_optional: [contact_force_n, penetration_m, slip_m_s]
+  missing_capability: unavailable
+  include_render_time: false

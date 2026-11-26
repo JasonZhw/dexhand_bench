@@ -1,0 +1,19 @@
+{
+  "task_id": "I01",
+  "scope": "unilab_scene_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "fb55aa0ee68e781fe2da2ef82ba99284960508de7fe59227213d8a0672fc4fb6",
+  "score_signal_count": 10,
+  "source_score_ported": false,
+  "limitations": [
+    "Scene and score-signal diagnostic only; no insertion policy",
+    "Source USD collision and Wuji mount are approximated in MuJoCo",
+    "Robot-home predicate compares local Wuji wrists to reset, not source X5 gripper frames"
+  ]
+}

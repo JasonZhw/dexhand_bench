@@ -1,0 +1,10 @@
+# 螺丝刀柄抓取; success rules live in the referenced task JSON.
+id: G04
+contract: tasks/grasp/G04.json
+binding:
+  kind: local_grasp
+  profile: profiles/local_grasp/G04.json
+  robot: allegro
+  backend: mujoco
+  controller: probe
+  controller_config: null

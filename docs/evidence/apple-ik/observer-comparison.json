@@ -1,0 +1,32 @@
+{
+  "on_run": "runs/apple-ik-20261120-v2/G01",
+  "off_run": "runs/apple-ik-20261120-observer-off/G01",
+  "frame_count": 2801,
+  "comparison": {
+    "qpos": {
+      "max_absolute_difference": 0.0,
+      "exact_equal": true
+    },
+    "qvel": {
+      "max_absolute_difference": 0.0,
+      "exact_equal": true
+    },
+    "pose": {
+      "max_absolute_difference": 0.0,
+      "exact_equal": true
+    },
+    "evaluation_equal": true,
+    "actions": {
+      "max_absolute_difference": 0.0,
+      "exact_equal": true
+    },
+    "linear_velocity": {
+      "max_absolute_difference": 0.0,
+      "exact_equal": true
+    },
+    "angular_velocity": {
+      "max_absolute_difference": 0.0,
+      "exact_equal": true
+    }
+  }
+}

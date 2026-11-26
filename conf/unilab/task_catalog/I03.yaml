@@ -1,0 +1,10 @@
+# 钥匙交接、插入并旋转; success rules live in the referenced task JSON.
+id: I03
+contract: tasks/insertion/I03.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

@@ -1,0 +1,18 @@
+{
+  "task_id": "I02",
+  "task_file": "tasks/insertion/I02.json",
+  "scene": "assets/generated/I02-wuji/scene.xml",
+  "robot_file": "assets/generated/dual_x5_wuji/robot.json",
+  "backend": "mujoco",
+  "controller": "probe",
+  "num_envs": 2,
+  "sim_dt": 0.004,
+  "ctrl_dt": 0.004,
+  "steps": 8,
+  "limitations": [
+    "Self-chosen fixed diagnostic layout, not RoboDojo seeded reset",
+    "Source USD collision meshes compiled as convex hulls; one planar socket collider omitted and fixed socket given bookkeeping mass",
+    "No charger insertion policy or source reward lifecycle",
+    "Robot-home predicate compares local Wuji wrists to reset, not source X5 gripper frames"
+  ]
+}

@@ -1,0 +1,10 @@
+# 工具归位; success rules live in the referenced task JSON.
+id: M02
+contract: tasks/transport/M02.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

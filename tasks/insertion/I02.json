@@ -26,7 +26,7 @@
   "adaptation_protocol": null,
   "assets": {
     "manifest": "asset_manifests/I02-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "availability": "5/5 pinned object files verified locally; adapted fixed-layout Wuji scene loads in UniLab, source-reset and contact equivalence unverified"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -68,7 +68,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "在已跑通的 Wuji 场景诊断基础上保存原框架 seeded reset，复核省略的平面碰撞，编写充电器插入控制器与接触力记录",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-charger; pins-socket",

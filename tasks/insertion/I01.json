@@ -26,7 +26,7 @@
   "adaptation_protocol": null,
   "assets": {
     "manifest": "asset_manifests/I01-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "availability": "4/4 pinned object files verified locally; converted convex scene and Wuji diagnostic load in UniLab, source physics equivalence unverified"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -68,7 +68,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "基于已跑通的 Wuji 场景诊断实现插管控制器，核对源几何判据与回位坐标系，再接入运行时接触力与多初态测试",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-tube -> tube-rack",

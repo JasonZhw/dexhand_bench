@@ -1,0 +1,10 @@
+# 推滑物体到目标; success rules live in the referenced task JSON.
+id: P02
+contract: tasks/push/P02.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

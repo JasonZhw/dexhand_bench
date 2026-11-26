@@ -1,0 +1,10 @@
+# 推T形块; success rules live in the referenced task JSON.
+id: P01
+contract: tasks/push/P01.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

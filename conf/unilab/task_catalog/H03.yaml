@@ -1,0 +1,10 @@
+# 手内蛋形刚体重定向; success rules live in the referenced task JSON.
+id: H03
+contract: tasks/in_hand/H03.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

@@ -1,0 +1,33 @@
+{
+  "robot": "wuji",
+  "task": "G02",
+  "joint_count": 52,
+  "source_revision": "ffeb47f18545e135abba4386ff745c940cb8ce28",
+  "independent_reset_verified": true,
+  "task_success": [
+    false,
+    false
+  ],
+  "max_object_contact_penetration_mm": 1.2544261792778455,
+  "max_hand_motion_rad": {
+    "left": 0.35082951188087463,
+    "right": 0.3508465588092804
+  },
+  "source_run": "runs/vendor-hands-final-20261119/wuji/G02",
+  "videos": {
+    "preview": {
+      "width": 640,
+      "height": 480,
+      "r_frame_rate": "25/1",
+      "duration": "2.000000",
+      "nb_frames": "50"
+    },
+    "hand": {
+      "width": 640,
+      "height": 480,
+      "r_frame_rate": "25/1",
+      "duration": "2.000000",
+      "nb_frames": "50"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "adapted_fixed_layout_not_source_reset",
+  "source_config": "https://github.com/RoboDojo-Benchmark/RoboDojo/blob/f57e1633ffed59761bc8e568cfe7530c4b33381c/task/RoboDojo/config/plug_in_charger.yml",
+  "table": {
+    "position_m": [0.0, -0.05, 0.74],
+    "size_half_m": [0.7, 0.55, 0.025]
+  },
+  "objects_xy_m": {
+    "charger": [-0.25, -0.18],
+    "socket": [0.25, -0.10]
+  },
+  "clearance_m": 0.002,
+  "note": "XY values fall within the source config ranges, but this is a chosen diagnostic layout, not an exported seeded RoboDojo reset"
+}

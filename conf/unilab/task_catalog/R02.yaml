@@ -1,0 +1,10 @@
+# 开关水龙头; success rules live in the referenced task JSON.
+id: R02
+contract: tasks/tool_rotation/R02.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

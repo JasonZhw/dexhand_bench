@@ -1,0 +1,10 @@
+# 手内方块重定向; success rules live in the referenced task JSON.
+id: H01
+contract: tasks/in_hand/H01.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

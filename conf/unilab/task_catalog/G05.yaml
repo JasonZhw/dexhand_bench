@@ -1,0 +1,10 @@
+# 平底锅柄抓取; success rules live in the referenced task JSON.
+id: G05
+contract: tasks/grasp/G05.json
+binding:
+  kind: local_grasp
+  profile: profiles/local_grasp/G05.json
+  robot: allegro
+  backend: mujoco
+  controller: probe
+  controller_config: null

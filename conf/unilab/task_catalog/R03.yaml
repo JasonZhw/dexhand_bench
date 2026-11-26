@@ -1,0 +1,10 @@
+# 解锁门闩并开门; success rules live in the referenced task JSON.
+id: R03
+contract: tasks/tool_rotation/R03.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

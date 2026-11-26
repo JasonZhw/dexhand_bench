@@ -1,0 +1,20 @@
+{
+  "task_id": "I02",
+  "scope": "unilab_scene_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "78bbf4095e161188257a8c16bba043b60ce5fcd9f7cbb477fdd242700cf501fe",
+  "score_signal_count": 4,
+  "source_score_ported": false,
+  "limitations": [
+    "Self-chosen fixed diagnostic layout, not RoboDojo seeded reset",
+    "Source USD collision meshes compiled as convex hulls; one planar socket collider omitted and fixed socket given bookkeeping mass",
+    "No charger insertion policy or source reward lifecycle",
+    "Robot-home predicate compares local Wuji wrists to reset, not source X5 gripper frames"
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "profile": {
+    "task_id": "G02",
+    "task_file": "tasks/grasp/G02.json",
+    "backend": "mujoco",
+    "embodiment": "Dual X5 arms with Wuji Hand 2.2; virtual simulation assembly",
+    "robot_template": "assets/generated/dual_x5_wuji/scene.xml",
+    "object": {
+      "name": "soy_sauce_bottle",
+      "source_manifest": "asset_manifests/G01-G05-local.json",
+      "source_scale": [
+        1,
+        1,
+        1
+      ],
+      "rotate_x_deg": 90,
+      "mass_kg": 0.7,
+      "mass_origin": "USD mass attribute",
+      "collision": "single_convex_hull",
+      "rgba": [
+        0.45,
+        0.25,
+        0.1,
+        1
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "friction_origin": "proposed common baseline, not measured material",
+      "grasp_region": null,
+      "region_origin": null
+    },
+    "initial": {
+      "xy_m": [
+        0,
+        0.05
+      ],
+      "clearance_m": 0.002,
+      "table_top_m": 0.765
+    },
+    "runtime": {
+      "sim_dt": 0.004,
+      "ctrl_dt": 0.004,
+      "num_envs": 2,
+      "steps": 500,
+      "controller": "probe",
+      "camera": {
+        "lookat": [
+          0,
+          -0.12,
+          1.0
+        ],
+        "distance": 1.5,
+        "azimuth": 115,
+        "elevation": -35
+      }
+    },
+    "output": "runs/wuji-grasp/G02",
+    "scene": "assets/generated/wuji_grasp/G02/scene.xml",
+    "limitations": [
+      "Virtual X5/vendor-hand assembly; mounting geometry is not hardware calibrated",
+      "Shared implicitfast/4 ms runtime differs from vendor standalone simulator settings",
+      "Native collision and drive parameters retained; not validated for accurate forces or grasp success"
+    ],
+    "robot_config": "profiles/robots/dual_x5_wuji.json"
+  },
+  "env": {
+    "_target_": "unilab.envs.ManagerBasedRlEnvCfg",
+    "scene": {
+      "_target_": "unilab.base.scene.SceneCfg",
+      "model_file": "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/work/dexhand_bench/assets/generated/wuji_grasp/G02/scene.xml",
+      "entities": {
+        "objects": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "object",
+          "body_names": [
+            "object"
+          ],
+          "actuator_names": []
+        },
+        "robot": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "left_base_link",
+          "joint_names": [
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_joint6",
+            "left_wuji_l_thumb_cmc_flex",
+            "left_wuji_l_thumb_cmc_abd",
+            "left_wuji_l_thumb_mcp",
+            "left_wuji_l_thumb_ip",
+            "left_wuji_l_index_finger_mcp_flex",
+            "left_wuji_l_index_finger_mcp_abd",
+            "left_wuji_l_index_finger_pip",
+            "left_wuji_l_index_finger_dip",
+            "left_wuji_l_middle_finger_mcp_flex",
+            "left_wuji_l_middle_finger_mcp_abd",
+            "left_wuji_l_middle_finger_pip",
+            "left_wuji_l_middle_finger_dip",
+            "left_wuji_l_ring_finger_mcp_flex",
+            "left_wuji_l_ring_finger_mcp_abd",
+            "left_wuji_l_ring_finger_pip",
+            "left_wuji_l_ring_finger_dip",
+            "left_wuji_l_pinky_mcp_flex",
+            "left_wuji_l_pinky_mcp_abd",
+            "left_wuji_l_pinky_pip",
+            "left_wuji_l_pinky_dip",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_joint6",
+            "right_wuji_r_thumb_cmc_flex",
+            "right_wuji_r_thumb_cmc_abd",
+            "right_wuji_r_thumb_mcp",
+            "right_wuji_r_thumb_ip",
+            "right_wuji_r_index_finger_mcp_flex",
+            "right_wuji_r_index_finger_mcp_abd",
+            "right_wuji_r_index_finger_pip",
+            "right_wuji_r_index_finger_dip",
+            "right_wuji_r_middle_finger_mcp_flex",
+            "right_wuji_r_middle_finger_mcp_abd",
+            "right_wuji_r_middle_finger_pip",
+            "right_wuji_r_middle_finger_dip",
+            "right_wuji_r_ring_finger_mcp_flex",
+            "right_wuji_r_ring_finger_mcp_abd",
+            "right_wuji_r_ring_finger_pip",
+            "right_wuji_r_ring_finger_dip",
+            "right_wuji_r_pinky_mcp_flex",
+            "right_wuji_r_pinky_mcp_abd",
+            "right_wuji_r_pinky_pip",
+            "right_wuji_r_pinky_dip"
+          ],
+          "actuator_names": [
+            "left_joint1_drive",
+            "left_joint2_drive",
+            "left_joint3_drive",
+            "left_joint4_drive",
+            "left_joint5_drive",
+            "left_joint6_drive",
+            "left_wuji_l_THJ0",
+            "left_wuji_l_THJ1",
+            "left_wuji_l_THJ2",
+            "left_wuji_l_THJ3",
+            "left_wuji_l_FFJ0",
+            "left_wuji_l_FFJ1",
+            "left_wuji_l_FFJ2",
+            "left_wuji_l_FFJ3",
+            "left_wuji_l_MFJ0",
+            "left_wuji_l_MFJ1",
+            "left_wuji_l_MFJ2",
+            "left_wuji_l_MFJ3",
+            "left_wuji_l_RFJ0",
+            "left_wuji_l_RFJ1",
+            "left_wuji_l_RFJ2",
+            "left_wuji_l_RFJ3",
+            "left_wuji_l_LFJ0",
+            "left_wuji_l_LFJ1",
+            "left_wuji_l_LFJ2",
+            "left_wuji_l_LFJ3",
+            "right_joint1_drive",
+            "right_joint2_drive",
+            "right_joint3_drive",
+            "right_joint4_drive",
+            "right_joint5_drive",
+            "right_joint6_drive",
+            "right_wuji_r_THJ0",
+            "right_wuji_r_THJ1",
+            "right_wuji_r_THJ2",
+            "right_wuji_r_THJ3",
+            "right_wuji_r_FFJ0",
+            "right_wuji_r_FFJ1",
+            "right_wuji_r_FFJ2",
+            "right_wuji_r_FFJ3",
+            "right_wuji_r_MFJ0",
+            "right_wuji_r_MFJ1",
+            "right_wuji_r_MFJ2",
+            "right_wuji_r_MFJ3",
+            "right_wuji_r_RFJ0",
+            "right_wuji_r_RFJ1",
+            "right_wuji_r_RFJ2",
+            "right_wuji_r_RFJ3",
+            "right_wuji_r_LFJ0",
+            "right_wuji_r_LFJ1",
+            "right_wuji_r_LFJ2",
+            "right_wuji_r_LFJ3"
+          ],
+          "body_names": [
+            "left_base_link",
+            "left_link1",
+            "left_link2",
+            "left_link3",
+            "left_link4",
+            "left_link5",
+            "left_link6",
+            "left_wuji_l_mount",
+            "left_wuji_l_wrist",
+            "left_wuji_l_thumb_proximal",
+            "left_wuji_l_thumb_proximal_abd",
+            "left_wuji_l_thumb_middle",
+            "left_wuji_l_thumb_distal",
+            "left_wuji_l_thumb_tip_sensor_frame",
+            "left_wuji_l_index_finger_proximal",
+            "left_wuji_l_index_finger_proximal_abd",
+            "left_wuji_l_index_finger_middle",
+            "left_wuji_l_index_finger_distal",
+            "left_wuji_l_index_finger_tip_sensor_frame",
+            "left_wuji_l_middle_finger_proximal",
+            "left_wuji_l_middle_finger_proximal_abd",
+            "left_wuji_l_middle_finger_middle",
+            "left_wuji_l_middle_finger_distal",
+            "left_wuji_l_middle_finger_tip_sensor_frame",
+            "left_wuji_l_ring_finger_proximal",
+            "left_wuji_l_ring_finger_proximal_abd",
+            "left_wuji_l_ring_finger_middle",
+            "left_wuji_l_ring_finger_distal",
+            "left_wuji_l_ring_finger_tip_sensor_frame",
+            "left_wuji_l_pinky_proximal",
+            "left_wuji_l_pinky_proximal_abd",
+            "left_wuji_l_pinky_middle",
+            "left_wuji_l_pinky_distal",
+            "left_wuji_l_pinky_tip_sensor_frame",
+            "right_base_link",
+            "right_link1",
+            "right_link2",
+            "right_link3",
+            "right_link4",
+            "right_link5",
+            "right_link6",
+            "right_wuji_r_mount",
+            "right_wuji_r_wrist",
+            "right_wuji_r_thumb_proximal",
+            "right_wuji_r_thumb_proximal_abd",
+            "right_wuji_r_thumb_middle",
+            "right_wuji_r_thumb_distal",
+            "right_wuji_r_thumb_tip_sensor_frame",
+            "right_wuji_r_index_finger_proximal",
+            "right_wuji_r_index_finger_proximal_abd",
+            "right_wuji_r_index_finger_middle",
+            "right_wuji_r_index_finger_distal",
+            "right_wuji_r_index_finger_tip_sensor_frame",
+            "right_wuji_r_middle_finger_proximal",
+            "right_wuji_r_middle_finger_proximal_abd",
+            "right_wuji_r_middle_finger_middle",
+            "right_wuji_r_middle_finger_distal",
+            "right_wuji_r_middle_finger_tip_sensor_frame",
+            "right_wuji_r_ring_finger_proximal",
+            "right_wuji_r_ring_finger_proximal_abd",
+            "right_wuji_r_ring_finger_middle",
+            "right_wuji_r_ring_finger_distal",
+            "right_wuji_r_ring_finger_tip_sensor_frame",
+            "right_wuji_r_pinky_proximal",
+            "right_wuji_r_pinky_proximal_abd",
+            "right_wuji_r_pinky_middle",
+            "right_wuji_r_pinky_distal",
+            "right_wuji_r_pinky_tip_sensor_frame"
+          ]
+        }
+      }
+    },
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "max_episode_seconds": 60.0,
+    "seed": 0,
+    "auto_reset": false,
+    "defer_finite_validation": false,
+    "observations": {
+      "policy": {
+        "_target_": "unilab.managers.ObservationGroupCfg",
+        "terms": {
+          "joint_position": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_pos_rel"
+            }
+          },
+          "joint_velocity": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_vel_rel"
+            }
+          },
+          "object_state": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_class",
+              "path": "integrations.unilab.grasp_terms.GraspObjectState"
+            },
+            "params": {
+              "entity_name": "objects",
+              "body_names": [
+                "object"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "restore_scene": {
+        "_target_": "unilab.managers.EventTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.reset_scene_to_default"
+        },
+        "mode": "reset"
+      }
+    },
+    "actions": {
+      "joint_position": {
+        "_target_": "unilab.envs.mdp.JointPositionActionCfg",
+        "entity_name": "robot",
+        "actuator_names": [
+          ".*"
+        ],
+        "scale": 1.0,
+        "use_default_offset": true
+      }
+    },
+    "rewards": {},
+    "terminations": {
+      "timeout": {
+        "_target_": "unilab.managers.TerminationTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.time_out"
+        },
+        "time_out": true
+      }
+    },
+    "metrics": {
+      "object_height_m": {
+        "_target_": "unilab.managers.MetricsTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_class",
+          "path": "integrations.unilab.object_scene_terms.MeanHeight"
+        },
+        "params": {
+          "entity_name": "objects",
+          "body_names": [
+            "object"
+          ]
+        },
+        "reduce": "last"
+      }
+    }
+  }
+}

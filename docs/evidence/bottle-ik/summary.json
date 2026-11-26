@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-21",
+  "source_run": "runs/bottle-ik-20261121/G02",
+  "scope": "UniLab MuJoCo fixed-scene scripted IK baseline, not a learned policy or official Bench2Dex score",
+  "active_environment": 0,
+  "control_environment": 1,
+  "source_task": "Bench2Dex 21 condiment box loading; selected soy sauce bottle asset and authored standalone criteria",
+  "rendering": "offline from actual UniLab state records; no commanded object poses during execution",
+  "controller_config": "profiles/controllers/G02_wuji_ik.json",
+  "launch_profile": "profiles/local_grasp/G02.json",
+  "task_contract": "tasks/grasp/G02.json",
+  "runtime_environment": ".venv-scene (uv, Python 3.10.12)",
+  "tests": {
+    "run": 148,
+    "skipped": 7,
+    "failed": 0
+  },
+  "source_code_sha256": {
+    "integrations/unilab/grasp_ik.py": "0b7fc4d233dd1f21ed1987a8f2da9951badba3f63091e0b35db16edecffc3da1",
+    "integrations/unilab/run_grasp_scene.py": "7b65710ff843eea81ba1558a0797786cc329aa1f7a856d884a619c411877e8cb"
+  },
+  "limitations": [
+    "Only fixed initial pose and MuJoCo tested",
+    "Approximate convex collision and uniform-volume inertia, unmeasured friction",
+    "No restriction to bottle-body-only contacts",
+    "Contact force and penetration diagnostics do not establish physical accuracy",
+    "Contact tangential speed unsupported; remains null"
+  ]
+}

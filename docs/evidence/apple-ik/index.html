@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G01 苹果抓取 · IK 脚本基线</title>
+<style>
+body{margin:0;background:#f4f6f9;color:#192a3c;font:17px/1.7 system-ui,sans-serif}main{max-width:1000px;margin:36px auto;padding:0 24px 40px}h1{font-size:30px;line-height:1.3}h2{font-size:21px}p{max-width:850px}section{background:white;border:1px solid #dbe2ec;border-radius:12px;padding:22px;margin:20px 0}video{width:100%;max-height:560px;background:#111;border-radius:8px}a{color:#165bb0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf1f7;padding:16px;font-size:14px}table{width:100%;border-collapse:collapse}td{padding:9px 4px;border-bottom:1px solid #e4e8ee}.muted{color:#526477;font-size:15px}.result{color:#16714e;font-weight:650}
+</style>
+<main>
+<p class="muted">2026-11-20 · UniLab / MuJoCo · 右侧 Wuji Hand 2.2</p>
+<h1>先用 IK 脚本，把苹果抓起来</h1>
+<p>IK 负责算机械臂该怎么转，预设的手指角度负责合拢。脚本依次靠近、下降、闭合、抬升、保持，苹果由物理仿真中的重力和接触驱动</p>
+<p class="result">固定初态试验通过现有评分：末尾抬高 10.4 cm，持续接触并保持稳定，没有触发掉落判定</p>
+<section>
+<h2>侧面看抓取过程</h2>
+<video controls preload="metadata" poster="held.png" src="apple-ik-side.mp4"></video>
+<p class="muted">从实际 UniLab 状态记录离线渲染，只调整观察角度。实验执行时没有设置苹果位置，也没有把苹果固定到手上</p>
+</section>
+<section>
+<h2>全景与评分</h2>
+<video controls preload="metadata" src="apple-ik-wide.mp4"></video>
+<table>
+<tr><td>原有成功条件</td><td>抬高至少 5 cm、速度不超过 5 cm/s、指定手保持接触，连续满足 1 秒</td></tr>
+<tr><td>末尾抬升 / 质心速度</td><td>10.40 cm / 0.164 cm/s</td></tr>
+<tr><td>右手接触法向力幅值总和峰值</td><td>17.40 N（不是物体净合力）</td></tr>
+<tr><td>物理记录开关对照</td><td>动作、关节和物体状态逐项一致，评分一致</td></tr>
+</table>
+<p>环境 0 执行抓取，环境 1 保持初始姿态用于检查。因此 <code>success=[True, False]</code> 不表示两次抓取成功率为 50%</p>
+</section>
+<section>
+<h2>自己再跑一遍</h2>
+<pre>MUJOCO_GL=egl .venv-scene/bin/python integrations/unilab/run_grasp_scene.py \
+  --task G01 --robot wuji --controller ik_grasp \
+  --output runs/my-apple-ik --video</pre>
+<p>在仓库根目录执行，输出目录需为新目录。<a href="../../apple-ik-grasp.md">运行说明与配置位置</a></p>
+<p>第一轮抬起后掉落；调整手指闭合姿态和动作时长后通过，物体质量、摩擦和成功条件都没有改。这里只验证了一个固定初态，尚未测随机位置成功率或其他后端，后续可以用策略替换动作生成部分</p>
+<p><a href="evaluation.json">任务评分</a> · <a href="physics-summary.json">物理记录汇总</a> · <a href="controller-plan.json">IK 计划</a> · <a href="observer-comparison.json">记录开关对照</a> · <a href="summary.json">数据来源</a></p>
+</section>
+</main>
+</html>

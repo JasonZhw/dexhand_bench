@@ -1,0 +1,10 @@
+# 扳手拧螺母; success rules live in the referenced task JSON.
+id: R01
+contract: tasks/tool_rotation/R01.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

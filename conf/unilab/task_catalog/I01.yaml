@@ -1,0 +1,11 @@
+# 插管; success rules live in the referenced task JSON.
+id: I01
+contract: tasks/insertion/I01.json
+binding:
+  kind: unilab_scene_diagnostic
+  profile: profiles/I01-wuji.json
+  robot: wuji
+  backend: mujoco
+  controller: probe
+  controller_config: null
+evidence: docs/evidence/I01-wuji-20261126/receipt.json

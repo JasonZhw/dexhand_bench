@@ -7,6 +7,28 @@ from dexbench.assets import verify_asset, fetch_asset
 
 
 class AssetTests(unittest.TestCase):
+    def test_pinned_menagerie_asset_download(self):
+        self.entry['url'] = ('https://raw.githubusercontent.com/google-deepmind/'
+                             'mujoco_menagerie/' + 'a'*40 + '/wonik_allegro/right_hand.xml')
+        result = fetch_asset(self.entry, self.root, opener=lambda *a, **kw: io.BytesIO(b'asset'))
+        self.assertEqual(result['status'], 'verified')
+
+    def test_pinned_vendor_hand_repositories_supported(self):
+        for repo in ('wuji-technology/wuji-description',
+                     'sharpa-robotics/sharpa-urdf-usd-xml'):
+            with self.subTest(repo=repo), tempfile.TemporaryDirectory() as tmp:
+                entry = dict(self.entry, url='https://raw.githubusercontent.com/' + repo + '/' + 'a'*40 + '/model.xml')
+                result = fetch_asset(entry, Path(tmp), opener=lambda *a, **kw: io.BytesIO(b'asset'))
+                self.assertEqual(result['status'], 'verified')
+
+    def test_unpinned_or_unrelated_github_asset_rejected(self):
+        for url in ('https://raw.githubusercontent.com/google-deepmind/mujoco_menagerie/main/wonik_allegro/a.stl',
+                    'https://raw.githubusercontent.com/other/repo/'+'a'*40+'/a.stl',
+                    'https://raw.githubusercontent.com/wuji-technology/wuji-description/main/model.xml',
+                    'https://raw.githubusercontent.com/sharpa-robotics/sharpa-urdf-usd-xml/main/model.xml'):
+            with self.subTest(url=url), self.assertRaises(ValueError):
+                fetch_asset(dict(self.entry, url=url), self.root)
+
     def setUp(self):
         self.t = tempfile.TemporaryDirectory()
         self.addCleanup(self.t.cleanup)

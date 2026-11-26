@@ -1,0 +1,10 @@
+# 物体装箱; success rules live in the referenced task JSON.
+id: M01
+contract: tasks/transport/M01.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

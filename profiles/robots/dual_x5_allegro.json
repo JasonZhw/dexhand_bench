@@ -1,0 +1,29 @@
+{
+  "id": "dual_x5_allegro_v3",
+  "source_arm_template": "assets/generated/I01-x5-control/scene.xml",
+  "source_arm_manifest": "asset_manifests/I01-x5.json",
+  "source_hand_manifest": "asset_manifests/allegro-v3.json",
+  "template": "assets/generated/dual_x5_allegro/scene.xml",
+  "hand_mount": {
+    "position_m": [
+      0.2,
+      0,
+      0
+    ],
+    "quaternion_wxyz": [
+      0.7071067811865476,
+      0,
+      0.7071067811865476,
+      0
+    ],
+    "origin": "Proposed virtual mount: Allegro finger axis +Z aligned with X5 link6 flange +X; palm origin 0.20 m along flange axis; not a measured hardware adapter"
+  },
+  "thumb_rest_rad": 0.3,
+  "designated_hand": "right",
+  "gravity_compensation": true,
+  "limitations": [
+    "Virtual X5/Allegro assembly; not original Bench2Dex Panda/Allegro embodiment",
+    "Native Menagerie simplified hand collision and source position gains; contact parameters need task calibration",
+    "No successful grasp policy supplied"
+  ]
+}

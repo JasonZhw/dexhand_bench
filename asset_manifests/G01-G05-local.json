@@ -1,0 +1,56 @@
+{
+  "repository": "Bench2Dex/Assets",
+  "revision": "bf65215f844d1fca30750e4cc70d7266650abf0a",
+  "scope": "G01-G05 source object geometry only; appearance textures not fetched",
+  "license_status": "Preserve source attribution; per-asset redistribution terms still require verification; raw assets excluded from git",
+  "files": [
+    {
+      "task_id": "G01",
+      "path": "Objects/013_apple/usd_decomposition_linux/textured.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/013_apple/usd_decomposition_linux/textured.usd",
+      "local_path": "assets/bench2dex/Objects/013_apple/usd_decomposition_linux/textured.usd",
+      "sha256": "f5b74ba187fb5fac004590678e257a45f22cc20b243aac46fc8d9eb350467d2d",
+      "size_bytes": 1153925
+    },
+    {
+      "task_id": "G02",
+      "path": "Objects/172_soy-sauce/usd_decomposition_linux/base4.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/172_soy-sauce/usd_decomposition_linux/base4.usd",
+      "local_path": "assets/bench2dex/Objects/172_soy-sauce/usd_decomposition_linux/base4.usd",
+      "sha256": "44f1ad865f609bcfd2475a805d1d158ca9016a1391ee2cb389f8dd65ba626841",
+      "size_bytes": 2396341
+    },
+    {
+      "task_id": "G03",
+      "path": "Objects/168_battery/usd_decomposition_linux/base5.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/168_battery/usd_decomposition_linux/base5.usd",
+      "local_path": "assets/bench2dex/Objects/168_battery/usd_decomposition_linux/base5.usd",
+      "sha256": "edc3d5041efa1a683c4df0f999931cf496da1f8b4c6e4d2f2bd7e18bf8169150",
+      "size_bytes": 2216171
+    },
+    {
+      "task_id": "G04",
+      "path": "Objects/043_phillips_screwdriver/usd_decomposition_linux/textured.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/043_phillips_screwdriver/usd_decomposition_linux/textured.usd",
+      "local_path": "assets/bench2dex/Objects/043_phillips_screwdriver/usd_decomposition_linux/textured.usd",
+      "sha256": "acc758c918bdf929f680c58c5163945ab5cc4d93f35457666329fa3b0d43ba70",
+      "size_bytes": 1153658
+    },
+    {
+      "task_id": "G05",
+      "path": "Objects/223_chefmate_frypan/usd_decomposition_linux/Chefmate_8_Frypan.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/223_chefmate_frypan/usd_decomposition_linux/Chefmate_8_Frypan.usd",
+      "local_path": "assets/bench2dex/Objects/223_chefmate_frypan/usd_decomposition_linux/Chefmate_8_Frypan.usd",
+      "sha256": "fab5af33cb83dc24fa282a3883c4042780f6acaccac1b8fd66f4161766969968",
+      "size_bytes": 4643
+    },
+    {
+      "task_id": "G05",
+      "path": "Objects/223_chefmate_frypan/usd_decomposition_linux/instanceable_meshes.usd",
+      "url": "https://huggingface.co/datasets/Bench2Dex/Assets/resolve/bf65215f844d1fca30750e4cc70d7266650abf0a/Objects/223_chefmate_frypan/usd_decomposition_linux/instanceable_meshes.usd",
+      "local_path": "assets/bench2dex/Objects/223_chefmate_frypan/usd_decomposition_linux/instanceable_meshes.usd",
+      "sha256": "0a3c80247c0f99c859ced9a93d20b052e2ec149b8a2f5eff65f35b87ed0cbd9c",
+      "size_bytes": 902885
+    }
+  ]
+}

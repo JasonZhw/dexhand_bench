@@ -1,0 +1,18 @@
+{
+  "scope": "fixed G02 scene, observer on/off with unchanged control and warmup",
+  "on": "runs/bottle-ik-20261121/G02",
+  "off": "runs/bottle-ik-20261121-observer-off/G02",
+  "records_per_run": 2801,
+  "exact_equality_by_field": {
+    "step": true,
+    "t_s": true,
+    "controller_phase": true,
+    "pose": true,
+    "linear_velocity": true,
+    "angular_velocity": true,
+    "qpos": true,
+    "qvel": true,
+    "actions": true
+  },
+  "evaluation_equal": true
+}

@@ -8,6 +8,24 @@ import torch
 from unisim.utils.math import quat_apply
 
 
+def source_geometry_signals(positions, quaternions, tube_bbox, rack_bbox):
+    """Return source depth proxy, inside predicate, and upright angle.
+
+    Shape is (env, three tubes, three values). The second value is 0/1.
+    """
+    checks = geometry_checks(positions, quaternions, tube_bbox, rack_bbox)
+    positions, quaternions = positions.double(), quaternions.double()
+    tube_bbox = tube_bbox.to(device=positions.device, dtype=positions.dtype)
+    rack_bbox = rack_bbox.to(device=positions.device, dtype=positions.dtype)
+    tube_world = quat_apply(quaternions[:, :3, None], tube_bbox) + positions[:, :3, None]
+    rack_world = quat_apply(quaternions[:, 3, None], rack_bbox) + positions[:, 3, None]
+    depth = rack_world[..., 2].amax(dim=1)[:, None] - tube_world[..., 2].amin(dim=2)
+    axis = torch.tensor([0., 1., 0.], dtype=positions.dtype, device=positions.device)
+    axis_z = quat_apply(quaternions[:, :3], axis)[..., 2]
+    upright_deg = torch.rad2deg(torch.acos(axis_z.clamp(-1, 1)))
+    return torch.stack((depth, checks[..., 1].double(), upright_deg), dim=-1)
+
+
 def geometry_checks(positions, quaternions, tube_bbox, rack_bbox):
     """Return (environment, tube, depth/inside/upright) boolean checks.
 

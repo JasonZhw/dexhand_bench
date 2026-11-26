@@ -1,0 +1,10 @@
+# 捏苹果梗提起苹果; success rules live in the referenced task JSON.
+id: G06
+contract: tasks/grasp/G06.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

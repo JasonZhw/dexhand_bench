@@ -6,21 +6,30 @@
 
 当前工作重点是完善每项任务的配置文件与测评标准。21 项条目已有来源、难度假设与可执行的初步判定规则；这些规则尚未全部接入真实仿真观测，不能等同于完成 UniLab 迁移。policy 复现与完整任务运行留待后续接入
 
+首批 [五个基础抓取场景](docs/five-local-grasp-scenes.md) 已在本地接入 UniLab/MuJoCo：苹果、瓶子、电池、螺丝刀柄、锅柄，各有启动配置、真实状态评分和 [预览视频](docs/evidence/grasp-five/index.html)。五项默认机器人已替换为 X5 双臂＋左右 Allegro V3 灵巧手（每手四指、16 个可控关节），支持逐指接触记录和手部近景录像；默认试动仅检查关节和接触，未执行抓取
+
+G01 苹果已有 [Wuji IK 抓取脚本](docs/apple-ik-grasp.md)：通过 UniLab/MuJoCo 抬起约 10.4 cm 并保持稳定，保存了 [视频、评分和接触记录](docs/evidence/apple-ik/index.html)。G02 瓶子也已接通 [侧面 IK 抓取](docs/bottle-ik-grasp.md)：抬高约 6.74 cm、末尾倾斜约 7.86°，通过现有评分，支持同一套物理记录并保存了 [视频](docs/evidence/bottle-ik/index.html)。这两项是固定初态的脚本基线，其他任务的抓取控制与学习策略仍待接入
+
 已有五项 Gymnasium Robotics / Adroit 原环境试跑和 Bench2Dex 片段回放桥接。插管已接通 UniLab 物体场景、双臂控制、重置与抓取诊断；完整插入任务尚未完成
 
 插管的物体场景现已通过 UniLab 后端工厂接入 MuJoCo：原始 USD 转为近似多凸块 MJCF，10 个孔口探针通过，两个环境各推进 500 步并验证独立重置，保存 2 秒视频。这是物体场景检查；另有下文的双臂控制与抓取诊断，完整任务仍未就绪。复现命令与验收边界见 [场景接入检查](docs/insert-tubes-scene.md)
+
+> 本地五个抓取场景支持 Allegro / Wuji Hand 2.2 / Sharpa Wave，通过 `--robot` 切换。[模型来源、切换命令与视频](docs/wuji-sharpa-hands.md)
 
 ## 仓库与 UniLab 的关系
 
 这是独立下游仓库，不是 GitHub fork。`third_party/UniLab` 以 Git submodule 固定到 `794c0bbd67771ac48407e084c0164c0e841bfd97`，上游版本 1.5.9、依赖 unisim-core 2.7.1。当前不修改上游源码，后续需要修改 UniLab 核心时再向上游提交补丁
 
+本地 G01/G02 场景环境现由仓库根目录的 `pyproject.toml`、`uv.lock` 管理。`uv sync --locked` 建立 `.venv`，使用 CPU 版 PyTorch 执行 MuJoCo 仿真。G02 可通过 [UniLab Viser 实时查看](docs/bottle-ik-grasp.md#在本机启动)；旧 `.venv-scene` 暂留作结果对照
+
+21 个任务现在有各自的 Hydra 启动配置，并使用 [统一任务入口与 UniLab 原生 Viser 播放](docs/unilab-task-owners.md)。其中 G01–G05 能在 UniLab 加载和短程测试，I01/I02 也已接入 Wuji 插入场景诊断与真实评分输入读取；这两项还没有插入策略或官方源评分。其余 14 项的[资产和适配缺口](docs/unilab-remaining-16.md)仍需逐项解决
+
 ```bash
 git clone --recurse-submodules https://github.com/JasonZhw/dexhand_bench.git
 cd dexhand_bench
-uv venv .venv --python 3.11
-uv pip install --python .venv/bin/python -r requirements/config.txt
-uv run --no-project --python .venv/bin/python python -m dexbench list
-uv run --no-project --python .venv/bin/python python -m dexbench audit
+uv sync --locked
+uv run --locked python -m dexbench list
+uv run --locked python -m dexbench audit
 ```
 
 ## 本地任务配置与评分
@@ -34,15 +43,15 @@ python3 -m unittest discover -s tests -p test_evaluation.py
 python3 -m dexbench.evaluation score --task H02 --trace examples/evaluation/H02-pass.json
 ```
 
-示例全部为合成观测，仅检查判定逻辑。真实 UniLab 观测绑定、源评分生命周期和策略运行仍需单独验证
+examples/evaluation 中的示例全部为合成观测，仅检查判定逻辑。G01–G05 已有独立的 UniLab 实际状态绑定检查；源评分生命周期和策略运行仍需单独验证
 
 ## 初步任务配置
 
 下面两条命令只解析配置，不安装或启动物理引擎
 
 ```bash
-uv run --no-project --python .venv/bin/python python integrations/unilab/configure.py task=insert_tubes/mujoco --cfg job --resolve
-uv run --no-project --python .venv/bin/python python integrations/unilab/configure.py task=insert_tubes/isaacsim --cfg job --resolve
+uv run --locked python integrations/unilab/configure.py task=insert_tubes/mujoco --cfg job --resolve
+uv run --locked python integrations/unilab/configure.py task=insert_tubes/isaacsim --cfg job --resolve
 ```
 
 `conf/unilab/task/insert_tubes/base.yaml` 定义共享任务协议，两个 owner YAML 选择后端及资产路线，`benchmark.yaml` 定义运行与物理观测需求。正常调用而不带 `--cfg` 会明确报错退出：这还不是可执行的 UniLab 环境，不能用于训练或汇报任务成绩
@@ -53,12 +62,12 @@ uv run --no-project --python .venv/bin/python python integrations/unilab/configu
 
 计划由统一执行流程采集动作、关节状态、物体位姿、仿真时间和任务阶段，再由独立评价器计算结果。接触力、穿透按后端能力提供，缺失不填零。保持同一任务协议，用不同后端 owner 比较结果；耗时测量要预热、设备同步，并区分渲染开销。不同引擎的差异不是物理误差，准确性需要实测或解析参照
 
-当前配置只是这些需求的声明，尚未驱动物理执行。已有原环境运行器及接口在 `dexbench/`；完整迁移顺序是资产与碰撞验证 → 机器人及控制映射 → reset/观测 → 几何判据 → manager 环境注册 → 回放记录 → 第二后端对照
+21 项通用配置仍以需求声明为主；G01–G05 的本地启动配置已驱动 MuJoCo 执行，记录几何穿透和每步耗时，接触力、滑移仍为缺失。已有原环境运行器及接口在 `dexbench/`；完整迁移顺序是资产与碰撞验证 → 机器人及控制映射 → reset/观测 → 几何判据 → manager 环境注册 → 回放记录 → 第二后端对照
 
 ## 测试与原环境运行
 
 ```bash
-uv run --no-project --python .venv/bin/python python -m unittest discover -s tests
+uv run --locked python -m unittest discover -s tests
 # 原环境另建环境，避免与 UniLab/Isaac 的依赖混装
 uv venv .venv-source --python 3.11
 uv pip install --python .venv-source/bin/python -r requirements/simulation.txt

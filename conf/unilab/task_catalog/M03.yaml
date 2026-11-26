@@ -1,0 +1,10 @@
+# 堆积木; success rules live in the referenced task JSON.
+id: M03
+contract: tasks/transport/M03.json
+binding:
+  kind: unbound
+  profile: null
+  robot: null
+  backend: null
+  controller: null
+  controller_config: null

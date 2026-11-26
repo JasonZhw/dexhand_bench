@@ -1,0 +1,72 @@
+[
+  {
+    "task_id": "G01",
+    "task_success": [
+      false,
+      false
+    ],
+    "independent_reset_verified": true,
+    "max_object_contact_penetration_mm": 1.1471821106897595,
+    "penetration_method": "offline pose-based geometry including table",
+    "video_frames": 50,
+    "video_fps": 25,
+    "video_seconds": 2,
+    "source_run": "runs/grasp-five-final-20261119/G01"
+  },
+  {
+    "task_id": "G02",
+    "task_success": [
+      false,
+      false
+    ],
+    "independent_reset_verified": true,
+    "max_object_contact_penetration_mm": 1.2284636920523173,
+    "penetration_method": "offline pose-based geometry including table",
+    "video_frames": 50,
+    "video_fps": 25,
+    "video_seconds": 2,
+    "source_run": "runs/grasp-five-final-20261119/G02"
+  },
+  {
+    "task_id": "G03",
+    "task_success": [
+      false,
+      false
+    ],
+    "independent_reset_verified": true,
+    "max_object_contact_penetration_mm": 5.901593927688076,
+    "penetration_method": "offline pose-based geometry including table",
+    "video_frames": 50,
+    "video_fps": 25,
+    "video_seconds": 2,
+    "source_run": "runs/grasp-five-final-20261119/G03"
+  },
+  {
+    "task_id": "G04",
+    "task_success": [
+      false,
+      false
+    ],
+    "independent_reset_verified": true,
+    "max_object_contact_penetration_mm": 1.1535513868872194,
+    "penetration_method": "offline pose-based geometry including table",
+    "video_frames": 50,
+    "video_fps": 25,
+    "video_seconds": 2,
+    "source_run": "runs/grasp-five-final-20261119/G04"
+  },
+  {
+    "task_id": "G05",
+    "task_success": [
+      false,
+      false
+    ],
+    "independent_reset_verified": true,
+    "max_object_contact_penetration_mm": 1.1773849025746852,
+    "penetration_method": "offline pose-based geometry including table",
+    "video_frames": 50,
+    "video_fps": 25,
+    "video_seconds": 2,
+    "source_run": "runs/grasp-five-final-20261119/G05"
+  }
+]
