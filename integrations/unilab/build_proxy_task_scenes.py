@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import sys
@@ -43,7 +44,7 @@ def vector(values, count: int) -> str:
 
 
 def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
-    """Require source puck and table parameters to match a pinned MJCF file."""
+    """Require adapted primitive parameters to match a pinned source MJCF."""
     spec = layout["source_mjcf"]
     manifest_path = workspace / spec["manifest"]
     manifest = json.loads(manifest_path.read_text())
@@ -57,6 +58,8 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
     option = source.find("option")
     if option is None or float(option.get("timestep")) != spec["timestep"]:
         raise ValueError("Source timestep differs from layout")
+    if "iterations" in spec and int(option.get("iterations", "-1")) != spec["iterations"]:
+        raise ValueError("Source solver iterations differ from layout")
 
     def source_body(body_name):
         body = next((body for body in source.findall("./worldbody/body")
@@ -77,31 +80,51 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
         return [float(value) for value in geom.get(field, "").split()]
 
     source_object = source_geom(spec["object_body"])
-    object_layout = next((body for body in layout["bodies"] if body["name"] == "object"), None)
+    object_layout = next((body for body in layout["bodies"]
+                          if body["name"] == spec.get("target_body", "object")), None)
     if object_layout is None or len(object_layout["geoms"]) != 1:
         raise ValueError("Source object must map to one diagnostic geom")
     object_geom = object_layout["geoms"][0]
-    for field in ("type", "size", "mass", "friction"):
+    for field in ("type", "size"):
         actual = source_object.get(field) if field == "type" else numbers(source_object, field)
-        expected = object_geom[field] if field == "type" else (
-            [float(object_geom[field])] if field == "mass" else object_geom[field])
+        expected = object_geom[field]
         if actual != expected:
             raise ValueError(f"Source object {field} differs from layout")
+    if source_object.get("mass") is not None:
+        source_mass = float(source_object.get("mass"))
+    elif source_object.get("density") is not None and source_object.get("type") == "box":
+        source_mass = float(source_object.get("density")) * math.prod(
+            2 * component for component in numbers(source_object, "size"))
+    else:
+        raise ValueError("Source object mass cannot be determined from its MJCF")
+    if not math.isclose(source_mass, object_geom["mass"], rel_tol=0, abs_tol=1e-12):
+        raise ValueError("Source object mass differs from layout")
+    if source_object.get("friction") is None and spec.get("default_friction") != [1, 0.005, 0.0001]:
+        raise ValueError("Source object default friction must use the MuJoCo default")
+    source_friction = (numbers(source_object, "friction")
+                       if source_object.get("friction") is not None else spec["default_friction"])
+    if source_friction is None or source_friction != object_geom.get("friction"):
+        raise ValueError("Source object friction differs from layout")
+    if int(source_object.get("condim", "3")) != object_geom.get("condim", 3):
+        raise ValueError("Source object condim differs from layout")
     source_joint = source_body(spec["object_body"]).find("joint")
     if (source_joint is None or source_joint.get("type") != "free"
             or float(source_joint.get("damping", "nan")) != object_layout.get("joint_damping")):
         raise ValueError("Source object joint damping differs from layout")
-    source_table = source_geom(spec["table_body"])
-    if source_table.get("type") != "box":
-        raise ValueError("Source table must be a box")
-    if numbers(source_table, "size")[:2] != layout["source_table"]["size_xy"]:
-        raise ValueError("Source table size differs from layout")
-    if numbers(source_table, "friction") != layout["source_table"]["friction"]:
-        raise ValueError("Source table friction differs from layout")
-    return {"source_file": spec["file"], "manifest_sha256": digest(manifest_path),
-            "source_asset_dependencies": {entry["local_path"]: digest(workspace / entry["local_path"])
-                                          for entry in entries},
-            "source_table_thickness_half_m": numbers(source_table, "size")[2]}
+    result = {"source_file": spec["file"], "manifest_sha256": digest(manifest_path),
+              "source_asset_dependencies": {entry["local_path"]: digest(workspace / entry["local_path"])
+                                            for entry in entries},
+              "source_object_mass_kg": source_mass}
+    if "table_body" in spec:
+        source_table = source_geom(spec["table_body"])
+        if source_table.get("type") != "box":
+            raise ValueError("Source table must be a box")
+        if numbers(source_table, "size")[:2] != layout["source_table"]["size_xy"]:
+            raise ValueError("Source table size differs from layout")
+        if numbers(source_table, "friction") != layout["source_table"]["friction"]:
+            raise ValueError("Source table friction differs from layout")
+        result["source_table_thickness_half_m"] = numbers(source_table, "size")[2]
+    return result
 
 
 def build(task_id: str, output: Path | None = None) -> Path:
@@ -124,10 +147,13 @@ def build(task_id: str, output: Path | None = None) -> Path:
     world = root.find("worldbody")
     if source_mjcf is not None:
         root.find("option").set("timestep", str(layout["source_mjcf"]["timestep"]))
-        table = next(geom for geom in world.findall("geom") if geom.get("name") == "diagnostic_table")
-        half_z = float(table.get("size").split()[2])
-        table.set("size", vector([*layout["source_table"]["size_xy"], half_z], 3))
-        table.set("friction", vector(layout["source_table"]["friction"], 3))
+        if "iterations" in layout["source_mjcf"]:
+            root.find("option").set("iterations", str(layout["source_mjcf"]["iterations"]))
+        if "source_table" in layout:
+            table = next(geom for geom in world.findall("geom") if geom.get("name") == "diagnostic_table")
+            half_z = float(table.get("size").split()[2])
+            table.set("size", vector([*layout["source_table"]["size_xy"], half_z], 3))
+            table.set("friction", vector(layout["source_table"]["friction"], 3))
     ET.SubElement(world, "light", name="proxy_key_light", pos="-0.6 -0.3 2.0",
                   dir="0.3 0.1 -1", directional="true", diffuse="0.9 0.9 0.9")
     ET.SubElement(world, "light", name="proxy_fill_light", pos="0.5 0.2 1.8",
@@ -143,7 +169,10 @@ def build(task_id: str, output: Path | None = None) -> Path:
         if not name or name in names:
             raise ValueError(f"Duplicate or empty body name: {name!r}")
         names.add(name)
-        body = ET.SubElement(world, "body", name=name, pos=vector(body_spec["pos"], 3))
+        body_attrs = {"name": name, "pos": vector(body_spec["pos"], 3)}
+        if "quat" in body_spec:
+            body_attrs["quat"] = vector(body_spec["quat"], 4)
+        body = ET.SubElement(world, "body", **body_attrs)
         motion = body_spec["motion"]
         if motion == "free":
             attributes = {"name": f"{name}_free"}
@@ -172,6 +201,8 @@ def build(task_id: str, output: Path | None = None) -> Path:
                 attributes["quat"] = vector(geom_spec["quat"], 4)
             if "friction" in geom_spec:
                 attributes["friction"] = vector(geom_spec["friction"], 3)
+            if "condim" in geom_spec:
+                attributes["condim"] = str(geom_spec["condim"])
             if motion in ("free", "hinge"):
                 mass = geom_spec.get("mass")
                 if type(mass) not in (int, float) or mass <= 0:
@@ -198,7 +229,7 @@ def build(task_id: str, output: Path | None = None) -> Path:
         "mesh_dependencies": dependencies, "body_names": [body["name"] for body in layout["bodies"]],
         "nq": model.nq, "nv": model.nv, "nu": model.nu,
         "limitations": [
-            ("Puck and table parameters checked against source MJCF; adapted robot, table elevation, reset and scoring"
+            ("Selected primitive parameters checked against source MJCF; adapted robot, layout, reset and scoring"
              if source_mjcf else "Self-authored primitive geometry; source assets and source physics are not ported"),
             "Fixed diagnostic initial state, not source seeded reset",
             "No task policy or task-signal adapter; task success is unknown",

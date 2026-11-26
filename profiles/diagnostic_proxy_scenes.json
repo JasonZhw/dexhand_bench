@@ -10,9 +10,12 @@
   },
   "H01": {
     "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/H01-shadow-block-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/hand/manipulate_block.xml", "object_body": "object", "target_body": "block", "timestep": 0.002, "iterations": 20, "default_friction": [1, 0.005, 0.0001]},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.04,
     "bodies": [
-      {"name": "block", "motion": "free", "pos": [0, -0.12, 0.798], "geoms": [{"type": "box", "size": [0.03, 0.03, 0.03], "mass": 0.08}]},
-      {"name": "orientation_goal", "motion": "fixed", "pos": [0.18, -0.12, 0.798], "visual_only": true, "geoms": [{"type": "box", "size": [0.03, 0.03, 0.03], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+      {"name": "block", "motion": "free", "pos": [0, -0.12, 0.79], "joint_damping": 0.01, "geoms": [{"type": "box", "size": [0.025, 0.025, 0.025], "mass": 0.070875, "friction": [1, 0.005, 0.0001], "condim": 4, "rgba": [0.25, 0.42, 0.72, 1]}]},
+      {"name": "orientation_goal", "motion": "fixed", "pos": [0, -0.12, 0.79], "quat": [0.9238795325, 0, 0, 0.3826834324], "visual_only": true, "geoms": [{"type": "box", "size": [0.025, 0.025, 0.025], "rgba": [0.2, 0.9, 0.3, 0.24]}]}
     ]
   },
   "H02": {
@@ -36,7 +39,7 @@
     "sim_dt": 0.002,
     "ctrl_dt": 0.04,
     "bodies": [
-      {"name": "object", "motion": "free", "pos": [-0.12, -0.12, 0.785], "joint_damping": 0.01, "geoms": [{"type": "cylinder", "size": [0.025, 0.02], "mass": 2, "friction": [0.1, 0.005, 0.0001], "rgba": [0.22, 0.27, 0.34, 1]}]},
+      {"name": "object", "motion": "free", "pos": [-0.12, -0.12, 0.785], "joint_damping": 0.01, "geoms": [{"type": "cylinder", "size": [0.025, 0.02], "mass": 2, "friction": [0.1, 0.005, 0.0001], "condim": 3, "rgba": [0.22, 0.27, 0.34, 1]}]},
       {"name": "goal", "motion": "fixed", "pos": [0.20, -0.12, 0.785], "visual_only": true, "geoms": [{"type": "sphere", "size": [0.02], "rgba": [1, 0, 0, 0.5]}]}
     ]
   },

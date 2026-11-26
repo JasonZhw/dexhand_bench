@@ -21,8 +21,9 @@ class AssetTests(unittest.TestCase):
                 result = fetch_asset(entry, Path(tmp), opener=lambda *a, **kw: io.BytesIO(b'asset'))
                 self.assertEqual(result['status'], 'verified')
 
-    def test_pinned_farama_fetch_slide_source_supported(self):
+    def test_pinned_farama_source_mjcf_supported(self):
         for path in ('gymnasium_robotics/envs/assets/fetch/slide.xml',
+                     'gymnasium_robotics/envs/assets/hand/manipulate_block.xml',
                      'gymnasium_robotics/envs/assets/LICENSE.md'):
             with self.subTest(path=path), tempfile.TemporaryDirectory() as tmp:
                 entry = dict(self.entry, url='https://raw.githubusercontent.com/Farama-Foundation/'
@@ -36,6 +37,7 @@ class AssetTests(unittest.TestCase):
                     'https://raw.githubusercontent.com/wuji-technology/wuji-description/main/model.xml',
                     'https://raw.githubusercontent.com/sharpa-robotics/sharpa-urdf-usd-xml/main/model.xml',
                     'https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/main/gymnasium_robotics/envs/assets/fetch/slide.xml',
+                    'https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/main/gymnasium_robotics/envs/assets/hand/manipulate_block.xml',
                     'https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/'+'a'*40+'/unrelated.py'):
             with self.subTest(url=url), self.assertRaises(ValueError):
                 fetch_asset(dict(self.entry, url=url), self.root)

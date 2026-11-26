@@ -53,6 +53,6 @@ uv run --locked python integrations/unilab/play_task.py --task P03 --port 8080
 
 从新机器完整检查“源文件 → 转换后场景 → UniLab 两步运行”，在机器人与两套 Python 环境准备好后执行 `uv run --locked python scripts/verify_source_asset_integration.py --fetch`。这个检查会在缺少源文件、场景哈希失效或独立重置失败时退出报错；已有场景不会被覆盖。默认单元测试没有下载这些大资产，所以不能代替这条集成检查。
 
-其余代理场景中，[P02 已从 Fetch Slide 源 MJCF 核对滑块和桌面参数](fetch-slide-parameter-adaptation.md)，但仍需要目标和 reset 对齐；另外 7 项仍使用自建基础形状。R02 的 Bench2Dex 资源路径尚未形成可校验的本地物体清单。G06 苹果梗和 R01 扳手紧固需要内部或新建工程资产。H01–H03、R03 可从对应的 Gymnasium Robotics/Adroit 资源继续适配。
+其余代理场景中，[P02 已从 Fetch Slide 源 MJCF 核对滑块和桌面参数](fetch-slide-parameter-adaptation.md)，[H01 已核对 Shadow Hand 方块参数](hand-block-parameter-adaptation.md)，但目标、掌中初态和 reset 仍需对齐；另外 6 项仍使用自建基础形状。R02 的 Bench2Dex 资源路径尚未形成可校验的本地物体清单。G06 苹果梗和 R01 扳手紧固需要内部或新建工程资产。H02/H03、R03 可从对应的 Gymnasium Robotics/Adroit 资源继续适配。
 
 I03 的 CoACD 转换即使固定随机种子，重复构建仍可能得到不同的多凸块与场景哈希。回执记录当前具体场景的哈希；比较不同物理后端之前，需要冻结并共享同一份转换后的碰撞资产，不能只给转换参数。

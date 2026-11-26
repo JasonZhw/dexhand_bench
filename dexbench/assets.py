@@ -38,9 +38,9 @@ def fetch_asset(entry, root, *, max_bytes=100_000_000, opener=None):
         and re.fullmatch(r'/google-deepmind/mujoco_menagerie/[0-9a-f]{40}/wonik_allegro/[^?#]+', url.path))
     pinned_vendor = (url.hostname == 'raw.githubusercontent.com'
         and re.fullmatch(r'/(wuji-technology/wuji-description|sharpa-robotics/sharpa-urdf-usd-xml)/[0-9a-f]{40}/[^?#]+', url.path))
-    pinned_farama_slide = (url.hostname == 'raw.githubusercontent.com'
-        and re.fullmatch(r'/Farama-Foundation/Gymnasium-Robotics/[0-9a-f]{40}/gymnasium_robotics/envs/assets/(fetch/slide\.xml|LICENSE\.md)', url.path))
-    if url.scheme != 'https' or not (url.hostname == 'huggingface.co' or pinned_menagerie or pinned_vendor or pinned_farama_slide):
+    pinned_farama_mjcf = (url.hostname == 'raw.githubusercontent.com'
+        and re.fullmatch(r'/Farama-Foundation/Gymnasium-Robotics/[0-9a-f]{40}/gymnasium_robotics/envs/assets/(fetch/slide\.xml|hand/manipulate_block\.xml|LICENSE\.md)', url.path))
+    if url.scheme != 'https' or not (url.hostname == 'huggingface.co' or pinned_menagerie or pinned_vendor or pinned_farama_mjcf):
         raise ValueError(
             'Only Hugging Face or pinned approved asset paths over HTTPS are supported')
     if not entry.get('sha256'):

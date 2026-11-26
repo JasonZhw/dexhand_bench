@@ -12,7 +12,7 @@
     "steps": 8,
     "asset_scope": "self_authored_geometry_proxy",
     "limitations": [
-      "Source MJCF puck and table parameters are checked; robot, elevation, reset and score are adapted",
+      "Selected source MJCF primitive parameters are checked; robot, layout, reset and score are adapted",
       "Joint probe is not a task policy",
       "Task signals have no source-calibrated adapter; success remains unknown",
       "Contact forces are not instrumented for these diagnostics"

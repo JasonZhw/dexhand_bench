@@ -2,7 +2,7 @@
 
 原版 [Fetch Slide](https://robotics.farama.org/envs/fetch/slide/) 用 Fetch 机械臂击打桌上的圆柱滑块，让它滑到手臂够不到的目标点。它适合检查接触冲量、桌面摩擦和离手后的运动。我们当前要换成双 X5/Wuji 灵巧手，因此先把源场景中可核对的物理参数带进 UniLab；这仍是场景诊断，没有实现击球策略或任务成功率。
 
-原始 `slide.xml` 和资产许可文件固定在 [P02 manifest](../asset_manifests/P02-fetch-slide-mjcf.json) 所列的 Gymnasium-Robotics Git 提交与 SHA-256。构建脚本读取这份 MJCF，逐项检查滑块为圆柱、半径 0.025 m、半高 0.02 m、质量 2 kg、摩擦 `0.1 0.005 0.0001`、自由关节阻尼 `0.01`；桌面的半长宽为 `0.625 × 0.45 m`、摩擦同上；物理步长为 `0.002 s`。任何这些值与任务布局不符，构建就会失败。这些是源文件参数，不是测得的物理准确性。
+原始 `slide.xml` 和资产许可文件固定在 [P02 manifest](../asset_manifests/P02-fetch-slide-mjcf.json) 所列的 Gymnasium-Robotics Git 提交与 SHA-256。构建脚本读取这份 MJCF，逐项检查滑块为圆柱、半径 0.025 m、半高 0.02 m、质量 2 kg、接触维度 `condim=3`、摩擦 `0.1 0.005 0.0001`、自由关节阻尼 `0.01`；桌面的半长宽为 `0.625 × 0.45 m`、摩擦同上；物理步长为 `0.002 s`。任何这些值与任务布局不符，构建就会失败。这些是源文件参数，不是测得的物理准确性。
 
 ![P02 在本地 MuJoCo 场景中的诊断初态：蓝色滑块、红色目标与双 X5/Wuji 手](evidence/source-mjcf-20261126/P02/scene.png)
 

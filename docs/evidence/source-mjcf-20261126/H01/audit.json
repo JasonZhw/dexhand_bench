@@ -1,0 +1,30 @@
+{
+  "task_count": 1,
+  "tasks": [
+    {
+      "task_id": "H01",
+      "name": "手内方块重定向",
+      "category": "in_hand",
+      "scoring_contract": "valid_draft",
+      "owner_config": "conf/unilab/task_catalog/H01.yaml",
+      "scene_binding": "unilab_proxy_diagnostic",
+      "backend": "mujoco",
+      "controller": "probe",
+      "source_asset_manifest": "asset_manifests/H01-shadow-block-mjcf.json",
+      "source_manifest_present": true,
+      "physical_load": "smoke_verified",
+      "source_runtime_evidence": true,
+      "score_signal_count": 1,
+      "local_scene_present": true,
+      "local_scene_receipt_present": true,
+      "robot": "wuji",
+      "score_signals_available": 0,
+      "asset_scope": "self_authored_geometry_proxy",
+      "scene_integrity": "verified",
+      "next_blocker": "port_source_assets_reset_task_signals_and_controller",
+      "source_assets_declared": 2,
+      "source_assets_verified": 2,
+      "source_assets_missing_or_changed": 0
+    }
+  ]
+}

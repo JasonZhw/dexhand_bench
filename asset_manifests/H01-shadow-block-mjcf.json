@@ -1,0 +1,23 @@
+{
+  "task_id": "H01",
+  "repository": "Farama-Foundation/Gymnasium-Robotics",
+  "revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+  "package_version": "gymnasium-robotics==1.4.1",
+  "license_note": "Keep the pinned asset LICENSE.md. Only the source block primitive parameters are read for the adapted diagnostic; the Shadow Hand robot and textures are not copied.",
+  "files": [
+    {
+      "path": "gymnasium_robotics/envs/assets/hand/manipulate_block.xml",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/hand/manipulate_block.xml",
+      "sha256": "8ae4dcc4c1c03b6d58d4ea8d76891b91c5fffd32735afac7a21644e84f82aef2",
+      "size_bytes": 2321,
+      "local_path": "assets/gymnasium_robotics/envs/assets/hand/manipulate_block.xml"
+    },
+    {
+      "path": "gymnasium_robotics/envs/assets/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/LICENSE.md",
+      "sha256": "1f293999c0191f530033b34ed87763b1b9d4bf65913e4675bb79a71b5ea4e07b",
+      "size_bytes": 12965,
+      "local_path": "assets/gymnasium_robotics/envs/assets/LICENSE.md"
+    }
+  ]
+}

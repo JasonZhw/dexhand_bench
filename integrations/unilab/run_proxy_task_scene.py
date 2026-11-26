@@ -46,7 +46,7 @@ def diagnostic_profile(task_id: str) -> dict:
         "asset_scope": "source_object_scene_diagnostic" if source else "self_authored_geometry_proxy",
         "limitations": [
             ("Verified RoboDojo object meshes with adapted MuJoCo contacts; source reset is not ported"
-             if source else "Source MJCF puck and table parameters are checked; robot, elevation, reset and score are adapted"
+             if source else "Selected source MJCF primitive parameters are checked; robot, layout, reset and score are adapted"
              if "source_mjcf" in layout else "Self-authored primitive geometry; source assets and reset are not ported"),
             "Joint probe is not a task policy",
             "Task signals have no source-calibrated adapter; success remains unknown",

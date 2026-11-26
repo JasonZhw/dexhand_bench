@@ -23,8 +23,9 @@
   "adaptation_protocol": null,
   "assets": {
     "provider": "gymnasium-robotics==1.4.1 package envs/assets",
-    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
-    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+    "availability": "Shadow Hand Manipulate Block source MJCF and asset license pinned; block primitive parameters checked in the adapted UniLab diagnostic",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution",
+    "manifest": "asset_manifests/H01-shadow-block-mjcf.json"
   },
   "embodiment": {
     "original": "Shadow Dexterous Hand",
@@ -75,7 +76,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "获取或训练可成功的参考控制；如需换手/换后端，新增协议并核对动作与资产表示",
+  "next_step": "将方块放入 Wuji 掌中并固定可复现的接触初态；迁入 RotateXYZ 目标采样、三维旋转误差信号与手内重定向策略",
   "robot_mapping": {
     "receipt": "docs/evidence/H01-runtime-receipt.json",
     "mapping_field": "backend.joint_mapping",
@@ -110,7 +111,7 @@
         "block",
         "orientation_goal"
       ],
-      "asset_manifest": null,
+      "asset_manifest": "asset_manifests/H01-shadow-block-mjcf.json",
       "robot_reference": "Shadow Dexterous Hand",
       "target_robot": null,
       "initial_state": {
