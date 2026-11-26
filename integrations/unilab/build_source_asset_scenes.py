@@ -123,8 +123,10 @@ def build(task_id: str, output: Path | None = None) -> Path:
             visual.export(visual_file)
             dependencies[str(visual_file.relative_to(ROOT))] = digest(visual_file)
             ET.SubElement(assets, "mesh", name=f"{name}_visual_mesh", file=visual_file.name)
-            body = ET.SubElement(world, "body", name=name,
-                                 pos=" ".join(map(str, spec["pos"])))
+            body_attributes = {"name": name, "pos": " ".join(map(str, spec["pos"]))}
+            if "quat" in spec:
+                body_attributes["quat"] = " ".join(map(str, spec["quat"]))
+            body = ET.SubElement(world, "body", **body_attributes)
             if spec["motion"] == "free":
                 ET.SubElement(body, "freejoint", name=f"{name}_free")
             elif spec["motion"] != "fixed":

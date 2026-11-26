@@ -1,0 +1,157 @@
+{
+  "task_id": "P03",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Dataset card declaration; retain any individual asset attribution and metadata. Do not assume generated replacements reproduce original task",
+  "config_path": "task/RoboDojo/config/sweep_blocks.yml",
+  "selection_note": "Fixed source-valid diagnostic subset: broom_shovel/00000, broom/00000 and three small cubes 00000/00001/00002. Original task samples 3-5 cubes and randomized layouts.",
+  "categories": [
+    {
+      "kind": "Rigid",
+      "name": "broom_shovel",
+      "indices": [
+        0
+      ]
+    },
+    {
+      "kind": "Rigid",
+      "name": "broom",
+      "indices": [
+        0
+      ]
+    },
+    {
+      "kind": "Rigid",
+      "name": "small_cube",
+      "indices": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/broom/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/broom/00000/description.json",
+      "downloaded": false,
+      "sha256": "ccab083912be01b6af46f03d6cc6fd6e54861fce92c9cf0bc7acf3801cee175b",
+      "size_bytes": 7565,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/broom/00000/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/broom/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/broom/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "19110d42166c7839a0d7564a4782bf8fa25d0a54a92d70d7fb03c1a438ac3869",
+      "size_bytes": 3541,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/broom/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/broom/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/broom/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "6066429e8f0f81efc77c3f39cd8fd142d75f9c252b29322ea47af50507c5215e",
+      "size_bytes": 44840357,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/broom/00000/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/broom_shovel/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/broom_shovel/00000/description.json",
+      "downloaded": false,
+      "sha256": "c12a8e5e15d54623a76ee233955c2720517c136bbdaea59777cd26952acae0f5",
+      "size_bytes": 7287,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/broom_shovel/00000/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/broom_shovel/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/broom_shovel/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "786b65b1d6692913072ed03a9a1efd3d7b17f0690f48180ec603b084ce09bc30",
+      "size_bytes": 5552,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/broom_shovel/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/broom_shovel/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/broom_shovel/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "d0a7c11437705ab739d8fbc9e580a35f754126176f77776d5ed706171b221218",
+      "size_bytes": 7374271,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/broom_shovel/00000/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00000/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00000/description.json",
+      "downloaded": false,
+      "sha256": "26b42cd0d99ecace39669cde6587d0e04e0ad5b88343e6292c53d760bf42ead6",
+      "size_bytes": 6898,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00000/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "db49617a0da67d2e7c7faeeaaf6432b2d29c1ad5ebcb387f76d1714135062369",
+      "size_bytes": 3596,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "980fed00f62b29bd1aebdb4e33be8e98fc1ad9dd89d6240c43b9e4324ecb965b",
+      "size_bytes": 6753,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00000/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00001/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00001/description.json",
+      "downloaded": false,
+      "sha256": "26b42cd0d99ecace39669cde6587d0e04e0ad5b88343e6292c53d760bf42ead6",
+      "size_bytes": 6898,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00001/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00001/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00001/metadata.json",
+      "downloaded": false,
+      "sha256": "db49617a0da67d2e7c7faeeaaf6432b2d29c1ad5ebcb387f76d1714135062369",
+      "size_bytes": 3596,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00001/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00001/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00001/object.usdz",
+      "downloaded": false,
+      "sha256": "e818a9f4fde38418eca7c4ee8171701445e4a55906d59ed7e0528f94fb560e8d",
+      "size_bytes": 6892,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00001/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00002/description.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00002/description.json",
+      "downloaded": false,
+      "sha256": "26b42cd0d99ecace39669cde6587d0e04e0ad5b88343e6292c53d760bf42ead6",
+      "size_bytes": 6898,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00002/description.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00002/metadata.json",
+      "downloaded": false,
+      "sha256": "db49617a0da67d2e7c7faeeaaf6432b2d29c1ad5ebcb387f76d1714135062369",
+      "size_bytes": 3596,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00002/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/small_cube/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/small_cube/00002/object.usdz",
+      "downloaded": false,
+      "sha256": "77672283ac12f63303a554c88f3166925e14482b3b838e4467b8fe99099f3128",
+      "size_bytes": 6753,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/small_cube/00002/object.usdz"
+    }
+  ],
+  "completeness": "Five fixed source object variants; excludes randomized reset, robot and scene materials"
+}

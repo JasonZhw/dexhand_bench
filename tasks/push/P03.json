@@ -25,8 +25,8 @@
   },
   "adaptation_protocol": null,
   "assets": {
-    "manifest": "asset_manifests/P03-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "manifest": "asset_manifests/P03-core-robodojo.json",
+    "availability": "15/15 files for fixed source broom, dustpan and three cubes verified; adapted source-object scene diagnostic available"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -70,7 +70,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "对齐扫帚与簸箕的真实碰撞、方块尺度和原任务初态，再接工具操作策略及功能区评分信号",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-tool; tool-block; block-dustpan",
@@ -101,7 +101,7 @@
         "broom_shovel",
         "broom"
       ],
-      "asset_manifest": "asset_manifests/P03-robodojo.json",
+      "asset_manifest": "asset_manifests/P03-core-robodojo.json",
       "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
       "target_robot": null,
       "initial_state": {
