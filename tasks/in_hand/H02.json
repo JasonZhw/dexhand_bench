@@ -23,8 +23,9 @@
   "adaptation_protocol": null,
   "assets": {
     "provider": "gymnasium-robotics==1.4.1 package envs/assets",
-    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
-    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+    "availability": "Adroit Pen source MJCF, defaults and asset license pinned; four pen primitive components checked in the adapted UniLab diagnostic",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution",
+    "manifest": "asset_manifests/H02-adroit-pen-mjcf.json"
   },
   "embodiment": {
     "original": "Adroit hand",
@@ -75,7 +76,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "获取或训练可成功的参考控制；如需换手/换后端，新增协议并核对动作与资产表示",
+  "next_step": "在 Wuji 掌中设置可复现的笔初态；将笔轴端点与 eps_ball 目标点接入实时评分，再获取或训练转笔策略",
   "robot_mapping": {
     "receipt": "docs/evidence/H02-runtime-receipt.json",
     "mapping_field": "backend.joint_mapping",
@@ -110,7 +111,7 @@
         "pen",
         "target_pen"
       ],
-      "asset_manifest": null,
+      "asset_manifest": "asset_manifests/H02-adroit-pen-mjcf.json",
       "robot_reference": "Adroit hand",
       "target_robot": null,
       "initial_state": {
@@ -134,7 +135,7 @@
       "position_error_m": {
         "type": "number",
         "unit": "m",
-        "definition": "笔质心与目标笔位置欧氏距离",
+        "definition": "笔物体坐标原点与 eps_ball 固定目标 site 的欧氏距离；原任务的绿色目标笔主要显示目标轴向",
         "origin": "source"
       },
       "axis_dot": {

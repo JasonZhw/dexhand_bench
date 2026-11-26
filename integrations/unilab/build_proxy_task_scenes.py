@@ -54,9 +54,14 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
     selected = [entry for entry in entries if entry["local_path"] == spec["file"]]
     if len(selected) != 1:
         raise ValueError("Source MJCF file not pinned exactly once")
+    if "defaults_file" in spec and sum(entry["local_path"] == spec["defaults_file"] for entry in entries) != 1:
+        raise ValueError("Source MJCF defaults file not pinned exactly once")
     source = ET.parse(workspace / spec["file"]).getroot()
+    defaults = ET.parse(workspace / spec["defaults_file"]).getroot() if "defaults_file" in spec else None
     option = source.find("option")
-    if option is None or float(option.get("timestep")) != spec["timestep"]:
+    if option is None and defaults is not None:
+        option = defaults.find("option")
+    if option is None or float(option.get("timestep", "0.002")) != spec["timestep"]:
         raise ValueError("Source timestep differs from layout")
     if "iterations" in spec and int(option.get("iterations", "-1")) != spec["iterations"]:
         raise ValueError("Source solver iterations differ from layout")
@@ -79,42 +84,107 @@ def verify_source_mjcf(layout: dict, workspace: Path = ROOT) -> dict:
     def numbers(geom, field):
         return [float(value) for value in geom.get(field, "").split()]
 
-    source_object = source_geom(spec["object_body"])
     object_layout = next((body for body in layout["bodies"]
                           if body["name"] == spec.get("target_body", "object")), None)
-    if object_layout is None or len(object_layout["geoms"]) != 1:
-        raise ValueError("Source object must map to one diagnostic geom")
-    object_geom = object_layout["geoms"][0]
-    for field in ("type", "size"):
-        actual = source_object.get(field) if field == "type" else numbers(source_object, field)
-        expected = object_geom[field]
-        if actual != expected:
-            raise ValueError(f"Source object {field} differs from layout")
-    if source_object.get("mass") is not None:
-        source_mass = float(source_object.get("mass"))
-    elif source_object.get("density") is not None and source_object.get("type") == "box":
-        source_mass = float(source_object.get("density")) * math.prod(
-            2 * component for component in numbers(source_object, "size"))
+    if object_layout is None:
+        raise ValueError("Source object body missing from layout")
+    source_object_body = source_body(spec["object_body"])
+
+    def mass_from_geom(geom):
+        if geom.get("mass") is not None:
+            return float(geom.get("mass"))
+        density = float(geom.get("density", spec.get("default_density", "nan")))
+        size = numbers(geom, "size")
+        if geom.get("type") == "box":
+            volume = math.prod(2 * component for component in size)
+        elif geom.get("type") == "cylinder":
+            volume = math.pi * size[0] ** 2 * 2 * size[1]
+        else:
+            raise ValueError("Source object mass cannot be determined from its MJCF")
+        return density * volume
+
+    if "object_geom_names" in spec:
+        if spec.get("default_density") != 1000:
+            raise ValueError("Source object default density must use the MuJoCo default")
+        if (defaults is None or defaults.find("./default/geom") is None
+                or numbers(defaults.find("./default/geom"), "friction") != spec["default_friction"]):
+            raise ValueError("Source object default friction differs from layout")
+        if float(defaults.find("./default/geom").get("margin", "nan")) != spec["default_margin"]:
+            raise ValueError("Source object default margin differs from layout")
+        source_names = spec["object_geom_names"]
+        if (len(source_names) != len(object_layout["geoms"])
+                or len(source_names) != len(set(source_names))
+                or len(source_names) != len(source_object_body.findall("geom"))):
+            raise ValueError("Source object component count differs from layout")
+        source_mass = 0.0
+        for source_name, object_geom in zip(source_names, object_layout["geoms"]):
+            source_object = next((geom for geom in source_object_body.findall("geom")
+                                  if geom.get("name") == source_name), None)
+            if source_object is None or object_geom.get("source_geom") != source_name:
+                raise ValueError(f"Source object component missing or reordered: {source_name}")
+            for field in ("type", "size", "pos"):
+                actual = (source_object.get(field) if field == "type" else
+                          numbers(source_object, field) if source_object.get(field) is not None else [0, 0, 0])
+                expected = object_geom.get(field, [0, 0, 0])
+                if actual != expected:
+                    raise ValueError(f"Source object {source_name} {field} differs from layout")
+            for field, default in (("condim", 3), ("contype", 1), ("conaffinity", 1)):
+                if int(source_object.get(field, default)) != object_geom.get(field, default):
+                    raise ValueError(f"Source object {source_name} {field} differs from layout")
+            friction = (numbers(source_object, "friction") if source_object.get("friction") is not None
+                        else spec["default_friction"])
+            if friction != object_geom.get("friction"):
+                raise ValueError(f"Source object {source_name} friction differs from layout")
+            margin = float(source_object.get("margin", spec["default_margin"]))
+            if margin != object_geom.get("margin"):
+                raise ValueError(f"Source object {source_name} margin differs from layout")
+            component_mass = mass_from_geom(source_object)
+            if not math.isclose(component_mass, object_geom["mass"], rel_tol=0, abs_tol=1e-10):
+                raise ValueError(f"Source object {source_name} mass differs from layout")
+            source_mass += component_mass
+        joints = source_object_body.findall("joint")
+        if (len(joints) != spec["joint_count"] or
+                any(float(joint.get("damping", "nan")) != object_layout.get("joint_damping")
+                    for joint in joints)):
+            raise ValueError("Source object joint damping or count differs from layout")
+        goal_layout = next((body for body in layout["bodies"]
+                            if body["name"] == spec["goal_body"]), None)
+        goal_site = next((site for site in source.findall("./worldbody/site")
+                          if site.get("name") == "eps_ball"), None)
+        if (goal_layout is None or goal_site is None
+                or numbers(goal_site, "pos") != numbers(source_object_body, "pos")
+                or goal_layout["pos"] != object_layout["pos"]):
+            raise ValueError("Source pen goal position differs from layout")
+        source_geom_count = len(source_names)
     else:
-        raise ValueError("Source object mass cannot be determined from its MJCF")
-    if not math.isclose(source_mass, object_geom["mass"], rel_tol=0, abs_tol=1e-12):
-        raise ValueError("Source object mass differs from layout")
-    if source_object.get("friction") is None and spec.get("default_friction") != [1, 0.005, 0.0001]:
-        raise ValueError("Source object default friction must use the MuJoCo default")
-    source_friction = (numbers(source_object, "friction")
-                       if source_object.get("friction") is not None else spec["default_friction"])
-    if source_friction is None or source_friction != object_geom.get("friction"):
-        raise ValueError("Source object friction differs from layout")
-    if int(source_object.get("condim", "3")) != object_geom.get("condim", 3):
-        raise ValueError("Source object condim differs from layout")
-    source_joint = source_body(spec["object_body"]).find("joint")
-    if (source_joint is None or source_joint.get("type") != "free"
-            or float(source_joint.get("damping", "nan")) != object_layout.get("joint_damping")):
-        raise ValueError("Source object joint damping differs from layout")
+        if len(object_layout["geoms"]) != 1:
+            raise ValueError("Source object must map to one diagnostic geom")
+        source_object = source_geom(spec["object_body"])
+        object_geom = object_layout["geoms"][0]
+        for field in ("type", "size"):
+            actual = source_object.get(field) if field == "type" else numbers(source_object, field)
+            if actual != object_geom[field]:
+                raise ValueError(f"Source object {field} differs from layout")
+        source_mass = mass_from_geom(source_object)
+        if not math.isclose(source_mass, object_geom["mass"], rel_tol=0, abs_tol=1e-12):
+            raise ValueError("Source object mass differs from layout")
+        if source_object.get("friction") is None and spec.get("default_friction") != [1, 0.005, 0.0001]:
+            raise ValueError("Source object default friction must use the MuJoCo default")
+        source_friction = (numbers(source_object, "friction")
+                           if source_object.get("friction") is not None else spec["default_friction"])
+        if source_friction is None or source_friction != object_geom.get("friction"):
+            raise ValueError("Source object friction differs from layout")
+        if int(source_object.get("condim", "3")) != object_geom.get("condim", 3):
+            raise ValueError("Source object condim differs from layout")
+        source_joint = source_object_body.find("joint")
+        if (source_joint is None or source_joint.get("type") != "free"
+                or float(source_joint.get("damping", "nan")) != object_layout.get("joint_damping")):
+            raise ValueError("Source object joint damping differs from layout")
+        source_geom_count = 1
     result = {"source_file": spec["file"], "manifest_sha256": digest(manifest_path),
               "source_asset_dependencies": {entry["local_path"]: digest(workspace / entry["local_path"])
                                             for entry in entries},
-              "source_object_mass_kg": source_mass}
+              "source_object_mass_kg": source_mass, "source_geom_count": source_geom_count}
     if "table_body" in spec:
         source_table = source_geom(spec["table_body"])
         if source_table.get("type") != "box":
@@ -201,8 +271,13 @@ def build(task_id: str, output: Path | None = None) -> Path:
                 attributes["quat"] = vector(geom_spec["quat"], 4)
             if "friction" in geom_spec:
                 attributes["friction"] = vector(geom_spec["friction"], 3)
+            if "margin" in geom_spec:
+                attributes["margin"] = str(geom_spec["margin"])
             if "condim" in geom_spec:
                 attributes["condim"] = str(geom_spec["condim"])
+            for field in ("contype", "conaffinity"):
+                if field in geom_spec:
+                    attributes[field] = str(geom_spec[field])
             if motion in ("free", "hinge"):
                 mass = geom_spec.get("mass")
                 if type(mass) not in (int, float) or mass <= 0:

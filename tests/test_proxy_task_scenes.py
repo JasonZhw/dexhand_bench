@@ -2,6 +2,7 @@
 
 import json
 import hashlib
+import math
 from pathlib import Path
 import tempfile
 import unittest
@@ -19,6 +20,96 @@ SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
+    def test_adroit_pen_components_and_defaults_match_layout(self):
+        from integrations.unilab.build_proxy_task_scenes import verify_source_mjcf
+
+        source = b'''<mujoco><worldbody>
+          <site name="eps_ball" pos="0 -0.2 0.25"/>
+          <body name="Object" pos="0 -0.2 0.25">
+            <joint name="x" type="slide" damping="0"/>
+            <joint name="y" type="slide" damping="0"/>
+            <joint name="z" type="slide" damping="0"/>
+            <joint name="rx" type="hinge" damping="0"/>
+            <joint name="ry" type="hinge" damping="0"/>
+            <joint name="rz" type="hinge" damping="0"/>
+            <geom name="pen" type="cylinder" size="0.015 0.065" density="1500" condim="4"/>
+            <geom name="cli" type="box" size="0.004 0.006 0.03" pos="-0.015 0 -0.0255"
+                  contype="0" conaffinity="0"/>
+          </body>
+        </worldbody></mujoco>'''
+        defaults = b'''<mujocoinclude><option iterations="20"/>
+          <default class="main"><geom friction="1 0.5 0.01" margin="0.0005"/></default>
+        </mujocoinclude>'''
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "assets").mkdir()
+            entries = []
+            for name, data in (("pen.xml", source), ("defaults.xml", defaults)):
+                path = root / "assets" / name
+                path.write_bytes(data)
+                entries.append({"local_path": f"assets/{name}",
+                                "sha256": hashlib.sha256(data).hexdigest(), "size_bytes": len(data)})
+            (root / "manifest.json").write_text(json.dumps({"files": entries}))
+            layout = {
+                "source_mjcf": {"manifest": "manifest.json", "file": "assets/pen.xml",
+                                "defaults_file": "assets/defaults.xml", "object_body": "Object",
+                                "target_body": "pen", "goal_body": "target_pen",
+                                "object_geom_names": ["pen", "cli"],
+                                "joint_count": 6, "timestep": 0.002, "iterations": 20,
+                                "default_density": 1000, "default_friction": [1, 0.5, 0.01],
+                                "default_margin": 0.0005},
+                "bodies": [
+                    {"name": "pen", "pos": [0, 0, 0.84], "joint_damping": 0,
+                     "geoms": [
+                         {"source_geom": "pen", "type": "cylinder", "size": [0.015, 0.065],
+                          "mass": math.pi * 0.015**2 * 0.13 * 1500,
+                          "friction": [1, 0.5, 0.01], "condim": 4, "margin": 0.0005},
+                         {"source_geom": "cli", "type": "box", "size": [0.004, 0.006, 0.03],
+                          "pos": [-0.015, 0, -0.0255], "mass": 0.00576,
+                          "friction": [1, 0.5, 0.01], "condim": 3, "margin": 0.0005,
+                          "contype": 0, "conaffinity": 0}]},
+                    {"name": "target_pen", "pos": [0, 0, 0.84], "geoms": []},
+                ],
+            }
+            result = verify_source_mjcf(layout, root)
+            self.assertEqual(result["source_geom_count"], 2)
+            layout["bodies"][0]["geoms"][0]["margin"] = 0
+            with self.assertRaisesRegex(ValueError, "margin"):
+                verify_source_mjcf(layout, root)
+            layout["bodies"][0]["geoms"][0]["margin"] = 0.0005
+            layout["bodies"][0]["geoms"][1]["contype"] = 1
+            with self.assertRaisesRegex(ValueError, "contype"):
+                verify_source_mjcf(layout, root)
+            layout["bodies"][0]["geoms"][1]["contype"] = 0
+            layout["bodies"][1]["pos"][0] = 0.1
+            with self.assertRaisesRegex(ValueError, "goal position"):
+                verify_source_mjcf(layout, root)
+            layout["bodies"][1]["pos"][0] = 0
+            layout["source_mjcf"]["default_density"] = 500
+            with self.assertRaisesRegex(ValueError, "default density"):
+                verify_source_mjcf(layout, root)
+            layout["source_mjcf"]["default_density"] = 1000
+            alternate = root / "assets/unpinned.xml"
+            alternate.write_bytes(defaults)
+            layout["source_mjcf"]["defaults_file"] = "assets/unpinned.xml"
+            with self.assertRaisesRegex(ValueError, "not pinned"):
+                verify_source_mjcf(layout, root)
+
+    def test_h02_goal_pose_is_recorded_at_pen_target_point(self):
+        layouts = json.loads((ROOT / "profiles/diagnostic_proxy_scenes.json").read_text())
+        pen, goal = layouts["H02"]["bodies"]
+        self.assertEqual(goal["pos"], pen["pos"])
+        self.assertEqual(len(pen["geoms"]), 4)
+        self.assertAlmostEqual(sum(geom["mass"] for geom in pen["geoms"]),
+                               0.1820379053855769, places=12)
+        records = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/H02/states.json").read_text())
+        index = records[0]["body_names"].index("target_pen")
+        for actual, expected in zip(records[0]["object_quat_wxyz"][index], goal["quat"]):
+            self.assertAlmostEqual(actual, expected, places=5)
+        receipt = json.loads((ROOT / "docs/evidence/source-mjcf-20261126/H02/receipt.json").read_text())
+        self.assertIsNone(receipt["task_success"])
+        self.assertEqual(receipt["score_signals_available"], 0)
+
     def test_source_block_density_and_contact_dimensions_match_layout(self):
         from integrations.unilab.build_proxy_task_scenes import verify_source_mjcf
 
@@ -131,11 +222,11 @@ class ProxyTaskSceneTests(unittest.TestCase):
     def test_farama_diagnostics_use_source_timestep_and_control_rate(self):
         from integrations.unilab.run_proxy_task_scene import diagnostic_profile
 
-        for task_id in ("H01", "P02"):
+        for task_id, ctrl_dt in (("H01", 0.04), ("H02", 0.01), ("P02", 0.04)):
             with self.subTest(task=task_id):
                 profile = diagnostic_profile(task_id)
                 self.assertEqual(profile["sim_dt"], 0.002)
-                self.assertEqual(profile["ctrl_dt"], 0.04)
+                self.assertEqual(profile["ctrl_dt"], ctrl_dt)
 
     def test_remaining_owners_have_explicit_proxy_bindings(self):
         for task_id in PROXY_IDS:
