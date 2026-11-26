@@ -10,10 +10,10 @@ from integrations.unilab.task_owner import ROOT, audit_task, load_owner
 
 
 PROXY_IDS = (
-    "G06", "H01", "H02", "H03", "M01",
+    "G06", "H01", "H02", "H03",
     "P02", "R01", "R02", "R03",
 )
-SOURCE_IDS = ("I03", "M02", "M03", "P01", "P03")
+SOURCE_IDS = ("I03", "M01", "M02", "M03", "P01", "P03")
 
 
 class ProxyTaskSceneTests(unittest.TestCase):
@@ -78,6 +78,7 @@ class ProxyTaskSceneTests(unittest.TestCase):
                                      {body["name"] for body in layouts[task_id]["bodies"]})
                     self.assertGreater(len(receipt["source_asset_dependencies"]), 0)
                     expected = ({"t"} if task_id == "P01" else {"key", "slot"} if task_id == "I03"
+                                else {"car", "electric_toothbrush", "hammer", "shoe", "box"} if task_id == "M01"
                                 else {"block_0", "block_1", "block_2"} if task_id == "M03"
                                 else {"cube_0", "cube_1", "cube_2", "broom_shovel", "broom"} if task_id == "P03"
                                 else {"pliers", "hammer", "tape_measure", "wrench", "toolbox"})
@@ -96,6 +97,11 @@ class ProxyTaskSceneTests(unittest.TestCase):
                                          "diagnostic_assumption")
                         self.assertLessEqual(max(item["render_faces"] for item in
                                                  receipt["visual_conversions"].values()), 30000)
+                    if task_id == "M01":
+                        self.assertEqual(receipt["collision_conversions"]["box"]["method"],
+                                         "source_bbox_open_tray")
+                        self.assertEqual(receipt["collision_conversions"]["hammer"]["mass_origin"],
+                                         "diagnostic_assumption")
                     if task_id == "P03":
                         self.assertEqual(receipt["collision_conversions"]["broom_shovel"]["method"],
                                          "source_bbox_open_tray")

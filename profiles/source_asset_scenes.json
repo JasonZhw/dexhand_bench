@@ -25,6 +25,25 @@
        "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}}
     ]
   },
+  "M01": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/M01-core-robodojo.json",
+    "limitations": [
+      "Five source objects use fixed indices from recorded seed-0 source layout, but positions are separated for this diagnostic and do not reproduce its reset",
+      "Four item contacts use mesh-bounding boxes; the source box is an open five-box tray and does not reproduce its authored convex-decomposition contact",
+      "Source hammer metadata mass and friction are zero; diagnostic uses 0.15 kg and friction 0.45 instead",
+      "Visual meshes are simplified to at most 20000 triangles; source textures are not ported",
+      "No source policy, scoring lifecycle, functional-point adapter, or contact-force equivalence",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "car", "motion": "free", "pos": [-0.36, -0.22, 0.783], "source": "Rigid/car/00007", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.45, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "rgba": "0.18 0.47 0.85 1"},
+      {"name": "electric_toothbrush", "motion": "free", "pos": [-0.14, -0.22, 0.7813], "source": "Rigid/electric_toothbrush/00002", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.12, "friction": 0.65, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "quat": [0.7071067811865476, 0, 0.7071067811865476, 0], "rgba": "0.18 0.76 0.68 1"},
+      {"name": "hammer", "motion": "free", "pos": [0.09, -0.22, 0.7725], "source": "Rigid/hammer/00003", "visual_prim": "/World/visual", "collision_prim": "/World/collision", "max_visual_faces": 20000, "mass_kg": 0.15, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "mass_origin": "diagnostic_assumption", "rgba": "0.95 0.45 0.2 1"},
+      {"name": "shoe", "motion": "free", "pos": [0.34, -0.22, 0.8012], "source": "Rigid/shoe/00003", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.01, "friction": 0.65, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "rgba": "0.64 0.36 0.74 1"},
+      {"name": "box", "motion": "free", "pos": [0, 0.12, 0.765], "source": "Rigid/box/00000", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.2, "friction": 0.4, "collision": {"method": "source_bbox_open_tray", "expected_source_approximation": "convexDecomposition", "wall_thickness_m": 0.004, "bottom_thickness_m": 0.005}, "rgba": "0.83 0.65 0.34 1"}
+    ]
+  },
   "M02": {
     "provenance": "robodojo_source_mesh_adapted_contact",
     "manifest": "asset_manifests/M02-robodojo.json",

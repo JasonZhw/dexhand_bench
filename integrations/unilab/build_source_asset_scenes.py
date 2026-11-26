@@ -139,12 +139,12 @@ def build(task_id: str, output: Path | None = None) -> Path:
             physics = metadata.get("physics") or {}
             source_mass = physics.get("mass")
             configured_mass = spec.get("mass_kg")
-            if source_mass is not None and configured_mass is not None and abs(float(source_mass) - configured_mass) > 1e-6:
+            if source_mass is not None and float(source_mass) > 0 and configured_mass is not None and abs(float(source_mass) - configured_mass) > 1e-6:
                 raise ValueError(f"Mass differs from pinned metadata: {name}")
             if spec["motion"] == "free" and (type(configured_mass) not in (float, int) or configured_mass <= 0):
                 raise ValueError(f"Dynamic source object needs a positive mass: {name}")
-            if source_mass is None and spec["motion"] == "free" and spec.get("mass_origin") != "diagnostic_assumption":
-                raise ValueError(f"Missing source mass must be labeled as a diagnostic assumption: {name}")
+            if (source_mass is None or float(source_mass) <= 0) and spec["motion"] == "free" and spec.get("mass_origin") != "diagnostic_assumption":
+                raise ValueError(f"Missing or nonpositive source mass must be labeled as a diagnostic assumption: {name}")
             method = spec["collision"]["method"]
             collision_conversions[name] = {
                 "method": method,
@@ -152,7 +152,7 @@ def build(task_id: str, output: Path | None = None) -> Path:
                 "configured_friction": spec["friction"],
                 "source_mass_kg": source_mass,
                 "configured_mass_kg": configured_mass,
-                "mass_origin": "source_metadata" if source_mass is not None else spec.get("mass_origin", "fixed_body"),
+                "mass_origin": "source_metadata" if source_mass is not None and float(source_mass) > 0 else spec.get("mass_origin", "fixed_body"),
             }
             if method in ("source_bbox_proxy", "source_bbox_open_tray"):
                 collision_prim = stage.GetPrimAtPath(spec["collision_prim"])

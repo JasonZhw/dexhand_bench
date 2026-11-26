@@ -25,8 +25,8 @@
   },
   "adaptation_protocol": null,
   "assets": {
-    "manifest": "asset_manifests/M01-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "manifest": "asset_manifests/M01-core-robodojo.json",
+    "availability": "10/10 files for five fixed-layout source objects pinned and verified locally; MuJoCo scene uses adapted contacts"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -68,7 +68,7 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "对齐原随机 reset、盒底功能点与各物体朝向判据；核对盒体碰撞和锤子非正质量元数据，再加入灵巧手策略与评分信号",
   "robot_mapping": null,
   "scene_evidence": null,
   "contact_structure": "hand-object -> object-container",
@@ -101,7 +101,7 @@
         "shoe",
         "box"
       ],
-      "asset_manifest": "asset_manifests/M01-robodojo.json",
+      "asset_manifest": "asset_manifests/M01-core-robodojo.json",
       "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
       "target_robot": null,
       "initial_state": {
