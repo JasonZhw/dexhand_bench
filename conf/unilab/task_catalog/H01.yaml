@@ -2,9 +2,10 @@
 id: H01
 contract: tasks/in_hand/H01.json
 binding:
-  kind: unbound
-  profile: null
-  robot: null
-  backend: null
-  controller: null
+  kind: unilab_proxy_diagnostic
+  profile: profiles/diagnostic_proxy_scenes.json
+  robot: wuji
+  backend: mujoco
+  controller: probe
   controller_config: null
+evidence: docs/evidence/task-proxies-20261126/H01/receipt.json

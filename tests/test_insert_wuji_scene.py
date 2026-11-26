@@ -44,7 +44,7 @@ class InsertWujiSceneTests(unittest.TestCase):
         _manifest, entries = source_asset_entries("I02")
         self.assertEqual(len(entries), 5)
         with self.assertRaisesRegex(ValueError, "budget"):
-            fetch("I03", max_total_bytes=0)
+            fetch("M02", max_total_bytes=0)
 
     def test_both_insertion_diagnostics_produce_complete_signal_rows(self):
         for task_id, count in (("I01", 10), ("I02", 4)):

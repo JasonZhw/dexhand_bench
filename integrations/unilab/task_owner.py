@@ -37,7 +37,7 @@ def load_owner(task_id: str):
     if errors:
         raise ValueError(f"{task_id}: invalid scoring contract: {'; '.join(errors)}")
     binding = entry.binding
-    if binding.kind not in ("local_grasp", "unilab_scene_diagnostic", "unbound"):
+    if binding.kind not in ("local_grasp", "unilab_scene_diagnostic", "unilab_proxy_diagnostic", "unbound"):
         raise ValueError(f"{task_id}: unknown scene binding {binding.kind}")
     if binding.kind == "local_grasp":
         if task_id not in ("G01", "G02", "G03", "G04", "G05"):
@@ -54,6 +54,15 @@ def load_owner(task_id: str):
             raise ValueError("Only I01/I02 Wuji scene diagnostics are implemented")
         if binding.controller_config is not None:
             raise ValueError("I01/I02 probes do not use controller configurations")
+    elif binding.kind == "unilab_proxy_diagnostic":
+        from integrations.unilab.run_proxy_task_scene import diagnostic_profile
+
+        profile = diagnostic_profile(task_id)
+        if (str(binding.profile) != "profiles/diagnostic_proxy_scenes.json"
+                or str(binding.robot) != "wuji" or str(binding.backend) != "mujoco"
+                or str(binding.controller) != "probe" or binding.controller_config is not None
+                or profile["task_file"] != str(entry.contract)):
+            raise ValueError(f"{task_id}: invalid primitive diagnostic binding")
     elif any(binding[key] is not None for key in ("profile", "robot", "backend", "controller", "controller_config")):
         raise ValueError(f"{task_id}: unbound task must not claim a physical implementation")
     return cfg, task
@@ -131,6 +140,28 @@ def audit_task(task_id: str) -> dict:
                 row["physical_load"] = "smoke_verified"
         row["local_runtime_receipt"] = str(cfg.task_catalog.evidence)
         row["next_blocker"] = "insertion_controller_and_source_parity"
+    elif binding.kind == "unilab_proxy_diagnostic":
+        from integrations.unilab.run_proxy_task_scene import diagnostic_profile
+
+        profile = diagnostic_profile(task_id)
+        scene = ROOT / profile["scene"]
+        row["local_scene_present"] = scene.is_file()
+        row["local_scene_receipt_present"] = (scene.parent / "scene.json").is_file()
+        row["robot"] = str(binding.robot)
+        row["score_signals_available"] = 0
+        row["asset_scope"] = "self_authored_geometry_proxy"
+        evidence_name = cfg.task_catalog.get("evidence")
+        if evidence_name and scene.is_file() and (scene.parent / "scene.json").is_file():
+            evidence = ROOT / str(evidence_name)
+            if evidence.is_file():
+                receipt = json.loads(evidence.read_text())
+                if (receipt.get("task_id") == task_id
+                        and receipt.get("scope") == "unilab_proxy_diagnostic"
+                        and receipt.get("independent_reset_verified") is True
+                        and receipt.get("task_success") is None
+                        and receipt.get("scene_sha256") == json.loads((scene.parent / "scene.json").read_text())["scene_sha256"]):
+                    row["physical_load"] = "smoke_verified"
+        row["next_blocker"] = "port_source_assets_reset_task_signals_and_controller"
     else:
         row["local_scene_present"] = False
         row["local_scene_receipt_present"] = False
@@ -163,6 +194,10 @@ def smoke_task(task_id: str, output: Path, steps: int = 2) -> dict:
 
         profile = json.loads((ROOT / str(cfg.task_catalog.binding.profile)).read_text())
         return run(profile, output, steps=steps)
+    if cfg.task_catalog.binding.kind == "unilab_proxy_diagnostic":
+        from integrations.unilab.run_proxy_task_scene import run
+
+        return run(task_id, output, steps=steps)
     profile = bound_profile(cfg)
     profile["runtime"]["steps"] = steps
     profile.setdefault("physics_recording", {})["enabled"] = False
@@ -180,6 +215,10 @@ def run_task(task_id: str, output: Path) -> dict:
 
         profile = json.loads((ROOT / str(cfg.task_catalog.binding.profile)).read_text())
         return run(profile, output)
+    if cfg.task_catalog.binding.kind == "unilab_proxy_diagnostic":
+        from integrations.unilab.run_proxy_task_scene import run
+
+        return run(task_id, output)
     profile = bound_profile(cfg)
     from integrations.unilab.run_grasp_scene import run
 

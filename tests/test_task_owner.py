@@ -35,7 +35,7 @@ class TaskOwnerTests(unittest.TestCase):
                 self.assertTrue(row["local_scene_present"])
                 self.assertEqual(row["score_signal_count"], count)
 
-    def test_unbound_task_cannot_silently_run(self):
+    def test_proxy_task_cannot_use_grasp_profile(self):
         cfg, _task = load_owner("G06")
         with self.assertRaisesRegex(ValueError, "no UniLab scene binding"):
             bound_profile(cfg)

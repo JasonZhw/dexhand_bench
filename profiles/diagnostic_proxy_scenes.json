@@ -1,0 +1,125 @@
+{
+  "G06": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "apple_with_stem", "motion": "free", "pos": [0, -0.12, 0.823], "geoms": [
+        {"type": "sphere", "size": [0.055], "mass": 0.16, "rgba": [0.82, 0.16, 0.12, 1]},
+        {"type": "capsule", "size": [0.004, 0.018], "pos": [0, 0, 0.068], "mass": 0.003, "rgba": [0.27, 0.4, 0.12, 1]}
+      ]}
+    ]
+  },
+  "H01": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "block", "motion": "free", "pos": [0, -0.12, 0.798], "geoms": [{"type": "box", "size": [0.03, 0.03, 0.03], "mass": 0.08}]},
+      {"name": "orientation_goal", "motion": "fixed", "pos": [0.18, -0.12, 0.798], "visual_only": true, "geoms": [{"type": "box", "size": [0.03, 0.03, 0.03], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+    ]
+  },
+  "H02": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "pen", "motion": "free", "pos": [0, -0.12, 0.845], "geoms": [{"type": "capsule", "size": [0.008, 0.07], "mass": 0.02}]},
+      {"name": "target_pen", "motion": "fixed", "pos": [0.18, -0.12, 0.85], "visual_only": true, "geoms": [{"type": "capsule", "size": [0.008, 0.07], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+    ]
+  },
+  "H03": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "rigid_egg", "motion": "free", "pos": [0, -0.12, 0.81], "geoms": [{"type": "ellipsoid", "size": [0.025, 0.025, 0.045], "mass": 0.06}]},
+      {"name": "orientation_goal", "motion": "fixed", "pos": [0.18, -0.12, 0.81], "visual_only": true, "geoms": [{"type": "ellipsoid", "size": [0.025, 0.025, 0.045], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+    ]
+  },
+  "I03": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "key", "motion": "free", "pos": [-0.15, -0.12, 0.79], "geoms": [{"type": "box", "size": [0.055, 0.008, 0.007], "mass": 0.02}]},
+      {"name": "slot", "motion": "fixed", "pos": [0.18, -0.12, 0.80], "geoms": [{"type": "box", "size": [0.06, 0.04, 0.025]}]}
+    ]
+  },
+  "M01": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "car", "motion": "free", "pos": [-0.25, -0.14, 0.79], "geoms": [{"type": "box", "size": [0.03, 0.018, 0.022], "mass": 0.06}]},
+      {"name": "electric_toothbrush", "motion": "free", "pos": [-0.16, -0.14, 0.827], "geoms": [{"type": "capsule", "size": [0.009, 0.05], "mass": 0.04}]},
+      {"name": "hammer", "motion": "free", "pos": [-0.07, -0.14, 0.79], "geoms": [{"type": "box", "size": [0.04, 0.012, 0.012], "mass": 0.08}]},
+      {"name": "shoe", "motion": "free", "pos": [0.03, -0.14, 0.79], "geoms": [{"type": "box", "size": [0.045, 0.02, 0.02], "mass": 0.08}]},
+      {"name": "box", "motion": "fixed", "pos": [0.23, -0.10, 0.80], "geoms": [
+        {"type": "box", "size": [0.10, 0.08, 0.01], "pos": [0, 0, -0.02]},
+        {"type": "box", "size": [0.01, 0.08, 0.045], "pos": [-0.09, 0, 0.015]},
+        {"type": "box", "size": [0.01, 0.08, 0.045], "pos": [0.09, 0, 0.015]},
+        {"type": "box", "size": [0.10, 0.01, 0.045], "pos": [0, -0.07, 0.015]},
+        {"type": "box", "size": [0.10, 0.01, 0.045], "pos": [0, 0.07, 0.015]}
+      ]}
+    ]
+  },
+  "M02": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "pliers", "motion": "free", "pos": [-0.24, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.04, 0.012, 0.012], "mass": 0.08}]},
+      {"name": "hammer", "motion": "free", "pos": [-0.14, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.04, 0.012, 0.012], "mass": 0.08}]},
+      {"name": "tape_measure", "motion": "free", "pos": [-0.04, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.025, 0.025, 0.02], "mass": 0.08}]},
+      {"name": "wrench", "motion": "free", "pos": [0.05, -0.13, 0.79], "geoms": [{"type": "box", "size": [0.045, 0.008, 0.008], "mass": 0.08}]},
+      {"name": "toolbox", "motion": "fixed", "pos": [0.24, -0.10, 0.80], "geoms": [
+        {"type": "box", "size": [0.10, 0.08, 0.01], "pos": [0, 0, -0.02]},
+        {"type": "box", "size": [0.01, 0.08, 0.045], "pos": [-0.09, 0, 0.015]},
+        {"type": "box", "size": [0.01, 0.08, 0.045], "pos": [0.09, 0, 0.015]}
+      ]}
+    ]
+  },
+  "M03": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "block_0", "motion": "free", "pos": [-0.15, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]},
+      {"name": "block_1", "motion": "free", "pos": [-0.05, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]},
+      {"name": "block_2", "motion": "free", "pos": [0.05, -0.12, 0.787], "geoms": [{"type": "box", "size": [0.02, 0.02, 0.02], "mass": 0.06}]}
+    ]
+  },
+  "P01": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "t", "motion": "free", "pos": [-0.10, -0.10, 0.785], "geoms": [
+        {"type": "box", "size": [0.05, 0.012, 0.018], "pos": [0, 0.02, 0], "mass": 0.06},
+        {"type": "box", "size": [0.012, 0.05, 0.018], "pos": [0, -0.03, 0], "mass": 0.06}
+      ]},
+      {"name": "target_t", "motion": "fixed", "pos": [0.18, -0.10, 0.785], "visual_only": true, "geoms": [{"type": "box", "size": [0.05, 0.05, 0.018], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+    ]
+  },
+  "P02": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "object", "motion": "free", "pos": [-0.12, -0.12, 0.782], "geoms": [{"type": "cylinder", "size": [0.03, 0.015], "mass": 0.08}]},
+      {"name": "goal", "motion": "fixed", "pos": [0.20, -0.12, 0.782], "visual_only": true, "geoms": [{"type": "cylinder", "size": [0.03, 0.015], "rgba": [0.2, 0.9, 0.3, 0.35]}]}
+    ]
+  },
+  "P03": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "cube_0", "motion": "free", "pos": [-0.20, -0.08, 0.782], "geoms": [{"type": "box", "size": [0.015, 0.015, 0.015], "mass": 0.02}]},
+      {"name": "cube_1", "motion": "free", "pos": [-0.15, -0.08, 0.782], "geoms": [{"type": "box", "size": [0.015, 0.015, 0.015], "mass": 0.02}]},
+      {"name": "cube_2", "motion": "free", "pos": [-0.10, -0.08, 0.782], "geoms": [{"type": "box", "size": [0.015, 0.015, 0.015], "mass": 0.02}]},
+      {"name": "broom_shovel", "motion": "fixed", "pos": [0.20, -0.08, 0.78], "geoms": [{"type": "box", "size": [0.09, 0.08, 0.008]}]},
+      {"name": "broom", "motion": "free", "pos": [0, -0.20, 0.785], "geoms": [{"type": "box", "size": [0.08, 0.012, 0.012], "mass": 0.06}]}
+    ]
+  },
+  "R01": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "wrench", "motion": "free", "pos": [-0.12, -0.12, 0.785], "geoms": [{"type": "box", "size": [0.07, 0.009, 0.009], "mass": 0.08}]},
+      {"name": "nut", "motion": "hinge", "pos": [0.18, -0.12, 0.78], "axis": [0, 0, 1], "geoms": [{"type": "cylinder", "size": [0.025, 0.012], "mass": 0.04}]},
+      {"name": "bolt", "motion": "fixed", "pos": [0.18, -0.12, 0.78], "visual_only": true, "geoms": [{"type": "cylinder", "size": [0.008, 0.02], "rgba": [0.4, 0.4, 0.4, 0.6]}]}
+    ]
+  },
+  "R02": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "faucet", "motion": "hinge", "pos": [0, -0.12, 0.82], "axis": [0, 0, 1], "geoms": [{"type": "box", "size": [0.06, 0.015, 0.015], "mass": 0.08}]}
+    ]
+  },
+  "R03": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "door", "motion": "hinge", "pos": [0.18, -0.10, 0.92], "axis": [0, 0, 1], "geoms": [{"type": "box", "size": [0.15, 0.015, 0.13], "pos": [-0.15, 0, 0], "mass": 0.5}]},
+      {"name": "latch", "motion": "hinge", "pos": [0.07, -0.08, 0.92], "axis": [0, 1, 0], "geoms": [{"type": "box", "size": [0.035, 0.008, 0.008], "mass": 0.03}]}
+    ]
+  }
+}
