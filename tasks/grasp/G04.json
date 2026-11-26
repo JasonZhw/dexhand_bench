@@ -109,5 +109,233 @@
   "next_step": "固定独立子任务初态和通过条件，核对资产碰撞/质量；原完整任务轨迹不自动视为独立抓取成功基线",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "finger-handle; object-table -> free"
+  "contact_structure": "finger-handle; object-table -> free",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "standalone_draft",
+    "provenance": {
+      "source_project": "Bench2Dex 12",
+      "source_url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/12_screwdriver_box_and_hammer.yaml",
+      "source_revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+      "scoring_code_path": "success/custom/task_12_screwdriver_box_and_hammer.py",
+      "criterion_origin": "proposed",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "scope": "whole original task, not the selected standalone grasp subtask",
+        "description": "Use the right hand to place the right screwdriver into the box and move the box to the left, use the left hand to place the left screwdriver into the box, then pick up the hammer, strike the wooden block once, and place the hammer into the box.",
+        "terminal_configuration": {
+          "dwell_time_s": 0.5,
+          "raw_condition": {
+            "type": "all",
+            "conditions": [
+              {
+                "type": "custom",
+                "evaluator": "success.custom.task_12_screwdriver_box_and_hammer"
+              },
+              {
+                "type": "object_static",
+                "object": "obj_043_phillips_screwdriver_1",
+                "threshold": 0.05,
+                "check_angular": false
+              },
+              {
+                "type": "object_static",
+                "object": "obj_044_flat_screwdriver_2",
+                "threshold": 0.05,
+                "check_angular": false
+              },
+              {
+                "type": "object_static",
+                "object": "obj_048_hammer_3",
+                "threshold": 0.05,
+                "check_angular": false
+              }
+            ]
+          }
+        },
+        "stages": [
+          "place_flat_right",
+          "place_phillips_left",
+          "hammer_strike_wood",
+          "place_hammer"
+        ]
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "screwdriver"
+      ],
+      "asset_manifest": "asset_manifests/G04-bench2dex.json",
+      "robot_reference": null,
+      "target_robot": null,
+      "initial_state": {
+        "mode": "proposed_reset",
+        "description": "从源资产选取目标对象置于支撑面，机械臂从无接触姿态开始；独立子任务布局、手型及数值位置待确定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": {
+      "signal": "height_gain_m",
+      "op": "eq",
+      "value": 0.0
+    },
+    "signals": {
+      "height_gain_m": {
+        "type": "number",
+        "unit": "m",
+        "definition": "目标对象原点世界 Z 相对本次 reset 原点 Z 的增量",
+        "origin": "proposed"
+      },
+      "speed_m_s": {
+        "type": "number",
+        "unit": "m/s",
+        "definition": "目标物体质心线速度范数",
+        "origin": "proposed"
+      },
+      "hand_contact": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "当前指定操作手与目标对象存在有效接触；支撑面接触不能代替手接触",
+        "origin": "proposed"
+      },
+      "dropped": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "本 episode 曾 height_gain_m>=0.05，随后任意帧 height_gain_m<0.02；事件一旦发生保持 true",
+        "origin": "proposed"
+      },
+      "grasp_region_valid": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "手-物接触均位于螺丝刀柄允许网格区域，且无掌面/其他区域承托；区域标签需资产绑定后定义",
+        "origin": "proposed"
+      }
+    },
+    "success": {
+      "mode": "hold",
+      "hold_s": 1.0,
+      "rule": {
+        "all": [
+          {
+            "signal": "height_gain_m",
+            "op": "ge",
+            "value": 0.05
+          },
+          {
+            "signal": "speed_m_s",
+            "op": "le",
+            "value": 0.05
+          },
+          {
+            "signal": "hand_contact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "grasp_region_valid",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [
+      {
+        "name": "dropped_after_lift",
+        "rule": {
+          "signal": "dropped",
+          "op": "eq",
+          "value": true
+        }
+      }
+    ],
+    "stages": [
+      {
+        "name": "lifted",
+        "rule": {
+          "signal": "height_gain_m",
+          "op": "ge",
+          "value": 0.05
+        }
+      },
+      {
+        "name": "held_by_hand",
+        "rule": {
+          "signal": "hand_contact",
+          "op": "eq",
+          "value": true
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "height_gain_m_final",
+        "signal": "height_gain_m",
+        "reduce": "final"
+      },
+      {
+        "name": "height_gain_m_max",
+        "signal": "height_gain_m",
+        "reduce": "max"
+      },
+      {
+        "name": "speed_m_s_final",
+        "signal": "speed_m_s",
+        "reduce": "final"
+      },
+      {
+        "name": "hand_contact_final",
+        "signal": "hand_contact",
+        "reduce": "final"
+      },
+      {
+        "name": "dropped_final",
+        "signal": "dropped",
+        "reduce": "final"
+      },
+      {
+        "name": "grasp_region_valid_final",
+        "signal": "grasp_region_valid",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "pending"
+    },
+    "failure_policy": "自拟独立抓取协议：先抬升再低于 2 cm 记掉落硬失败；允许抓取前接近。全部距离、速度和保持阈值待试跑校准"
+  }
 }

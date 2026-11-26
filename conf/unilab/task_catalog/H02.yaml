@@ -1,0 +1,11 @@
+# 手内笔重定向; success rules live in the referenced task JSON.
+id: H02
+contract: tasks/in_hand/H02.json
+binding:
+  kind: unilab_proxy_diagnostic
+  profile: profiles/diagnostic_proxy_scenes.json
+  robot: wuji
+  backend: mujoco
+  controller: probe
+  controller_config: null
+evidence: docs/evidence/source-mjcf-20261126/H02/receipt.json

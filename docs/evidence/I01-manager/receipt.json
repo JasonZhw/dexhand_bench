@@ -1,0 +1,115 @@
+{
+  "scope": "object_scene_diagnostic",
+  "manager_environment": true,
+  "robot_task_ready": false,
+  "task_success": null,
+  "steps": 60,
+  "num_envs": 2,
+  "observation_shape": [
+    2,
+    37
+  ],
+  "selected_pose_reset_verified": true,
+  "selected_velocity_reset_verified": true,
+  "reset_after_observed_motion": true,
+  "reset_events": [
+    {
+      "step": 5,
+      "reason": "selected_reset_check",
+      "env_ids": [
+        0
+      ],
+      "info": {
+        "log": {
+          "Episode_Metrics/mean_tube_height_m": 0.7809297442436218,
+          "Episode_Metrics/source_geometry_count": 0.0,
+          "Episode_Termination/timeout": 0
+        }
+      }
+    },
+    {
+      "step": 20,
+      "reason": "episode_end",
+      "env_ids": [
+        1
+      ],
+      "info": {
+        "log": {
+          "Episode_Metrics/mean_tube_height_m": 0.7810675501823425,
+          "Episode_Metrics/source_geometry_count": 0.0,
+          "Episode_Termination/timeout": 1
+        }
+      }
+    },
+    {
+      "step": 25,
+      "reason": "episode_end",
+      "env_ids": [
+        0
+      ],
+      "info": {
+        "log": {
+          "Episode_Metrics/mean_tube_height_m": 0.7810675501823425,
+          "Episode_Metrics/source_geometry_count": 0.0,
+          "Episode_Termination/timeout": 1
+        }
+      }
+    },
+    {
+      "step": 40,
+      "reason": "episode_end",
+      "env_ids": [
+        1
+      ],
+      "info": {
+        "log": {
+          "Episode_Metrics/mean_tube_height_m": 0.7810675501823425,
+          "Episode_Metrics/source_geometry_count": 0.0,
+          "Episode_Termination/timeout": 1
+        }
+      }
+    },
+    {
+      "step": 45,
+      "reason": "episode_end",
+      "env_ids": [
+        0
+      ],
+      "info": {
+        "log": {
+          "Episode_Metrics/mean_tube_height_m": 0.7810675501823425,
+          "Episode_Metrics/source_geometry_count": 0.0,
+          "Episode_Termination/timeout": 1
+        }
+      }
+    },
+    {
+      "step": 60,
+      "reason": "episode_end",
+      "env_ids": [
+        1
+      ],
+      "info": {
+        "log": {
+          "Episode_Metrics/mean_tube_height_m": 0.7810675501823425,
+          "Episode_Metrics/source_geometry_count": 0.0,
+          "Episode_Termination/timeout": 1
+        }
+      }
+    }
+  ],
+  "timeout_counters_verified": true,
+  "metrics_match_observations": true,
+  "versions": {
+    "unisim-core": "2.7.1",
+    "mujoco": "3.11.0",
+    "torch": "2.11.0+rocm7.2"
+  },
+  "scene_xml_sha256": "403ca6918bbe6afe9e78b8cb50c1fc69e8c01a84ffcbdad0743443700667f14b",
+  "observation_layout": "4 x (xyz,wxyz), then 3 x (depth,inside,upright)",
+  "limitations": [
+    "No robot or control policy",
+    "Geometry only; no release/home predicates",
+    "Height is a diagnostic, not task success or physical accuracy"
+  ]
+}

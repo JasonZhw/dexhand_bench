@@ -1,0 +1,332 @@
+[
+  {
+    "robot": "wuji",
+    "task": "G01",
+    "joint_count": 52,
+    "source_revision": "ffeb47f18545e135abba4386ff745c940cb8ce28",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.1848721052569733,
+    "max_hand_motion_rad": {
+      "left": 0.35082951188087463,
+      "right": 0.3508465588092804
+    },
+    "source_run": "runs/vendor-hands-final-20261119/wuji/G01",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "wuji",
+    "task": "G02",
+    "joint_count": 52,
+    "source_revision": "ffeb47f18545e135abba4386ff745c940cb8ce28",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.2544261792778455,
+    "max_hand_motion_rad": {
+      "left": 0.35082951188087463,
+      "right": 0.3508465588092804
+    },
+    "source_run": "runs/vendor-hands-final-20261119/wuji/G02",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "wuji",
+    "task": "G03",
+    "joint_count": 52,
+    "source_revision": "ffeb47f18545e135abba4386ff745c940cb8ce28",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 6.099330746108355,
+    "max_hand_motion_rad": {
+      "left": 0.35082951188087463,
+      "right": 0.3508465588092804
+    },
+    "source_run": "runs/vendor-hands-final-20261119/wuji/G03",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "wuji",
+    "task": "G04",
+    "joint_count": 52,
+    "source_revision": "ffeb47f18545e135abba4386ff745c940cb8ce28",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.2198533661501587,
+    "max_hand_motion_rad": {
+      "left": 0.35082951188087463,
+      "right": 0.3508465588092804
+    },
+    "source_run": "runs/vendor-hands-final-20261119/wuji/G04",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "wuji",
+    "task": "G05",
+    "joint_count": 52,
+    "source_revision": "ffeb47f18545e135abba4386ff745c940cb8ce28",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.2410068756824042,
+    "max_hand_motion_rad": {
+      "left": 0.35082951188087463,
+      "right": 0.3508465588092804
+    },
+    "source_run": "runs/vendor-hands-final-20261119/wuji/G05",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "sharpa",
+    "task": "G01",
+    "joint_count": 56,
+    "source_revision": "d323b371d02f4fc04a0873c19c5234cae6d803dd",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.1848721052569733,
+    "max_hand_motion_rad": {
+      "left": 0.33665966987609863,
+      "right": 0.3366604745388031
+    },
+    "source_run": "runs/vendor-hands-final-20261119/sharpa/G01",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "sharpa",
+    "task": "G02",
+    "joint_count": 56,
+    "source_revision": "d323b371d02f4fc04a0873c19c5234cae6d803dd",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.2544261792778455,
+    "max_hand_motion_rad": {
+      "left": 0.33665966987609863,
+      "right": 0.3366604745388031
+    },
+    "source_run": "runs/vendor-hands-final-20261119/sharpa/G02",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "sharpa",
+    "task": "G03",
+    "joint_count": 56,
+    "source_revision": "d323b371d02f4fc04a0873c19c5234cae6d803dd",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 6.099330746108355,
+    "max_hand_motion_rad": {
+      "left": 0.33665966987609863,
+      "right": 0.3366604745388031
+    },
+    "source_run": "runs/vendor-hands-final-20261119/sharpa/G03",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "sharpa",
+    "task": "G04",
+    "joint_count": 56,
+    "source_revision": "d323b371d02f4fc04a0873c19c5234cae6d803dd",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.2198533661501587,
+    "max_hand_motion_rad": {
+      "left": 0.33665966987609863,
+      "right": 0.3366604745388031
+    },
+    "source_run": "runs/vendor-hands-final-20261119/sharpa/G04",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  },
+  {
+    "robot": "sharpa",
+    "task": "G05",
+    "joint_count": 56,
+    "source_revision": "d323b371d02f4fc04a0873c19c5234cae6d803dd",
+    "independent_reset_verified": true,
+    "task_success": [
+      false,
+      false
+    ],
+    "max_object_contact_penetration_mm": 1.2410068756824042,
+    "max_hand_motion_rad": {
+      "left": 0.33665966987609863,
+      "right": 0.3366604745388031
+    },
+    "source_run": "runs/vendor-hands-final-20261119/sharpa/G05",
+    "videos": {
+      "preview": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      },
+      "hand": {
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "2.000000",
+        "nb_frames": "50"
+      }
+    }
+  }
+]

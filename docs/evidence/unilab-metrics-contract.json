@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "scope": "real UniLab MetricsManager with synthetic predicates; no simulator",
+  "num_envs": 2,
+  "partial_reset_verified": true,
+  "first": {
+    "Episode_Metrics/source_process_score": 100.0,
+    "Episode_Metrics/source_final_success": 1.0,
+    "Episode_Metrics/inserted_tubes": 3.0
+  },
+  "second": {
+    "Episode_Metrics/source_process_score": 20.0,
+    "Episode_Metrics/source_final_success": 0.0,
+    "Episode_Metrics/inserted_tubes": 1.0
+  },
+  "packages": {
+    "torch": "2.11.0+rocm7.2",
+    "unisim-core": "2.7.1",
+    "prettytable": "3.18.0"
+  },
+  "unilab_source": "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/work/research/UniLab",
+  "limitations": [
+    "No physical scene",
+    "No geometry predicate migration",
+    "No robot control",
+    "CPU contract fixture, not GPU-vectorized task implementation"
+  ]
+}

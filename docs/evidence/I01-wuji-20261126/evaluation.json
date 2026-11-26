@@ -1,0 +1,64 @@
+[
+  {
+    "task_id": "I01",
+    "protocol_version": "0.1-draft",
+    "input_kind": "recorded",
+    "evaluation_scope": "declared_observations_only",
+    "success": null,
+    "completion_time_s": null,
+    "failure_reason": "incomplete_trace",
+    "first_failure_time_s": null,
+    "missing_signals": [],
+    "metrics": {
+      "tube0_depth_m_final": 0.0656678230393003,
+      "tube0_upright_deg_final": 87.90257420329098,
+      "tube1_depth_m_final": 0.06566782216724187,
+      "tube1_upright_deg_final": 87.90257750994542,
+      "tube2_depth_m_final": 0.0656678231079415,
+      "tube2_upright_deg_final": 87.90257385185852,
+      "tube0_inside_final": false,
+      "tube1_inside_final": false,
+      "tube2_inside_final": false,
+      "robots_home_final": true
+    },
+    "terminal_stages": {
+      "tube0_placed": false,
+      "tube1_placed": false,
+      "tube2_placed": false
+    },
+    "terminal_stage_fraction": 0.0,
+    "official_source_score": null,
+    "note": "Draft protocol result; synthetic input is not a robot result. Stage fraction is not a source benchmark score."
+  },
+  {
+    "task_id": "I01",
+    "protocol_version": "0.1-draft",
+    "input_kind": "recorded",
+    "evaluation_scope": "declared_observations_only",
+    "success": null,
+    "completion_time_s": null,
+    "failure_reason": "incomplete_trace",
+    "first_failure_time_s": null,
+    "missing_signals": [],
+    "metrics": {
+      "tube0_depth_m_final": 0.0656678230393003,
+      "tube0_upright_deg_final": 87.90257420329098,
+      "tube1_depth_m_final": 0.06566782216724187,
+      "tube1_upright_deg_final": 87.90257750994542,
+      "tube2_depth_m_final": 0.0656678231079415,
+      "tube2_upright_deg_final": 87.90257385185852,
+      "tube0_inside_final": false,
+      "tube1_inside_final": false,
+      "tube2_inside_final": false,
+      "robots_home_final": true
+    },
+    "terminal_stages": {
+      "tube0_placed": false,
+      "tube1_placed": false,
+      "tube2_placed": false
+    },
+    "terminal_stage_fraction": 0.0,
+    "official_source_score": null,
+    "note": "Draft protocol result; synthetic input is not a robot result. Stage fraction is not a source benchmark score."
+  }
+]

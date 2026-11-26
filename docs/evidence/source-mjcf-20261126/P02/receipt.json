@@ -1,0 +1,21 @@
+{
+  "task_id": "P02",
+  "scope": "unilab_proxy_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "7f823adf6b8707bc624e8e51be1b36e2bae6d9272850b841d3d3fb302f95b8aa",
+  "score_signal_count": 1,
+  "score_signals_available": 0,
+  "source_score_ported": false,
+  "limitations": [
+    "Selected source MJCF primitive parameters are checked; robot, layout, reset and score are adapted",
+    "Joint probe is not a task policy",
+    "Task signals have no source-calibrated adapter; success remains unknown",
+    "Contact forces are not instrumented for these diagnostics"
+  ]
+}

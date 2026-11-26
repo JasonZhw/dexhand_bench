@@ -1,5 +1,6 @@
 """Explicit manifest downloads, bounded size, checksum verification and no clobbering."""
 import hashlib
+import re
 from pathlib import Path
 import urllib.request
 from urllib.parse import urlparse
@@ -33,9 +34,15 @@ def fetch_asset(entry, root, *, max_bytes=100_000_000, opener=None):
         raise FileExistsError(
             f'Unverified existing asset; not overwriting: {path}')
     url = urlparse(entry['url'])
-    if url.scheme != 'https' or url.hostname != 'huggingface.co':
+    pinned_menagerie = (url.hostname == 'raw.githubusercontent.com'
+        and re.fullmatch(r'/google-deepmind/mujoco_menagerie/[0-9a-f]{40}/wonik_allegro/[^?#]+', url.path))
+    pinned_vendor = (url.hostname == 'raw.githubusercontent.com'
+        and re.fullmatch(r'/(wuji-technology/wuji-description|sharpa-robotics/sharpa-urdf-usd-xml)/[0-9a-f]{40}/[^?#]+', url.path))
+    pinned_farama_mjcf = (url.hostname == 'raw.githubusercontent.com'
+        and re.fullmatch(r'/Farama-Foundation/Gymnasium-Robotics/[0-9a-f]{40}/gymnasium_robotics/envs/assets/(fetch/slide\.xml|hand/manipulate_(block|egg)\.xml|adroit_hand/adroit_(pen|door|assets)\.xml|LICENSE\.md)', url.path))
+    if url.scheme != 'https' or not (url.hostname == 'huggingface.co' or pinned_menagerie or pinned_vendor or pinned_farama_mjcf):
         raise ValueError(
-            'This downloader supports official Hugging Face HTTPS manifests only')
+            'Only Hugging Face or pinned approved asset paths over HTTPS are supported')
     if not entry.get('sha256'):
         raise ValueError(
             'Known checksum required before reproducible download')

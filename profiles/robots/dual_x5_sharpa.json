@@ -1,0 +1,100 @@
+{
+  "id": "dual_x5_sharpa",
+  "label": "Sharpa Wave with flange",
+  "kind": "sharpa",
+  "joints_per_hand": 22,
+  "source_arm_template": "assets/generated/I01-x5-control/scene.xml",
+  "source_arm_manifest": "asset_manifests/I01-x5.json",
+  "source_hand_manifest": "asset_manifests/sharpa-wave.json",
+  "source_models": {
+    "left": "assets/vendor/sharpa/wave_01/left_sharpa_wave/left_sharpa_wave_with_flange.xml",
+    "right": "assets/vendor/sharpa/wave_01/right_sharpa_wave/right_sharpa_wave_with_flange.xml"
+  },
+  "template": "assets/generated/dual_x5_sharpa/scene.xml",
+  "gravity_compensation": true,
+  "designated_hand": "right",
+  "hand_mount": {
+    "position_m": [
+      0.088,
+      0,
+      0
+    ],
+    "quaternion_wxyz": [
+      0.7071067811865476,
+      0,
+      0.7071067811865476,
+      0
+    ],
+    "origin": "Virtual alignment: visible X5 link6 mesh ends at +X=0.084 m; source hand mesh starts 0.002 m beyond it. Palm oriented toward table. Not a measured or load-validated hardware adapter."
+  },
+  "simulation_options": {
+    "integrator": "implicitfast",
+    "cone": "elliptic",
+    "impratio": "10"
+  },
+  "hands": {
+    "left": {
+      "root": "left_hand_C_MC",
+      "palm": "left_hand_C_MC",
+      "finger_roots": {
+        "thumb": "left_thumb_CMC_VL",
+        "index": "left_index_MCP_VL",
+        "middle": "left_middle_MCP_VL",
+        "ring": "left_ring_MCP_VL",
+        "little": "left_pinky_MC"
+      },
+      "probe_offsets": {
+        "left_thumb_CMC_FE": 0.3,
+        "left_thumb_MCP_FE": 0.3,
+        "left_thumb_IP": 0.2,
+        "left_index_MCP_FE": 0.35,
+        "left_index_PIP": 0.25,
+        "left_index_DIP": 0.2,
+        "left_middle_MCP_FE": 0.35,
+        "left_middle_PIP": 0.25,
+        "left_middle_DIP": 0.2,
+        "left_ring_MCP_FE": 0.35,
+        "left_ring_PIP": 0.25,
+        "left_ring_DIP": 0.2,
+        "left_pinky_MCP_FE": 0.35,
+        "left_pinky_PIP": 0.25,
+        "left_pinky_DIP": 0.2,
+        "left_pinky_CMC": 0.08
+      }
+    },
+    "right": {
+      "root": "right_hand_C_MC",
+      "palm": "right_hand_C_MC",
+      "finger_roots": {
+        "thumb": "right_thumb_CMC_VL",
+        "index": "right_index_MCP_VL",
+        "middle": "right_middle_MCP_VL",
+        "ring": "right_ring_MCP_VL",
+        "little": "right_pinky_MC"
+      },
+      "probe_offsets": {
+        "right_thumb_CMC_FE": 0.3,
+        "right_thumb_MCP_FE": 0.3,
+        "right_thumb_IP": 0.2,
+        "right_index_MCP_FE": 0.35,
+        "right_index_PIP": 0.25,
+        "right_index_DIP": 0.2,
+        "right_middle_MCP_FE": 0.35,
+        "right_middle_PIP": 0.25,
+        "right_middle_DIP": 0.2,
+        "right_ring_MCP_FE": 0.35,
+        "right_ring_PIP": 0.25,
+        "right_ring_DIP": 0.2,
+        "right_pinky_MCP_FE": 0.35,
+        "right_pinky_PIP": 0.25,
+        "right_pinky_DIP": 0.2,
+        "right_pinky_CMC": 0.08
+      }
+    }
+  },
+  "limitations": [
+    "Virtual X5/vendor-hand assembly; mounting geometry is not hardware calibrated",
+    "Shared implicitfast/4 ms runtime differs from vendor standalone simulator settings",
+    "Native collision and drive parameters retained; not validated for accurate forces or grasp success"
+  ]
+}

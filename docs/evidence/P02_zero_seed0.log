@@ -1,0 +1,32 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+{
+  "schema_version": "0.2",
+  "task_id": "P02",
+  "seed": 0,
+  "steps": 50,
+  "execution_completed": true,
+  "task_outcome": "failure",
+  "final_source_success": false,
+  "any_source_success": false,
+  "termination_reason": "source_time_limit",
+  "error": null,
+  "outcome_rule": "final_sample_of_source_success_predicate",
+  "diagnostic_probes": {
+    "contact_envelope": {
+      "samples_available": 50,
+      "samples_unavailable": 0,
+      "max_penetration_m": 0.0061212382843712125,
+      "max_normal_force_sum_N": 35764.76815941011,
+      "interpretation": "control-step-end contact diagnostics; not physical accuracy or net force"
+    }
+  },
+  "timing": {
+    "scope": "environment.step_and_synchronize_only; excludes reset, policy, snapshot, logging, render",
+    "step_seconds": 0.04636381205637008,
+    "steps_measured": 50,
+    "environment_steps_per_second": 1078.4272859015339,
+    "wall_seconds_including_setup_and_recording": 0.3579082490032306,
+    "num_envs": 1,
+    "parallelism": "single_environment"
+  }
+}

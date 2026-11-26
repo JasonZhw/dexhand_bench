@@ -1,0 +1,231 @@
+{
+  "profile": {
+    "task_id": "G05",
+    "task_file": "tasks/grasp/G05.json",
+    "backend": "mujoco",
+    "embodiment": "RoboDojo dual X5 parallel-gripper diagnostic baseline; not a dexterous hand",
+    "robot_template": "assets/generated/I01-x5-control/scene.xml",
+    "object": {
+      "name": "frying_pan",
+      "source_manifest": "asset_manifests/G01-G05-local.json",
+      "source_scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "rotate_x_deg": -90,
+      "mass_kg": 1.2,
+      "mass_origin": "Bench2Dex scene override",
+      "collision": "coacd_convex_parts",
+      "rgba": [
+        0.28,
+        0.3,
+        0.34,
+        1
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "friction_origin": "proposed common baseline, not measured material",
+      "grasp_region": {
+        "lower": [
+          -0.055,
+          -0.26,
+          -0.005
+        ],
+        "upper": [
+          0.055,
+          -0.12,
+          0.09
+        ]
+      },
+      "region_origin": "proposed bounding box in normalized object coordinates; inspect overlay before benchmark use",
+      "orientation_origin": "Source scene 08 uses roll -90 deg; yaw is set to zero for this standalone layout"
+    },
+    "initial": {
+      "xy_m": [
+        0,
+        0.05
+      ],
+      "clearance_m": 0.002,
+      "table_top_m": 0.765
+    },
+    "runtime": {
+      "sim_dt": 0.004,
+      "ctrl_dt": 0.004,
+      "num_envs": 2,
+      "steps": 500,
+      "controller": "probe",
+      "camera": {
+        "lookat": [
+          0,
+          -0.1,
+          0.9
+        ],
+        "distance": 1.35,
+        "azimuth": 115,
+        "elevation": -35
+      }
+    },
+    "output": "runs/local-grasp/G05",
+    "scene": "assets/generated/local_grasp/G05/scene.xml",
+    "limitations": [
+      "Gripper baseline, dexterous hand not yet bound",
+      "Adapted collision and inertia are not source PhysX equivalence",
+      "Probe controller is a runtime check, not a grasp policy"
+    ]
+  },
+  "env": {
+    "_target_": "unilab.envs.ManagerBasedRlEnvCfg",
+    "scene": {
+      "_target_": "unilab.base.scene.SceneCfg",
+      "model_file": "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/work/dexhand_bench/assets/generated/local_grasp/G05/scene.xml",
+      "entities": {
+        "objects": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "object",
+          "body_names": [
+            "object"
+          ],
+          "actuator_names": []
+        },
+        "robot": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "left_base_link",
+          "joint_names": [
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_joint6",
+            "left_joint7",
+            "left_joint8",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_joint6",
+            "right_joint7",
+            "right_joint8"
+          ],
+          "actuator_names": [
+            "left_joint1_drive",
+            "left_joint2_drive",
+            "left_joint3_drive",
+            "left_joint4_drive",
+            "left_joint5_drive",
+            "left_joint6_drive",
+            "left_joint7_drive",
+            "left_joint8_drive",
+            "right_joint1_drive",
+            "right_joint2_drive",
+            "right_joint3_drive",
+            "right_joint4_drive",
+            "right_joint5_drive",
+            "right_joint6_drive",
+            "right_joint7_drive",
+            "right_joint8_drive"
+          ],
+          "body_names": [
+            "left_base_link",
+            "left_link6",
+            "right_base_link",
+            "right_link6"
+          ]
+        }
+      }
+    },
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "max_episode_seconds": 60.0,
+    "seed": 0,
+    "auto_reset": false,
+    "defer_finite_validation": false,
+    "observations": {
+      "policy": {
+        "_target_": "unilab.managers.ObservationGroupCfg",
+        "terms": {
+          "joint_position": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_pos_rel"
+            }
+          },
+          "joint_velocity": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_vel_rel"
+            }
+          },
+          "object_state": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_class",
+              "path": "integrations.unilab.grasp_terms.GraspObjectState"
+            },
+            "params": {
+              "entity_name": "objects",
+              "body_names": [
+                "object"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "restore_scene": {
+        "_target_": "unilab.managers.EventTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.reset_scene_to_default"
+        },
+        "mode": "reset"
+      }
+    },
+    "actions": {
+      "joint_position": {
+        "_target_": "unilab.envs.mdp.JointPositionActionCfg",
+        "entity_name": "robot",
+        "actuator_names": [
+          ".*"
+        ],
+        "scale": 1.0,
+        "use_default_offset": true
+      }
+    },
+    "rewards": {},
+    "terminations": {
+      "timeout": {
+        "_target_": "unilab.managers.TerminationTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.time_out"
+        },
+        "time_out": true
+      }
+    },
+    "metrics": {
+      "object_height_m": {
+        "_target_": "unilab.managers.MetricsTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_class",
+          "path": "integrations.unilab.object_scene_terms.MeanHeight"
+        },
+        "params": {
+          "entity_name": "objects",
+          "body_names": [
+            "object"
+          ]
+        },
+        "reduce": "last"
+      }
+    }
+  }
+}

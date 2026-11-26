@@ -16,7 +16,7 @@
     "scoring_code_sha256": "50bd388f9e47002966fbb0146742467a820295b8686e0f86379f0efbcfffcc1b"
   },
   "original_success": {
-    "description": "三个方块满足is_stacked，机器人回位；XY阈值按资产索引为0.015/0.0175/0.02m，分段评分15/100另检查夹爪打开",
+    "description": "三个方块满足is_stacked，机器人回位；源helper按高度排序后检查相邻方块XY距离和至少0.005m的高度差，不直接检查物理接触；XY阈值按资产索引为0.015/0.0175/0.02m，分段评分15/100另检查夹爪打开",
     "supporting_code": [
       "env/reward_manager/reward_manager.py",
       "env/reward_manager/func_parser.py"
@@ -25,8 +25,8 @@
   },
   "adaptation_protocol": null,
   "assets": {
-    "manifest": "asset_manifests/M03-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "manifest": "asset_manifests/M03-core-robodojo.json",
+    "availability": "9/9 files for fixed source-valid size0 block variants 00005/00008/00011 verified; their USD meshes and adapted convex contacts load in a UniLab scene diagnostic"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -68,8 +68,136 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "对齐原环境的随机初态、材质/摩擦、源 is_stacked 判定和双夹爪到灵巧手的操作协议；引入策略后才测真实完成率",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-block -> block-block"
+  "contact_structure": "hand-block -> block-block",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "RoboDojo Stack Blocks",
+      "source_url": "https://robodojo-benchmark.com/doc/sim-tasks/stack-blocks/",
+      "source_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+      "scoring_code_path": "task/RoboDojo/tasks/stack_blocks.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "三个方块满足is_stacked，机器人回位；源helper按高度排序后检查相邻方块XY距离和至少0.005m的高度差，不直接检查物理接触；XY阈值按资产索引为0.015/0.0175/0.02m，分段评分15/100另检查夹爪打开",
+        "supporting_code": [
+          "env/reward_manager/reward_manager.py",
+          "env/reward_manager/func_parser.py"
+        ],
+        "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "block_0",
+        "block_1",
+        "block_2"
+      ],
+      "asset_manifest": "asset_manifests/M03-core-robodojo.json",
+      "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "三个方块未堆叠，原布局分布于桌面；固定纹理/形状索引后选择对应 XY 阈值",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": 550,
+      "source_step_unit": "source task step_lim, not seconds"
+    },
+    "initial": null,
+    "signals": {
+      "three_stacked": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 is_stacked(block_0,block_1,block_2) 整体结果：按z排序，相邻两个方块的XY欧氏距离不超过对应实例阈值，z差至少0.005m；源helper没有直接验证接触、支撑力或释放后的稳定性。XY阈值按资产索引为0.015/0.0175/0.02m，默认0.015",
+        "origin": "source"
+      },
+      "robots_home": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "原 all_robot_back_to_origin：每个 type=target 机械臂末端相对 reset 各位置分量绝对差<=0.15m、四元数角距离<=20deg；不是欧氏位置距离或关节误差",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "all": [
+          {
+            "signal": "three_stacked",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "signal": "robots_home",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "three_stacked",
+        "rule": {
+          "signal": "three_stacked",
+          "op": "eq",
+          "value": true
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "three_stacked_final",
+        "signal": "three_stacked",
+        "reduce": "final"
+      },
+      {
+        "name": "robots_home_final",
+        "signal": "robots_home",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

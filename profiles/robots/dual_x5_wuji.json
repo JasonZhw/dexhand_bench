@@ -1,0 +1,98 @@
+{
+  "id": "dual_x5_wuji",
+  "label": "Wuji Hand 2.2",
+  "kind": "wuji",
+  "joints_per_hand": 20,
+  "source_arm_template": "assets/generated/I01-x5-control/scene.xml",
+  "source_arm_manifest": "asset_manifests/I01-x5.json",
+  "source_hand_manifest": "asset_manifests/wuji-hand2-2.json",
+  "source_models": {
+    "left": "assets/vendor/wuji/hand2/hand2_2/body/mjcf/left.xml",
+    "right": "assets/vendor/wuji/hand2/hand2_2/body/mjcf/right.xml"
+  },
+  "template": "assets/generated/dual_x5_wuji/scene.xml",
+  "gravity_compensation": true,
+  "designated_hand": "right",
+  "hand_mount": {
+    "position_m": [
+      0.086,
+      0,
+      0
+    ],
+    "quaternion_wxyz": [
+      0.5,
+      -0.5,
+      -0.5,
+      0.5
+    ],
+    "origin": "Virtual alignment: visible X5 link6 mesh ends at +X=0.084 m; source hand mesh starts 0.002 m beyond it. Palm oriented toward table. Not a measured or load-validated hardware adapter."
+  },
+  "simulation_options": {
+    "integrator": "implicitfast",
+    "cone": "elliptic",
+    "impratio": "10"
+  },
+  "hands": {
+    "left": {
+      "root": "l_mount",
+      "palm": "l_wrist",
+      "finger_roots": {
+        "thumb": "l_thumb_proximal",
+        "index": "l_index_finger_proximal",
+        "middle": "l_middle_finger_proximal",
+        "ring": "l_ring_finger_proximal",
+        "little": "l_pinky_proximal"
+      },
+      "probe_offsets": {
+        "l_thumb_cmc_flex": 0.25,
+        "l_thumb_mcp": 0.25,
+        "l_thumb_ip": 0.2,
+        "l_index_finger_mcp_flex": 0.35,
+        "l_index_finger_pip": 0.25,
+        "l_index_finger_dip": 0.2,
+        "l_middle_finger_mcp_flex": 0.35,
+        "l_middle_finger_pip": 0.25,
+        "l_middle_finger_dip": 0.2,
+        "l_ring_finger_mcp_flex": 0.35,
+        "l_ring_finger_pip": 0.25,
+        "l_ring_finger_dip": 0.2,
+        "l_pinky_mcp_flex": 0.35,
+        "l_pinky_pip": 0.25,
+        "l_pinky_dip": 0.2
+      }
+    },
+    "right": {
+      "root": "r_mount",
+      "palm": "r_wrist",
+      "finger_roots": {
+        "thumb": "r_thumb_proximal",
+        "index": "r_index_finger_proximal",
+        "middle": "r_middle_finger_proximal",
+        "ring": "r_ring_finger_proximal",
+        "little": "r_pinky_proximal"
+      },
+      "probe_offsets": {
+        "r_thumb_cmc_flex": 0.25,
+        "r_thumb_mcp": 0.25,
+        "r_thumb_ip": 0.2,
+        "r_index_finger_mcp_flex": 0.35,
+        "r_index_finger_pip": 0.25,
+        "r_index_finger_dip": 0.2,
+        "r_middle_finger_mcp_flex": 0.35,
+        "r_middle_finger_pip": 0.25,
+        "r_middle_finger_dip": 0.2,
+        "r_ring_finger_mcp_flex": 0.35,
+        "r_ring_finger_pip": 0.25,
+        "r_ring_finger_dip": 0.2,
+        "r_pinky_mcp_flex": 0.35,
+        "r_pinky_pip": 0.25,
+        "r_pinky_dip": 0.2
+      }
+    }
+  },
+  "limitations": [
+    "Virtual X5/vendor-hand assembly; mounting geometry is not hardware calibrated",
+    "Shared implicitfast/4 ms runtime differs from vendor standalone simulator settings",
+    "Native collision and drive parameters retained; not validated for accurate forces or grasp success"
+  ]
+}

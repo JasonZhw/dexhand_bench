@@ -1,0 +1,21 @@
+{
+  "task_id": "P03",
+  "scope": "unilab_proxy_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "8bacef9d568ca6ab16a1fc973c6a44c3f9c8ec37bb41df6824860df9304f5fb5",
+  "score_signal_count": 6,
+  "score_signals_available": 0,
+  "source_score_ported": false,
+  "limitations": [
+    "Self-authored primitive geometry; source assets and reset are not ported",
+    "Joint probe is not a task policy",
+    "Task signals have no source-calibrated adapter; success remains unknown",
+    "Contact forces are not instrumented for these diagnostics"
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "profile": {
+    "task_id": "G05",
+    "task_file": "tasks/grasp/G05.json",
+    "backend": "mujoco",
+    "embodiment": "Dual X5 arms with Sharpa Wave with flange; virtual simulation assembly",
+    "robot_template": "assets/generated/dual_x5_sharpa/scene.xml",
+    "object": {
+      "name": "frying_pan",
+      "source_manifest": "asset_manifests/G01-G05-local.json",
+      "source_scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "rotate_x_deg": -90,
+      "mass_kg": 1.2,
+      "mass_origin": "Bench2Dex scene override",
+      "collision": "coacd_convex_parts",
+      "rgba": [
+        0.28,
+        0.3,
+        0.34,
+        1
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "friction_origin": "proposed common baseline, not measured material",
+      "grasp_region": {
+        "lower": [
+          -0.055,
+          -0.26,
+          -0.005
+        ],
+        "upper": [
+          0.055,
+          -0.12,
+          0.09
+        ]
+      },
+      "region_origin": "proposed bounding box in normalized object coordinates; inspect overlay before benchmark use",
+      "orientation_origin": "Source scene 08 uses roll -90 deg; yaw is set to zero for this standalone layout"
+    },
+    "initial": {
+      "xy_m": [
+        0,
+        0.05
+      ],
+      "clearance_m": 0.002,
+      "table_top_m": 0.765
+    },
+    "runtime": {
+      "sim_dt": 0.004,
+      "ctrl_dt": 0.004,
+      "num_envs": 2,
+      "steps": 500,
+      "controller": "probe",
+      "camera": {
+        "lookat": [
+          0,
+          -0.12,
+          1.0
+        ],
+        "distance": 1.5,
+        "azimuth": 115,
+        "elevation": -35
+      }
+    },
+    "output": "runs/sharpa-grasp/G05",
+    "scene": "assets/generated/sharpa_grasp/G05/scene.xml",
+    "limitations": [
+      "Virtual X5/vendor-hand assembly; mounting geometry is not hardware calibrated",
+      "Shared implicitfast/4 ms runtime differs from vendor standalone simulator settings",
+      "Native collision and drive parameters retained; not validated for accurate forces or grasp success"
+    ],
+    "robot_config": "profiles/robots/dual_x5_sharpa.json"
+  },
+  "env": {
+    "_target_": "unilab.envs.ManagerBasedRlEnvCfg",
+    "scene": {
+      "_target_": "unilab.base.scene.SceneCfg",
+      "model_file": "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/work/dexhand_bench/assets/generated/sharpa_grasp/G05/scene.xml",
+      "entities": {
+        "objects": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "object",
+          "body_names": [
+            "object"
+          ],
+          "actuator_names": []
+        },
+        "robot": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "left_base_link",
+          "joint_names": [
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_joint6",
+            "left_sharpa_left_thumb_CMC_FE",
+            "left_sharpa_left_thumb_CMC_AA",
+            "left_sharpa_left_thumb_MCP_FE",
+            "left_sharpa_left_thumb_MCP_AA",
+            "left_sharpa_left_thumb_IP",
+            "left_sharpa_left_index_MCP_FE",
+            "left_sharpa_left_index_MCP_AA",
+            "left_sharpa_left_index_PIP",
+            "left_sharpa_left_index_DIP",
+            "left_sharpa_left_middle_MCP_FE",
+            "left_sharpa_left_middle_MCP_AA",
+            "left_sharpa_left_middle_PIP",
+            "left_sharpa_left_middle_DIP",
+            "left_sharpa_left_ring_MCP_FE",
+            "left_sharpa_left_ring_MCP_AA",
+            "left_sharpa_left_ring_PIP",
+            "left_sharpa_left_ring_DIP",
+            "left_sharpa_left_pinky_CMC",
+            "left_sharpa_left_pinky_MCP_FE",
+            "left_sharpa_left_pinky_MCP_AA",
+            "left_sharpa_left_pinky_PIP",
+            "left_sharpa_left_pinky_DIP",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_joint6",
+            "right_sharpa_right_thumb_CMC_FE",
+            "right_sharpa_right_thumb_CMC_AA",
+            "right_sharpa_right_thumb_MCP_FE",
+            "right_sharpa_right_thumb_MCP_AA",
+            "right_sharpa_right_thumb_IP",
+            "right_sharpa_right_index_MCP_FE",
+            "right_sharpa_right_index_MCP_AA",
+            "right_sharpa_right_index_PIP",
+            "right_sharpa_right_index_DIP",
+            "right_sharpa_right_middle_MCP_FE",
+            "right_sharpa_right_middle_MCP_AA",
+            "right_sharpa_right_middle_PIP",
+            "right_sharpa_right_middle_DIP",
+            "right_sharpa_right_ring_MCP_FE",
+            "right_sharpa_right_ring_MCP_AA",
+            "right_sharpa_right_ring_PIP",
+            "right_sharpa_right_ring_DIP",
+            "right_sharpa_right_pinky_CMC",
+            "right_sharpa_right_pinky_MCP_FE",
+            "right_sharpa_right_pinky_MCP_AA",
+            "right_sharpa_right_pinky_PIP",
+            "right_sharpa_right_pinky_DIP"
+          ],
+          "actuator_names": [
+            "left_joint1_drive",
+            "left_joint2_drive",
+            "left_joint3_drive",
+            "left_joint4_drive",
+            "left_joint5_drive",
+            "left_joint6_drive",
+            "left_sharpa_left_thumb_CMC_FE_ctrl",
+            "left_sharpa_left_thumb_CMC_AA_ctrl",
+            "left_sharpa_left_thumb_MCP_FE_ctrl",
+            "left_sharpa_left_thumb_MCP_AA_ctrl",
+            "left_sharpa_left_thumb_IP_ctrl",
+            "left_sharpa_left_index_MCP_FE_ctrl",
+            "left_sharpa_left_index_MCP_AA_ctrl",
+            "left_sharpa_left_index_PIP_ctrl",
+            "left_sharpa_left_index_DIP_ctrl",
+            "left_sharpa_left_middle_MCP_FE_ctrl",
+            "left_sharpa_left_middle_MCP_AA_ctrl",
+            "left_sharpa_left_middle_PIP_ctrl",
+            "left_sharpa_left_middle_DIP_ctrl",
+            "left_sharpa_left_ring_MCP_FE_ctrl",
+            "left_sharpa_left_ring_MCP_AA_ctrl",
+            "left_sharpa_left_ring_PIP_ctrl",
+            "left_sharpa_left_ring_DIP_ctrl",
+            "left_sharpa_left_pinky_CMC_ctrl",
+            "left_sharpa_left_pinky_MCP_FE_ctrl",
+            "left_sharpa_left_pinky_MCP_AA_ctrl",
+            "left_sharpa_left_pinky_PIP_ctrl",
+            "left_sharpa_left_pinky_DIP_ctrl",
+            "right_joint1_drive",
+            "right_joint2_drive",
+            "right_joint3_drive",
+            "right_joint4_drive",
+            "right_joint5_drive",
+            "right_joint6_drive",
+            "right_sharpa_right_thumb_CMC_FE_ctrl",
+            "right_sharpa_right_thumb_CMC_AA_ctrl",
+            "right_sharpa_right_thumb_MCP_FE_ctrl",
+            "right_sharpa_right_thumb_MCP_AA_ctrl",
+            "right_sharpa_right_thumb_IP_ctrl",
+            "right_sharpa_right_index_MCP_FE_ctrl",
+            "right_sharpa_right_index_MCP_AA_ctrl",
+            "right_sharpa_right_index_PIP_ctrl",
+            "right_sharpa_right_index_DIP_ctrl",
+            "right_sharpa_right_middle_MCP_FE_ctrl",
+            "right_sharpa_right_middle_MCP_AA_ctrl",
+            "right_sharpa_right_middle_PIP_ctrl",
+            "right_sharpa_right_middle_DIP_ctrl",
+            "right_sharpa_right_ring_MCP_FE_ctrl",
+            "right_sharpa_right_ring_MCP_AA_ctrl",
+            "right_sharpa_right_ring_PIP_ctrl",
+            "right_sharpa_right_ring_DIP_ctrl",
+            "right_sharpa_right_pinky_CMC_ctrl",
+            "right_sharpa_right_pinky_MCP_FE_ctrl",
+            "right_sharpa_right_pinky_MCP_AA_ctrl",
+            "right_sharpa_right_pinky_PIP_ctrl",
+            "right_sharpa_right_pinky_DIP_ctrl"
+          ],
+          "body_names": [
+            "left_base_link",
+            "left_link1",
+            "left_link2",
+            "left_link3",
+            "left_link4",
+            "left_link5",
+            "left_link6",
+            "left_sharpa_left_hand_C_MC",
+            "left_sharpa_left_thumb_CMC_VL",
+            "left_sharpa_left_thumb_MC",
+            "left_sharpa_left_thumb_MCP_VL",
+            "left_sharpa_left_thumb_PP",
+            "left_sharpa_left_thumb_DP",
+            "left_sharpa_left_index_MCP_VL",
+            "left_sharpa_left_index_PP",
+            "left_sharpa_left_index_MP",
+            "left_sharpa_left_index_DP",
+            "left_sharpa_left_middle_MCP_VL",
+            "left_sharpa_left_middle_PP",
+            "left_sharpa_left_middle_MP",
+            "left_sharpa_left_middle_DP",
+            "left_sharpa_left_ring_MCP_VL",
+            "left_sharpa_left_ring_PP",
+            "left_sharpa_left_ring_MP",
+            "left_sharpa_left_ring_DP",
+            "left_sharpa_left_pinky_MC",
+            "left_sharpa_left_pinky_MCP_VL",
+            "left_sharpa_left_pinky_PP",
+            "left_sharpa_left_pinky_MP",
+            "left_sharpa_left_pinky_DP",
+            "right_base_link",
+            "right_link1",
+            "right_link2",
+            "right_link3",
+            "right_link4",
+            "right_link5",
+            "right_link6",
+            "right_sharpa_right_hand_C_MC",
+            "right_sharpa_right_thumb_CMC_VL",
+            "right_sharpa_right_thumb_MC",
+            "right_sharpa_right_thumb_MCP_VL",
+            "right_sharpa_right_thumb_PP",
+            "right_sharpa_right_thumb_DP",
+            "right_sharpa_right_index_MCP_VL",
+            "right_sharpa_right_index_PP",
+            "right_sharpa_right_index_MP",
+            "right_sharpa_right_index_DP",
+            "right_sharpa_right_middle_MCP_VL",
+            "right_sharpa_right_middle_PP",
+            "right_sharpa_right_middle_MP",
+            "right_sharpa_right_middle_DP",
+            "right_sharpa_right_ring_MCP_VL",
+            "right_sharpa_right_ring_PP",
+            "right_sharpa_right_ring_MP",
+            "right_sharpa_right_ring_DP",
+            "right_sharpa_right_pinky_MC",
+            "right_sharpa_right_pinky_MCP_VL",
+            "right_sharpa_right_pinky_PP",
+            "right_sharpa_right_pinky_MP",
+            "right_sharpa_right_pinky_DP"
+          ]
+        }
+      }
+    },
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "max_episode_seconds": 60.0,
+    "seed": 0,
+    "auto_reset": false,
+    "defer_finite_validation": false,
+    "observations": {
+      "policy": {
+        "_target_": "unilab.managers.ObservationGroupCfg",
+        "terms": {
+          "joint_position": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_pos_rel"
+            }
+          },
+          "joint_velocity": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_vel_rel"
+            }
+          },
+          "object_state": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_class",
+              "path": "integrations.unilab.grasp_terms.GraspObjectState"
+            },
+            "params": {
+              "entity_name": "objects",
+              "body_names": [
+                "object"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "restore_scene": {
+        "_target_": "unilab.managers.EventTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.reset_scene_to_default"
+        },
+        "mode": "reset"
+      }
+    },
+    "actions": {
+      "joint_position": {
+        "_target_": "unilab.envs.mdp.JointPositionActionCfg",
+        "entity_name": "robot",
+        "actuator_names": [
+          ".*"
+        ],
+        "scale": 1.0,
+        "use_default_offset": true
+      }
+    },
+    "rewards": {},
+    "terminations": {
+      "timeout": {
+        "_target_": "unilab.managers.TerminationTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.time_out"
+        },
+        "time_out": true
+      }
+    },
+    "metrics": {
+      "object_height_m": {
+        "_target_": "unilab.managers.MetricsTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_class",
+          "path": "integrations.unilab.object_scene_terms.MeanHeight"
+        },
+        "params": {
+          "entity_name": "objects",
+          "body_names": [
+            "object"
+          ]
+        },
+        "reduce": "last"
+      }
+    }
+  }
+}

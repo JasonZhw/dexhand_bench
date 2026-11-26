@@ -1,0 +1,37 @@
+{
+  "task_id": "G04",
+  "scope": "local X5 grasp scene and observation diagnostic",
+  "controller": "probe",
+  "successful_grasp_policy_available": false,
+  "task_success": [
+    false,
+    false
+  ],
+  "num_envs": 2,
+  "steps": 500,
+  "simulated_seconds": 2.0,
+  "reset_pose_and_velocity_verified": true,
+  "independent_reset_verified": true,
+  "backend": "mujoco",
+  "execution": "UniLab ManagerBasedRlEnv",
+  "object_dynamic": true,
+  "object_pose_commands_during_execution": false,
+  "robot_max_motion_rad": 0.09999771416187286,
+  "physics_force_available": false,
+  "contact_method": "offline pose-based geometry, not runtime force sensor",
+  "timing_scope": "CPU env.step wall time, includes managers; excludes geometry probe and rendering; not a throughput benchmark",
+  "versions": {
+    "unisim-core": "2.7.1",
+    "mujoco": "3.11.0",
+    "torch": "2.11.0+rocm7.2"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
+  "task_file_sha256": "70ec641ed9dab49365d79076f647d51925fa5651c07244439f67d4def7a900da",
+  "scene_sha256": "0ca589545e89786cde4b6e0b852a1ea24e1040c27834a20ed7f843d718fa3cc1",
+  "limitations": [
+    "Gripper baseline, dexterous hand not yet bound",
+    "Adapted collision and inertia are not source PhysX equivalence",
+    "Probe controller is a runtime check, not a grasp policy"
+  ]
+}

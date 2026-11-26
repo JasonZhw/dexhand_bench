@@ -1,0 +1,31 @@
+{
+  "task_id": "G02",
+  "robot_id": "dual_x5_allegro_v3",
+  "controlled_joints": 44,
+  "task_success": [
+    false,
+    false
+  ],
+  "independent_reset_verified": true,
+  "max_object_contact_penetration_mm": 1.2544261792778455,
+  "penetration_method": "offline pose-based geometry including table",
+  "per_finger_contact_recording": true,
+  "contact_force_available": false,
+  "videos": {
+    "preview": {
+      "width": 640,
+      "height": 480,
+      "r_frame_rate": "25/1",
+      "duration": "2.000000",
+      "nb_frames": "50"
+    },
+    "hand": {
+      "width": 640,
+      "height": 480,
+      "r_frame_rate": "25/1",
+      "duration": "2.000000",
+      "nb_frames": "50"
+    }
+  },
+  "source_run": "runs/allegro-five-final-20261119/G02"
+}

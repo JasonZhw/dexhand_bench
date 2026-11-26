@@ -1,0 +1,30 @@
+{
+  "task_id": "R03",
+  "repository": "Farama-Foundation/Gymnasium-Robotics",
+  "revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+  "package_version": "gymnasium-robotics==1.4.1",
+  "license_note": "Keep the pinned asset LICENSE.md. The frame/door/latch MJCF subtree is adapted; Adroit hand meshes, actuators, table and seeded reset are not copied.",
+  "files": [
+    {
+      "path": "gymnasium_robotics/envs/assets/adroit_hand/adroit_door.xml",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/adroit_hand/adroit_door.xml",
+      "sha256": "f321cd130b1e430fe2b80da6084c549f364a2bd1bc13893138a857645b6ead5c",
+      "size_bytes": 6177,
+      "local_path": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_door.xml"
+    },
+    {
+      "path": "gymnasium_robotics/envs/assets/adroit_hand/adroit_assets.xml",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/adroit_hand/adroit_assets.xml",
+      "sha256": "5b6cf98c06274504eb3ec91d18df7e397f7fb829e7e0345b22c7962dc6890d6c",
+      "size_bytes": 19849,
+      "local_path": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_assets.xml"
+    },
+    {
+      "path": "gymnasium_robotics/envs/assets/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/LICENSE.md",
+      "sha256": "1f293999c0191f530033b34ed87763b1b9d4bf65913e4675bb79a71b5ea4e07b",
+      "size_bytes": 12965,
+      "local_path": "assets/gymnasium_robotics/envs/assets/LICENSE.md"
+    }
+  ]
+}

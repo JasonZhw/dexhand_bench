@@ -1,0 +1,67 @@
+{
+  "G06": {
+    "provenance": "self_authored_geometry_proxy",
+    "bodies": [
+      {"name": "apple_with_stem", "motion": "free", "pos": [0, -0.12, 0.823], "geoms": [
+        {"type": "sphere", "size": [0.055], "mass": 0.16, "rgba": [0.82, 0.16, 0.12, 1]},
+        {"type": "capsule", "size": [0.004, 0.018], "pos": [0, 0, 0.068], "mass": 0.003, "rgba": [0.27, 0.4, 0.12, 1]}
+      ]}
+    ]
+  },
+  "H01": {
+    "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/H01-shadow-block-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/hand/manipulate_block.xml", "object_body": "object", "target_body": "block", "timestep": 0.002, "iterations": 20, "default_friction": [1, 0.005, 0.0001]},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.04,
+    "bodies": [
+      {"name": "block", "motion": "free", "pos": [0, -0.12, 0.79], "joint_damping": 0.01, "geoms": [{"type": "box", "size": [0.025, 0.025, 0.025], "mass": 0.070875, "friction": [1, 0.005, 0.0001], "condim": 4, "rgba": [0.25, 0.42, 0.72, 1]}]},
+      {"name": "orientation_goal", "motion": "fixed", "pos": [0, -0.12, 0.79], "quat": [0.9238795325, 0, 0, 0.3826834324], "visual_only": true, "geoms": [{"type": "box", "size": [0.025, 0.025, 0.025], "rgba": [0.2, 0.9, 0.3, 0.24]}]}
+    ]
+  },
+  "H02": {
+    "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/H02-adroit-pen-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_pen.xml", "defaults_file": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_assets.xml", "object_body": "Object", "target_body": "pen", "goal_body": "target_pen", "object_geom_names": ["pen", "top", "bot", "cli"], "joint_count": 6, "timestep": 0.002, "iterations": 20, "default_density": 1000, "default_friction": [1, 0.5, 0.01], "default_margin": 0.0005},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.01,
+    "bodies": [
+      {"name": "pen", "motion": "free", "pos": [0, -0.12, 0.84], "quat": [0.7073882692, 0, 0.7068251811, 0], "joint_damping": 0, "geoms": [
+        {"source_geom": "pen", "type": "cylinder", "size": [0.015, 0.065], "mass": 0.13783737767625218, "friction": [1, 0.5, 0.01], "margin": 0.0005, "condim": 4, "rgba": [0.3, 0.48, 0.78, 1]},
+        {"source_geom": "top", "type": "cylinder", "size": [0.017, 0.02], "pos": [0, 0, -0.0455], "mass": 0.036316811075498015, "friction": [1, 0.5, 0.01], "margin": 0.0005, "condim": 4, "contype": 0, "conaffinity": 0, "rgba": [0.1, 0.65, 0.95, 1]},
+        {"source_geom": "bot", "type": "cylinder", "size": [0.013, 0.002], "pos": [0, 0, 0.067], "mass": 0.0021237166338267, "friction": [1, 0.5, 0.01], "margin": 0.0005, "condim": 3, "contype": 0, "conaffinity": 0, "rgba": [0.1, 0.65, 0.95, 1]},
+        {"source_geom": "cli", "type": "box", "size": [0.004, 0.006, 0.03], "pos": [-0.015, 0, -0.0255], "mass": 0.00576, "friction": [1, 0.5, 0.01], "margin": 0.0005, "condim": 3, "contype": 0, "conaffinity": 0, "rgba": [0.1, 0.65, 0.95, 1]}
+      ]},
+      {"name": "target_pen", "motion": "fixed", "pos": [0, -0.12, 0.84], "quat": [0.9238795325, 0, 0.3826834324, 0], "visual_only": true, "geoms": [{"type": "cylinder", "size": [0.015, 0.065], "rgba": [0.2, 0.9, 0.3, 0.28]}]}
+    ]
+  },
+  "H03": {
+    "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/H03-shadow-egg-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/hand/manipulate_egg.xml", "object_body": "object", "target_body": "rigid_egg", "goal_body": "orientation_goal", "source_goal_body": "target", "ignored_source_geoms": ["object_hidden"], "timestep": 0.002, "iterations": 20, "default_density": 1000, "default_friction": [1, 0.005, 0.0001]},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.04,
+    "bodies": [
+      {"name": "rigid_egg", "motion": "free", "pos": [0, -0.12, 0.81], "joint_damping": 0.01, "geoms": [{"type": "ellipsoid", "size": [0.03, 0.03, 0.04], "mass": 0.15079644737231007, "friction": [1, 0.005, 0.0001], "condim": 4, "rgba": [0.75, 0.58, 0.32, 1]}]},
+      {"name": "orientation_goal", "motion": "fixed", "pos": [0, -0.12, 0.81], "quat": [0.9238795325, 0, 0, 0.3826834324], "visual_only": true, "geoms": [{"type": "ellipsoid", "size": [0.03, 0.03, 0.04], "rgba": [0.2, 0.9, 0.3, 0.3]}]}
+    ]
+  },
+  "P02": {
+    "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/P02-fetch-slide-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/fetch/slide.xml", "object_body": "object0", "table_body": "table0", "timestep": 0.002},
+    "source_table": {"size_xy": [0.625, 0.45], "friction": [0.1, 0.005, 0.0001]},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.04,
+    "bodies": [
+      {"name": "object", "motion": "free", "pos": [-0.12, -0.12, 0.785], "joint_damping": 0.01, "geoms": [{"type": "cylinder", "size": [0.025, 0.02], "mass": 2, "friction": [0.1, 0.005, 0.0001], "condim": 3, "rgba": [0.22, 0.27, 0.34, 1]}]},
+      {"name": "goal", "motion": "fixed", "pos": [0.20, -0.12, 0.785], "visual_only": true, "geoms": [{"type": "sphere", "size": [0.02], "rgba": [1, 0, 0, 0.5]}]}
+    ]
+  },
+  "R03": {
+    "provenance": "self_authored_geometry_proxy",
+    "source_mjcf": {"manifest": "asset_manifests/R03-adroit-door-mjcf.json", "file": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_door.xml", "defaults_file": "assets/gymnasium_robotics/envs/assets/adroit_hand/adroit_assets.xml", "subtree_body": "frame", "frame_translation": [-0.2, 0, 0.6], "timestep": 0.002, "iterations": 20, "noslip_iterations": 20, "default_friction": [1, 0.5, 0.01], "default_margin": 0.0005},
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.01,
+    "bodies": [
+      {"name": "door"},
+      {"name": "latch"}
+    ]
+  }
+}

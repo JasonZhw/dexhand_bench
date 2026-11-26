@@ -1,0 +1,128 @@
+{
+  "task_id": "M01",
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "repository_declared_license": "apache-2.0",
+  "license_scope_note": "Dataset card declaration; retain any individual asset attribution and metadata. Do not assume generated replacements reproduce original task",
+  "config_path": "task/RoboDojo/config/pack_objects_into_box.yml",
+  "categories": [
+    {
+      "kind": "Rigid",
+      "name": "box",
+      "indices": [
+        0
+      ]
+    },
+    {
+      "kind": "Rigid",
+      "name": "car",
+      "indices": [
+        7
+      ]
+    },
+    {
+      "kind": "Rigid",
+      "name": "electric_toothbrush",
+      "indices": [
+        2
+      ]
+    },
+    {
+      "kind": "Rigid",
+      "name": "hammer",
+      "indices": [
+        3
+      ]
+    },
+    {
+      "kind": "Rigid",
+      "name": "shoe",
+      "indices": [
+        3
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/metadata.json",
+      "downloaded": false,
+      "sha256": "4b3bfc8207d2cbcc88f2034cfd85c12e85b5d0cde2d40a0fc5af86ead2ac7e57",
+      "size_bytes": 5080,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/box/00000/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/box/00000/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/box/00000/object.usdz",
+      "downloaded": false,
+      "sha256": "99b2b4bd8e536a465153eed6d1cd0a94962b099b9ad1292594b6e850000097bc",
+      "size_bytes": 18075,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/box/00000/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/metadata.json",
+      "downloaded": false,
+      "sha256": "793196ee8a7777d5e138aa891400bee042e5ac86af9c37a585b922e77bf3f309",
+      "size_bytes": 4323,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/car/00007/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/car/00007/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/car/00007/object.usdz",
+      "downloaded": false,
+      "sha256": "6379155fbabbf0d4a7d520b7202e2b355d6e964999efbfed9735bdef83c02757",
+      "size_bytes": 37137426,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/car/00007/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json",
+      "downloaded": false,
+      "sha256": "d5fd31de03d852c4f74d45c499b4992c244913258a5713fd86468d8896f41ccc",
+      "size_bytes": 4322,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz",
+      "downloaded": false,
+      "sha256": "a290ed5025edb522d15264f8788f9caff1c995a269038fe88f26a7460a05eae1",
+      "size_bytes": 21889605,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/electric_toothbrush/00002/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json",
+      "downloaded": false,
+      "sha256": "f049dec0e72bfdcabc5fdf9082b54d5f361a002468e0862c77a4bcbb7d1e7487",
+      "size_bytes": 4359,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00003/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz",
+      "downloaded": false,
+      "sha256": "8c56d4d15dc544ba194abeb5cdf93642f47d5e5c772d9847bb50dddb51eb0675",
+      "size_bytes": 968010,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00003/object.usdz"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json",
+      "downloaded": false,
+      "sha256": "d3394a8d475142ae540d0b561c4a178ff3bb775811f22c319c2b2344b2d9d3cf",
+      "size_bytes": 3500,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/shoe/00003/metadata.json"
+    },
+    {
+      "path": "Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz",
+      "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/resolve/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz",
+      "downloaded": false,
+      "sha256": "5a489fd290421c11d73a68a7a8d8834fec118fac99b4ec87254e5df2ec478e74",
+      "size_bytes": 17300162,
+      "local_path": "assets/robodojo/Assets/Object/RoboDojo/Rigid/shoe/00003/object.usdz"
+    }
+  ],
+  "completeness": "fixed-layout core object files only; scene, robot, room, and optional descriptions are not included"
+}

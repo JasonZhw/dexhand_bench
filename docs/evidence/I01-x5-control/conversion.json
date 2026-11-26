@@ -1,0 +1,34 @@
+{
+  "scope": "dual X5 control diagnostic, not insertion",
+  "dataset_revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+  "joint_order": [
+    "left_joint1",
+    "left_joint2",
+    "left_joint3",
+    "left_joint4",
+    "left_joint5",
+    "left_joint6",
+    "left_joint7",
+    "left_joint8",
+    "right_joint1",
+    "right_joint2",
+    "right_joint3",
+    "right_joint4",
+    "right_joint5",
+    "right_joint6",
+    "right_joint7",
+    "right_joint8"
+  ],
+  "scene_sha256": "dc150c7c9da94a51344edd24992f6cd75cd6e822dbef2a251a0bc324fb9871ee",
+  "nq": 37,
+  "nv": 34,
+  "nu": 16,
+  "limitations": [
+    "URDF mesh convex hulls are not original USD collision shapes",
+    "PD stiffness/damping and force caps adapted from source; no controller equivalence",
+    "Robot gravity compensated; implicitfast integrator chosen for stiff drives",
+    "Controlled joints precede free objects for pinned UniLab limit indexing",
+    "Direct URDF parent-child collisions explicitly excluded; other collisions retained",
+    "Cameras/visual-only meshes omitted; no task policy or insertion success"
+  ]
+}

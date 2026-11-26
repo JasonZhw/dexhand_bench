@@ -1,0 +1,135 @@
+{
+  "initial_conditions": {
+    "recorded_state_identical": true,
+    "confounded_by_reset": false,
+    "scope": "recorded qpos/qvel/body poses only; not full solver state"
+  },
+  "configuration_differences": {},
+  "interpretation": "simulation_consistency_not_physical_accuracy",
+  "samples": 100,
+  "left": "runs/H01_random_seed0",
+  "right": "runs/H01_replay_seed0",
+  "bodies": {
+    "world": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "floor0": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:hand mount": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:forearm": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:wrist": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:palm": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:ffknuckle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:ffproximal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:ffmiddle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:ffdistal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:mfknuckle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:mfproximal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:mfmiddle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:mfdistal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:rfknuckle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:rfproximal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:rfmiddle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:rfdistal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:lfmetacarpal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:lfknuckle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:lfproximal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:lfmiddle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:lfdistal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:thbase": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:thproximal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:thhub": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:thmiddle": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "robot0:thdistal": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "object": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    },
+    "target": {
+      "max_position_difference_m": 0.0,
+      "max_orientation_difference_rad": 0.0
+    }
+  },
+  "note": "Same commands and task configuration do not isolate a causal solver error; use controlled experiments and physical reference measurements"
+}

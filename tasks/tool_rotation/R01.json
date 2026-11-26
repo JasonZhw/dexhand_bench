@@ -6,16 +6,20 @@
   "status": "selected",
   "intent": "工具传递转矩、抓持与可能的重抓",
   "source": {
-    "project": "待补可复用紧固任务",
+    "project": "RoboDojo Store Tools In Toolbox 的扳手资产；紧固任务自拟",
     "kind": "proposed",
-    "relationship": "自拟候选；Bench2Dex22仅确认扳手搬运资产",
-    "url": "https://github.com/Bench2Dex/Bench2Dex/blob/main/scenes/22_tool_box_loading.yaml",
-    "revision": null,
-    "scoring_code_path": null
+    "relationship": "仅复用原工具箱搬运任务的扳手物体，不复用紧固任务、策略或评分",
+    "url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/tree/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/wrench/00000",
+    "revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+    "scoring_code_path": null,
+    "repository": "https://github.com/RoboDojo-Benchmark/RoboDojo"
   },
   "original_success": null,
   "adaptation_protocol": null,
-  "assets": null,
+  "assets": {
+    "manifest": "asset_manifests/R01-robodojo-wrench.json",
+    "availability": "2/2 扳手 USD 与 metadata 已校验；六角螺母与固定转轴是本项目自拟诊断资产"
+  },
   "embodiment": {
     "original": null,
     "target": null,
@@ -55,8 +59,136 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "补充真正的扳手紧固环境来源；现有URL仅证明扳手搬运资产，不证明紧固任务",
+  "next_step": "静态检查发现当前直径 10 mm 的螺母与源扳手钳口不匹配；先选定匹配尺寸并验证动态施矩，再接通 wrench_engaged 与完整控制轨迹，最后验证 60 度目标与阻力梯度",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-wrench; wrench-nut; nut-fixture"
+  "contact_structure": "hand-wrench; wrench-nut; nut-fixture",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "standalone_draft",
+    "provenance": {
+      "source_project": "RoboDojo Store Tools In Toolbox 的扳手资产；紧固任务自拟",
+      "source_url": "https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo/tree/1127bda94f172d757386945af3eb3a6754d1a4e6/Assets/Object/RoboDojo/Rigid/wrench/00000",
+      "source_revision": "1127bda94f172d757386945af3eb3a6754d1a4e6",
+      "scoring_code_path": null,
+      "criterion_origin": "proposed",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": null,
+      "source_score_ported": false,
+      "adaptation": "只迁入 RoboDojo toolbox 任务的扳手 USD 与质量/摩擦；螺母/铰链/阻力/60 度目标均自拟，不能声称真实螺纹紧固完成"
+    },
+    "scene": {
+      "objects": [
+        "wrench",
+        "nut",
+        "bolt"
+      ],
+      "asset_manifest": "asset_manifests/R01-robodojo-wrench.json",
+      "robot_reference": "dual_x5_wuji",
+      "target_robot": "dual_x5_wuji",
+      "initial_state": {
+        "mode": "proposed_reset",
+        "description": "RoboDojo 可调扳手与自拟六角螺母分开放置；固定转轴与阻力用于诊断，不是原紧固任务 reset",
+        "layout_ref": "profiles/source_asset_scenes.json",
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "扳手质量/摩擦取固定哈希的 RoboDojo metadata；螺母尺寸、质量、摩擦和铰链阻力为自拟诊断参数，详见 source_asset_scenes.json"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": {
+      "signal": "nut_rotation_rad",
+      "op": "eq",
+      "value": 0.0
+    },
+    "signals": {
+      "nut_rotation_rad": {
+        "type": "number",
+        "unit": "rad",
+        "definition": "沿规定拧紧方向展开的螺母关节角，相对初态增量；不使用取模角",
+        "origin": "proposed"
+      },
+      "wrench_engaged": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "扳手与螺母有效接合、未脱槽；接合几何区域与判定待资产标注",
+        "origin": "proposed"
+      }
+    },
+    "success": {
+      "mode": "hold",
+      "hold_s": 0.5,
+      "rule": {
+        "all": [
+          {
+            "signal": "nut_rotation_rad",
+            "op": "ge",
+            "value": 1.0471975512
+          },
+          {
+            "signal": "wrench_engaged",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "engaged",
+        "rule": {
+          "signal": "wrench_engaged",
+          "op": "eq",
+          "value": true
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "nut_rotation_rad_final",
+        "signal": "nut_rotation_rad",
+        "reduce": "final"
+      },
+      {
+        "name": "wrench_engaged_final",
+        "signal": "wrench_engaged",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "diagnostic_source_wrench_custom_fixture",
+      "scene_launch_ready": false,
+      "threshold_calibration": "pending",
+      "remaining_source_semantics": "无已核实的可复用紧固任务；扳手源自搬运任务，螺母和紧固过程仍是自拟诊断"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

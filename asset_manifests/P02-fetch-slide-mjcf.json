@@ -1,0 +1,23 @@
+{
+  "task_id": "P02",
+  "repository": "Farama-Foundation/Gymnasium-Robotics",
+  "revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+  "package_version": "gymnasium-robotics==1.4.1",
+  "license_note": "Keep the pinned asset LICENSE.md; source Fetch model attribution is described there. Only slide.xml primitive parameters are read for the adapted diagnostic.",
+  "files": [
+    {
+      "path": "gymnasium_robotics/envs/assets/fetch/slide.xml",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/fetch/slide.xml",
+      "sha256": "513e606a6011236f5b6d04e90248951861bc7279e028604345fcb803e31a2987",
+      "size_bytes": 1341,
+      "local_path": "assets/gymnasium_robotics/envs/assets/fetch/slide.xml"
+    },
+    {
+      "path": "gymnasium_robotics/envs/assets/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium-Robotics/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/assets/LICENSE.md",
+      "sha256": "1f293999c0191f530033b34ed87763b1b9d4bf65913e4675bb79a71b5ea4e07b",
+      "size_bytes": 12965,
+      "local_path": "assets/gymnasium_robotics/envs/assets/LICENSE.md"
+    }
+  ]
+}

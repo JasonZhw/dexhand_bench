@@ -1,0 +1,14 @@
+{
+  "task_id": "G01",
+  "task_success": [
+    false,
+    false
+  ],
+  "independent_reset_verified": true,
+  "max_object_contact_penetration_mm": 1.1471821106897595,
+  "penetration_method": "offline pose-based geometry including table",
+  "video_frames": 50,
+  "video_fps": 25,
+  "video_seconds": 2,
+  "source_run": "runs/grasp-five-final-20261119/G01"
+}

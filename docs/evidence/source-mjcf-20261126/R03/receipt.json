@@ -1,0 +1,21 @@
+{
+  "task_id": "R03",
+  "scope": "unilab_proxy_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "c20415c4589165b98428ed885dcf8243b2bce64a0b7f2e01a5db7cc987199835",
+  "score_signal_count": 1,
+  "score_signals_available": 1,
+  "source_score_ported": false,
+  "limitations": [
+    "Selected source MJCF primitive parameters are checked; robot, layout, reset and score are adapted",
+    "Joint probe is not a task policy",
+    "Door hinge position is measured, but the probe trace is incomplete; success remains unknown",
+    "Contact forces are not instrumented for these diagnostics"
+  ]
+}

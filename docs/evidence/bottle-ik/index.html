@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G02 瓶子抓取 · IK 脚本基线</title>
+<style>
+body{margin:0;background:#f4f6f9;color:#192a3c;font:17px/1.7 system-ui,sans-serif}main{max-width:1000px;margin:36px auto;padding:0 24px 40px}h1{font-size:30px;line-height:1.3}h2{font-size:21px}section{background:white;border:1px solid #dbe2ec;border-radius:12px;padding:22px;margin:20px 0}video{width:100%;max-height:560px;background:#111;border-radius:8px}a{color:#165bb0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf1f7;padding:16px;font-size:14px}table{width:100%;border-collapse:collapse}td{padding:9px 4px;border-bottom:1px solid #e4e8ee}.muted{color:#526477;font-size:15px}.result{color:#16714e;font-weight:650}
+</style>
+<main>
+<p class="muted">2026-11-21 · UniLab / MuJoCo · 右侧 Wuji Hand 2.2</p>
+<h1>G02：从侧面抓起瓶子，并保持直立</h1>
+<p>从 Bench2Dex 第 21 项调味品装箱中选取瓶子，拆成独立抓取任务。IK 求机械臂关节角，预设手指目标负责合拢，瓶子由仿真中的接触和重力驱动</p>
+<p class="result">固定初态脚本通过：末尾抬高 6.74 cm，倾斜 7.86°，稳定保持 1 秒，没有触发掉落</p>
+<section>
+<h2>手部抓取过程</h2>
+<video controls preload="metadata" poster="held.png" src="bottle-ik-hand.mp4"></video>
+<p class="muted">实际 UniLab 动态执行的状态记录，离线渲染成 11.2 秒视频；没有设置物体轨迹或把瓶子固定到手上</p>
+</section>
+<section>
+<h2>全景和测评</h2>
+<video controls preload="metadata" src="bottle-ik-wide.mp4"></video>
+<table>
+<tr><td>原有通过条件</td><td>抬高 ≥ 5 cm、质心速度 ≤ 5 cm/s、指定手接触、倾斜 ≤ 15°，终末连续满足 1 秒</td></tr>
+<tr><td>末尾抬升 / 倾角 / 速度</td><td>6.74 cm / 7.86° / 0.126 cm/s</td></tr>
+<tr><td>物理记录</td><td>右手法向力幅值总和峰值 106.18 N；穿透代理最大 4.22 mm；滑移速度不支持，记为 null</td></tr>
+<tr><td>开关记录对照</td><td>2801 帧的动作、关节与物体状态逐项一致，评分一致</td></tr>
+</table>
+<p>环境 0 抓取，环境 1 保持 HOME 作为控制检查，所以 <code>success=[True, False]</code> 不是两次抓取成功率 50%</p>
+<p>接触峰值和穿透仍需检查，任务成功不能证明物理准确。瓶子碰撞体为 USD 转出的近似单凸包，未做随机初态或其他后端测试；当前也未强制只接触瓶身，拇指可能接触瓶肩或瓶盖</p>
+</section>
+<section>
+<h2>用已有 uv 环境启动</h2>
+<pre>cd /home/jason77/dexhand_bench
+G02_RUN_DIR="runs/g02-$(date +%Y%m%d-%H%M%S)"
+MUJOCO_GL=egl uv run --no-project --python .venv-scene/bin/python \
+  python integrations/unilab/run_grasp_scene.py \
+  --task G02 --robot wuji --controller ik_grasp \
+  --output "$G02_RUN_DIR" --video
+xdg-open "$G02_RUN_DIR/G02/hand.mp4"</pre>
+<p><a href="../../bottle-ik-grasp.md">运行说明与配置位置</a> · <a href="evaluation.json">评分</a> · <a href="physics-summary.json">物理记录</a> · <a href="controller-plan.json">动作计划</a> · <a href="observer-comparison.json">记录开关对照</a> · <a href="summary.json">结果来源</a></p>
+</section>
+</main>
+</html>

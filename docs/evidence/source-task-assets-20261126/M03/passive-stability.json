@@ -1,0 +1,43 @@
+{
+  "task_id": "M03",
+  "scope": "MuJoCo passive settled scene check (not a UniLab task success test)",
+  "sim_dt": 0.004,
+  "steps": 250,
+  "initial_xyz_m": {
+    "block_0": [
+      -0.15,
+      -0.12,
+      0.78
+    ],
+    "block_1": [
+      -0.05,
+      -0.12,
+      0.78
+    ],
+    "block_2": [
+      0.05,
+      -0.12,
+      0.78
+    ]
+  },
+  "final_xyz_m": {
+    "block_0": [
+      -0.15,
+      -0.12,
+      0.7798922442461341
+    ],
+    "block_1": [
+      -0.05,
+      -0.12,
+      0.7798922442461341
+    ],
+    "block_2": [
+      0.05,
+      -0.12,
+      0.7798922442461341
+    ]
+  },
+  "max_position_change_m": 0.0001077557538659013,
+  "finite_state": true,
+  "task_success": null
+}

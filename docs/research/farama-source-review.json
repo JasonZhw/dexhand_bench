@@ -1,0 +1,32 @@
+[
+  {
+    "task_id": "H01",
+    "source": "https://github.com/Farama-Foundation/Gymnasium-Robotics/blob/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py",
+    "env_id": "HandManipulateBlockRotateXYZ-v1",
+    "success": "RotateXYZ原变体忽略目标位置，旋转角误差<0.1rad；仍按原环境设置与采样，不追加掌面禁用"
+  },
+  {
+    "task_id": "H03",
+    "source": "https://github.com/Farama-Foundation/Gymnasium-Robotics/blob/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py",
+    "env_id": "HandManipulateEggRotate-v1",
+    "success": "EggRotate原变体忽略目标位置，旋转误差<0.1rad；蛋是刚体"
+  },
+  {
+    "task_id": "H02",
+    "source": "https://github.com/Farama-Foundation/Gymnasium-Robotics/blob/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/adroit_hand/adroit_pen.py",
+    "env_id": "AdroitHandPen-v1",
+    "success": "笔位置误差<0.075m且笔轴与目标轴点积>0.95；轴向对齐不约束绕笔轴的自转角"
+  },
+  {
+    "task_id": "R03",
+    "source": "https://github.com/Farama-Foundation/Gymnasium-Robotics/blob/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/adroit_hand/adroit_door.py",
+    "env_id": "AdroitHandDoor-v1",
+    "success": "门铰链位置>=1.35rad为success；奖励大小不代替此布尔条件"
+  },
+  {
+    "task_id": "P02",
+    "source": "https://github.com/Farama-Foundation/Gymnasium-Robotics/blob/1584a17727f521b2a0225d46048d62bf8efe10f4/gymnasium_robotics/envs/fetch/fetch_env.py",
+    "env_id": "FetchSlide-v4",
+    "success": "物体位置与目标位置欧氏距离<0.05m；当前是原夹爪环境，不是灵巧手迁移版"
+  }
+]

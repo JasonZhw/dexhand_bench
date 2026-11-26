@@ -1,0 +1,23 @@
+{
+  "task_id": "I01",
+  "protocol_version": "0.1-draft",
+  "kind": "synthetic",
+  "complete": true,
+  "frames": [
+    {
+      "t_s": 0,
+      "signals": {
+        "robots_home": true,
+        "tube0_depth_m": 0.05,
+        "tube0_inside": true,
+        "tube0_upright_deg": 5,
+        "tube1_depth_m": 0.05,
+        "tube1_inside": true,
+        "tube1_upright_deg": 5,
+        "tube2_depth_m": 0.05,
+        "tube2_inside": true,
+        "tube2_upright_deg": 5
+      }
+    }
+  ]
+}

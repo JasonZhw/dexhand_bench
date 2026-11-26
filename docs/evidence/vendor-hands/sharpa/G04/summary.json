@@ -1,0 +1,33 @@
+{
+  "robot": "sharpa",
+  "task": "G04",
+  "joint_count": 56,
+  "source_revision": "d323b371d02f4fc04a0873c19c5234cae6d803dd",
+  "independent_reset_verified": true,
+  "task_success": [
+    false,
+    false
+  ],
+  "max_object_contact_penetration_mm": 1.2198533661501587,
+  "max_hand_motion_rad": {
+    "left": 0.33665966987609863,
+    "right": 0.3366604745388031
+  },
+  "source_run": "runs/vendor-hands-final-20261119/sharpa/G04",
+  "videos": {
+    "preview": {
+      "width": 640,
+      "height": 480,
+      "r_frame_rate": "25/1",
+      "duration": "2.000000",
+      "nb_frames": "50"
+    },
+    "hand": {
+      "width": 640,
+      "height": 480,
+      "r_frame_rate": "25/1",
+      "duration": "2.000000",
+      "nb_frames": "50"
+    }
+  }
+}

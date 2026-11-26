@@ -26,7 +26,7 @@
   "adaptation_protocol": null,
   "assets": {
     "manifest": "asset_manifests/I02-robodojo.json",
-    "availability": "official remote object paths found; dependencies and loading unverified"
+    "availability": "5/5 pinned object files verified locally; adapted fixed-layout Wuji scene loads in UniLab, source-reset and contact equivalence unverified"
   },
   "embodiment": {
     "original": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
@@ -68,8 +68,185 @@
     "revision": null,
     "evidence": null
   },
-  "next_step": "下载所选资产及依赖，核对功能点/碰撞几何；先跑原双夹爪场景，再确定灵巧手改编协议",
+  "next_step": "在已跑通的 Wuji 场景诊断基础上保存原框架 seeded reset，复核省略的平面碰撞，编写充电器插入控制器与接触力记录",
   "robot_mapping": null,
   "scene_evidence": null,
-  "contact_structure": "hand-charger; pins-socket"
+  "contact_structure": "hand-charger; pins-socket",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "RoboDojo Plug In Charger",
+      "source_url": "https://robodojo-benchmark.com/doc/sim-tasks/plug-in-charger/",
+      "source_revision": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+      "scoring_code_path": "task/RoboDojo/tasks/plug_in_charger.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "充电器与插座包围盒高度差>0.015m、is_A_in_B、指定轴朝上10度以内、机器人回位",
+        "supporting_code": [
+          "env/reward_manager/reward_manager.py",
+          "env/reward_manager/func_parser.py"
+        ],
+        "review_scope": "task-level conditions and key geometric helper semantics; not a simulator validation"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "charger",
+        "socket"
+      ],
+      "asset_manifest": "asset_manifests/I02-robodojo.json",
+      "robot_reference": "dual ARX X5 with grippers (env_cfg/arx_x5.yml -> robot/dual_x5.yml)",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用固定版本原任务 reset/layout 与物体尺度，保存实际初态；目标手型和随机范围另行标定",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": 400,
+      "source_step_unit": "source task step_lim, not seconds"
+    },
+    "initial": null,
+    "signals": {
+      "charger_depth_m": {
+        "type": "number",
+        "unit": "m",
+        "definition": "socket 世界包围盒 z_max 减 charger 包围盒 z_min；源深度代理，不是真实孔内插入深度",
+        "origin": "source"
+      },
+      "charger_inside": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "源 is_A_in_B(charger,socket) 几何算法结果；需原 bbox/投影算法适配，不可用物体中心距离代替",
+        "origin": "source"
+      },
+      "charger_upright_deg": {
+        "type": "number",
+        "unit": "deg",
+        "definition": "charger 局部 [0,1,0] 经姿态变换后与世界 +Z 的夹角",
+        "origin": "source"
+      },
+      "robots_home": {
+        "type": "boolean",
+        "unit": "bool",
+        "definition": "原 all_robot_back_to_origin：每个 type=target 机械臂末端相对 reset 各位置分量绝对差<=0.15m、四元数角距离<=20deg；不是欧氏位置距离或关节误差",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "all": [
+          {
+            "all": [
+              {
+                "signal": "charger_depth_m",
+                "op": "gt",
+                "value": 0.015
+              },
+              {
+                "signal": "charger_inside",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "signal": "charger_upright_deg",
+                "op": "lt",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "signal": "robots_home",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "charger_placed",
+        "rule": {
+          "all": [
+            {
+              "signal": "charger_depth_m",
+              "op": "gt",
+              "value": 0.015
+            },
+            {
+              "signal": "charger_inside",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "signal": "charger_upright_deg",
+              "op": "lt",
+              "value": 10
+            }
+          ]
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "charger_depth_m_final",
+        "signal": "charger_depth_m",
+        "reduce": "final"
+      },
+      {
+        "name": "charger_upright_deg_final",
+        "signal": "charger_upright_deg",
+        "reduce": "final"
+      },
+      {
+        "name": "charger_inside_final",
+        "signal": "charger_inside",
+        "reduce": "final"
+      },
+      {
+        "name": "robots_home_final",
+        "signal": "robots_home",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

@@ -1,0 +1,11 @@
+# 扳手拧螺母; success rules live in the referenced task JSON.
+id: R01
+contract: tasks/tool_rotation/R01.json
+binding:
+  kind: unilab_source_asset_diagnostic
+  profile: profiles/source_asset_scenes.json
+  robot: wuji
+  backend: mujoco
+  controller: probe
+  controller_config: null
+evidence: docs/evidence/source-task-assets-20261126/R01/receipt.json

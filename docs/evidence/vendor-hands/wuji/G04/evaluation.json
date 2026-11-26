@@ -1,0 +1,54 @@
+[
+  {
+    "task_id": "G04",
+    "protocol_version": "0.1-draft",
+    "input_kind": "recorded",
+    "evaluation_scope": "declared_observations_only",
+    "success": false,
+    "completion_time_s": null,
+    "failure_reason": "criteria_not_met",
+    "first_failure_time_s": null,
+    "missing_signals": [],
+    "metrics": {
+      "height_gain_m_final": -0.0020355582237243652,
+      "height_gain_m_max": 0.0,
+      "speed_m_s_final": 0.00907566255949668,
+      "hand_contact_final": false,
+      "dropped_final": false,
+      "grasp_region_valid_final": false
+    },
+    "terminal_stages": {
+      "lifted": false,
+      "held_by_hand": false
+    },
+    "terminal_stage_fraction": 0.0,
+    "official_source_score": null,
+    "note": "Draft protocol result; synthetic input is not a robot result. Stage fraction is not a source benchmark score."
+  },
+  {
+    "task_id": "G04",
+    "protocol_version": "0.1-draft",
+    "input_kind": "recorded",
+    "evaluation_scope": "declared_observations_only",
+    "success": false,
+    "completion_time_s": null,
+    "failure_reason": "criteria_not_met",
+    "first_failure_time_s": null,
+    "missing_signals": [],
+    "metrics": {
+      "height_gain_m_final": -0.0018866658210754395,
+      "height_gain_m_max": 0.0,
+      "speed_m_s_final": 0.00763545635812186,
+      "hand_contact_final": false,
+      "dropped_final": false,
+      "grasp_region_valid_final": false
+    },
+    "terminal_stages": {
+      "lifted": false,
+      "held_by_hand": false
+    },
+    "terminal_stage_fraction": 0.0,
+    "official_source_score": null,
+    "note": "Draft protocol result; synthetic input is not a robot result. Stage fraction is not a source benchmark score."
+  }
+]

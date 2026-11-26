@@ -1,0 +1,21 @@
+{
+  "task_id": "R02",
+  "scope": "unilab_source_asset_diagnostic",
+  "backend": "mujoco",
+  "controller": "probe",
+  "steps": 2,
+  "num_envs": 2,
+  "task_success": null,
+  "independent_reset_verified": true,
+  "physics_force_available": false,
+  "scene_sha256": "37fd788cccb5258b8db43ecdb9a4395231e4157676218b3537bd80cbf6357ea1",
+  "score_signal_count": 1,
+  "score_signals_available": 1,
+  "source_score_ported": false,
+  "limitations": [
+    "Pinned Bench2Dex faucet meshes and joints with adapted MuJoCo contacts; original multi-stage task is not ported",
+    "Joint probe is not a task policy",
+    "Source faucet joint_0 angle is measured, but the probe trace is incomplete; success remains unknown",
+    "Contact forces are not instrumented for these diagnostics"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "M03": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/M03-core-robodojo.json",
+    "limitations": [
+      "Fixed source block variants 00005/00008/00011 from size0; one valid group and three unique instances, not the source sampling distribution",
+      "Source visual meshes are shown without source material or texture binding",
+      "The source USD requests boundingCube collision; MuJoCo uses matching mesh bounds as boxes, but PhysX contact equivalence is unverified",
+      "Friction is changed from source metadata 0.0 to diagnostic 0.45; source scene material settings have not been ported",
+      "Fixed layout is not the source reset; no task policy, stacked-score lifecycle, or contact-force equivalence",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "block_0", "motion": "free", "pos": [-0.15, -0.12, 0.780],
+       "source": "Rigid/block/00005", "visual_prim": "/World/visual",
+       "collision_prim": "/World/collision", "rgba": "0.86 0.27 0.23 1",
+       "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}},
+      {"name": "block_1", "motion": "free", "pos": [-0.05, -0.12, 0.780],
+       "source": "Rigid/block/00008", "visual_prim": "/World/visual",
+       "collision_prim": "/World/collision", "rgba": "0.24 0.53 0.83 1",
+       "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}},
+      {"name": "block_2", "motion": "free", "pos": [0.05, -0.12, 0.780],
+       "source": "Rigid/block/00011", "visual_prim": "/World/visual",
+       "collision_prim": "/World/collision", "rgba": "0.26 0.67 0.46 1",
+       "mass_kg": 0.2, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "boundingCube"}}
+    ]
+  },
+  "M01": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/M01-core-robodojo.json",
+    "limitations": [
+      "Five source objects use fixed indices from recorded seed-0 source layout, but positions are separated for this diagnostic and do not reproduce its reset",
+      "Four item contacts use mesh-bounding boxes; the source box is an open five-box tray and does not reproduce its authored convex-decomposition contact",
+      "Source hammer metadata mass and friction are zero; diagnostic uses 0.15 kg and friction 0.45 instead",
+      "Visual meshes are simplified to at most 20000 triangles; source textures are not ported",
+      "No source policy, scoring lifecycle, functional-point adapter, or contact-force equivalence",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "car", "motion": "free", "pos": [-0.36, -0.22, 0.783], "source": "Rigid/car/00007", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.45, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "rgba": "0.18 0.47 0.85 1"},
+      {"name": "electric_toothbrush", "motion": "free", "pos": [-0.14, -0.22, 0.7813], "source": "Rigid/electric_toothbrush/00002", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.12, "friction": 0.65, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "quat": [0.7071067811865476, 0, 0.7071067811865476, 0], "rgba": "0.18 0.76 0.68 1"},
+      {"name": "hammer", "motion": "free", "pos": [0.09, -0.22, 0.7725], "source": "Rigid/hammer/00003", "visual_prim": "/World/visual", "collision_prim": "/World/collision", "max_visual_faces": 20000, "mass_kg": 0.15, "friction": 0.45, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "mass_origin": "diagnostic_assumption", "rgba": "0.95 0.45 0.2 1"},
+      {"name": "shoe", "motion": "free", "pos": [0.34, -0.22, 0.8012], "source": "Rigid/shoe/00003", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.01, "friction": 0.65, "collision": {"method": "source_bbox_proxy", "expected_source_approximation": "convexDecomposition"}, "rgba": "0.64 0.36 0.74 1"},
+      {"name": "box", "motion": "free", "pos": [0, 0.12, 0.765], "source": "Rigid/box/00000", "visual_prim": "/root/visual/model", "collision_prim": "/root/collision/model", "max_visual_faces": 20000, "mass_kg": 0.2, "friction": 0.4, "collision": {"method": "source_bbox_open_tray", "expected_source_approximation": "convexDecomposition", "wall_thickness_m": 0.004, "bottom_thickness_m": 0.005}, "rgba": "0.83 0.65 0.34 1"}
+    ]
+  },
+  "M02": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/M02-robodojo.json",
+    "limitations": [
+      "Five RoboDojo source objects are visual meshes simplified to 20000-30000 faces each",
+      "The four tool contacts are source-bounding-box proxies; the toolbox contact is an open tray without source slots",
+      "Pliers, hammer, and tape-measure masses and friction are diagnostic assumptions because pinned metadata omits them",
+      "Fixed layout is not the source reset; no task policy, score lifecycle, or contact-force equivalence",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "pliers", "motion": "free", "pos": [-0.22, -0.22, 0.798],
+       "source": "Rigid/pliers/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.10, "mass_origin": "diagnostic_assumption", "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "hammer", "motion": "free", "pos": [-0.18, 0.00, 0.806],
+       "source": "Rigid/hammer/00005", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.25, "mass_origin": "diagnostic_assumption", "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "tape_measure", "motion": "free", "pos": [0.00, -0.22, 0.798],
+       "source": "Rigid/tape_measure/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.10, "mass_origin": "diagnostic_assumption", "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "wrench", "motion": "free", "pos": [0.24, -0.22, 0.788],
+       "source": "Rigid/wrench/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.35, "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}},
+      {"name": "toolbox", "motion": "fixed", "pos": [0.18, 0.08, 0.790],
+       "source": "Geometry/toolbox/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 30000,
+       "friction": 0.45,
+       "collision": {"method": "source_bbox_open_tray", "wall_thickness_m": 0.006,
+                     "bottom_thickness_m": 0.006}}
+    ]
+  },
+  "P03": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/P03-core-robodojo.json",
+    "limitations": [
+      "Fixed source broom, dustpan and three small cubes; source task samples 3-5 cubes and randomized layouts",
+      "High-poly tool visuals are simplified for display; source materials and textures are not ported",
+      "Broom contact is its source-mesh bounding box and dustpan contact is an open five-box tray, not source convex decomposition",
+      "Cube contact uses USD mesh bounds of 0.01925 m although metadata physics.size says 0.035 m; the source scaling semantics need investigation",
+      "The fixed layout and rotated broom are diagnostic choices, not source reset; no task policy or functional-region score",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ],
+    "bodies": [
+      {"name": "cube_0", "motion": "free", "pos": [0.00, 0.06, 0.7747],
+       "source": "Rigid/small_cube/00000", "visual_prim": "/World/visual/model",
+       "collision_prim": "/World/collision/model", "rgba": "0.86 0.27 0.23 1",
+       "mass_kg": 0.03, "friction": 0.3, "collision": {"method": "source_bbox_proxy"}},
+      {"name": "cube_1", "motion": "free", "pos": [0.04, 0.06, 0.7747],
+       "source": "Rigid/small_cube/00001", "visual_prim": "/World/visual/model",
+       "collision_prim": "/World/collision/model", "rgba": "0.24 0.53 0.83 1",
+       "mass_kg": 0.03, "friction": 0.3, "collision": {"method": "source_bbox_proxy"}},
+      {"name": "cube_2", "motion": "free", "pos": [0.08, 0.06, 0.7747],
+       "source": "Rigid/small_cube/00002", "visual_prim": "/World/visual/model",
+       "collision_prim": "/World/collision/model", "rgba": "0.26 0.67 0.46 1",
+       "mass_kg": 0.03, "friction": 0.3, "collision": {"method": "source_bbox_proxy"}},
+      {"name": "broom_shovel", "motion": "free", "pos": [0.22, -0.10, 0.7893],
+       "source": "Rigid/broom_shovel/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.15, "friction": 0.3,
+       "collision": {"method": "source_bbox_open_tray", "wall_thickness_m": 0.01,
+                     "bottom_thickness_m": 0.006}},
+      {"name": "broom", "motion": "free", "pos": [-0.18, -0.24, 0.8064],
+       "quat": [0.7071067811865476, 0.7071067811865476, 0, 0],
+       "source": "Rigid/broom/00000", "visual_prim": "/root/visual/model",
+       "collision_prim": "/root/collision/model", "max_visual_faces": 20000,
+       "mass_kg": 0.04, "friction": 0.45,
+       "collision": {"method": "source_bbox_proxy"}}
+    ]
+  },
+  "P01": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/P01-robodojo.json",
+    "bodies": [
+      {
+        "name": "t",
+        "motion": "free",
+        "pos": [-0.12, -0.10, 0.775],
+        "source": "Rigid/t/00000",
+        "visual_prim": "/World/visual/model",
+        "mass_kg": 0.35,
+        "friction": 0.45,
+        "collision": {
+          "method": "two_boxes_from_source_dimensions",
+          "reason": "The authored USD collision mesh has collisionEnabled=false; the visual T is the union of these two boxes",
+          "boxes": [
+            {"pos": [-0.03, 0, 0], "size": [0.01, 0.03, 0.0075]},
+            {"pos": [0.01, 0, 0], "size": [0.03, 0.01, 0.0075]}
+          ]
+        }
+      },
+      {
+        "name": "target_t",
+        "motion": "fixed",
+        "pos": [0.18, -0.10, 0.767],
+        "source": "Geometry/t_cushion/00000",
+        "visual_prim": "/World/visual/model",
+        "visual_only": true
+      }
+    ]
+  },
+  "I03": {
+    "provenance": "robodojo_source_mesh_adapted_contact",
+    "manifest": "asset_manifests/I03-robodojo.json",
+    "bodies": [
+      {
+        "name": "key",
+        "motion": "free",
+        "pos": [-0.12, -0.10, 0.820],
+        "source": "Rigid/key/00000",
+        "visual_prim": "/Key/mesh",
+        "collision_prim": "/Key/mesh",
+        "mass_kg": 0.2,
+        "friction": 0.45,
+        "collision": {"method": "coacd", "threshold": 0.05, "max_convex_hull": 32, "mcts_iterations": 15}
+      },
+      {
+        "name": "slot",
+        "motion": "fixed",
+        "pos": [0.18, -0.10, 0.765],
+        "source": "Geometry/key_slot/00000",
+        "visual_prim": "/KeySlot/visual/mesh",
+        "collision_prim": "/KeySlot/collision/mesh",
+        "friction": 0.45,
+        "collision": {"method": "coacd", "threshold": 0.025, "max_convex_hull": 48, "mcts_iterations": 20}
+      }
+    ]
+  },
+  "R02": {
+    "provenance": "bench2dex_source_faucet_adapted_contact",
+    "manifest": "asset_manifests/R02-bench2dex.json",
+    "source_usd": "assets/bench2dex/Objects/094_faucet/02_faucet/01/usd_decomposition_linux/mobility.usd",
+    "source_urdf": "assets/bench2dex/Objects/094_faucet/02_faucet/01/mobility.urdf",
+    "source_scale": 0.3,
+    "source_density_kg_m3": 300.0,
+    "joint_damping_from_scene": 1.0,
+    "base_position_m": [
+      0.0,
+      -0.12,
+      0.85
+    ],
+    "base_yaw_deg": 90,
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "bodies": [
+      {
+        "name": "faucet_base",
+        "source_link": "link_2"
+      },
+      {
+        "name": "faucet_handle_0",
+        "source_link": "link_0",
+        "joint_name": "joint_0"
+      },
+      {
+        "name": "faucet_handle_1",
+        "source_link": "link_1",
+        "joint_name": "joint_1"
+      }
+    ],
+    "limitations": [
+      "Pinned Bench2Dex faucet USD/URDF articulation and 0.3 scale; fixed adapted placement and dual X5/Wuji robot",
+      "Each USD collision mesh is converted to a MuJoCo convex hull; PhysX contact equivalence is not established",
+      "Dynamic mass is estimated from converted convex-hull volume at the scene density 300 kg/m3 because USD mass/inertia is zero",
+      "Joint damping 1.0 follows the Bench2Dex scene actuator setting; PhysX drive behavior and source solver are not reproduced",
+      "Parent-handle collision pairs are disabled as authored by the USD joints",
+      "No source seeded reset, cup/spoon/tray, fluid simulation, policy, or full-task scoring",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ]
+  },
+  "R01": {
+    "provenance": "robodojo_source_wrench_custom_fixture",
+    "manifest": "asset_manifests/R01-robodojo-wrench.json",
+    "sim_dt": 0.002,
+    "ctrl_dt": 0.01,
+    "wrench": {
+      "source": "Rigid/wrench/00000",
+      "visual_prim": "/root/visual/model",
+      "collision_prim": "/root/collision/model",
+      "pos": [
+        -0.12,
+        -0.12,
+        0.78
+      ],
+      "quat": [
+        0.7071067811865476,
+        0.7071067811865476,
+        0,
+        0
+      ],
+      "mass_kg": 0.35,
+      "friction": 0.45,
+      "max_visual_faces": 20000,
+      "max_collision_input_faces": 5000,
+      "coacd_threshold": 0.04,
+      "max_convex_hulls": 16,
+      "coacd_mcts_iterations": 10
+    },
+    "fixture": {
+      "nut": {
+        "pos": [
+          0.18,
+          -0.12,
+          0.773
+        ],
+        "radius_m": 0.005,
+        "half_height_m": 0.006,
+        "mass_kg": 0.01,
+        "friction": 0.6,
+        "joint_damping": 0.02,
+        "joint_frictionloss": 0.01
+      },
+      "bolt_visual": {
+        "pos": [
+          0.18,
+          -0.12,
+          0.769
+        ],
+        "radius_m": 0.002,
+        "half_height_m": 0.008
+      }
+    },
+    "limitations": [
+      "The only source asset is RoboDojo adjustable wrench 00000 from its toolbox transport task, not a source tightening task",
+      "Wrench visual and decomposed collision geometry come from pinned USD; MuJoCo contact equivalence to PhysX is unverified",
+      "The six-sided nut, hinge, bolt visual, initial layout, resistance, and 60-degree criterion are self-authored diagnostics",
+      "The hinge constrains rotation but does not simulate screw threads, axial advance, or preload",
+      "The nut is held by a fixed hinge 2 mm above the table to avoid a MuJoCo mesh/table contact lock; the bolt is visual-only",
+      "Wrench jaw geometry and nut fit have not been calibrated; no engagement signal, policy, or completed episode exists",
+      "Wuji-to-X5 mount is not hardware calibrated"
+    ]
+  }
+}

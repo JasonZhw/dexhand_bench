@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "scope": "runtime contact diagnostics, not physical accuracy",
+  "reset_sample_in_aggregates": false,
+  "environments": [
+    {
+      "env_id": 0,
+      "object_all": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0011848100693896413,
+        "max_normal_force_sum_N": 28.34775412082672,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "table": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0011848100693896413,
+        "max_normal_force_sum_N": 10.999200105667114,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "left_hand": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0,
+        "max_normal_force_sum_N": 0.0,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "right_hand": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.001057916204445064,
+        "max_normal_force_sum_N": 17.402957439422607,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "max_hand_tangential_speed_m_s": null,
+      "overflow_samples": 0
+    },
+    {
+      "env_id": 1,
+      "object_all": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0011848100693896413,
+        "max_normal_force_sum_N": 5.385534286499023,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "table": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0011848100693896413,
+        "max_normal_force_sum_N": 5.385534286499023,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "left_hand": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0,
+        "max_normal_force_sum_N": 0.0,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "right_hand": {
+        "samples_available": 2800,
+        "samples_unavailable": 0,
+        "max_penetration_m": 0.0,
+        "max_normal_force_sum_N": 0.0,
+        "interpretation": "pre-integration solver contact diagnostics read after the step; not physical accuracy or net force"
+      },
+      "max_hand_tangential_speed_m_s": null,
+      "overflow_samples": 0
+    }
+  ],
+  "timing": {
+    "warmup_steps": 25,
+    "measured_steps": 2800,
+    "batch_size": 2,
+    "synchronization": "synchronous MuJoCo CPU env.step",
+    "scope": "batch env.step wall time, includes managers and authored sensors; excludes recording, offline geometry, rendering, reset and warmup; diagnostic timing, not a throughput benchmark",
+    "mean_batch_step_s": 0.000923932550769158,
+    "p95_batch_step_s": 0.0012505226528446653
+  }
+}

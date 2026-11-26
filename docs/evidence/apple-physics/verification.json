@@ -1,0 +1,30 @@
+{
+  "states_equal": true,
+  "evaluations_equal": true,
+  "environments": 2,
+  "steps": 500,
+  "action_mode": "probe",
+  "on_run": "runs/apple-physics-final-20261119/G01",
+  "off_run": "runs/apple-physics-off-20261119/G01",
+  "state_sha256": "e28f98b0108d5ba6fdf9979e2b166bbe2ad038e3f234f322e1496ddb844bfff7",
+  "tests": {
+    "run": 145,
+    "passed": 138,
+    "skipped": 7
+  },
+  "rendering": "offline from actual recorded states; no generated grasp motion",
+  "post_review_recorder_tests": {
+    "run": 8,
+    "passed": 8,
+    "log": "recorder-tests.log"
+  },
+  "review": {
+    "blocking_findings": 0,
+    "corrected": "Runtime summary now states pre-integration contact sampling explicitly; numeric summary regenerated unchanged from saved raw samples"
+  },
+  "artifact_validation": {
+    "local_references_checked": 12,
+    "videos": "Both H.264, 640x480, 50 frames, 2 seconds",
+    "browser_preview": "Not performed: browser URL security policy blocked automatic file URL preview"
+  }
+}

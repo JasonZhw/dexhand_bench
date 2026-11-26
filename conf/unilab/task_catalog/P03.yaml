@@ -1,0 +1,11 @@
+# 扫积木进簸箕; success rules live in the referenced task JSON.
+id: P03
+contract: tasks/push/P03.json
+binding:
+  kind: unilab_source_asset_diagnostic
+  profile: profiles/source_asset_scenes.json
+  robot: wuji
+  backend: mujoco
+  controller: probe
+  controller_config: null
+evidence: docs/evidence/source-task-assets-20261126/P03/receipt.json

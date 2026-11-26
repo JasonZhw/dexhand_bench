@@ -23,8 +23,9 @@
   "adaptation_protocol": null,
   "assets": {
     "provider": "gymnasium-robotics==1.4.1 package envs/assets",
-    "availability": "installed bundled assets loaded in actual original environment; hashes in runtime receipt",
-    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution"
+    "availability": "Shadow Hand Manipulate Egg source MJCF and asset license pinned; rigid egg collision primitive parameters checked in adapted UniLab diagnostic",
+    "license_status": "retain bundled asset-specific license files; not blanket MIT attribution",
+    "manifest": "asset_manifests/H03-shadow-egg-mjcf.json"
   },
   "embodiment": {
     "original": "Shadow Dexterous Hand",
@@ -86,5 +87,109 @@
     "load": "docs/evidence/H03-runtime-receipt.json",
     "reset": "docs/evidence/test-suite.log; test_all_source_environments_reset_repeatably"
   },
-  "contact_structure": "multi-finger-egg"
+  "contact_structure": "multi-finger-egg",
+  "benchmark": {
+    "protocol_version": "0.1-draft",
+    "status": "draft",
+    "scope": "source_terminal_predicate_draft",
+    "provenance": {
+      "source_project": "Gymnasium Robotics Manipulate Egg",
+      "source_url": "https://robotics.farama.org/envs/shadow_dexterous_hand/manipulate_egg/",
+      "source_revision": "1584a17727f521b2a0225d46048d62bf8efe10f4",
+      "scoring_code_path": "gymnasium_robotics/envs/shadow_dexterous_hand/manipulate.py",
+      "criterion_origin": "source",
+      "episode_protocol": "自拟草案：使用记录的终帧判定；保持/动作顺序仅按本配置；不复刻原框架的完整时序累计得分。timeout_s 和采样间隔为本地测试预算，不是原 benchmark 官方时限",
+      "source_score_reference": {
+        "description": "EggRotate原变体忽略目标位置，旋转误差<0.1rad；蛋是刚体",
+        "environment_id": "HandManipulateEggRotate-v1",
+        "episode_scoring_note": "工程使用终帧原成功判据，并另存过程是否曾成功；不自动复刻任何论文的多episode聚合规则"
+      },
+      "source_score_ported": false
+    },
+    "scene": {
+      "objects": [
+        "rigid_egg",
+        "orientation_goal"
+      ],
+      "asset_manifest": "asset_manifests/H03-shadow-egg-mjcf.json",
+      "robot_reference": "Shadow Dexterous Hand",
+      "target_robot": null,
+      "initial_state": {
+        "mode": "source_reset",
+        "description": "沿用原手内环境 reset：物体位于手中，使用原目标姿态采样和初态扰动；seed 固定为 0 便于本地排查",
+        "layout_ref": null,
+        "seed": 0,
+        "randomization_enabled": false,
+        "transforms": null
+      },
+      "asset_parameters": "质量、惯量、摩擦、碰撞形状来自固定资产版本；尚未核对的数值不补猜测值"
+    },
+    "episode": {
+      "timeout_s": 60.0,
+      "max_sample_gap_s": 0.1,
+      "source_step_limit": null,
+      "source_step_unit": null
+    },
+    "initial": null,
+    "signals": {
+      "rotation_error_rad": {
+        "type": "number",
+        "unit": "rad",
+        "definition": "按源 _goal_distance 得到实际与目标旋转角误差；使用源 RotateXYZ/Rotate 变体的轴约定，不追加位置目标",
+        "origin": "source"
+      }
+    },
+    "success": {
+      "mode": "final",
+      "rule": {
+        "signal": "rotation_error_rad",
+        "op": "lt",
+        "value": 0.1
+      }
+    },
+    "failures": [],
+    "stages": [
+      {
+        "name": "terminal_condition",
+        "rule": {
+          "signal": "rotation_error_rad",
+          "op": "lt",
+          "value": 0.1
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "name": "rotation_error_rad_final",
+        "signal": "rotation_error_rad",
+        "reduce": "final"
+      }
+    ],
+    "physics_observation_requests": {
+      "contact_force_n": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "penetration_m": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "slip_m_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "step_time_s": {
+        "required_for_score": false,
+        "missing_value": null
+      },
+      "note": "这些是采集接口需求，不是已采集数值；吞吐测评另设预热、同步和渲染开关"
+    },
+    "readiness": {
+      "live_adapter_verified": false,
+      "geometry_binding": "pending",
+      "scene_launch_ready": false,
+      "threshold_calibration": "source predicate parameters retained; adapter parity pending"
+    },
+    "failure_policy": "无效或缺失观测返回 unknown；已知硬失败优先。未达到标准返回 criteria_not_met，达到预算返回 timeout。没有为原任务擅自增加掉落硬失败"
+  }
 }

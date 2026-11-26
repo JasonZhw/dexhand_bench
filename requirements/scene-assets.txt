@@ -1,0 +1,8 @@
+usd-core==25.11
+trimesh==4.5.1
+fast-simplification==0.2.0
+coacd==1.0.7
+numpy==2.2.6
+scipy==1.15.3
+networkx==3.4.2
+mujoco==3.2.5

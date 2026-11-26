@@ -1,0 +1,116 @@
+{
+  "task_id": "G01",
+  "protocol_version": "0.1-draft",
+  "kind": "synthetic",
+  "complete": true,
+  "frames": [
+    {
+      "t_s": 0,
+      "signals": {
+        "height_gain_m": 0,
+        "speed_m_s": 0,
+        "hand_contact": false,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.1,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.2,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.3,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.4,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.5,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.6,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.7,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.8,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 0.9,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 1.0,
+      "signals": {
+        "height_gain_m": 0.06,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": false
+      }
+    },
+    {
+      "t_s": 1.1,
+      "signals": {
+        "height_gain_m": 0.01,
+        "speed_m_s": 0.01,
+        "hand_contact": true,
+        "dropped": true
+      }
+    }
+  ]
+}

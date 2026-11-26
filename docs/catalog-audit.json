@@ -1,0 +1,202 @@
+{
+  "catalog_valid": true,
+  "task_count": 21,
+  "categories": {
+    "grasp": 6,
+    "in_hand": 3,
+    "insertion": 3,
+    "push": 3,
+    "tool_rotation": 3,
+    "transport": 3
+  },
+  "statuses": {
+    "source_reviewed": 14,
+    "selected": 2,
+    "smoke_executed": 5
+  },
+  "tasks": [
+    {
+      "id": "G01",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "G02",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "G03",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "G04",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "G05",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "G06",
+      "missing_for_full_readiness": [
+        "source_revision",
+        "scoring_code_path",
+        "original_success",
+        "assets",
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "H01",
+      "missing_for_full_readiness": [
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "H02",
+      "missing_for_full_readiness": [
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "H03",
+      "missing_for_full_readiness": [
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "I01",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "I02",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "I03",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "P01",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "P02",
+      "missing_for_full_readiness": [
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "P03",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "R01",
+      "missing_for_full_readiness": [
+        "source_revision",
+        "scoring_code_path",
+        "original_success",
+        "assets",
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "R02",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "R03",
+      "missing_for_full_readiness": [
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "M01",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "M02",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    },
+    {
+      "id": "M03",
+      "missing_for_full_readiness": [
+        "robot_mapping",
+        "scene_evidence",
+        "smoke_evidence",
+        "baseline_evidence"
+      ]
+    }
+  ],
+  "note": "Valid catalog does not mean runnable, migrated or successful tasks; declared evidence is not independently executed by this checker"
+}

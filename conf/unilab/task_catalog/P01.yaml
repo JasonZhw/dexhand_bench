@@ -1,0 +1,11 @@
+# 推T形块; success rules live in the referenced task JSON.
+id: P01
+contract: tasks/push/P01.json
+binding:
+  kind: unilab_source_asset_diagnostic
+  profile: profiles/source_asset_scenes.json
+  robot: wuji
+  backend: mujoco
+  controller: probe
+  controller_config: null
+evidence: docs/evidence/source-task-assets-20261126/P01/receipt.json

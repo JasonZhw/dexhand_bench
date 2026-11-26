@@ -1,0 +1,68 @@
+{
+  "revision": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "tasks": [
+    {
+      "task_id": "G01",
+      "scene": "scenes/06_fruit_bowl_loading.yaml",
+      "code": "success/custom/task_06_fruit_bowl_loading.py",
+      "stages": [
+        "move_bowl",
+        "place_apple_3",
+        "place_apple_4",
+        "place_banana"
+      ]
+    },
+    {
+      "task_id": "G02",
+      "scene": "scenes/21_condiment_box_loading.yaml",
+      "code": "success/custom/task_21_condiment_box_loading.py",
+      "stages": [
+        "place_soy_sauce",
+        "place_vinegar",
+        "place_msg"
+      ]
+    },
+    {
+      "task_id": "G03",
+      "scene": "scenes/24_stationery_category_sorting.yaml",
+      "code": "success/custom/task_24_stationery_category_sorting.py",
+      "stages": [
+        "pen_in_cup",
+        "marker_in_cup",
+        "glue_in_box",
+        "battery_in_box"
+      ]
+    },
+    {
+      "task_id": "G04",
+      "scene": "scenes/12_screwdriver_box_and_hammer.yaml",
+      "code": "success/custom/task_12_screwdriver_box_and_hammer.py",
+      "stages": [
+        "place_flat_right",
+        "place_phillips_left",
+        "hammer_strike_wood",
+        "place_hammer"
+      ]
+    },
+    {
+      "task_id": "G05",
+      "scene": "scenes/08_frypan_stand_pour.yaml",
+      "code": "success/custom/task_08_frypan_stand_pour.py",
+      "stages": [
+        "pour_soy_sauce",
+        "pour_olive_oil"
+      ]
+    },
+    {
+      "task_id": "R02",
+      "scene": "scenes/67_faucet_cup_water_fill.yaml",
+      "code": "success/custom/task_67_faucet_cup_water_fill.py",
+      "stages": [
+        "spoon_in_mug",
+        "mug_under_faucet",
+        "faucet_open_close",
+        "mug_on_tray"
+      ]
+    }
+  ]
+}

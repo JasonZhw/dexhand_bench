@@ -1,0 +1,72 @@
+{
+  "task_id": "G01",
+  "task_file": "tasks/grasp/G01.json",
+  "backend": "mujoco",
+  "embodiment": "Dual X5 arms with left/right Allegro V3 dexterous hands; virtual simulation assembly",
+  "robot_template": "assets/generated/dual_x5_allegro/scene.xml",
+  "object": {
+    "name": "apple",
+    "source_manifest": "asset_manifests/G01-G05-local.json",
+    "source_scale": [
+      1,
+      1,
+      1
+    ],
+    "rotate_x_deg": 0,
+    "mass_kg": 0.18,
+    "mass_origin": "USD mass attribute",
+    "collision": "single_convex_hull",
+    "rgba": [
+      0.75,
+      0.15,
+      0.1,
+      1
+    ],
+    "friction": [
+      0.6,
+      0.005,
+      0.0001
+    ],
+    "friction_origin": "proposed common baseline, not measured material",
+    "grasp_region": null,
+    "region_origin": null
+  },
+  "initial": {
+    "xy_m": [
+      0,
+      0.05
+    ],
+    "clearance_m": 0.002,
+    "table_top_m": 0.765
+  },
+  "runtime": {
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "num_envs": 2,
+    "steps": 500,
+    "controller": "probe",
+    "camera": {
+      "lookat": [
+        0,
+        -0.12,
+        1.0
+      ],
+      "distance": 1.5,
+      "azimuth": 115,
+      "elevation": -35
+    }
+  },
+  "physics_recording": {
+    "enabled": true,
+    "contact_slots": 32,
+    "warmup_steps": 25
+  },
+  "output": "runs/allegro-grasp/G01",
+  "scene": "assets/generated/allegro_grasp/G01/scene.xml",
+  "limitations": [
+    "Virtual X5/Allegro assembly; not original Bench2Dex Panda/Allegro embodiment",
+    "Adapted object collision and inertia are not source PhysX equivalence",
+    "Finger probe is an articulation check, not a grasp policy"
+  ],
+  "robot_config": "profiles/robots/dual_x5_allegro.json"
+}

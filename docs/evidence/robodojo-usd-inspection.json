@@ -1,0 +1,317 @@
+[
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Geometry/key_slot/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/KeySlot",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/KeySlot/collision/mesh",
+        "approximation": "sdf",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/KeySlot"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Geometry/t_cushion/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/World",
+    "mesh_count": 1,
+    "collision_prims": [],
+    "rigid_bodies": [
+      "/World"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Geometry/test_tube_slot/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model",
+        "approximation": "sdf",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Geometry/toolbox/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model",
+        "approximation": "sdf",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/charger/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 5,
+    "collision_prims": [
+      {
+        "path": "/root/E_body_562/P_9dbe0132b89ad8e0",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/root/E_body_562/E_part02_545/P_8a0ac7b7ff6ab698",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/root/E_body_562/E_part03_546/P_371b217d37787e98",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/root/E_body_562/E_part01_563/P_68f3f7542f1797e0",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/root/E_body_562/E_part04_582/P_204036384b927f57",
+        "approximation": "sdf",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/hammer/00005/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model",
+        "approximation": "convexDecomposition",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/key/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/Key",
+    "mesh_count": 3,
+    "collision_prims": [
+      {
+        "path": "/Key/mesh",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/Key/Scope/Cube",
+        "approximation": "convexHull",
+        "enabled": true
+      },
+      {
+        "path": "/Key/Scope/Cube_01",
+        "approximation": "None",
+        "enabled": true
+      },
+      {
+        "path": "/Key/Scope/Cube_02",
+        "approximation": "None",
+        "enabled": true
+      },
+      {
+        "path": "/Key/Scope/Cylinder",
+        "approximation": "convexHull",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/Key"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/pliers/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model",
+        "approximation": "convexDecomposition",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/socket/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 3,
+    "collision_prims": [
+      {
+        "path": "/root/E_body_3/P_3b880443a15aabc4",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/root/E_body_3/E_part01_25/P_89e168adb9a23b3c",
+        "approximation": "sdf",
+        "enabled": true
+      },
+      {
+        "path": "/root/E_button_6/P_80c68b0c268ffcdd",
+        "approximation": "sdf",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root/E_body_3",
+      "/root/E_button_6"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/t/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/World",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/World/collision/model",
+        "approximation": "sdf",
+        "enabled": false
+      },
+      {
+        "path": "/World/collision/box_bar",
+        "approximation": "None",
+        "enabled": true
+      },
+      {
+        "path": "/World/collision/box_stem",
+        "approximation": "None",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/World"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/tape_measure/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model",
+        "approximation": "convexDecomposition",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/test_tube/00002/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model/centrifuge_tube_50ml_body_001",
+        "approximation": "convexDecomposition",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  },
+  {
+    "file": "assets/robodojo/Assets/Object/RoboDojo/Rigid/wrench/00000/object.usdz",
+    "stage_opened": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "default_prim": "/root",
+    "mesh_count": 2,
+    "collision_prims": [
+      {
+        "path": "/root/collision/model",
+        "approximation": "convexDecomposition",
+        "enabled": true
+      }
+    ],
+    "rigid_bodies": [
+      "/root"
+    ],
+    "mass_properties": [],
+    "note": "USD composition/load inspection only; not a collision simulation, not all authored properties necessarily active in runtime"
+  }
+]

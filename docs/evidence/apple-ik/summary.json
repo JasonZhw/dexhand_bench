@@ -1,0 +1,39 @@
+{
+  "source_run": "runs/apple-ik-20261120-v2/G01",
+  "date": "2026-11-20",
+  "backend": "UniLab / UniSim MuJoCo",
+  "controller": "scripted IK + authored finger targets",
+  "video_source": "Offline rendered from actual UniLab joint and dynamic-object states, no object pose playback during the experiment",
+  "camera": {
+    "lookat": [
+      0,
+      0.04,
+      0.88
+    ],
+    "distance": 0.5,
+    "azimuth": 180,
+    "elevation": -15
+  },
+  "video_fps": 25,
+  "simulation_dt_s": 0.004,
+  "sample_stride": 10,
+  "initial_conditions": "one fixed scene; second run checks observer enabled/disabled, not randomized success rate",
+  "failure_run": "runs/apple-ik-20261120-v1/G01",
+  "successful_run": "runs/apple-ik-20261120-v2/G01",
+  "checks": {
+    "full_suite": {
+      "tests": 147,
+      "skipped": 7,
+      "result": "pass"
+    },
+    "post_cleanup_targeted": {
+      "tests": 2,
+      "result": "pass"
+    },
+    "lightweight_suite": {
+      "tests": 147,
+      "skipped": 42,
+      "result": "pass"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "backend": "mujoco",
+  "interface": "SimBackend.bind_sensor_data",
+  "effective_settings": {
+    "timestep_s": 0.004,
+    "solver": "mjSOL_NEWTON",
+    "iterations": 100,
+    "tolerance": 1e-08,
+    "integrator": "mjINT_IMPLICITFAST",
+    "cone": "mjCONE_ELLIPTIC",
+    "impratio": 10.0,
+    "gravity_m_s2": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "object_mass_kg": 0.18
+  },
+  "capabilities": {
+    "runtime_contact_force": true,
+    "runtime_contact_distance": true,
+    "relative_contact_velocity": false
+  },
+  "sampling": "last physical solve before integration; no extra forward",
+  "force_definition": "sum of absolute normal forces per group, N; not net force",
+  "slip_missing_reason": "unsupported_contact_velocity_in_pinned_mujoco",
+  "group_overlap": "object_all contains table and both hands; do not add groups together",
+  "manifest": {
+    "schema_version": "1.0",
+    "groups": {
+      "object_all": {
+        "name": "dexbench_contact_object_all",
+        "slots": 32,
+        "selector": {
+          "body1": "object"
+        }
+      },
+      "table": {
+        "name": "dexbench_contact_table",
+        "slots": 32,
+        "selector": {
+          "body1": "object",
+          "geom2": "diagnostic_table"
+        }
+      },
+      "left_hand": {
+        "name": "dexbench_contact_left_hand",
+        "slots": 32,
+        "selector": {
+          "body1": "object",
+          "subtree2": "left_wuji_l_wrist"
+        }
+      },
+      "right_hand": {
+        "name": "dexbench_contact_right_hand",
+        "slots": 32,
+        "selector": {
+          "body1": "object",
+          "subtree2": "right_wuji_r_wrist"
+        }
+      }
+    },
+    "fields": [
+      "found",
+      "force",
+      "torque",
+      "dist",
+      "pos",
+      "normal",
+      "tangent"
+    ],
+    "slot_width": 17,
+    "source_scene_sha256": "3917a1d33564abedc65ce1366723ab524a4924024773af01ef7bf8337b128571",
+    "runtime_scene_sha256": "4d48b2a9737abc7b9d095232d8dcb933bdac4c510f2019fcac69d59f05a3faba"
+  }
+}

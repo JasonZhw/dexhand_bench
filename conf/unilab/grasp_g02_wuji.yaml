@@ -1,0 +1,13 @@
+# Downstream UniLab owner for the G02 scripted baseline.
+defaults:
+  - x5_control_diagnostic
+  - _self_
+
+scope: grasp_g02_wuji
+task_id: G02
+robot: wuji
+controller: ik_grasp
+controller_config: profiles/controllers/G02_wuji_ik.json
+viewer:
+  mode: viser
+  port: 8080

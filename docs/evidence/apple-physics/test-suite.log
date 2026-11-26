@@ -1,0 +1,162 @@
+test_all_five_scenes_select_the_dexterous_robot (test_allegro_robot.AllegroProfileTests) ... ok
+test_both_hands_replace_grippers_with_ordered_independent_controls (test_allegro_robot.AllegroRobotTests) ... ok
+test_hand_joint_frames_match_source_forward_kinematics (test_allegro_robot.AllegroRobotTests) ... ok
+test_bad_download_removed (test_assets.AssetTests) ... ok
+test_existing_corrupt_file_not_overwritten (test_assets.AssetTests) ... ok
+test_hash_checked_after_download (test_assets.AssetTests) ... ok
+test_missing_file_not_downloaded (test_assets.AssetTests) ... ok
+test_path_cannot_escape_root (test_assets.AssetTests) ... ok
+test_pinned_menagerie_asset_download (test_assets.AssetTests) ... ok
+test_pinned_vendor_hand_repositories_supported (test_assets.AssetTests) ... ok
+test_unknown_checksum_not_called_verified (test_assets.AssetTests) ... ok
+test_unpinned_or_unrelated_github_asset_rejected (test_assets.AssetTests) ... ok
+test_batch_separates_unknown_and_execution_failure (test_batch.BatchTests) ... ok
+test_empty_seeds_rejected (test_batch.BatchTests) ... ok
+test_invalid_workers_rejected (test_batch.BatchTests) ... ok
+test_baseline_requires_protocol_and_evidence (test_catalog.CatalogTests) ... ok
+test_duplicate_rejected (test_catalog.CatalogTests) ... ok
+test_integration_requires_evidence (test_catalog.CatalogTests) ... ok
+test_internal_may_have_no_public_url (test_catalog.CatalogTests) ... ok
+test_original_requires_source_url (test_catalog.CatalogTests) ... ok
+test_selected_may_have_unknowns (test_catalog.CatalogTests) ... ok
+test_unknown_status_rejected (test_catalog.CatalogTests) ... ok
+test_review_requires_scoring_code_location (test_catalog.PromotionTests) ... ok
+test_scene_requires_mapping_and_reset_evidence (test_catalog.PromotionTests) ... ok
+test_catalog_and_experiment_references (test_cli.CliTests) ... ok
+test_empty_catalog_fails (test_cli.CliTests) ... ok
+test_relocated_directory_without_local_files (test_cli.CliTests) ... ok
+test_profiles_list (test_cli_runs.RunCliTests) ... ok
+test_run_requires_explicit_output (test_cli_runs.RunCliTests) ... ok
+test_throughput_rejects_recording_before_loading_simulator (test_cli_runs.RunCliTests) ... ok
+test_unknown_profile_not_run (test_cli_runs.RunCliTests) ... ok
+test_changed_time_step_cannot_compare_by_index (test_compare.ComparisonTests) ... ok
+test_different_actions_rejected (test_compare.ComparisonTests) ... ok
+test_malformed_poses_rejected (test_compare.ComparisonTests) ... ok
+test_missing_initial_measurements_are_unknown (test_compare.ComparisonTests) ... ok
+test_missing_trace_is_explicit (test_compare.ComparisonTests) ... ok
+test_pose_shape_and_body_count_rejected (test_compare.ComparisonTests) ... ok
+test_quaternion_sign_does_not_change_orientation (test_compare.ComparisonTests) ... ok
+test_same_seed_does_not_hide_changed_initial_state (test_compare.ComparisonTests) ... ok
+test_translation_difference_is_not_accuracy_claim (test_compare.ComparisonTests) ... ok
+test_checked_in_examples_are_explicitly_synthetic (test_evaluation.CatalogEvaluationTests) ... ok
+test_every_task_has_auditable_draft_spec (test_evaluation.CatalogEvaluationTests) ... ok
+test_source_boundaries_on_real_configs (test_evaluation.CatalogEvaluationTests) ... ok
+test_hold_requires_duration_and_resets_after_break (test_evaluation.EvaluationTests) ... ok
+test_invalid_or_sparse_data_rejected (test_evaluation.EvaluationTests) ... ok
+test_malformed_json_fields_report_validation_errors (test_evaluation.EvaluationTests) ... ok
+test_missing_required_signal_is_unknown_not_pass_or_zero (test_evaluation.EvaluationTests) ... ok
+test_optional_metric_missing_stays_null_and_timeout_is_not_crash (test_evaluation.EvaluationTests) ... ok
+test_sequence_requires_open_then_close_and_terminal_close (test_evaluation.EvaluationTests) ... ok
+test_strict_threshold_and_initial_state (test_evaluation.EvaluationTests) ... ok
+test_success_mode_rejects_unrelated_options (test_evaluation.EvaluationTests) ... ok
+test_terminal_failure_and_known_failure_override_lift (test_evaluation.EvaluationTests) ... ok
+test_validator_rejects_unknown_operator_empty_rule_and_bad_units (test_evaluation.EvaluationTests) ... ok
+test_bad_time_is_incomplete (test_external_replay.ReplayEvidenceTests) ... ok
+test_execution_is_not_success (test_external_replay.ReplayEvidenceTests) ... ok
+test_malformed_receipt_is_incomplete (test_external_replay.ReplayEvidenceTests) ... ok
+test_missing_receipt_or_nonzero_exit_is_incomplete (test_external_replay.ReplayEvidenceTests) ... ok
+test_nonfinite_state_is_incomplete (test_external_replay.ReplayEvidenceTests) ... ok
+test_nonfinite_timeout_rejected (test_external_replay.ReplayEvidenceTests) ... usage: replay [-h] --source-root SOURCE_ROOT --python PYTHON --hdf5 HDF5
+              --scene SCENE --output OUTPUT --target-object TARGET_OBJECT
+              [--video] [--max-frames MAX_FRAMES] [--timeout TIMEOUT]
+replay: error: Frame limit and timeout must be positive
+usage: replay [-h] --source-root SOURCE_ROOT --python PYTHON --hdf5 HDF5
+              --scene SCENE --output OUTPUT --target-object TARGET_OBJECT
+              [--video] [--max-frames MAX_FRAMES] [--timeout TIMEOUT]
+replay: error: Frame limit and timeout must be positive
+ok
+test_truncated_recording_is_incomplete (test_external_replay.ReplayEvidenceTests) ... ok
+test_five_profiles_reference_existing_task_contracts (test_grasp_scenes.GraspLaunchTests) ... ok
+test_com_velocity_drop_latch_and_upright (test_grasp_scenes.GraspSignalTests) ... ok
+test_contact_region_rejects_shaft_and_palm_support (test_grasp_scenes.GraspSignalTests) ... ok
+test_five_models_compile_with_independent_dynamic_objects (test_grasp_scenes.GraspSignalTests) ... ok
+test_geometry_changes_cannot_reuse_old_prepared_mesh (test_grasp_scenes.GraspSignalTests) ... ok
+test_launch_rejects_changed_external_mesh (test_grasp_scenes.GraspSignalTests) ... ok
+test_profile_changes_require_rebuild_but_controller_changes_do_not (test_grasp_scenes.GraspSignalTests) ... ok
+test_restricted_grasp_rejects_other_robot_support (test_grasp_scenes.GraspSignalTests) ... ok
+test_table_penetration_is_reported_without_hand_contact (test_grasp_scenes.GraspSignalTests) ... ok
+test_unilab_binding_and_probe_follow_named_hand_joints (test_grasp_scenes.GraspSignalTests) ... ok
+test_unsupported_backend_rejected_before_launch (test_grasp_scenes.GraspSignalTests) ... ok
+test_action_shape_and_nonfinite_rejected (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_all_source_environments_reset_repeatably (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_each_profile_environment_is_registered (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_explicit_parameters_and_contacts (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_reset_reproduces_initial_state (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_step_has_boolean_success_and_applied_control (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_unsupported_env_is_rejected (test_gym_adapter.GymAdapterTests) ... skipped 'optional simulation dependencies not installed'
+test_inside_does_not_mean_inside_a_hole (test_insert_geometry.InsertGeometryTests) ... ok
+test_inside_is_strict_xy_and_above_bottom (test_insert_geometry.InsertGeometryTests) ... ok
+test_laying_tube_fails_upright_and_high_tube_fails_depth (test_insert_geometry.InsertGeometryTests) ... ok
+test_nonfinite_and_nonunit_inputs_fail_closed (test_insert_geometry.InsertGeometryTests) ... ok
+test_rack_yaw_and_translation_preserve_inside (test_insert_geometry.InsertGeometryTests) ... ok
+test_random_tilted_boxes_against_source_polygon_formula (test_insert_geometry.InsertGeometryTests) ... ok
+test_upright_below_rim_matches_three_source_geometry_conditions (test_insert_geometry.InsertGeometryTests) ... ok
+test_closed_gripper_cannot_advance_stage (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_each_tube_requires_all_three_checks (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_missing_checks_fail_closed (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_partial_reset (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_source_success_latches_until_reset (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_transition_one_stage_per_step_and_final_gate (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_wrong_shape_rejected (test_insert_tubes_protocol.InsertTubesTests) ... ok
+test_available_no_contact_is_zero (test_physics.PhysicsTests) ... ok
+test_contact_force_sum_is_not_net_force (test_physics.PhysicsTests) ... ok
+test_iterations_must_be_positive_integer (test_physics.PhysicsTests) ... ok
+test_reject_nonphysical_timestep (test_physics.PhysicsTests) ... ok
+test_reject_unknown_parameter (test_physics.PhysicsTests) ... ok
+test_solver_choices_are_explicit (test_physics.PhysicsTests) ... ok
+test_unavailable_is_not_zero (test_physics.PhysicsTests) ... ok
+test_bilateral_contacts_and_forces_are_not_fabricated (test_pick_contact_probe.ContactProbeTests) ... ok
+test_failed_numpy_hold_is_json_serializable (test_pick_hold.PickHoldTests) ... ok
+test_lift_requires_every_sample_high_and_stable (test_pick_hold.PickHoldTests) ... ok
+test_missing_and_invalid_measurements_cannot_pass (test_pick_hold.PickHoldTests) ... ok
+test_observed_contacts_accumulate_envelope (test_probes.ProbeTests) ... ok
+test_reset_clears_previous_episode (test_probes.ProbeTests) ... ok
+test_unknown_contact_capability_does_not_produce_zero_error (test_probes.ProbeTests) ... ok
+test_missing_protocol_rejected (test_profiles.ProfileTests) ... ok
+test_physics_changes_are_validated (test_profiles.ProfileTests) ... ok
+test_reject_unimplemented_backend (test_profiles.ProfileTests) ... ok
+test_task_cannot_be_mislabeled_as_other_environment (test_profiles.ProfileTests) ... ok
+test_unknown_keys_fail_closed (test_profiles.ProfileTests) ... ok
+test_valid_source_profile (test_profiles.ProfileTests) ... ok
+test_bounded_smoke_is_not_failure (test_runner.RunnerTests) ... ok
+test_crash_writes_incomplete_result_and_closes (test_runner.RunnerTests) ... ok
+test_existing_output_not_overwritten (test_runner.RunnerTests) ... ok
+test_final_predicate_true_is_explicit_success (test_runner.RunnerTests) ... ok
+test_initialization_failure_leaves_evidence (test_runner.RunnerTests) ... ok
+test_invalid_budget_rejected (test_runner.RunnerTests) ... ok
+test_missing_contacts_remain_null (test_runner.RunnerTests) ... ok
+test_probe_receives_states_and_saves_results (test_runner.RunnerTests) ... ok
+test_recording_finalize_failure_is_incomplete (test_runner.RunnerTests) ... ok
+test_replay_length_limits_execution_without_success_invention (test_runner.RunnerTests) ... ok
+test_source_horizon_with_false_is_failure (test_runner.RunnerTests) ... ok
+test_throughput_does_not_emit_state_trace (test_runner.RunnerTests) ... ok
+test_transient_success_does_not_override_final_failure (test_runner.RunnerTests) ... ok
+test_unknown_success_stays_unknown (test_runner.RunnerTests) ... ok
+test_warmup_is_reset_before_measured_episode (test_runner.RunnerTests) ... ok
+test_freefall_is_zero_force_but_not_zero_slip (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_hand_contact_is_not_table_support (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_instrumentation_preserves_dynamics (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_overflow_does_not_underreport_force_or_penetration (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_recorder_runs_existing_probe_and_marks_solver_time (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_runtime_support_force_and_no_hand_slip (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_unilab_recording_matches_disabled_run_and_reads_live_sensor (test_runtime_physics.RuntimePhysicsTests) ... /home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/work/dexhand_bench/third_party/UniLab/src/unilab/base/entity.py:1538: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  else torch.from_numpy(np.ascontiguousarray(source)).to(
+G01 rendered= False success= [False, False]
+G01 rendered= False success= [False, False]
+ok
+test_unsupported_contact_speed_remains_missing_even_when_moving (test_runtime_physics.RuntimePhysicsTests) ... ok
+test_backends_share_task_protocol (test_unilab_config.UniLabConfigTest) ... ok
+test_no_false_runtime_support_claim (test_unilab_config.UniLabConfigTest) ... ok
+test_protocol_references_exist (test_unilab_config.UniLabConfigTest) ... ok
+test_selected_robot_keeps_task_criteria_and_changes_scene_and_action_mapping (test_vendor_hands.VendorHandTests) ... ok
+test_vendor_robots_preserve_source_mechanics_and_remove_grippers (test_vendor_hands.VendorHandTests) ... ok
+test_duplicate_step_rejected (test_video_timeline.VideoTimelineTests) ... ok
+test_frame_state_mapping_and_receipt (test_video_timeline.VideoTimelineTests) ... ok
+test_missing_frames_incomplete (test_video_timeline.VideoTimelineTests) ... ok
+test_reachable_pose_and_unreachable_rejection (test_x5_ik.X5IKTests) ... ok
+test_official_robot_compiles_with_disjoint_controls_and_preserved_objects (test_x5_scene.X5SceneTests) ... ok
+
+----------------------------------------------------------------------
+Ran 145 tests in 10.916s
+
+OK (skipped=7)

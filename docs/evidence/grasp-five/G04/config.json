@@ -1,0 +1,339 @@
+{
+  "profile": {
+    "task_id": "G04",
+    "task_file": "tasks/grasp/G04.json",
+    "backend": "mujoco",
+    "embodiment": "Dual X5 arms with left/right Allegro V3 dexterous hands; virtual simulation assembly",
+    "robot_template": "assets/generated/dual_x5_allegro/scene.xml",
+    "object": {
+      "name": "phillips_screwdriver",
+      "source_manifest": "asset_manifests/G01-G05-local.json",
+      "source_scale": [
+        1,
+        1,
+        1
+      ],
+      "rotate_x_deg": 0,
+      "mass_kg": 0.1,
+      "mass_origin": "USD mass attribute",
+      "collision": "single_convex_hull",
+      "rgba": [
+        0.1,
+        0.55,
+        0.3,
+        1
+      ],
+      "friction": [
+        0.6,
+        0.005,
+        0.0001
+      ],
+      "friction_origin": "proposed common baseline, not measured material",
+      "grasp_region": {
+        "lower": [
+          0.015,
+          -0.065,
+          -0.005
+        ],
+        "upper": [
+          0.105,
+          0.065,
+          0.05
+        ]
+      },
+      "region_origin": "proposed bounding box in normalized object coordinates; inspect overlay before benchmark use"
+    },
+    "initial": {
+      "xy_m": [
+        0,
+        0.05
+      ],
+      "clearance_m": 0.002,
+      "table_top_m": 0.765
+    },
+    "runtime": {
+      "sim_dt": 0.004,
+      "ctrl_dt": 0.004,
+      "num_envs": 2,
+      "steps": 500,
+      "controller": "probe",
+      "camera": {
+        "lookat": [
+          0,
+          -0.12,
+          1.0
+        ],
+        "distance": 1.5,
+        "azimuth": 115,
+        "elevation": -35
+      }
+    },
+    "output": "runs/allegro-grasp/G04",
+    "scene": "assets/generated/allegro_grasp/G04/scene.xml",
+    "limitations": [
+      "Virtual X5/Allegro assembly; not original Bench2Dex Panda/Allegro embodiment",
+      "Adapted object collision and inertia are not source PhysX equivalence",
+      "Finger probe is an articulation check, not a grasp policy"
+    ],
+    "robot_config": "profiles/robots/dual_x5_allegro.json"
+  },
+  "env": {
+    "_target_": "unilab.envs.ManagerBasedRlEnvCfg",
+    "scene": {
+      "_target_": "unilab.base.scene.SceneCfg",
+      "model_file": "/home/jason77/Documents/Codex/2026-09-22/https-mingrui-zhao-github-io-functionalization/work/dexhand_bench/assets/generated/allegro_grasp/G04/scene.xml",
+      "entities": {
+        "objects": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "object",
+          "body_names": [
+            "object"
+          ],
+          "actuator_names": []
+        },
+        "robot": {
+          "_target_": "unilab.base.entity.EntityCfg",
+          "root_body_name": "left_base_link",
+          "joint_names": [
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_joint6",
+            "left_allegro_rfj0",
+            "left_allegro_rfj1",
+            "left_allegro_rfj2",
+            "left_allegro_rfj3",
+            "left_allegro_mfj0",
+            "left_allegro_mfj1",
+            "left_allegro_mfj2",
+            "left_allegro_mfj3",
+            "left_allegro_ffj0",
+            "left_allegro_ffj1",
+            "left_allegro_ffj2",
+            "left_allegro_ffj3",
+            "left_allegro_thj0",
+            "left_allegro_thj1",
+            "left_allegro_thj2",
+            "left_allegro_thj3",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_joint6",
+            "right_allegro_ffj0",
+            "right_allegro_ffj1",
+            "right_allegro_ffj2",
+            "right_allegro_ffj3",
+            "right_allegro_mfj0",
+            "right_allegro_mfj1",
+            "right_allegro_mfj2",
+            "right_allegro_mfj3",
+            "right_allegro_rfj0",
+            "right_allegro_rfj1",
+            "right_allegro_rfj2",
+            "right_allegro_rfj3",
+            "right_allegro_thj0",
+            "right_allegro_thj1",
+            "right_allegro_thj2",
+            "right_allegro_thj3"
+          ],
+          "actuator_names": [
+            "left_joint1_drive",
+            "left_joint2_drive",
+            "left_joint3_drive",
+            "left_joint4_drive",
+            "left_joint5_drive",
+            "left_joint6_drive",
+            "left_allegro_rfa0",
+            "left_allegro_rfa1",
+            "left_allegro_rfa2",
+            "left_allegro_rfa3",
+            "left_allegro_mfa0",
+            "left_allegro_mfa1",
+            "left_allegro_mfa2",
+            "left_allegro_mfa3",
+            "left_allegro_ffa0",
+            "left_allegro_ffa1",
+            "left_allegro_ffa2",
+            "left_allegro_ffa3",
+            "left_allegro_tha0",
+            "left_allegro_tha1",
+            "left_allegro_tha2",
+            "left_allegro_tha3",
+            "right_joint1_drive",
+            "right_joint2_drive",
+            "right_joint3_drive",
+            "right_joint4_drive",
+            "right_joint5_drive",
+            "right_joint6_drive",
+            "right_allegro_ffa0",
+            "right_allegro_ffa1",
+            "right_allegro_ffa2",
+            "right_allegro_ffa3",
+            "right_allegro_mfa0",
+            "right_allegro_mfa1",
+            "right_allegro_mfa2",
+            "right_allegro_mfa3",
+            "right_allegro_rfa0",
+            "right_allegro_rfa1",
+            "right_allegro_rfa2",
+            "right_allegro_rfa3",
+            "right_allegro_tha0",
+            "right_allegro_tha1",
+            "right_allegro_tha2",
+            "right_allegro_tha3"
+          ],
+          "body_names": [
+            "left_base_link",
+            "left_link1",
+            "left_link2",
+            "left_link3",
+            "left_link4",
+            "left_link5",
+            "left_link6",
+            "left_allegro_palm",
+            "left_allegro_rf_base",
+            "left_allegro_rf_proximal",
+            "left_allegro_rf_medial",
+            "left_allegro_rf_distal",
+            "left_allegro_rf_tip",
+            "left_allegro_mf_base",
+            "left_allegro_mf_proximal",
+            "left_allegro_mf_medial",
+            "left_allegro_mf_distal",
+            "left_allegro_mf_tip",
+            "left_allegro_ff_base",
+            "left_allegro_ff_proximal",
+            "left_allegro_ff_medial",
+            "left_allegro_ff_distal",
+            "left_allegro_ff_tip",
+            "left_allegro_th_base",
+            "left_allegro_th_proximal",
+            "left_allegro_th_medial",
+            "left_allegro_th_distal",
+            "left_allegro_th_tip",
+            "right_base_link",
+            "right_link1",
+            "right_link2",
+            "right_link3",
+            "right_link4",
+            "right_link5",
+            "right_link6",
+            "right_allegro_palm",
+            "right_allegro_ff_base",
+            "right_allegro_ff_proximal",
+            "right_allegro_ff_medial",
+            "right_allegro_ff_distal",
+            "right_allegro_ff_tip",
+            "right_allegro_mf_base",
+            "right_allegro_mf_proximal",
+            "right_allegro_mf_medial",
+            "right_allegro_mf_distal",
+            "right_allegro_mf_tip",
+            "right_allegro_rf_base",
+            "right_allegro_rf_proximal",
+            "right_allegro_rf_medial",
+            "right_allegro_rf_distal",
+            "right_allegro_rf_tip",
+            "right_allegro_th_base",
+            "right_allegro_th_proximal",
+            "right_allegro_th_medial",
+            "right_allegro_th_distal",
+            "right_allegro_th_tip"
+          ]
+        }
+      }
+    },
+    "sim_dt": 0.004,
+    "ctrl_dt": 0.004,
+    "max_episode_seconds": 60.0,
+    "seed": 0,
+    "auto_reset": false,
+    "defer_finite_validation": false,
+    "observations": {
+      "policy": {
+        "_target_": "unilab.managers.ObservationGroupCfg",
+        "terms": {
+          "joint_position": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_pos_rel"
+            }
+          },
+          "joint_velocity": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_method",
+              "path": "unilab.envs.mdp.joint_vel_rel"
+            }
+          },
+          "object_state": {
+            "_target_": "unilab.managers.ObservationTermCfg",
+            "func": {
+              "_target_": "hydra.utils.get_class",
+              "path": "integrations.unilab.grasp_terms.GraspObjectState"
+            },
+            "params": {
+              "entity_name": "objects",
+              "body_names": [
+                "object"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "restore_scene": {
+        "_target_": "unilab.managers.EventTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.reset_scene_to_default"
+        },
+        "mode": "reset"
+      }
+    },
+    "actions": {
+      "joint_position": {
+        "_target_": "unilab.envs.mdp.JointPositionActionCfg",
+        "entity_name": "robot",
+        "actuator_names": [
+          ".*"
+        ],
+        "scale": 1.0,
+        "use_default_offset": true
+      }
+    },
+    "rewards": {},
+    "terminations": {
+      "timeout": {
+        "_target_": "unilab.managers.TerminationTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_method",
+          "path": "unilab.envs.mdp.time_out"
+        },
+        "time_out": true
+      }
+    },
+    "metrics": {
+      "object_height_m": {
+        "_target_": "unilab.managers.MetricsTermCfg",
+        "func": {
+          "_target_": "hydra.utils.get_class",
+          "path": "integrations.unilab.object_scene_terms.MeanHeight"
+        },
+        "params": {
+          "entity_name": "objects",
+          "body_names": [
+            "object"
+          ]
+        },
+        "reduce": "last"
+      }
+    }
+  }
+}

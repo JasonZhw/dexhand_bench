@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "probe_radius_m": 0.003,
+  "results": {
+    "test_tube_slot/0": {
+      "point_rack_frame": [
+        0.0,
+        -0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/1": {
+      "point_rack_frame": [
+        0.036,
+        -0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/2": {
+      "point_rack_frame": [
+        0.072,
+        -0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/3": {
+      "point_rack_frame": [
+        -0.036,
+        -0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/4": {
+      "point_rack_frame": [
+        -0.072,
+        -0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/5": {
+      "point_rack_frame": [
+        0.072,
+        0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/6": {
+      "point_rack_frame": [
+        0.036,
+        0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/7": {
+      "point_rack_frame": [
+        0.0,
+        0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/8": {
+      "point_rack_frame": [
+        -0.036,
+        0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "test_tube_slot/9": {
+      "point_rack_frame": [
+        -0.072,
+        0.018,
+        0.028
+      ],
+      "contact_distances": [],
+      "penetrating": false
+    },
+    "solid_between_holes": {
+      "point_rack_frame": [
+        0.018,
+        -0.018,
+        0.028
+      ],
+      "contact_distances": [
+        -0.006127237922225974
+      ],
+      "penetrating": true
+    }
+  },
+  "scope": "rack mouth point probes only; not full tube insertion or SDF equivalence"
+}

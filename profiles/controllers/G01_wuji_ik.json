@@ -1,0 +1,37 @@
+{
+  "description": "Fixed-scene right Wuji grasp attempt; authored targets, not a learned policy",
+  "object_center_in_palm_m": [
+    0.01,
+    0.04,
+    -0.09
+  ],
+  "approach_clearance_m": 0.12,
+  "lift_height_m": 0.12,
+  "phases_s": {
+    "settle": 0.4,
+    "raise": 1.5,
+    "approach": 2.0,
+    "descend": 1.5,
+    "close": 1.8,
+    "lift": 2.5,
+    "hold": 1.5
+  },
+  "closed_joint_positions_rad": {
+    "right_wuji_r_thumb_cmc_flex": 0.9,
+    "right_wuji_r_thumb_cmc_abd": -0.5,
+    "right_wuji_r_thumb_mcp": 1.2,
+    "right_wuji_r_thumb_ip": 0.9,
+    "right_wuji_r_index_finger_mcp_flex": 0.95,
+    "right_wuji_r_index_finger_pip": 1.2,
+    "right_wuji_r_index_finger_dip": 0.9,
+    "right_wuji_r_middle_finger_mcp_flex": 0.95,
+    "right_wuji_r_middle_finger_pip": 1.2,
+    "right_wuji_r_middle_finger_dip": 0.9,
+    "right_wuji_r_ring_finger_mcp_flex": 0.95,
+    "right_wuji_r_ring_finger_pip": 1.2,
+    "right_wuji_r_ring_finger_dip": 0.9,
+    "right_wuji_r_pinky_mcp_flex": 0.95,
+    "right_wuji_r_pinky_pip": 1.2,
+    "right_wuji_r_pinky_dip": 0.9
+  }
+}

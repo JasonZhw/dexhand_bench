@@ -1,0 +1,17 @@
+{
+  "task_id": "I01",
+  "task_file": "tasks/insertion/I01.json",
+  "scene": "assets/generated/I01-wuji/scene.xml",
+  "robot_file": "assets/generated/dual_x5_wuji/robot.json",
+  "backend": "mujoco",
+  "controller": "probe",
+  "num_envs": 2,
+  "sim_dt": 0.004,
+  "ctrl_dt": 0.004,
+  "steps": 8,
+  "limitations": [
+    "Scene and score-signal diagnostic only; no insertion policy",
+    "Source USD collision and Wuji mount are approximated in MuJoCo",
+    "Robot-home predicate compares local Wuji wrists to reset, not source X5 gripper frames"
+  ]
+}

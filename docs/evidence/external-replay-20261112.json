@@ -1,0 +1,19 @@
+{
+  "execution_completed": true,
+  "task_outcome": "unknown",
+  "returncode": 0,
+  "final_origin_rise_m": 5.960464477539063e-08,
+  "recorded_replay_steps": 213,
+  "recording_path": "runs/external/apple_body_01",
+  "source_commit": "82e04a2a4e5b728a96ccf1ae7a546762d5a260c7",
+  "source_dirty": false,
+  "upstream_replay_sha256": "1341be6c115ba3662e4db56ef73db223bc74a655b91bc3fe40a9ff157bed8e54",
+  "artifact_hashes": {
+    "replay.log": "bad5bae02d82481e54fa02fc2560776b05b03be6a97794075a6a7b7c407293bd",
+    "result.json": "c8f50dc2e5a61add39b208539ade58fcecbcb6f868375ec881d8af079a1f823c",
+    "invocation.json": "50d03141f7b2b68311702eaac491a7045e9e14a0c050526372d97de516d0c777",
+    "recording/manifest.json": "994936722fbe66fc645c86d55837c0e6bddca119126a6abedc00c2097f6e5e41",
+    "recording/completion.json": "1447a5d67eabc063195f3b09285df7ff67ec80b25528d1aebcc9c45646d8c155",
+    "recording/states.jsonl": "197f5e130ed19ff46a89190461500cac16de3854e7adf4c3c1cf9e52f59c2a52"
+  }
+}
